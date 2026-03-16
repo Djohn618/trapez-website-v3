@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danke für Ihre Reservierung | Restaurant Trapez</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Stars animation */
+    .stars {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      font-size: 1.6rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .stars span {
+      display: inline-block;
+      animation: starPop 0.4s ease both;
+    }
+    .stars span:nth-child(1) { animation-delay: 0.8s; }
+    .stars span:nth-child(2) { animation-delay: 0.95s; }
+    .stars span:nth-child(3) { animation-delay: 1.1s; }
+    .stars span:nth-child(4) { animation-delay: 1.25s; }
+    .stars span:nth-child(5) { animation-delay: 1.4s; }
+    @keyframes starPop {
+      from { transform: scale(0) rotate(-30deg); opacity: 0; }
+      to   { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+    /* Contact mini box */
+    .ty-contact {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 20px 28px;
+      margin-top: 32px;
+      display: inline-block;
+      text-align: left;
+      animation: fadeInUp 0.8s 1.1s ease both;
+    }
+    .ty-contact p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      margin: 4px 0;
+    }
+    .ty-contact a { color: var(--gold); }
+    .ty-contact strong {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .ornament-ty {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gold);
+      opacity: 0.7;
+      animation: fadeIn 1s 1.5s ease both;
+    }
+  </style>
+</head>
+<body>
+  <main class="special-page">
+
+    <!-- Decorative BG circle -->
+    <div aria-hidden="true" style="
+      position:absolute;
+      bottom:-100px;right:-100px;
+      width:500px;height:500px;
+      background:radial-gradient(circle,rgba(201,169,110,0.08) 0%,transparent 65%);
+      pointer-events:none;
+    "></div>
+
+    <!-- Logo -->
+    <a href="index.html" aria-label="Zurück zur Startseite">
+      <img src="assets/images/logo.png" alt="Restaurant Trapez" class="special-page-logo" />
+    </a>
+
+    <!-- Checkmark animation -->
+    <div class="checkmark-circle" role="img" aria-label="Bestätigung">
+      <svg viewBox="0 0 50 50" aria-hidden="true">
+        <path d="M10 26 L22 38 L42 14" />
+      </svg>
+    </div>
+
+    <!-- Stars -->
+    <div class="stars" aria-hidden="true">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+
+    <h1 class="special-page-title" id="ty-title">Danke für Ihre Reservierung!</h1>
+
+    <p class="special-page-text" id="ty-text">
+      Wir freuen uns auf Ihren Besuch und werden alles vorbereiten, damit Sie sich bei uns rundum wohl fühlen.
+      Eine Bestätigung wurde an Ihre E-Mail-Adresse gesendet.
+    </p>
+
+    <!-- Contact box -->
+    <div class="ty-contact">
+      <strong id="ty-contact-label">Fragen? Kontaktieren Sie uns:</strong>
+      <p>📞 <a href="tel:+41617114410">061 711 44 10</a></p>
+      <p>✉ <a href="mailto:kontakt@trapez.ch">kontakt@trapez.ch</a></p>
+    </div>
+
+    <!-- CTA back -->
+    <div class="special-page-btn" style="margin-top:36px;">
+      <a href="index.html" class="btn btn-primary" id="ty-btn">Zur Startseite</a>
+    </div>
+
+    <p class="ornament-ty" id="ty-ornament" style="margin-top:40px;">A presto — Bis bald!</p>
+
+  </main>
+
+  <script>
+    (function () {
+      var lang;
+      try { lang = localStorage.getItem('trapez-lang') || 'de'; } catch (e) { lang = 'de'; }
+      var t = {
+        de: {
+          htmlLang: 'de',
+          title: 'Danke für Ihre Reservierung!',
+          text: 'Wir freuen uns auf Ihren Besuch und werden alles vorbereiten, damit Sie sich bei uns rundum wohl fühlen. Eine Bestätigung wurde an Ihre E-Mail-Adresse gesendet.',
+          contactLabel: 'Fragen? Kontaktieren Sie uns:',
+          btn: 'Zur Startseite',
+          ornament: 'A presto — Bis bald!',
+          pageTitle: 'Danke für Ihre Reservierung | Restaurant Trapez'
+        },
+        en: {
+          htmlLang: 'en',
+          title: 'Thank you for your reservation!',
+          text: 'We look forward to your visit and will prepare everything to make you feel completely at home. A confirmation has been sent to your email address.',
+          contactLabel: 'Questions? Contact us:',
+          btn: 'Back to Home',
+          ornament: 'A presto — See you soon!',
+          pageTitle: 'Thank you for your reservation | Restaurant Trapez'
+        }
+      };
+      var d = t[lang] || t['de'];
+      document.documentElement.lang = d.htmlLang;
+      document.title = d.pageTitle;
+      var el;
+      el = document.getElementById('ty-title');        if (el) el.textContent = d.title;
+      el = document.getElementById('ty-text');         if (el) el.textContent = d.text;
+      el = document.getElementById('ty-contact-label'); if (el) el.textContent = d.contactLabel;
+      el = document.getElementById('ty-btn');          if (el) el.textContent = d.btn;
+      el = document.getElementById('ty-ornament');     if (el) el.textContent = d.ornament;
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Trapez | Pizzeria — Reinach</title>
+  <meta name="description" content="Restaurant Pizzeria Trapez in Reinach — Authentische italienische Küche, handgemachte Pizzen und frische Pasta. Jetzt Tisch reservieren." />
+  <meta name="keywords" content="Restaurant Trapez, Pizzeria Reinach, Italienisches Restaurant, Pizza, Pasta, Reinach BL" />
+  <meta name="author" content="Restaurant Trapez" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Restaurant Trapez | Pizzeria Reinach" />
+  <meta property="og:description" content="Authentische italienische Küche in Reinach. Reservieren Sie Ihren Tisch jetzt." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- =====================================================
+     LOADING SCREEN
+     ===================================================== -->
+<div id="loading-screen" role="status" aria-label="Seite wird geladen">
+  <div class="loading-logo">
+    <img src="assets/images/logo.png" alt="Restaurant Trapez Logo" />
+  </div>
+  <div class="loading-text">Restaurant Trapez</div>
+  <div class="loading-bar" aria-hidden="true"></div>
+</div>
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+<nav id="navbar" role="navigation" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo" aria-label="Restaurant Trapez — Zur Startseite">
+      <img src="assets/images/logo.png" alt="Trapez Logo" />
+      <div class="nav-logo-text">
+        Trapez
+        <span>Restaurant &amp; Pizzeria</span>
+      </div>
+    </a>
+
+    <!-- Menu -->
+    <ul class="nav-menu" id="nav-menu" role="menubar">
+      <li role="none"><a id="nav-home"        class="nav-link" href="#hero"        role="menuitem">Home</a></li>
+      <li role="none"><a id="nav-angebot"     class="nav-link" href="#angebot"     role="menuitem">Angebot</a></li>
+      <li role="none"><a id="nav-reservieren" class="nav-link" href="#reservieren" role="menuitem">Reservieren</a></li>
+      <li role="none"><a id="nav-ambiente"    class="nav-link" href="#ambiente"    role="menuitem">Ambiente</a></li>
+      <li role="none"><a id="nav-ueber-uns"   class="nav-link" href="#ueber-uns"   role="menuitem">Über Uns</a></li>
+      <li role="none"><a id="nav-kontakt"     class="nav-link" href="#kontakt"     role="menuitem">Kontakt</a></li>
+
+      <!-- Language Dropdown -->
+      <li role="none">
+        <div class="lang-dropdown">
+          <button id="lang-toggle" class="lang-toggle" aria-haspopup="listbox" aria-expanded="false" aria-label="Sprache wählen">
+            <span class="lang-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </span>
+            <span id="current-lang-label">DE</span>
+            <span class="lang-arrow">▾</span>
+          </button>
+          <ul class="lang-menu" role="listbox" id="lang-menu" aria-label="Sprache wählen">
+            <li role="option" class="lang-option active" data-lang="de">🇩🇪 Deutsch</li>
+            <li role="option" class="lang-option" data-lang="en">🇬🇧 English</li>
+            <li role="option" class="lang-option" data-lang="it">🇮🇹 Italiano</li>
+            <li role="option" class="lang-option" data-lang="fr">🇫🇷 Français</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Hamburger (mobile) -->
+    <button id="nav-hamburger" class="nav-hamburger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- =====================================================
+     HERO SECTION
+     ===================================================== -->
+<section id="hero" aria-label="Willkommen">
+
+  <!-- Video Background -->
+  <div class="hero-video-wrap" aria-hidden="true">
+    <div class="hero-fallback"></div>
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src="assets/video/YTDown.com_YouTube_I-shot-this-PIZZA-COMMERCIAL-in-only-2-H_Media_105QbXoUTmk_001_1080p.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <p class="hero-label" id="hero-label">Authentische Küche. Unvergessliche Momente.</p>
+
+    <h1 class="hero-title" id="hero-title">
+      Restaurant<br><em>Trapez</em>
+    </h1>
+
+    <p class="hero-subtitle" id="hero-subtitle">
+      Willkommen im Restaurant Trapez — Wo jedes Gericht eine Geschichte erzählt
+    </p>
+
+    <div class="hero-buttons">
+      <a id="hero-cta1" class="btn btn-primary" href="#reservieren">Tisch Reservieren</a>
+      <a id="hero-cta2" class="btn btn-outline" href="#angebot">Speisekarte</a>
+      <a id="hero-cta3" class="btn btn-gold" href="#angebot" data-tab-target="tagesmenue">Tagesmenü</a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-mouse"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- =====================================================
+     ANGEBOT SECTION
+     ===================================================== -->
+<section id="angebot" class="section-padding" aria-label="Unser Angebot">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="section-label" id="angebot-label">La Nostra Cucina</span>
+      <h2 class="section-title" id="angebot-title">Unser Angebot</h2>
+    </div>
+
+    <!-- Tabs -->
+    <div class="angebot-tabs reveal" role="tablist" aria-label="Angebot Kategorien">
+      <button class="tab-btn" id="tab-speisekarte-label" data-tab="speisekarte" role="tab" aria-controls="tab-speisekarte">Speisekarte</button>
+      <button class="tab-btn" id="tab-getraenkkarte-label" data-tab="getraenkkarte" role="tab" aria-controls="tab-getraenkkarte">Getränkkarte</button>
+      <button class="tab-btn active" id="tab-aktuell-label" data-tab="aktuell" role="tab" aria-controls="tab-aktuell" aria-selected="true">Aktuell</button>
+      <button class="tab-btn" id="tab-tagesmenue-label" data-tab="tagesmenue" role="tab" aria-controls="tab-tagesmenue">Tagesmenü</button>
+    </div>
+
+    <!-- Tab: Speisekarte -->
+    <div id="tab-speisekarte" class="tab-panel" role="tabpanel" aria-labelledby="tab-speisekarte-label">
+      <div id="speisekarte-content"></div>
+    </div>
+
+    <!-- Tab: Getränkkarte -->
+    <div id="tab-getraenkkarte" class="tab-panel" role="tabpanel" aria-labelledby="tab-getraenkkarte-label">
+      <div id="getraenkkarte-content"></div>
+    </div>
+
+    <!-- Tab: Aktuell (default open) -->
+    <div id="tab-aktuell" class="tab-panel active" role="tabpanel" aria-labelledby="tab-aktuell-label">
+      <div id="aktuell-content"></div>
+    </div>
+
+    <!-- Tab: Tagesmenü -->
+    <div id="tab-tagesmenue" class="tab-panel" role="tabpanel" aria-labelledby="tab-tagesmenue-label">
+      <div id="tagesmenue-content"></div>
+    </div>
+
+    <!-- PDF Downloads -->
+    <div class="pdf-downloads reveal">
+      <div class="pdf-divider">
+        <span class="pdf-divider-label" id="pdf-label">Menükarten als PDF</span>
+      </div>
+      <div class="pdf-cards">
+        <div class="pdf-card reveal">
+          <div class="pdf-card-icon">&#128196;</div>
+          <h3 class="pdf-card-title" id="pdf-speisekarte-title">Speisekarte</h3>
+          <p class="pdf-card-desc" id="pdf-speisekarte-desc">Unsere vollständige Speisekarte als PDF</p>
+          <a href="assets/pdf/speisekarte.pdf" class="btn btn-outline-menu" id="pdf-speisekarte-btn" target="_blank" rel="noopener">PDF herunterladen</a>
+        </div>
+        <div class="pdf-card reveal reveal-delay-1">
+          <div class="pdf-card-icon">&#127863;</div>
+          <h3 class="pdf-card-title" id="pdf-getraenke-title">Getränkekarte</h3>
+          <p class="pdf-card-desc" id="pdf-getraenke-desc">Unsere vollständige Getränkekarte als PDF</p>
+          <a href="assets/pdf/getraenke.pdf" class="btn btn-outline-menu" id="pdf-getraenke-btn" target="_blank" rel="noopener">PDF herunterladen</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     RESERVIEREN SECTION
+     ===================================================== -->
+<section id="reservieren" class="section-padding" aria-label="Tisch Reservieren">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="section-label" style="color:var(--gold);">Reservierung</span>
+      <h2 class="section-title" id="reservieren-title" style="color:var(--white);">Tisch Reservieren</h2>
+      <p class="section-subtitle" id="reservieren-subtitle">
+        Wir freuen uns auf Ihren Besuch. Reservieren Sie jetzt Ihren Tisch.
+      </p>
+      <div class="divider"></div>
+    </div>
+
+    <!--
+      ┌──────────────────────────────────────────────────────────────┐
+      │  FORMSPREE SETUP — ACTION REQUIRED BEFORE GOING LIVE         │
+      │  1. Go to https://formspree.io and create a free account     │
+      │  2. Create a new form → copy your unique endpoint URL        │
+      │  3. Replace "YOUR_FORM_ID" in the action attribute below     │
+      │     Example: action="https://formspree.io/f/xpwzabcd"        │
+      │  The reservation form will NOT work until this is done.      │
+      └──────────────────────────────────────────────────────────────┘
+    -->
+    <form
+      id="reservation-form"
+      class="reservation-form reveal"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+      novalidate
+    >
+      <!-- Hidden: redirect after success -->
+      <input type="hidden" name="_next" value="thank-you.html" />
+      <input type="hidden" name="_subject" value="Neue Tischreservierung — Restaurant Trapez" />
+
+      <div class="form-grid">
+        <!-- Full Name -->
+        <div class="form-group">
+          <label class="form-label" for="input-fullname" id="label-fullname">
+            Vollständiger Name <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="input-fullname"
+            name="fullname"
+            class="form-input"
+            placeholder="Ihr vollständiger Name"
+            required
+            autocomplete="name"
+          />
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label class="form-label" for="input-phone" id="label-phone">
+            Telefonnummer <span class="required">*</span>
+          </label>
+          <input
+            type="tel"
+            id="input-phone"
+            name="phone"
+            class="form-input"
+            placeholder="+41 61 000 00 00"
+            required
+            autocomplete="tel"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label" for="input-email" id="label-email">
+            E-Mail Adresse <span class="required">*</span>
+          </label>
+          <input
+            type="email"
+            id="input-email"
+            name="email"
+            class="form-input"
+            placeholder="ihre@email.ch"
+            required
+            autocomplete="email"
+          />
+        </div>
+
+        <!-- Number of Guests -->
+        <div class="form-group">
+          <label class="form-label" for="input-guests" id="label-guests">
+            Anzahl Gäste <span class="required">*</span>
+          </label>
+          <select id="input-guests" name="guests" class="form-select" required>
+            <option value="" disabled selected>— Personen —</option>
+            <option value="1">1 Person</option>
+            <option value="2">2 Personen</option>
+            <option value="3">3 Personen</option>
+            <option value="4">4 Personen</option>
+            <option value="5">5 Personen</option>
+            <option value="6">6 Personen</option>
+            <option value="7">7 Personen</option>
+            <option value="8">8 Personen</option>
+            <option value="9-12">9–12 Personen</option>
+            <option value="13+">Mehr als 12 Personen</option>
+          </select>
+        </div>
+
+        <!-- Date -->
+        <div class="form-group">
+          <label class="form-label" for="input-date" id="label-date">
+            Datum <span class="required">*</span>
+          </label>
+          <input
+            type="date"
+            id="input-date"
+            name="date"
+            class="form-input"
+            required
+          />
+        </div>
+
+        <!-- Time -->
+        <div class="form-group">
+          <label class="form-label" for="input-time" id="label-time">
+            Uhrzeit <span class="required">*</span>
+          </label>
+          <select id="input-time" name="time" class="form-select" required>
+            <option value="" disabled selected>— Uhrzeit —</option>
+            <optgroup label="Mittagessen">
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+            </optgroup>
+            <optgroup label="Abendessen">
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div class="form-group full">
+          <label class="form-label" for="input-message" id="label-message">
+            Besondere Wünsche (optional)
+          </label>
+          <textarea
+            id="input-message"
+            name="message"
+            class="form-textarea"
+            placeholder="Allergien, Geburtstagstorte, Kinderstuhl …"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="form-submit">
+        <p class="form-note" id="form-note">
+          <span aria-hidden="true">✉</span>
+          Sie erhalten eine Bestätigung per E-Mail.
+        </p>
+        <button type="submit" id="btn-reserve" class="btn btn-primary">
+          Jetzt Reservieren
+        </button>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     AMBIENTE SECTION
+     ===================================================== -->
+<section id="ambiente" class="section-padding" aria-label="Ambiente Galerie">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="section-label" style="color:var(--gold);">Unsere Räumlichkeiten</span>
+      <h2 class="section-title" id="ambiente-title" style="color:var(--white);">Ambiente</h2>
+      <p class="section-subtitle" id="ambiente-subtitle" style="color:rgba(255,255,255,0.6);">
+        Tauchen Sie ein in die warme, elegante Atmosphäre unseres Restaurants
+      </p>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="ambiente-gallery" role="list" aria-label="Restaurant Galerie">
+      <!-- NOTE: The source folder has images 1–6, 8, 9 (no image 7 was provided). -->
+      <div class="amb-item reveal" role="listitem" tabindex="0" aria-label="Galerie Bild 1 öffnen">
+        <img src="assets/images/ambiente/1.jpg" alt="Restaurant Ambiente — Innenraum" loading="lazy" />
+        <div class="amb-overlay" aria-hidden="true">
+          <div class="amb-overlay-icon">&#43;</div>
+        </div>
+      </div>
+      <div class="amb-item reveal reveal-delay-1" role="listitem" tabindex="0" aria-label="Galerie Bild 2 öffnen">
+        <img src="assets/images/ambiente/2.jpg" alt="Restaurant Ambiente — Tisch" loading="lazy" />
+        <div class="amb-overlay" aria-hidden="true">
+          <div class="amb-overlay-icon">&#43;</div>
+        </div>
+      </div>
+      <div class="amb-item reveal reveal-delay-2" role="listitem" tabindex="0" aria-label="Galerie Bild 3 öffnen">
+        <img src="assets/images/ambiente/3.jpg" alt="Restaurant Ambiente — Dekoration" loading="lazy" />
+        <div class="amb-overlay" aria-hidden="true">
+          <div class="amb-overlay-icon">&#43;</div>
+        </div>
+      </div>
+      <div class="amb-item reveal reveal-delay-3" role="listitem" tabindex="0" aria-label="Galerie Bild 4 öffnen">
+        <img src="assets/images/ambiente/4.jpg" alt="Restaurant Ambiente — Theke" loading="lazy" />
+        <div class="amb-overlay" aria-hidden="true">
+          <div class="amb-overlay-icon">&#43;</div>
+        </div>
+      </div>
+      <div class="amb-item reveal reveal-delay-1" role="listitem" tabindex="0" aria-label="Galerie Bild 5 öffnen">
+        <img src="assets/images/ambiente/5.jpg" alt="Restaurant Ambiente — Speisesaal" loading="lazy" />
+        <div class="amb-overlay" aria-hidden="true">
+          <div class="amb-overlay-icon">&#43;</div>
+        </div>
+      </div>
+      <div class="amb-item reveal reveal-delay-2" role="listitem" tabindex="0" aria-label="Galerie Bild 6 öffnen">
+        <img src="assets/images/ambiente/6.jpg" alt="Restaurant Ambiente — Abend" loading="lazy" />
+        <div class="amb-overlay" aria-hidden="true">
+          <div class="amb-overlay-icon">&#43;</div>
+        </div>
+      </div>
+      <div class="amb-item reveal reveal-delay-3" role="listitem" tabindex="0" aria-label="Galerie Bild 8 öffnen">
+        <img src="assets/images/ambiente/8.jpg" alt="Restaurant Ambiente — Details" loading="lazy" />
+        <div class="amb-overlay" aria-hidden="true">
+          <div class="amb-overlay-icon">&#43;</div>
+        </div>
+      </div>
+      <div class="amb-item reveal reveal-delay-4" role="listitem" tabindex="0" aria-label="Galerie Bild 9 öffnen">
+        <img src="assets/images/ambiente/9.jpg" alt="Restaurant Ambiente — Terrasse" loading="lazy" />
+        <div class="amb-overlay" aria-hidden="true">
+          <div class="amb-overlay-icon">&#43;</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Bildgalerie">
+  <div class="lightbox-inner">
+    <button id="lb-close" class="lightbox-close" aria-label="Schließen">&#215;</button>
+    <img id="lb-image" src="" alt="Galerie Bild" style="transition:opacity 0.3s;" />
+    <div id="lb-counter" class="lightbox-counter" aria-live="polite"></div>
+  </div>
+  <button id="lb-prev" class="lightbox-prev" aria-label="Vorheriges Bild">&#8592;</button>
+  <button id="lb-next" class="lightbox-next" aria-label="Nächstes Bild">&#8594;</button>
+</div>
+
+<!-- =====================================================
+     ÜBER UNS SECTION
+     ===================================================== -->
+<section id="ueber-uns" class="section-padding" aria-label="Über Uns">
+  <div class="container">
+    <div class="about-layout">
+
+      <!-- Text -->
+      <div class="about-text">
+        <div class="section-header reveal">
+          <span class="section-label">Die Geschichte</span>
+          <h2 class="section-title" id="ueber-uns-title">Über Uns</h2>
+          <h3 class="section-subtitle" id="ueber-uns-subtitle" style="font-family:var(--font-head);font-size:1.3rem;color:var(--gold);font-style:italic;">Unsere Geschichte</h3>
+          <div class="divider" style="margin-left:0;"></div>
+        </div>
+
+        <div class="about-paragraphs">
+          <p id="about-text-1" class="reveal">
+            Das Restaurant Trapez ist seit über 10 Jahren eine feste Institution in Reinach. Wir verbinden Schweizer Gastfreundschaft mit authentischer italienischer Küche — frische Zutaten, traditionelle Rezepte und Leidenschaft auf jedem Teller.
+          </p>
+          <p id="about-text-2" class="reveal reveal-delay-1">
+            Unser Küchenchef kreiert täglich Gerichte, die die besten Aromen Italiens in Ihre Teller bringen. Von klassischen Pizzen aus dem Holzofen bis zu handgemachten Pastagerichten und frischen Fischspezialitäten — bei uns finden Sie für jeden Geschmack das Richtige.
+          </p>
+          <p id="about-text-3" class="reveal reveal-delay-2">
+            Wir empfangen unsere Gäste jeden Abend mit einem Haus-Aperitif und freuen uns darauf, Ihnen einen unvergesslichen Abend zu bereiten.
+          </p>
+        </div>
+
+        <div class="about-signature reveal reveal-delay-3">
+          <img
+            src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=120&q=80"
+            alt="Restaurant-Inhaber"
+            class="sig-avatar"
+            loading="lazy"
+          />
+          <div>
+            <div class="sig-name" id="owner-caption">Giuseppe Trapez — Patron &amp; Chef</div>
+            <div class="sig-role">Restaurant Trapez, Reinach</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Images -->
+      <div class="about-images reveal-right">
+        <img
+          src="assets/images/ambiente/2.jpg"
+          alt="Restaurant Trapez Innenraum"
+          class="about-img-main"
+          loading="lazy"
+        />
+        <img
+          src="assets/images/ambiente/5.jpg"
+          alt="Restaurant Trapez Details"
+          class="about-img-accent"
+          loading="lazy"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     KONTAKT SECTION
+     ===================================================== -->
+<section id="kontakt" class="section-padding" aria-label="Kontakt">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="section-label">Uns besuchen</span>
+      <h2 class="section-title" id="kontakt-title">Kontakt</h2>
+      <p class="section-subtitle" id="kontakt-subtitle">Wir sind für Sie da</p>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Contact info + Map -->
+    <div class="kontakt-layout">
+      <div>
+        <!-- Address -->
+        <div class="kontakt-info-block reveal">
+          <div class="kontakt-info-title">Adresse</div>
+          <p class="kontakt-info-text">
+            Sonnenweg 18<br />
+            4153 Reinach BL<br />
+            Schweiz
+          </p>
+        </div>
+
+        <!-- Hours -->
+        <div class="kontakt-info-block reveal reveal-delay-1">
+          <div class="kontakt-info-title" id="kontakt-hours-label">Öffnungszeiten</div>
+          <p class="kontakt-info-text" id="kontakt-hours-detail">
+            <span>Montag – Freitag: 10:00 – 14:00 | 17:00 – 23:00</span>
+            <span>Samstag: 17:00 – 23:00</span>
+            <span>Sonntag: 17:00 – 22:30</span>
+          </p>
+        </div>
+
+        <!-- Phone & Email -->
+        <div class="kontakt-info-block reveal reveal-delay-2">
+          <div class="kontakt-info-title">Telefon</div>
+          <p class="kontakt-info-text">
+            <a href="tel:+41617114410">061 711 44 10</a>
+          </p>
+        </div>
+        <div class="kontakt-info-block reveal reveal-delay-3">
+          <div class="kontakt-info-title">E-Mail</div>
+          <p class="kontakt-info-text">
+            <a href="mailto:kontakt@trapez.ch">kontakt@trapez.ch</a>
+          </p>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal reveal-delay-4" style="margin-top:32px;">
+          <a class="btn btn-dark" href="#reservieren">Tisch Reservieren</a>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="kontakt-map reveal-right">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.8756285!2d7.59346!3d47.49671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4791b3cbac9e13b7%3A0x6e8e4e97ab5a4f7b!2sSonnenweg%2018%2C%204153%20Reinach!5e0!3m2!1sde!2sch!4v1708615200000!5m2!1sde!2sch"
+          title="Restaurant Trapez Standort"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar reveal">
+      <div class="stat-item">
+        <span id="stat-rating-value" class="stat-value" data-count="4.5" data-suffix="★">4.5★</span>
+        <span id="stat-rating-label" class="stat-label">Durchschnittsbewertung</span>
+      </div>
+      <div class="stat-item">
+        <span id="stat-customers-value" class="stat-value" data-count="500" data-suffix="+">500+</span>
+        <span id="stat-customers-label" class="stat-label">Zufriedene Gäste</span>
+      </div>
+      <div class="stat-item">
+        <span id="stat-reviews-value" class="stat-value" data-count="250" data-suffix="+">250+</span>
+        <span id="stat-reviews-label" class="stat-label">Kundenbewertungen</span>
+      </div>
+      <div class="stat-item">
+        <span id="stat-years-value" class="stat-value" data-count="10" data-suffix="+">10+</span>
+        <span id="stat-years-label" class="stat-label">Jahre Erfahrung</span>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <h3 id="reviews-title" class="reviews-title reveal">Was unsere Gäste sagen</h3>
+    <div id="reviews-container" class="reviews-grid"></div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/logo.png" alt="Trapez Logo" />
+          <span class="footer-logo-name">Restaurant Trapez</span>
+        </div>
+        <p id="footer-tagline" class="footer-tagline">
+          Authentische Küche seit mehr als 10 Jahren
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#angebot">Angebot</a></li>
+          <li><a href="#reservieren">Reservieren</a></li>
+          <li><a href="#ambiente">Ambiente</a></li>
+          <li><a href="#ueber-uns">Über Uns</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact mini -->
+      <div>
+        <div class="footer-col-title">Adresse</div>
+        <ul class="footer-links">
+          <li>Sonnenweg 18</li>
+          <li>4153 Reinach BL</li>
+          <li><a href="tel:+41617114410">061 711 44 10</a></li>
+          <li><a href="mailto:kontakt@trapez.ch">kontakt@trapez.ch</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p id="footer-copy" class="footer-copy">
+        © 2025 Restaurant Trapez, Reinach. Alle Rechte vorbehalten.
+      </p>
+      <div class="footer-legal">
+        <a id="footer-legal" href="#">Impressum &amp; Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/menu-data.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
