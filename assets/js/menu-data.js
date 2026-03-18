@@ -14,94 +14,94 @@ const menuData = {
         {
           id: "pizza",
           title: "Pizza",
-          image: "assets/images/speisekarte/Margherita.png",
+          image: "assets/images/speisekarte/pizza/pizza-Margherita.png",
           items: [
-            { name: "Margherita", desc: "Tomatensauce, Mozzarella, Basilikum", price: "Fr. 16.50" },
-            { name: "Napoli", desc: "Tomatensauce, Mozzarella, Sardellen, Kapern", price: "Fr. 18.50" },
-            { name: "Quattro Stagioni", desc: "Mozzarella, Pilze, Schinken, Artischocken, Oliven", price: "Fr. 21.50" },
-            { name: "Diavola", desc: "Tomatensauce, Mozzarella, scharfe Salami", price: "Fr. 20.50" },
-            { name: "Prosciutto e Funghi", desc: "Tomatensauce, Mozzarella, Schinken, Pilze", price: "Fr. 21.00" },
-            { name: "Trapez Speciale", desc: "Hausspecial mit Gorgonzola, Birne, Walnuss", price: "Fr. 23.50" },
-            { name: "Vegetariana", desc: "Saisonales Gemüse, Mozzarella, Pesto", price: "Fr. 20.50" },
-            { name: "Calzone", desc: "Gefüllte Pizza mit Schinken, Mozzarella, Ricotta", price: "Fr. 22.50" }
+            { name: "Margherita", desc: "Tomatensauce, Mozzarella, Basilikum", price: "Fr. 16.50", image: "assets/images/speisekarte/pizza/pizza-Margherita.png" },
+            { name: "Napoli", desc: "Tomatensauce, Mozzarella, Sardellen, Kapern", price: "Fr. 18.50", image: "assets/images/speisekarte/pizza/pizza-napoli.png" },
+            { name: "Quattro Stagioni", desc: "Mozzarella, Pilze, Schinken, Artischocken, Oliven", price: "Fr. 21.50", image: "assets/images/speisekarte/pizza/pizza-Quattro Stagioni.png" },
+            { name: "Diavola", desc: "Tomatensauce, Mozzarella, scharfe Salami", price: "Fr. 20.50", image: "assets/images/speisekarte/pizza/pizza-Diavola.png" },
+            { name: "Prosciutto e Funghi", desc: "Tomatensauce, Mozzarella, Schinken, Pilze", price: "Fr. 21.00", image: "assets/images/speisekarte/pizza/pizza-Prosciutto e Funghi.png" },
+            { name: "Trapez Speciale", desc: "Hausspecial mit Gorgonzola, Birne, Walnuss", price: "Fr. 23.50", image: "assets/images/speisekarte/pizza/pizza-Margherita.png" },
+            { name: "Vegetariana", desc: "Saisonales Gemüse, Mozzarella, Pesto", price: "Fr. 20.50", image: "assets/images/speisekarte/pizza/pizza-Vegetariana.png" },
+            { name: "Calzone", desc: "Gefüllte Pizza mit Schinken, Mozzarella, Ricotta", price: "Fr. 22.50", image: "assets/images/speisekarte/pizza/pizza-Calzone.png" }
           ]
         },
         {
           id: "pasta",
           title: "Pasta",
-          image: "assets/images/speisekarte/pasta.png",
+          image: "assets/images/speisekarte/pasta/pasta-Spaghetti Bolognese.png",
           items: [
-            { name: "Spaghetti Bolognese", desc: "Klassische Fleischsauce nach Hausrezept", price: "Fr. 19.50" },
-            { name: "Penne all'Arrabbiata", desc: "Scharfe Tomatensauce mit Knoblauch", price: "Fr. 17.50" },
-            { name: "Tagliatelle al Tartufo", desc: "Frische Pasta mit schwarzer Trüffelsauce", price: "Fr. 26.50" },
-            { name: "Gnocchi al Gorgonzola", desc: "Hausgemachte Gnocchi mit Gorgonzolasauce", price: "Fr. 22.50" },
-            { name: "Ravioli Spinaci", desc: "Gefüllte Ravioli mit Spinat und Ricotta", price: "Fr. 21.50" },
-            { name: "Spaghetti Carbonara", desc: "Pancetta, Ei, Pecorino, schwarzer Pfeffer", price: "Fr. 21.50" }
+            { name: "Spaghetti Bolognese", desc: "Klassische Fleischsauce nach Hausrezept", price: "Fr. 19.50", image: "assets/images/speisekarte/pasta/pasta-Spaghetti Bolognese.png" },
+            { name: "Penne all'Arrabbiata", desc: "Scharfe Tomatensauce mit Knoblauch", price: "Fr. 17.50", image: "assets/images/speisekarte/pasta/pasta-Penne all'Arrabbiata.png" },
+            { name: "Tagliatelle al Tartufo", desc: "Frische Pasta mit schwarzer Trüffelsauce", price: "Fr. 26.50", image: "assets/images/speisekarte/pasta/pasta-Tagliatelle al Tartufo.png" },
+            { name: "Gnocchi al Gorgonzola", desc: "Hausgemachte Gnocchi mit Gorgonzolasauce", price: "Fr. 22.50", image: "assets/images/speisekarte/pasta/pasta-Gnocchi al Gorgonzola.png" },
+            { name: "Ravioli Spinaci", desc: "Gefüllte Ravioli mit Spinat und Ricotta", price: "Fr. 21.50", image: "assets/images/speisekarte/pasta/pasta-Ravioli Spinaci.png" },
+            { name: "Spaghetti Carbonara", desc: "Pancetta, Ei, Pecorino, schwarzer Pfeffer", price: "Fr. 21.50", image: "assets/images/speisekarte/pasta/pasta-Spaghetti Carbonara.png" }
           ]
         },
         {
           id: "fleisch",
           title: "Fleisch",
-          image: "assets/images/speisekarte/carni.png",
+          image: "assets/images/speisekarte/fleisch/fleisch-Saltimbocca alla Romana.png",
           items: [
-            { name: "Saltimbocca alla Romana", desc: "Kalbsschnitzel mit Salbei und Parmaschinken", price: "Fr. 34.50" },
-            { name: "Tagliata di Manzo", desc: "Gegrilltes Rindsentrecôte, Rucola, Parmesan", price: "Fr. 38.50" },
-            { name: "Pollo alla Parmigiana", desc: "Paniertes Hähnchen mit Tomatensauce und Mozzarella", price: "Fr. 28.50" },
-            { name: "Filetto di Maiale", desc: "Schweinsfilet mit Kräutern und Rosmarin", price: "Fr. 32.50" }
+            { name: "Saltimbocca alla Romana", desc: "Kalbsschnitzel mit Salbei und Parmaschinken", price: "Fr. 34.50", image: "assets/images/speisekarte/fleisch/fleisch-Saltimbocca alla Romana.png" },
+            { name: "Tagliata di Manzo", desc: "Gegrilltes Rindsentrecôte, Rucola, Parmesan", price: "Fr. 38.50", image: "assets/images/speisekarte/fleisch/fleisch-Tagliata di Manzo.png" },
+            { name: "Pollo alla Parmigiana", desc: "Paniertes Hähnchen mit Tomatensauce und Mozzarella", price: "Fr. 28.50", image: "assets/images/speisekarte/fleisch/fleisch-Pollo alla Parmigiana.png" },
+            { name: "Filetto di Maiale", desc: "Schweinsfilet mit Kräutern und Rosmarin", price: "Fr. 32.50", image: "assets/images/speisekarte/fleisch/fleisch-Filetto di Maiale.png" }
           ]
         },
         {
           id: "fisch",
           title: "Fisch",
-          image: "assets/images/speisekarte/fish.png",
+          image: "assets/images/speisekarte/fish/fish-Branzino al Forno.png",
           items: [
-            { name: "Branzino al Forno", desc: "Ofengebackener Wolfsbarsch mit Zitronen-Kräutern", price: "Fr. 36.50" },
-            { name: "Gamberi all'Aglio", desc: "Riesengarnelen in Knoblauch-Olivenöl-Sauce", price: "Fr. 34.50" },
-            { name: "Salmone Griglia", desc: "Gegrillter Lachs mit Kapern-Tomatensauce", price: "Fr. 32.50" }
+            { name: "Branzino al Forno", desc: "Ofengebackener Wolfsbarsch mit Zitronen-Kräutern", price: "Fr. 36.50", image: "assets/images/speisekarte/fish/fish-Branzino al Forno.png" },
+            { name: "Gamberi all'Aglio", desc: "Riesengarnelen in Knoblauch-Olivenöl-Sauce", price: "Fr. 34.50", image: "assets/images/speisekarte/fish/fish-Gamberi all'Aglio.jpg" },
+            { name: "Salmone Griglia", desc: "Gegrillter Lachs mit Kapern-Tomatensauce", price: "Fr. 32.50", image: "assets/images/speisekarte/fish/fish-Salmone Griglia.jpg" }
           ]
         },
         {
           id: "suppen",
           title: "Suppen",
-          image: "assets/images/speisekarte/Suppe-new.png",
+          image: "assets/images/speisekarte/suppe/suppe-Minestrone Maison.png",
           items: [
-            { name: "Minestrone Maison", desc: "Hausgemachte Gemüsesuppe", price: "Fr. 8.50" },
-            { name: "Tomatencrèmesuppe", desc: "Cremige Tomatensuppe mit Basilikum", price: "Fr. 8.00" },
-            { name: "Bouillon mit Ei", desc: "Klare Bouillon mit pochiertem Ei", price: "Fr. 8.00" },
-            { name: "Tortelloni in Brodo", desc: "Hausgemachte Tortelloni in Fleischbrühe", price: "Fr. 8.50" }
+            { name: "Minestrone Maison", desc: "Hausgemachte Gemüsesuppe", price: "Fr. 8.50", image: "assets/images/speisekarte/suppe/suppe-Minestrone Maison.png" },
+            { name: "Tomatencrèmesuppe", desc: "Cremige Tomatensuppe mit Basilikum", price: "Fr. 8.00", image: "assets/images/speisekarte/suppe/suppe-Tomatencrèmesuppe.png" },
+            { name: "Bouillon mit Ei", desc: "Klare Bouillon mit pochiertem Ei", price: "Fr. 8.00", image: "assets/images/speisekarte/suppe/suppe-Bouillon mit Ei.png" },
+            { name: "Tortelloni in Brodo", desc: "Hausgemachte Tortelloni in Fleischbrühe", price: "Fr. 8.50", image: "assets/images/speisekarte/suppe/suppe-Tortelloni in Brodo.png" }
           ]
         },
         {
           id: "salate",
           title: "Salate",
-          image: "assets/images/speisekarte/ceaser salad.png",
+          image: "assets/images/speisekarte/salat/salat-Insalata Mista.png",
           items: [
-            { name: "Insalata Mista", desc: "Gemischter Salat mit Hausdressing", price: "Fr. 9.00" },
-            { name: "Insalata Caprese", desc: "Tomaten, Mozzarella, Basilikum, Olivenöl", price: "Fr. 14.50" },
-            { name: "Rucola e Parmigiano", desc: "Rucola, Parmesanspäne, Kirschtomaten", price: "Fr. 15.50" },
-            { name: "Caesar Salat", desc: "Römersalat, Parmesan, Croutons, Caesar-Dressing", price: "Fr. 16.50" }
+            { name: "Insalata Mista", desc: "Gemischter Salat mit Hausdressing", price: "Fr. 9.00", image: "assets/images/speisekarte/salat/salat-Insalata Mista.png" },
+            { name: "Insalata Caprese", desc: "Tomaten, Mozzarella, Basilikum, Olivenöl", price: "Fr. 14.50", image: "assets/images/speisekarte/salat/salat-Insalata Caprese.png" },
+            { name: "Rucola e Parmigiano", desc: "Rucola, Parmesanspäne, Kirschtomaten", price: "Fr. 15.50", image: "assets/images/speisekarte/salat/salat-Rucola e Parmigiano.png" },
+            { name: "Caesar Salat", desc: "Römersalat, Parmesan, Croutons, Caesar-Dressing", price: "Fr. 16.50", image: "assets/images/speisekarte/salat/salat-ceaser salat.png" }
           ]
         },
         {
           id: "antipasti",
           title: "Vorspeisen",
-          image: "assets/images/speisekarte/vorspeise.png",
+          image: "assets/images/speisekarte/vorspeise/vorspeise-Burrata con Prosciutto.png",
           items: [
-            { name: "Antipasto Misto", desc: "Gemischte italienische Vorspeisen", price: "Fr. 18.50" },
-            { name: "Carpaccio di Manzo", desc: "Hauchdünnes Rindfleisch, Rucola, Parmesan", price: "Fr. 19.50" },
-            { name: "Bruschetta al Pomodoro", desc: "Geröstetes Brot mit Tomaten und Basilikum", price: "Fr. 9.50" },
-            { name: "Burrata con Prosciutto", desc: "Frische Burrata mit Parmaschinken", price: "Fr. 21.00" }
+            { name: "Antipasto Misto", desc: "Gemischte italienische Vorspeisen", price: "Fr. 18.50", image: "assets/images/speisekarte/vorspeise/vorspeise-Antipasto Misto.png" },
+            { name: "Carpaccio di Manzo", desc: "Hauchdünnes Rindfleisch, Rucola, Parmesan", price: "Fr. 19.50", image: "assets/images/speisekarte/vorspeise/vorspeise-Carpaccio di Manzo.png" },
+            { name: "Bruschetta al Pomodoro", desc: "Geröstetes Brot mit Tomaten und Basilikum", price: "Fr. 9.50", image: "assets/images/speisekarte/vorspeise/vorspeise-Bruschetta al Pomodoro.png" },
+            { name: "Burrata con Prosciutto", desc: "Frische Burrata mit Parmaschinken", price: "Fr. 21.00", image: "assets/images/speisekarte/vorspeise/vorspeise-Burrata con Prosciutto.png" }
           ]
         },
         {
           id: "dolci",
           title: "Dessert",
-          image: "assets/images/speisekarte/tiramisu-dessert.png",
+          image: "assets/images/speisekarte/dessert/dessert-tiramisu-dessert.png",
           items: [
-            { name: "Tiramisù", desc: "Klassisches hausgemachtes Tiramisù", price: "Fr. 9.50" },
-            { name: "Panna Cotta", desc: "Mit Beerencoulis", price: "Fr. 9.00" },
-            { name: "Gelato Artigianale", desc: "3 Kugeln hausgemachtes Eis nach Wahl", price: "Fr. 8.50" },
-            { name: "Torta della Casa", desc: "Haustorte des Tages", price: "Fr. 8.50" }
+            { name: "Tiramisù", desc: "Klassisches hausgemachtes Tiramisù", price: "Fr. 9.50", image: "assets/images/speisekarte/dessert/dessert-tiramisu-dessert.png" },
+            { name: "Panna Cotta", desc: "Mit Beerencoulis", price: "Fr. 9.00", image: "assets/images/speisekarte/dessert/dessert-Panna Cotta.png" },
+            { name: "Gelato Artigianale", desc: "3 Kugeln hausgemachtes Eis nach Wahl", price: "Fr. 8.50", image: "assets/images/speisekarte/dessert/dessert-Gelato Artigianale.png" },
+            { name: "Torta della Casa", desc: "Haustorte des Tages", price: "Fr. 8.50", image: "assets/images/speisekarte/dessert/dessert-Torta della Casa.png" }
           ]
         }
       ]
@@ -230,94 +230,94 @@ const menuData = {
         {
           id: "pizza",
           title: "Pizza",
-          image: "assets/images/speisekarte/Margherita.png",
+          image: "assets/images/speisekarte/pizza/pizza-Margherita.png",
           items: [
-            { name: "Margherita", desc: "Tomato sauce, mozzarella, basil", price: "Fr. 16.50" },
-            { name: "Napoli", desc: "Tomato sauce, mozzarella, anchovies, capers", price: "Fr. 18.50" },
-            { name: "Quattro Stagioni", desc: "Mozzarella, mushrooms, ham, artichoke, olives", price: "Fr. 21.50" },
-            { name: "Diavola", desc: "Tomato sauce, mozzarella, spicy salami", price: "Fr. 20.50" },
-            { name: "Prosciutto e Funghi", desc: "Tomato sauce, mozzarella, ham, mushrooms", price: "Fr. 21.00" },
-            { name: "Trapez Speciale", desc: "House special with gorgonzola, pear, walnuts", price: "Fr. 23.50" },
-            { name: "Vegetariana", desc: "Seasonal vegetables, mozzarella, pesto", price: "Fr. 20.50" },
-            { name: "Calzone", desc: "Stuffed pizza with ham, mozzarella, ricotta", price: "Fr. 22.50" }
+            { name: "Margherita", desc: "Tomato sauce, mozzarella, basil", price: "Fr. 16.50", image: "assets/images/speisekarte/pizza/pizza-Margherita.png" },
+            { name: "Napoli", desc: "Tomato sauce, mozzarella, anchovies, capers", price: "Fr. 18.50", image: "assets/images/speisekarte/pizza/pizza-napoli.png" },
+            { name: "Quattro Stagioni", desc: "Mozzarella, mushrooms, ham, artichoke, olives", price: "Fr. 21.50", image: "assets/images/speisekarte/pizza/pizza-Quattro Stagioni.png" },
+            { name: "Diavola", desc: "Tomato sauce, mozzarella, spicy salami", price: "Fr. 20.50", image: "assets/images/speisekarte/pizza/pizza-Diavola.png" },
+            { name: "Prosciutto e Funghi", desc: "Tomato sauce, mozzarella, ham, mushrooms", price: "Fr. 21.00", image: "assets/images/speisekarte/pizza/pizza-Prosciutto e Funghi.png" },
+            { name: "Trapez Speciale", desc: "House special with gorgonzola, pear, walnuts", price: "Fr. 23.50", image: "assets/images/speisekarte/pizza/pizza-Margherita.png" },
+            { name: "Vegetariana", desc: "Seasonal vegetables, mozzarella, pesto", price: "Fr. 20.50", image: "assets/images/speisekarte/pizza/pizza-Vegetariana.png" },
+            { name: "Calzone", desc: "Stuffed pizza with ham, mozzarella, ricotta", price: "Fr. 22.50", image: "assets/images/speisekarte/pizza/pizza-Calzone.png" }
           ]
         },
         {
           id: "pasta",
           title: "Pasta",
-          image: "assets/images/speisekarte/pasta.png",
+          image: "assets/images/speisekarte/pasta/pasta-Spaghetti Bolognese.png",
           items: [
-            { name: "Spaghetti Bolognese", desc: "Classic meat sauce from house recipe", price: "Fr. 19.50" },
-            { name: "Penne all'Arrabbiata", desc: "Spicy tomato sauce with garlic", price: "Fr. 17.50" },
-            { name: "Tagliatelle al Tartufo", desc: "Fresh pasta with black truffle sauce", price: "Fr. 26.50" },
-            { name: "Gnocchi al Gorgonzola", desc: "Homemade gnocchi with gorgonzola sauce", price: "Fr. 22.50" },
-            { name: "Ravioli Spinaci", desc: "Stuffed ravioli with spinach and ricotta", price: "Fr. 21.50" },
-            { name: "Spaghetti Carbonara", desc: "Pancetta, egg, pecorino, black pepper", price: "Fr. 21.50" }
+            { name: "Spaghetti Bolognese", desc: "Classic meat sauce from house recipe", price: "Fr. 19.50", image: "assets/images/speisekarte/pasta/pasta-Spaghetti Bolognese.png" },
+            { name: "Penne all'Arrabbiata", desc: "Spicy tomato sauce with garlic", price: "Fr. 17.50", image: "assets/images/speisekarte/pasta/pasta-Penne all'Arrabbiata.png" },
+            { name: "Tagliatelle al Tartufo", desc: "Fresh pasta with black truffle sauce", price: "Fr. 26.50", image: "assets/images/speisekarte/pasta/pasta-Tagliatelle al Tartufo.png" },
+            { name: "Gnocchi al Gorgonzola", desc: "Homemade gnocchi with gorgonzola sauce", price: "Fr. 22.50", image: "assets/images/speisekarte/pasta/pasta-Gnocchi al Gorgonzola.png" },
+            { name: "Ravioli Spinaci", desc: "Stuffed ravioli with spinach and ricotta", price: "Fr. 21.50", image: "assets/images/speisekarte/pasta/pasta-Ravioli Spinaci.png" },
+            { name: "Spaghetti Carbonara", desc: "Pancetta, egg, pecorino, black pepper", price: "Fr. 21.50", image: "assets/images/speisekarte/pasta/pasta-Spaghetti Carbonara.png" }
           ]
         },
         {
           id: "fleisch",
           title: "Meat",
-          image: "assets/images/speisekarte/carni.png",
+          image: "assets/images/speisekarte/fleisch/fleisch-Saltimbocca alla Romana.png",
           items: [
-            { name: "Saltimbocca alla Romana", desc: "Veal escalope with sage and Parma ham", price: "Fr. 34.50" },
-            { name: "Tagliata di Manzo", desc: "Grilled beef sirloin, rocket, parmesan", price: "Fr. 38.50" },
-            { name: "Chicken Parmigiana", desc: "Breaded chicken with tomato sauce and mozzarella", price: "Fr. 28.50" },
-            { name: "Pork Tenderloin", desc: "Pork fillet with herbs and rosemary", price: "Fr. 32.50" }
+            { name: "Saltimbocca alla Romana", desc: "Veal escalope with sage and Parma ham", price: "Fr. 34.50", image: "assets/images/speisekarte/fleisch/fleisch-Saltimbocca alla Romana.png" },
+            { name: "Tagliata di Manzo", desc: "Grilled beef sirloin, rocket, parmesan", price: "Fr. 38.50", image: "assets/images/speisekarte/fleisch/fleisch-Tagliata di Manzo.png" },
+            { name: "Chicken Parmigiana", desc: "Breaded chicken with tomato sauce and mozzarella", price: "Fr. 28.50", image: "assets/images/speisekarte/fleisch/fleisch-Pollo alla Parmigiana.png" },
+            { name: "Pork Tenderloin", desc: "Pork fillet with herbs and rosemary", price: "Fr. 32.50", image: "assets/images/speisekarte/fleisch/fleisch-Filetto di Maiale.png" }
           ]
         },
         {
           id: "fisch",
           title: "Fish",
-          image: "assets/images/speisekarte/fish.png",
+          image: "assets/images/speisekarte/fish/fish-Branzino al Forno.png",
           items: [
-            { name: "Baked Sea Bass", desc: "Oven-baked sea bass with lemon and herbs", price: "Fr. 36.50" },
-            { name: "Gamberi all'Aglio", desc: "King prawns in garlic olive oil sauce", price: "Fr. 34.50" },
-            { name: "Grilled Salmon", desc: "With caper and tomato sauce", price: "Fr. 32.50" }
+            { name: "Baked Sea Bass", desc: "Oven-baked sea bass with lemon and herbs", price: "Fr. 36.50", image: "assets/images/speisekarte/fish/fish-Branzino al Forno.png" },
+            { name: "Gamberi all'Aglio", desc: "King prawns in garlic olive oil sauce", price: "Fr. 34.50", image: "assets/images/speisekarte/fish/fish-Gamberi all'Aglio.jpg" },
+            { name: "Grilled Salmon", desc: "With caper and tomato sauce", price: "Fr. 32.50", image: "assets/images/speisekarte/fish/fish-Salmone Griglia.jpg" }
           ]
         },
         {
           id: "suppen",
           title: "Soups",
-          image: "assets/images/speisekarte/Suppe-new.png",
+          image: "assets/images/speisekarte/suppe/suppe-Minestrone Maison.png",
           items: [
-            { name: "Minestrone Maison", desc: "Homemade vegetable soup", price: "Fr. 8.50" },
-            { name: "Cream of Tomato", desc: "Creamy tomato soup with basil", price: "Fr. 8.00" },
-            { name: "Bouillon with Egg", desc: "Clear broth with poached egg", price: "Fr. 8.00" },
-            { name: "Tortelloni in Brodo", desc: "Homemade tortelloni in meat broth", price: "Fr. 8.50" }
+            { name: "Minestrone Maison", desc: "Homemade vegetable soup", price: "Fr. 8.50", image: "assets/images/speisekarte/suppe/suppe-Minestrone Maison.png" },
+            { name: "Cream of Tomato", desc: "Creamy tomato soup with basil", price: "Fr. 8.00", image: "assets/images/speisekarte/suppe/suppe-Tomatencrèmesuppe.png" },
+            { name: "Bouillon with Egg", desc: "Clear broth with poached egg", price: "Fr. 8.00", image: "assets/images/speisekarte/suppe/suppe-Bouillon mit Ei.png" },
+            { name: "Tortelloni in Brodo", desc: "Homemade tortelloni in meat broth", price: "Fr. 8.50", image: "assets/images/speisekarte/suppe/suppe-Tortelloni in Brodo.png" }
           ]
         },
         {
           id: "salate",
           title: "Salads",
-          image: "assets/images/speisekarte/ceaser salad.png",
+          image: "assets/images/speisekarte/salat/salat-Insalata Mista.png",
           items: [
-            { name: "Mixed Salad", desc: "Mixed greens with house dressing", price: "Fr. 9.00" },
-            { name: "Caprese", desc: "Tomatoes, mozzarella, basil, olive oil", price: "Fr. 14.50" },
-            { name: "Rucola & Parmesan", desc: "Rocket, parmesan shavings, cherry tomatoes", price: "Fr. 15.50" },
-            { name: "Caesar Salad", desc: "Romaine, parmesan, croutons, caesar dressing", price: "Fr. 16.50" }
+            { name: "Mixed Salad", desc: "Mixed greens with house dressing", price: "Fr. 9.00", image: "assets/images/speisekarte/salat/salat-Insalata Mista.png" },
+            { name: "Caprese", desc: "Tomatoes, mozzarella, basil, olive oil", price: "Fr. 14.50", image: "assets/images/speisekarte/salat/salat-Insalata Caprese.png" },
+            { name: "Rucola & Parmesan", desc: "Rocket, parmesan shavings, cherry tomatoes", price: "Fr. 15.50", image: "assets/images/speisekarte/salat/salat-Rucola e Parmigiano.png" },
+            { name: "Caesar Salad", desc: "Romaine, parmesan, croutons, caesar dressing", price: "Fr. 16.50", image: "assets/images/speisekarte/salat/salat-ceaser salat.png" }
           ]
         },
         {
           id: "antipasti",
           title: "Starters",
-          image: "assets/images/speisekarte/vorspeise.png",
+          image: "assets/images/speisekarte/vorspeise/vorspeise-Burrata con Prosciutto.png",
           items: [
-            { name: "Antipasto Misto", desc: "Mixed Italian starters", price: "Fr. 18.50" },
-            { name: "Beef Carpaccio", desc: "Paper-thin beef, rocket, parmesan", price: "Fr. 19.50" },
-            { name: "Bruschetta al Pomodoro", desc: "Toasted bread with tomatoes and basil", price: "Fr. 9.50" },
-            { name: "Burrata & Prosciutto", desc: "Fresh burrata with Parma ham", price: "Fr. 21.00" }
+            { name: "Antipasto Misto", desc: "Mixed Italian starters", price: "Fr. 18.50", image: "assets/images/speisekarte/vorspeise/vorspeise-Antipasto Misto.png" },
+            { name: "Beef Carpaccio", desc: "Paper-thin beef, rocket, parmesan", price: "Fr. 19.50", image: "assets/images/speisekarte/vorspeise/vorspeise-Carpaccio di Manzo.png" },
+            { name: "Bruschetta al Pomodoro", desc: "Toasted bread with tomatoes and basil", price: "Fr. 9.50", image: "assets/images/speisekarte/vorspeise/vorspeise-Bruschetta al Pomodoro.png" },
+            { name: "Burrata & Prosciutto", desc: "Fresh burrata with Parma ham", price: "Fr. 21.00", image: "assets/images/speisekarte/vorspeise/vorspeise-Burrata con Prosciutto.png" }
           ]
         },
         {
           id: "dolci",
           title: "Desserts",
-          image: "assets/images/speisekarte/tiramisu-dessert.png",
+          image: "assets/images/speisekarte/dessert/dessert-tiramisu-dessert.png",
           items: [
-            { name: "Tiramisù", desc: "Classic homemade tiramisù", price: "Fr. 9.50" },
-            { name: "Panna Cotta", desc: "With berry coulis", price: "Fr. 9.00" },
-            { name: "Artisan Ice Cream", desc: "3 scoops of homemade ice cream", price: "Fr. 8.50" },
-            { name: "House Cake", desc: "Chef's cake of the day", price: "Fr. 8.50" }
+            { name: "Tiramisù", desc: "Classic homemade tiramisù", price: "Fr. 9.50", image: "assets/images/speisekarte/dessert/dessert-tiramisu-dessert.png" },
+            { name: "Panna Cotta", desc: "With berry coulis", price: "Fr. 9.00", image: "assets/images/speisekarte/dessert/dessert-Panna Cotta.png" },
+            { name: "Artisan Ice Cream", desc: "3 scoops of homemade ice cream", price: "Fr. 8.50", image: "assets/images/speisekarte/dessert/dessert-Gelato Artigianale.png" },
+            { name: "House Cake", desc: "Chef's cake of the day", price: "Fr. 8.50", image: "assets/images/speisekarte/dessert/dessert-Torta della Casa.png" }
           ]
         }
       ]

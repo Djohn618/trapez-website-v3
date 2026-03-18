@@ -330,12 +330,12 @@ function renderSpeisekarte(containerId, data) {
       </div>
       <div class="speisekarte-categories-panel">
         ${data.categories.map((cat, catIdx) => `
-          <div class="speisekarte-cat menu-category-redesign${catIdx === 0 ? ' active' : ''}" data-img="${escHtml(cat.image || '')}" data-title="${escHtml(cat.title)}">
+          <div class="speisekarte-cat menu-category-redesign${catIdx === 0 ? ' active' : ''}" data-img="${escHtml(cat.image || '')}" data-title="${escHtml(cat.title)}" data-catid="${escHtml(cat.id)}">
             <div class="menu-cat-content">
               <h3 class="menu-category-title speisekarte-cat-title">${escHtml(cat.title)}</h3>
               <div class="menu-items-grid">
                 ${cat.items.map(item => `
-                  <div class="menu-item speisekarte-item" data-img="${escHtml(cat.image || '')}" data-title="${escHtml(cat.title)}" role="button" tabindex="0">
+                  <div class="menu-item speisekarte-item" data-img="${escHtml(item.image || cat.image || '')}" data-title="${escHtml(item.name)}" data-catid="${escHtml(cat.id)}" role="button" tabindex="0">
                     <div class="menu-item-info">
                       <div class="menu-item-name">${escHtml(item.name)}</div>
                       ${item.desc ? `<div class="menu-item-desc">${escHtml(item.desc)}</div>` : ''}
@@ -357,10 +357,10 @@ function renderSpeisekarte(containerId, data) {
 
   let setFeaturedImageAbort = null;
 
-  function setFeaturedImage(img, title) {
+  function setFeaturedImage(img, title, catId) {
     if (!img) return;
     cats.forEach(c => {
-      c.classList.toggle('active', c.dataset.img === img);
+      c.classList.toggle('active', c.dataset.catid === catId);
     });
     // Abort any pending update
     if (setFeaturedImageAbort) setFeaturedImageAbort();
@@ -392,18 +392,18 @@ function renderSpeisekarte(containerId, data) {
   }
 
   el.querySelectorAll('.speisekarte-item').forEach(item => {
-    item.addEventListener('click', () => setFeaturedImage(item.dataset.img, item.dataset.title));
+    item.addEventListener('click', () => setFeaturedImage(item.dataset.img, item.dataset.title, item.dataset.catid));
     item.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        setFeaturedImage(item.dataset.img, item.dataset.title);
+        setFeaturedImage(item.dataset.img, item.dataset.title, item.dataset.catid);
       }
     });
   });
   el.querySelectorAll('.speisekarte-cat-title').forEach(title => {
     title.addEventListener('click', () => {
       const cat = title.closest('.speisekarte-cat');
-      setFeaturedImage(cat.dataset.img, cat.dataset.title);
+      setFeaturedImage(cat.dataset.img, cat.dataset.title, cat.dataset.catid);
     });
   });
 }
