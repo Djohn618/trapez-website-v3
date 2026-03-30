@@ -309,101 +309,79 @@ function renderMenu(lang) {
 }
 
 /**
- * Speisekarte: split layout – sticky image on the left, clickable items on the right.
- * Clicking any item updates the featured image to that category's photo.
+ * Speisekarte: card layout (same visual design as Getränkkarte).
+ * Each category is a card with image on the left and items on the right.
+ * Clicking any item updates that card's image to the item's photo with a fade transition.
  */
 function renderSpeisekarte(containerId, data) {
   const el = document.getElementById(containerId);
   if (!el || !data) return;
 
-  const firstCat = data.categories[0] || {};
-  const defaultImg = firstCat.image || '';
-  const defaultTitle = firstCat.title || '';
-
-  el.innerHTML = `
-    <div class="speisekarte-split">
-      <div class="speisekarte-image-panel">
-        <div class="speisekarte-image-wrap">
-          <img id="speisekarte-featured-img" src="${escHtml(defaultImg)}" alt="${escHtml(defaultTitle)}" loading="lazy" />
-        </div>
-        <div id="speisekarte-featured-caption" class="speisekarte-image-caption">${escHtml(defaultTitle)}</div>
-      </div>
-      <div class="speisekarte-categories-panel">
-        ${data.categories.map((cat, catIdx) => `
-          <div class="speisekarte-cat menu-category-redesign${catIdx === 0 ? ' active' : ''}" data-img="${escHtml(cat.image || '')}" data-title="${escHtml(cat.title)}" data-catid="${escHtml(cat.id)}">
-            <div class="menu-cat-content">
-              <h3 class="menu-category-title speisekarte-cat-title">${escHtml(cat.title)}</h3>
-              <div class="menu-items-grid">
-                ${cat.items.map(item => `
-                  <div class="menu-item speisekarte-item" data-img="${escHtml(item.image || cat.image || '')}" data-title="${escHtml(item.name)}" data-catid="${escHtml(cat.id)}" role="button" tabindex="0">
-                    <div class="menu-item-info">
-                      <div class="menu-item-name">${escHtml(item.name)}</div>
-                      ${item.desc ? `<div class="menu-item-desc">${escHtml(item.desc)}</div>` : ''}
-                    </div>
-                    <div class="menu-item-price">${escHtml(item.price)}</div>
-                  </div>
-                `).join('')}
+  el.innerHTML = `<div class="menu-categories">
+    ${data.categories.map(cat => `
+      <div class="menu-category-redesign" data-catid="${escHtml(cat.id)}">
+        ${cat.image ? `
+        <div class="menu-cat-image speisekarte-cat-image">
+          <img src="${escHtml(cat.image)}" alt="${escHtml(cat.title)}" loading="lazy" />
+        </div>` : ''}
+        <div class="menu-cat-content">
+          <h3 class="menu-category-title">${escHtml(cat.title)}</h3>
+          <div class="menu-items-grid">
+            ${cat.items.map(item => `
+              <div class="menu-item speisekarte-item" data-img="${escHtml(item.image || cat.image || '')}" data-title="${escHtml(item.name)}" data-catid="${escHtml(cat.id)}" role="button" tabindex="0">
+                <div class="menu-item-info">
+                  <div class="menu-item-name">${escHtml(item.name)}</div>
+                  ${item.desc ? `<div class="menu-item-desc">${escHtml(item.desc)}</div>` : ''}
+                </div>
+                <div class="menu-item-price">${escHtml(item.price)}</div>
               </div>
-            </div>
+            `).join('')}
           </div>
-        `).join('')}
+        </div>
       </div>
-    </div>`;
+    `).join('')}
+  </div>`;
 
-  // Attach click handlers: clicking any item or cat title updates the featured image
-  const featImg = el.querySelector('#speisekarte-featured-img');
-  const featCaption = el.querySelector('#speisekarte-featured-caption');
-  const cats = el.querySelectorAll('.speisekarte-cat');
-
-  let setFeaturedImageAbort = null;
-
-  function setFeaturedImage(img, title, catId) {
-    if (!img) return;
-    cats.forEach(c => {
-      c.classList.toggle('active', c.dataset.catid === catId);
-    });
-    // Abort any pending update
-    if (setFeaturedImageAbort) setFeaturedImageAbort();
-    setFeaturedImageAbort = null;
-
-    const apply = () => {
-      setFeaturedImageAbort = null;
-      featImg.src = img;
-      featImg.alt = title;
-      featCaption.textContent = title;
-      featImg.style.opacity = '1';
-    };
-
-    // If already transparent, update immediately without another transition
-    if (parseFloat(getComputedStyle(featImg).opacity) <= 0.05) {
-      apply();
-      return;
-    }
-
-    const handleTransitionEnd = () => {
-      featImg.removeEventListener('transitionend', handleTransitionEnd);
-      apply();
-    };
-    setFeaturedImageAbort = () => {
-      featImg.removeEventListener('transitionend', handleTransitionEnd);
-    };
-    featImg.addEventListener('transitionend', handleTransitionEnd);
-    featImg.style.opacity = '0';
-  }
-
+  // Attach click handlers: clicking a dish updates that category card's image
   el.querySelectorAll('.speisekarte-item').forEach(item => {
-    item.addEventListener('click', () => setFeaturedImage(item.dataset.img, item.dataset.title, item.dataset.catid));
+    const handler = () => {
+      if (!item.dataset.img) return;
+      const catCard = item.closest('.menu-category-redesign');
+      const img = catCard?.querySelector('.speisekarte-cat-image img');
+      if (!img) return;
+
+      // Mark item as active within its category
+      catCard.querySelectorAll('.speisekarte-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+
+      // Skip transition if image is already the same
+      const currentSrc = img.getAttribute('src');
+      if (currentSrc === item.dataset.img) return;
+
+      // If already faded out, swap immediately without triggering a new transition
+      if (parseFloat(getComputedStyle(img).opacity) <= 0.05) {
+        img.src = item.dataset.img;
+        img.alt = item.dataset.title;
+        img.style.opacity = '1';
+        return;
+      }
+
+      // Fade out → swap → fade in
+      const handleTransitionEnd = () => {
+        img.removeEventListener('transitionend', handleTransitionEnd);
+        img.src = item.dataset.img;
+        img.alt = item.dataset.title;
+        img.style.opacity = '1';
+      };
+      img.addEventListener('transitionend', handleTransitionEnd);
+      img.style.opacity = '0';
+    };
+    item.addEventListener('click', handler);
     item.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        setFeaturedImage(item.dataset.img, item.dataset.title, item.dataset.catid);
+        handler();
       }
-    });
-  });
-  el.querySelectorAll('.speisekarte-cat-title').forEach(title => {
-    title.addEventListener('click', () => {
-      const cat = title.closest('.speisekarte-cat');
-      setFeaturedImage(cat.dataset.img, cat.dataset.title, cat.dataset.catid);
     });
   });
 }
