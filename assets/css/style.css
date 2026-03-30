@@ -1903,6 +1903,32 @@ footer {
   }
 }
 
+/* --- SPEISEKARTE CARD IMAGE --------------------------------- */
+/* Speisekarte uses contain (not cover) so food photos show fully */
+.speisekarte-cat-image {
+  background: rgba(26,8,8,0.25);
+}
+.speisekarte-cat-image img {
+  object-fit: contain;
+  padding: 8px;
+  transition: opacity 0.3s ease;
+}
+/* No zoom on hover for contain images (avoids clipping look) */
+.menu-category-redesign:hover .speisekarte-cat-image img {
+  transform: none;
+}
+
+/* Highlighted menu item when its image is active in the card */
+.speisekarte-item.active {
+  background: rgba(107,36,36,0.15);
+  border-radius: 6px;
+  padding-left: 8px;
+  border-left-color: var(--effect-light);
+}
+.speisekarte-item.active .menu-item-name {
+  color: var(--white);
+}
+
 /* --- BTN GOLD (Tagesmenü hero button) ---------------------- */
 .btn-gold {
   background: var(--effect-light);
