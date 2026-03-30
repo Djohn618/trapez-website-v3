@@ -2003,6 +2003,7 @@ footer {
 .pdf-card:hover .pdf-card-preview-overlay {
   background: rgba(26,8,8,0.35);
 }
+
 .pdf-preview-icon {
   font-size: 3rem;
   opacity: 0;
@@ -2013,6 +2014,7 @@ footer {
   opacity: 1;
   transform: scale(1);
 }
+  
 
 /* Card body below preview */
 .pdf-card-body {
