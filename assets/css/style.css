@@ -1905,22 +1905,49 @@ footer {
 }
 
 @media (max-width: 768px) {
+  /* Keep side-by-side layout on mobile: image left, content right */
   .menu-category-redesign {
-    grid-template-columns: 1fr;
+    grid-template-columns: clamp(90px, 28vw, 130px) 1fr;
+    border-radius: 10px;
   }
   .menu-cat-image {
-    height: 140px;
-    min-height: unset;
+    min-height: 110px;
   }
   .menu-cat-image::after {
-    background: linear-gradient(to bottom, transparent 60%, #6B2424 100%);
+    background: linear-gradient(to right, transparent 60%, #6B2424 100%);
+  }
+  .menu-cat-content {
+    padding: 12px 14px;
+  }
+  .menu-cat-content .menu-category-title {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+  .menu-item {
+    padding: 10px 0;
+    gap: 10px;
+  }
+  .menu-item-name {
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+  }
+  .menu-item-desc {
+    font-size: 0.72rem;
+  }
+  .menu-item-price {
+    font-size: 0.8rem;
   }
 }
 
 /* --- SPEISEKARTE CARD IMAGE --------------------------------- */
 /* Speisekarte uses contain (not cover) so food photos show fully */
+/* align-self: center + aspect-ratio: 1 → uniform square size for all cards */
 .speisekarte-cat-image {
   background: rgba(26,8,8,0.25);
+  align-self: center;
+  aspect-ratio: 1;
+  min-height: 0;
 }
 .speisekarte-cat-image img {
   object-fit: contain;
@@ -1934,19 +1961,28 @@ footer {
 
 /* Highlighted menu item when its image is active in the card */
 .speisekarte-item.active {
-  background: rgba(107,36,36,0.15);
+  background: rgba(201, 169, 110, 0.22);
   border-radius: 6px;
-  padding-left: 8px;
-  border-left-color: var(--effect-light);
+  padding-left: 10px;
+  border-left: 3px solid var(--gold);
+  box-shadow: inset 0 0 0 1px rgba(201,169,110,0.18);
 }
 .speisekarte-item.active .menu-item-name {
-  color: var(--white);
+  color: var(--gold);
+  font-weight: 600;
+}
+.speisekarte-item.active .menu-item-price {
+  color: var(--gold);
 }
 
 /* --- GETRÄNKKARTE CARD IMAGE -------------------------------- */
 /* Getränkkarte uses contain so drink photos show fully */
+/* align-self: center + aspect-ratio: 1 → uniform square size for all cards */
 .getraenkkarte-cat-image {
   background: rgba(26,8,8,0.25);
+  align-self: center;
+  aspect-ratio: 1;
+  min-height: 0;
 }
 .getraenkkarte-cat-image img {
   object-fit: contain;
@@ -1960,13 +1996,18 @@ footer {
 
 /* Highlighted menu item when its image is active in the card */
 .getraenkkarte-item.active {
-  background: rgba(107,36,36,0.15);
+  background: rgba(201, 169, 110, 0.22);
   border-radius: 6px;
-  padding-left: 8px;
-  border-left-color: var(--effect-light);
+  padding-left: 10px;
+  border-left: 3px solid var(--gold);
+  box-shadow: inset 0 0 0 1px rgba(201,169,110,0.18);
 }
 .getraenkkarte-item.active .menu-item-name {
-  color: var(--white);
+  color: var(--gold);
+  font-weight: 600;
+}
+.getraenkkarte-item.active .menu-item-price {
+  color: var(--gold);
 }
 
 /* --- BTN GOLD (Tagesmenü hero button) ---------------------- */
