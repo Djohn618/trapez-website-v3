@@ -110,58 +110,58 @@ const menuData = {
       categories: [
         {
           id: "aperitivo",
-          image: "assets/images/Getränke/Aperol Spritz.png",
+          image: "assets/images/getränkkarte/aperitivo/Aperol Spritz.png",
           title: "Aperitivo",
           items: [
-            { name: "Aperol Spritz", desc: "Aperol, Prosecco, Soda", price: "Fr. 12.00" },
-            { name: "Campari Soda", desc: "Campari mit Soda", price: "Fr. 11.00" },
-            { name: "Hugo", desc: "Holunderblütensirup, Prosecco, Minze", price: "Fr. 12.00" },
-            { name: "Prosecco", desc: "Glas 1dl", price: "Fr. 7.50" }
+            { name: "Aperol Spritz", desc: "Aperol, Prosecco, Soda", price: "Fr. 12.00", image: "assets/images/getränkkarte/aperitivo/Aperol Spritz.png" },
+            { name: "Campari Soda", desc: "Campari mit Soda", price: "Fr. 11.00", image: "assets/images/getränkkarte/aperitivo/Campari Soda.png" },
+            { name: "Hugo", desc: "Holunderblütensirup, Prosecco, Minze", price: "Fr. 12.00", image: "assets/images/getränkkarte/aperitivo/Hugo.png" },
+            { name: "Prosecco", desc: "Glas 1dl", price: "Fr. 7.50", image: "assets/images/getränkkarte/aperitivo/Prosecco.png" }
           ]
         },
         {
           id: "weine",
-          image: "assets/images/Getränke/Vino della Casa Bianco.png",
+          image: "assets/images/getränkkarte/weine/Vino della Casa Bianco.png",
           title: "Weine",
           items: [
-            { name: "Vino della Casa Bianco", desc: "Hauswein weiss, 1dl", price: "Fr. 5.50" },
-            { name: "Vino della Casa Rosso", desc: "Hauswein rot, 1dl", price: "Fr. 5.50" },
-            { name: "Pinot Grigio", desc: "Venetien, 1dl", price: "Fr. 7.00" },
-            { name: "Chianti Classico", desc: "Toskana, 1dl", price: "Fr. 8.50" },
-            { name: "Barolo", desc: "Piemont, Flasche 7dl", price: "Fr. 58.00" }
+            { name: "Vino della Casa Bianco", desc: "Hauswein weiss, 1dl", price: "Fr. 5.50", image: "assets/images/getränkkarte/weine/Vino della Casa Bianco.png" },
+            { name: "Vino della Casa Rosso", desc: "Hauswein rot, 1dl", price: "Fr. 5.50", image: "assets/images/getränkkarte/weine/Vino della Casa Rosso.png" },
+            { name: "Pinot Grigio", desc: "Venetien, 1dl", price: "Fr. 7.00", image: "assets/images/getränkkarte/weine/Pinot Grigio.png" },
+            { name: "Chianti Classico", desc: "Toskana, 1dl", price: "Fr. 8.50", image: "assets/images/getränkkarte/weine/Chianti Classico.png" },
+            { name: "Barolo", desc: "Piemont, Flasche 7dl", price: "Fr. 58.00", image: "assets/images/getränkkarte/weine/Barolo.png" }
           ]
         },
         {
           id: "bier",
-          image: "assets/images/Getränke/Bier vom Fass.png",
+          image: "assets/images/getränkkarte/bier/Bier vom Fass-0.3.png",
           title: "Bier",
           items: [
-            { name: "Bier vom Fass", desc: "0.3 lt", price: "Fr. 4.50" },
-            { name: "Bier vom Fass", desc: "0.5 lt", price: "Fr. 6.50" },
-            { name: "Nastro Azzurro", desc: "Flasche 0.33 lt", price: "Fr. 5.50" },
-            { name: "Peroni", desc: "Flasche 0.33 lt", price: "Fr. 5.50" }
+            { name: "Bier vom Fass", desc: "0.3 lt", price: "Fr. 4.50", image: "assets/images/getränkkarte/bier/Bier vom Fass-0.3.png" },
+            { name: "Bier vom Fass", desc: "0.5 lt", price: "Fr. 6.50", image: "assets/images/getränkkarte/bier/Bier vom Fass-0.5.png" },
+            { name: "Nastro Azzurro", desc: "Flasche 0.33 lt", price: "Fr. 5.50", image: "assets/images/getränkkarte/bier/Nastro Azzurro.png" },
+            { name: "Peroni", desc: "Flasche 0.33 lt", price: "Fr. 5.50", image: "assets/images/getränkkarte/bier/Peroni.png" }
           ]
         },
         {
           id: "mineral",
-          image: "assets/images/Getränke/Hausgemachter Zitronensirup.png",
+          image: "assets/images/getränkkarte/mineralwasser/Mineral still.png",
           title: "Mineralwasser",
           items: [
-            { name: "Hausgemachter Zitronensirup", desc: "Mit Mineralwasser", price: "Fr. 4.50" },
-            { name: "Mineral still", desc: "5dl Flasche", price: "Fr. 4.00" },
-            { name: "Mineral prickelnd", desc: "5dl Flasche", price: "Fr. 4.00" },
-            { name: "Mineral Offenausschank", desc: "2dl", price: "Fr. 3.00" }
+            { name: "Hausgemachter Zitronensirup", desc: "Mit Mineralwasser", price: "Fr. 4.50", image: "assets/images/getränkkarte/mineralwasser/Hausgemachter Zitronensirup.png" },
+            { name: "Mineral still", desc: "5dl Flasche", price: "Fr. 4.00", image: "assets/images/getränkkarte/mineralwasser/Mineral still.png" },
+            { name: "Mineral prickelnd", desc: "5dl Flasche", price: "Fr. 4.00", image: "assets/images/getränkkarte/mineralwasser/Mineral prickelnd.png" },
+            { name: "Mineral Offenausschank", desc: "2dl", price: "Fr. 3.00", image: "assets/images/getränkkarte/mineralwasser/Mineral Offenausschank.png" }
           ]
         },
         {
           id: "kaffee",
-          image: "assets/images/Getränke/Espresso.png",
+          image: "assets/images/getränkkarte/kaffee/Espresso.png",
           title: "Kaffee",
           items: [
-            { name: "Espresso", desc: "Einzeln", price: "Fr. 3.50" },
-            { name: "Caffè Latte", desc: "Grosser Kaffee mit Milch", price: "Fr. 5.00" },
-            { name: "Cappuccino", desc: "Espresso mit aufgeschäumter Milch", price: "Fr. 4.50" },
-            { name: "Tee", desc: "Verschiedene Sorten", price: "Fr. 4.00" }
+            { name: "Espresso", desc: "Einzeln", price: "Fr. 3.50", image: "assets/images/getränkkarte/kaffee/Espresso.png" },
+            { name: "Caffè Latte", desc: "Grosser Kaffee mit Milch", price: "Fr. 5.00", image: "assets/images/getränkkarte/kaffee/Caffè Latte.png" },
+            { name: "Cappuccino", desc: "Espresso mit aufgeschäumter Milch", price: "Fr. 4.50", image: "assets/images/getränkkarte/kaffee/Cappuccino.png" },
+            { name: "Tee", desc: "Verschiedene Sorten", price: "Fr. 4.00", image: "assets/images/getränkkarte/kaffee/Tee.png" }
           ]
         }
       ]
