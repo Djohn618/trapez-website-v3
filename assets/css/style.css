@@ -717,6 +717,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--white);
 }
 
+.getraenkkarte-item {
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.getraenkkarte-item:hover {
+  background: rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding-left: 8px;
+}
+.getraenkkarte-item:hover .menu-item-name {
+  color: var(--white);
+}
+
 @media (max-width: 900px) {
   .speisekarte-split {
     grid-template-columns: 1fr;
@@ -1926,6 +1940,32 @@ footer {
   border-left-color: var(--effect-light);
 }
 .speisekarte-item.active .menu-item-name {
+  color: var(--white);
+}
+
+/* --- GETRÄNKKARTE CARD IMAGE -------------------------------- */
+/* Getränkkarte uses contain so drink photos show fully */
+.getraenkkarte-cat-image {
+  background: rgba(26,8,8,0.25);
+}
+.getraenkkarte-cat-image img {
+  object-fit: contain;
+  padding: 8px;
+  transition: opacity 0.3s ease;
+}
+/* No zoom on hover for contain images (avoids clipping look) */
+.menu-category-redesign:hover .getraenkkarte-cat-image img {
+  transform: none;
+}
+
+/* Highlighted menu item when its image is active in the card */
+.getraenkkarte-item.active {
+  background: rgba(107,36,36,0.15);
+  border-radius: 6px;
+  padding-left: 8px;
+  border-left-color: var(--effect-light);
+}
+.getraenkkarte-item.active .menu-item-name {
   color: var(--white);
 }
 
