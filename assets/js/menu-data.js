@@ -56,8 +56,8 @@ const menuData = {
           image: "assets/images/speisekarte/fish/fish-Branzino al Forno.png",
           items: [
             { name: "Branzino al Forno", desc: "Ofengebackener Wolfsbarsch mit Zitronen-Kräutern", price: "Fr. 36.50", image: "assets/images/speisekarte/fish/fish-Branzino al Forno.png" },
-            { name: "Gamberi all'Aglio", desc: "Riesengarnelen in Knoblauch-Olivenöl-Sauce", price: "Fr. 34.50", image: "assets/images/speisekarte/fish/fish-Gamberi all'Aglio.jpg" },
-            { name: "Salmone Griglia", desc: "Gegrillter Lachs mit Kapern-Tomatensauce", price: "Fr. 32.50", image: "assets/images/speisekarte/fish/fish-Salmone Griglia.jpg" }
+            { name: "Gamberi all'Aglio", desc: "Riesengarnelen in Knoblauch-Olivenöl-Sauce", price: "Fr. 34.50", image: "assets/images/speisekarte/fish/fish-Gamberi all'Aglio.png" },
+            { name: "Salmone Griglia", desc: "Gegrillter Lachs mit Kapern-Tomatensauce", price: "Fr. 32.50", image: "assets/images/speisekarte/fish/fish-Salmone Griglia.png" }
           ]
         },
         {
