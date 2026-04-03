@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGallery();
   initScrollReveal();
   initFormspree();
-  initHeroCta3();
+  initHeroCtaLinks();
 });
 
 /* ---------------------------------------------------------- */
@@ -35,11 +35,11 @@ function initLoading() {
 
   document.body.classList.add('loading-active');
 
-  // Hide after animation (2.6 s)
+  // Hide after animation (1.8 s)
   setTimeout(() => {
     screen.classList.add('hidden');
     document.body.classList.remove('loading-active');
-  }, 2600);
+  }, 1800);
 }
 
 /* ---------------------------------------------------------- */
@@ -355,26 +355,18 @@ function renderSpeisekarte(containerId, data) {
       item.classList.add('active');
 
       // Skip transition if image is already the same
-      const currentSrc = img.getAttribute('src');
-      if (currentSrc === item.dataset.img) return;
+      if (img.getAttribute('src') === item.dataset.img) return;
 
-      // If already faded out, swap immediately without triggering a new transition
-      if (parseFloat(getComputedStyle(img).opacity) <= 0.05) {
-        img.src = item.dataset.img;
-        img.alt = item.dataset.title;
-        img.style.opacity = '1';
-        return;
-      }
-
-      // Fade out → swap → fade in
-      const handleTransitionEnd = () => {
-        img.removeEventListener('transitionend', handleTransitionEnd);
-        img.src = item.dataset.img;
-        img.alt = item.dataset.title;
-        img.style.opacity = '1';
-      };
-      img.addEventListener('transitionend', handleTransitionEnd);
+      // Fade out, swap, fade in
+      img.style.transition = 'opacity 0.18s ease';
       img.style.opacity = '0';
+      const newSrc = item.dataset.img;
+      const newAlt = item.dataset.title;
+      setTimeout(() => {
+        img.src = newSrc;
+        img.alt = newAlt;
+        img.style.opacity = '1';
+      }, 180);
     };
     item.addEventListener('click', handler);
     item.addEventListener('keydown', e => {
@@ -428,26 +420,18 @@ function renderGetraenkkarte(containerId, data) {
       item.classList.add('active');
 
       // Skip transition if image is already the same
-      const currentSrc = img.getAttribute('src');
-      if (currentSrc === item.dataset.img) return;
+      if (img.getAttribute('src') === item.dataset.img) return;
 
-      // If already faded out, swap immediately without triggering a new transition
-      if (parseFloat(getComputedStyle(img).opacity) <= 0.05) {
-        img.src = item.dataset.img;
-        img.alt = item.dataset.title;
-        img.style.opacity = '1';
-        return;
-      }
-
-      // Fade out → swap → fade in
-      const handleTransitionEnd = () => {
-        img.removeEventListener('transitionend', handleTransitionEnd);
-        img.src = item.dataset.img;
-        img.alt = item.dataset.title;
-        img.style.opacity = '1';
-      };
-      img.addEventListener('transitionend', handleTransitionEnd);
+      // Fade out, swap, fade in
+      img.style.transition = 'opacity 0.18s ease';
       img.style.opacity = '0';
+      const newSrc = item.dataset.img;
+      const newAlt = item.dataset.title;
+      setTimeout(() => {
+        img.src = newSrc;
+        img.alt = newAlt;
+        img.style.opacity = '1';
+      }, 180);
     };
     item.addEventListener('click', handler);
     item.addEventListener('keydown', e => {
@@ -457,36 +441,6 @@ function renderGetraenkkarte(containerId, data) {
       }
     });
   });
-}
-
-function renderCardMenu(containerId, data) {
-  const el = document.getElementById(containerId);
-  if (!el || !data) return;
-
-  el.innerHTML = `<div class="menu-categories">
-    ${data.categories.map(cat => `
-      <div class="menu-category-redesign">
-        ${cat.image ? `
-        <div class="menu-cat-image">
-          <img src="${escHtml(cat.image)}" alt="${escHtml(cat.title)}" loading="lazy" />
-        </div>` : ''}
-        <div class="menu-cat-content">
-          <h3 class="menu-category-title">${escHtml(cat.title)}</h3>
-          <div class="menu-items-grid">
-            ${cat.items.map(item => `
-              <div class="menu-item">
-                <div class="menu-item-info">
-                  <div class="menu-item-name">${escHtml(item.name)}</div>
-                  ${item.desc ? `<div class="menu-item-desc">${escHtml(item.desc)}</div>` : ''}
-                </div>
-                <div class="menu-item-price">${escHtml(item.price)}</div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      </div>
-    `).join('')}
-  </div>`;
 }
 
 function renderAktuell(containerId, data) {
@@ -692,15 +646,24 @@ function initFormspree() {
 }
 
 /* ---------------------------------------------------------- */
-/*  HERO CTA3 — TAGESMENÜ SHORTCUT                            */
+/*  HERO CTA LINKS — TAB SHORTCUTS                            */
 /* ---------------------------------------------------------- */
-function initHeroCta3() {
+function initHeroCtaLinks() {
+  // CTA2 ("Speisekarte") → navigate to angebot and switch to speisekarte tab
+  const cta2 = document.getElementById('hero-cta2');
+  if (cta2) {
+    cta2.addEventListener('click', () => {
+      setTimeout(() => switchTab('speisekarte'), 400);
+    });
+  }
+
+  // CTA3 ("Tagesmenü") → navigate to angebot and switch to tagesmenü tab
   const cta3 = document.getElementById('hero-cta3');
-  if (!cta3) return;
-  cta3.addEventListener('click', e => {
-    // Switch to tagesmenü tab after scrolling
-    setTimeout(() => switchTab('tagesmenue'), 400);
-  });
+  if (cta3) {
+    cta3.addEventListener('click', () => {
+      setTimeout(() => switchTab('tagesmenue'), 400);
+    });
+  }
 }
 
 /* ---------------------------------------------------------- */

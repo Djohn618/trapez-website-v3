@@ -141,7 +141,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 100%;
   height: 100%;
   background: var(--effect-light);
-  animation: loadingProgress 2.2s ease forwards;
+  animation: loadingProgress 1.6s ease forwards;
 }
 
 @keyframes loadingPulse {
@@ -624,85 +624,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* Speisekarte / Getränkkarte */
 .menu-categories { display: flex; flex-direction: column; gap: 36px; }
 
-/* --- SPEISEKARTE SPLIT LAYOUT ------------------------------ */
-.speisekarte-split {
-  display: grid;
-  grid-template-columns: 45% 55%;
-  gap: 32px;
-  align-items: start;
-}
-
-.speisekarte-image-panel {
-  position: sticky;
-  top: 90px;
-  background: var(--card-bg);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-.speisekarte-image-wrap {
-  width: 100%;
-  aspect-ratio: 1/1;
-  max-height: 380px;
-  overflow: hidden;
-  background: rgba(26,8,8,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.speisekarte-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 12px;
-  transition: opacity 0.3s ease;
-}
-
-.speisekarte-image-caption {
-  text-align: center;
-  padding: 10px 16px;
-  font-family: var(--font-head);
-  font-size: 0.9rem;
-  color: var(--effect-light);
-  font-style: italic;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.speisekarte-categories-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* Category card in speisekarte split layout (no image col, compact) */
-.speisekarte-cat {
-  background: var(--card-bg);
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: var(--shadow);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  /* Override the 2-col grid from .menu-category-redesign — no image thumb here */
-  grid-template-columns: 1fr;
-  display: block;
-}
-.speisekarte-cat.active {
-  border-color: var(--effect-light);
-  box-shadow: 0 4px 24px rgba(107,36,36,0.3);
-}
-
-.speisekarte-cat-title {
-  cursor: pointer;
-  font-size: 1.15rem;
-  padding-bottom: 10px;
-  transition: color 0.2s;
-}
-.speisekarte-cat-title:hover {
-  color: var(--effect-light);
-}
-
 .speisekarte-item {
   cursor: pointer;
   border-radius: 6px;
@@ -731,16 +652,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--white);
 }
 
-@media (max-width: 900px) {
-  .speisekarte-split {
-    grid-template-columns: 1fr;
-  }
-  .speisekarte-image-panel {
-    position: static;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-}
 
 .menu-category-title {
   font-family: var(--font-head);
@@ -1952,7 +1863,7 @@ footer {
 .speisekarte-cat-image img {
   object-fit: contain;
   padding: 8px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.18s ease;
 }
 /* No zoom on hover for contain images (avoids clipping look) */
 .menu-category-redesign:hover .speisekarte-cat-image img {
@@ -1987,7 +1898,7 @@ footer {
 .getraenkkarte-cat-image img {
   object-fit: contain;
   padding: 8px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.18s ease;
 }
 /* No zoom on hover for contain images (avoids clipping look) */
 .menu-category-redesign:hover .getraenkkarte-cat-image img {

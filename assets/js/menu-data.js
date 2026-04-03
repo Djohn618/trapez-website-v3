@@ -272,8 +272,8 @@ const menuData = {
           image: "assets/images/speisekarte/fish/fish-Branzino al Forno.png",
           items: [
             { name: "Baked Sea Bass", desc: "Oven-baked sea bass with lemon and herbs", price: "Fr. 36.50", image: "assets/images/speisekarte/fish/fish-Branzino al Forno.png" },
-            { name: "Gamberi all'Aglio", desc: "King prawns in garlic olive oil sauce", price: "Fr. 34.50", image: "assets/images/speisekarte/fish/fish-Gamberi all'Aglio.jpg" },
-            { name: "Grilled Salmon", desc: "With caper and tomato sauce", price: "Fr. 32.50", image: "assets/images/speisekarte/fish/fish-Salmone Griglia.jpg" }
+            { name: "Gamberi all'Aglio", desc: "King prawns in garlic olive oil sauce", price: "Fr. 34.50", image: "assets/images/speisekarte/fish/fish-Gamberi all'Aglio.png" },
+            { name: "Grilled Salmon", desc: "With caper and tomato sauce", price: "Fr. 32.50", image: "assets/images/speisekarte/fish/fish-Salmone Griglia.png" }
           ]
         },
         {
@@ -326,58 +326,58 @@ const menuData = {
       categories: [
         {
           id: "aperitivo",
-          image: "assets/images/Getränke/Aperol Spritz.png",
+          image: "assets/images/getränkkarte/aperitivo/Aperol Spritz.png",
           title: "Aperitivo",
           items: [
-            { name: "Aperol Spritz", desc: "Aperol, Prosecco, Soda", price: "Fr. 12.00" },
-            { name: "Campari Soda", desc: "Campari with soda water", price: "Fr. 11.00" },
-            { name: "Hugo", desc: "Elderflower syrup, Prosecco, mint", price: "Fr. 12.00" },
-            { name: "Prosecco", desc: "Glass 1dl", price: "Fr. 7.50" }
+            { name: "Aperol Spritz", desc: "Aperol, Prosecco, Soda", price: "Fr. 12.00", image: "assets/images/getränkkarte/aperitivo/Aperol Spritz.png" },
+            { name: "Campari Soda", desc: "Campari with soda water", price: "Fr. 11.00", image: "assets/images/getränkkarte/aperitivo/Campari Soda.png" },
+            { name: "Hugo", desc: "Elderflower syrup, Prosecco, mint", price: "Fr. 12.00", image: "assets/images/getränkkarte/aperitivo/Hugo.png" },
+            { name: "Prosecco", desc: "Glass 1dl", price: "Fr. 7.50", image: "assets/images/getränkkarte/aperitivo/Prosecco.png" }
           ]
         },
         {
           id: "weine",
-          image: "assets/images/Getränke/Vino della Casa Bianco.png",
+          image: "assets/images/getränkkarte/weine/Vino della Casa Bianco.png",
           title: "Wines",
           items: [
-            { name: "House White Wine", desc: "1dl", price: "Fr. 5.50" },
-            { name: "House Red Wine", desc: "1dl", price: "Fr. 5.50" },
-            { name: "Pinot Grigio", desc: "Veneto, 1dl", price: "Fr. 7.00" },
-            { name: "Chianti Classico", desc: "Tuscany, 1dl", price: "Fr. 8.50" },
-            { name: "Barolo", desc: "Piedmont, bottle 7dl", price: "Fr. 58.00" }
+            { name: "House White Wine", desc: "1dl", price: "Fr. 5.50", image: "assets/images/getränkkarte/weine/Vino della Casa Bianco.png" },
+            { name: "House Red Wine", desc: "1dl", price: "Fr. 5.50", image: "assets/images/getränkkarte/weine/Vino della Casa Rosso.png" },
+            { name: "Pinot Grigio", desc: "Veneto, 1dl", price: "Fr. 7.00", image: "assets/images/getränkkarte/weine/Pinot Grigio.png" },
+            { name: "Chianti Classico", desc: "Tuscany, 1dl", price: "Fr. 8.50", image: "assets/images/getränkkarte/weine/Chianti Classico.png" },
+            { name: "Barolo", desc: "Piedmont, bottle 7dl", price: "Fr. 58.00", image: "assets/images/getränkkarte/weine/Barolo.png" }
           ]
         },
         {
           id: "bier",
-          image: "assets/images/Getränke/Bier vom Fass.png",
+          image: "assets/images/getränkkarte/bier/Bier vom Fass-0.3.png",
           title: "Beer",
           items: [
-            { name: "Draft Beer", desc: "0.3 lt", price: "Fr. 4.50" },
-            { name: "Draft Beer", desc: "0.5 lt", price: "Fr. 6.50" },
-            { name: "Nastro Azzurro", desc: "Bottle 0.33 lt", price: "Fr. 5.50" },
-            { name: "Peroni", desc: "Bottle 0.33 lt", price: "Fr. 5.50" }
+            { name: "Draft Beer", desc: "0.3 lt", price: "Fr. 4.50", image: "assets/images/getränkkarte/bier/Bier vom Fass-0.3.png" },
+            { name: "Draft Beer", desc: "0.5 lt", price: "Fr. 6.50", image: "assets/images/getränkkarte/bier/Bier vom Fass-0.5.png" },
+            { name: "Nastro Azzurro", desc: "Bottle 0.33 lt", price: "Fr. 5.50", image: "assets/images/getränkkarte/bier/Nastro Azzurro.png" },
+            { name: "Peroni", desc: "Bottle 0.33 lt", price: "Fr. 5.50", image: "assets/images/getränkkarte/bier/Peroni.png" }
           ]
         },
         {
           id: "mineral",
-          image: "assets/images/Getränke/Hausgemachter Zitronensirup.png",
+          image: "assets/images/getränkkarte/mineralwasser/Mineral still.png",
           title: "Water & Soft Drinks",
           items: [
-            { name: "House Lemonade", desc: "With mineral water", price: "Fr. 4.50" },
-            { name: "Still Water", desc: "5dl bottle", price: "Fr. 4.00" },
-            { name: "Sparkling Water", desc: "5dl bottle", price: "Fr. 4.00" },
-            { name: "Mineral Water", desc: "2dl", price: "Fr. 3.00" }
+            { name: "House Lemonade", desc: "With mineral water", price: "Fr. 4.50", image: "assets/images/getränkkarte/mineralwasser/Hausgemachter Zitronensirup.png" },
+            { name: "Still Water", desc: "5dl bottle", price: "Fr. 4.00", image: "assets/images/getränkkarte/mineralwasser/Mineral still.png" },
+            { name: "Sparkling Water", desc: "5dl bottle", price: "Fr. 4.00", image: "assets/images/getränkkarte/mineralwasser/Mineral prickelnd.png" },
+            { name: "Mineral Water", desc: "2dl", price: "Fr. 3.00", image: "assets/images/getränkkarte/mineralwasser/Mineral Offenausschank.png" }
           ]
         },
         {
           id: "kaffee",
-          image: "assets/images/Getränke/Espresso.png",
+          image: "assets/images/getränkkarte/kaffee/Espresso.png",
           title: "Coffee & Tea",
           items: [
-            { name: "Espresso", desc: "Single shot", price: "Fr. 3.50" },
-            { name: "Caffè Latte", desc: "Large coffee with milk", price: "Fr. 5.00" },
-            { name: "Cappuccino", desc: "Espresso with steamed milk foam", price: "Fr. 4.50" },
-            { name: "Tea", desc: "Various flavours", price: "Fr. 4.00" }
+            { name: "Espresso", desc: "Single shot", price: "Fr. 3.50", image: "assets/images/getränkkarte/kaffee/Espresso.png" },
+            { name: "Caffè Latte", desc: "Large coffee with milk", price: "Fr. 5.00", image: "assets/images/getränkkarte/kaffee/Caffè Latte.png" },
+            { name: "Cappuccino", desc: "Espresso with steamed milk foam", price: "Fr. 4.50", image: "assets/images/getränkkarte/kaffee/Cappuccino.png" },
+            { name: "Tea", desc: "Various flavours", price: "Fr. 4.00", image: "assets/images/getränkkarte/kaffee/Tee.png" }
           ]
         }
       ]
