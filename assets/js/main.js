@@ -11,6 +11,9 @@ let currentLang = localStorage.getItem('trapez-lang') || 'de';
 let lightboxImages = [];
 let lightboxIndex = 0;
 
+const IMG_SWAP_DURATION = 180;   // ms — menu card image fade duration
+const TAB_SWITCH_DELAY  = 400;   // ms — wait for smooth scroll before switching tab
+
 /* ---------------------------------------------------------- */
 /*  DOM READY                                                   */
 /* ---------------------------------------------------------- */
@@ -358,7 +361,7 @@ function renderSpeisekarte(containerId, data) {
       if (img.getAttribute('src') === item.dataset.img) return;
 
       // Fade out, swap, fade in
-      img.style.transition = 'opacity 0.18s ease';
+      img.style.transition = `opacity ${IMG_SWAP_DURATION / 1000}s ease`;
       img.style.opacity = '0';
       const newSrc = item.dataset.img;
       const newAlt = item.dataset.title;
@@ -366,7 +369,7 @@ function renderSpeisekarte(containerId, data) {
         img.src = newSrc;
         img.alt = newAlt;
         img.style.opacity = '1';
-      }, 180);
+      }, IMG_SWAP_DURATION);
     };
     item.addEventListener('click', handler);
     item.addEventListener('keydown', e => {
@@ -423,7 +426,7 @@ function renderGetraenkkarte(containerId, data) {
       if (img.getAttribute('src') === item.dataset.img) return;
 
       // Fade out, swap, fade in
-      img.style.transition = 'opacity 0.18s ease';
+      img.style.transition = `opacity ${IMG_SWAP_DURATION / 1000}s ease`;
       img.style.opacity = '0';
       const newSrc = item.dataset.img;
       const newAlt = item.dataset.title;
@@ -431,7 +434,7 @@ function renderGetraenkkarte(containerId, data) {
         img.src = newSrc;
         img.alt = newAlt;
         img.style.opacity = '1';
-      }, 180);
+      }, IMG_SWAP_DURATION);
     };
     item.addEventListener('click', handler);
     item.addEventListener('keydown', e => {
@@ -653,7 +656,7 @@ function initHeroCtaLinks() {
   const cta2 = document.getElementById('hero-cta2');
   if (cta2) {
     cta2.addEventListener('click', () => {
-      setTimeout(() => switchTab('speisekarte'), 400);
+      setTimeout(() => switchTab('speisekarte'), TAB_SWITCH_DELAY);
     });
   }
 
@@ -661,7 +664,7 @@ function initHeroCtaLinks() {
   const cta3 = document.getElementById('hero-cta3');
   if (cta3) {
     cta3.addEventListener('click', () => {
-      setTimeout(() => switchTab('tagesmenue'), 400);
+      setTimeout(() => switchTab('tagesmenue'), TAB_SWITCH_DELAY);
     });
   }
 }
