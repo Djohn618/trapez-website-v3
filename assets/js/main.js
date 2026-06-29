@@ -1,8 +1,4 @@
-/**
- * TRAPEZ RESTAURANT — MAIN JAVASCRIPT
- * Handles: loading screen, navigation, language switching,
- *          menu tabs, gallery lightbox, scroll animations
- */
+/* TRAPEZ RESTAURANT — MAIN JAVASCRIPT */
 
 /* ---------------------------------------------------------- */
 /*  STATE                                                       */
@@ -15,32 +11,12 @@ let lightboxIndex = 0;
 /*  DOM READY                                                   */
 /* ---------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-  initLoading();
   initNavbar();
   initLanguage();
-  initTabs();
   initMenuRender();
   initGallery();
   initScrollReveal();
-  initFormspree();
-  initHeroCta3();
 });
-
-/* ---------------------------------------------------------- */
-/*  LOADING SCREEN                                             */
-/* ---------------------------------------------------------- */
-function initLoading() {
-  const screen = document.getElementById('loading-screen');
-  if (!screen) return;
-
-  document.body.classList.add('loading-active');
-
-  // Hide after animation (2.6 s)
-  setTimeout(() => {
-    screen.classList.add('hidden');
-    document.body.classList.remove('loading-active');
-  }, 2600);
-}
 
 /* ---------------------------------------------------------- */
 /*  NAVBAR                                                     */
@@ -180,10 +156,6 @@ function applyLanguage(lang) {
   // Angebot
   setTextById('angebot-title', t.angebot.title);
   setTextById('angebot-label', t.angebot.title);
-  setTextById('tab-speisekarte-label', t.angebot.tabs.speisekarte);
-  setTextById('tab-getraenkkarte-label', t.angebot.tabs.getraenkkarte);
-  setTextById('tab-aktuell-label', t.angebot.tabs.aktuell);
-  setTextById('tab-tagesmenue-label', t.angebot.tabs.tagesmenue);
 
   // Reservieren
   setTextById('reservieren-title', t.reservieren.title);
@@ -233,15 +205,12 @@ function applyLanguage(lang) {
   setTextById('reviews-title', t.kontakt.reviewsTitle);
   renderReviews(t.kontakt.reviews);
 
-  // PDF Downloads
   if (t.pdf) {
     setTextById('pdf-label', t.pdf.label);
     setTextById('pdf-speisekarte-title', t.pdf.speisekarte);
     setTextById('pdf-speisekarte-desc', t.pdf.speisekarteDesc);
-    setTextById('pdf-speisekarte-btn', t.pdf.download);
     setTextById('pdf-getraenke-title', t.pdf.getraenke);
     setTextById('pdf-getraenke-desc', t.pdf.getraenkeDesc);
-    setTextById('pdf-getraenke-btn', t.pdf.download);
   }
 
   // Footer
@@ -261,30 +230,6 @@ function setTextById(id, text) {
 function setPlaceholderById(id, text) {
   const el = document.getElementById(id);
   if (el && text !== undefined) el.placeholder = text;
-}
-
-/* ---------------------------------------------------------- */
-/*  MENU TABS                                                  */
-/* ---------------------------------------------------------- */
-function initTabs() {
-  // Default active tab = aktuell
-  switchTab('aktuell');
-
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tab = btn.dataset.tab;
-      switchTab(tab);
-    });
-  });
-}
-
-function switchTab(tabId) {
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.tab === tabId);
-  });
-  document.querySelectorAll('.tab-panel').forEach(panel => {
-    panel.classList.toggle('active', panel.id === `tab-${tabId}`);
-  });
 }
 
 /* ---------------------------------------------------------- */
@@ -646,60 +591,6 @@ function observeReveal() {
 
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
     if (!el.classList.contains('visible')) observer.observe(el);
-  });
-}
-
-/* ---------------------------------------------------------- */
-/*  FORMSPREE INTEGRATION                                      */
-/* ---------------------------------------------------------- */
-function initFormspree() {
-  const form = document.getElementById('reservation-form');
-  if (!form) return;
-
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-
-    const btn = form.querySelector('#btn-reserve');
-    const originalText = btn.textContent;
-
-    // Show loading state
-    btn.textContent = '...';
-    btn.disabled = true;
-
-    try {
-      const data = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        window.location.href = 'thank-you.html';
-      } else {
-        const json = await response.json();
-        const msg = (json.errors || []).map(e => e.message).join(', ') || 'Error. Please try again.';
-        alert(msg);
-        btn.textContent = originalText;
-        btn.disabled = false;
-      }
-    } catch {
-      alert('Network error. Please try again.');
-      btn.textContent = originalText;
-      btn.disabled = false;
-    }
-  });
-}
-
-/* ---------------------------------------------------------- */
-/*  HERO CTA3 — TAGESMENÜ SHORTCUT                            */
-/* ---------------------------------------------------------- */
-function initHeroCta3() {
-  const cta3 = document.getElementById('hero-cta3');
-  if (!cta3) return;
-  cta3.addEventListener('click', e => {
-    // Switch to tagesmenü tab after scrolling
-    setTimeout(() => switchTab('tagesmenue'), 400);
   });
 }
 

@@ -27,17 +27,6 @@
 <body>
 
 <!-- =====================================================
-     LOADING SCREEN
-     ===================================================== -->
-<div id="loading-screen" role="status" aria-label="Seite wird geladen">
-  <div class="loading-logo">
-    <img src="assets/images/Trapez_v5.png" alt="Restaurant Trapez Logo" />
-  </div>
-  <div class="loading-text">Restaurant Trapez</div>
-  <div class="loading-bar" aria-hidden="true"></div>
-</div>
-
-<!-- =====================================================
      NAVIGATION
      ===================================================== -->
 <nav id="navbar" role="navigation" aria-label="Hauptnavigation">
@@ -126,15 +115,10 @@
     <div class="hero-buttons">
       <a id="hero-cta1" class="btn btn-primary" href="#reservieren">Tisch Reservieren</a>
       <a id="hero-cta2" class="btn btn-outline" href="#angebot">Speisekarte</a>
-      <a id="hero-cta3" class="btn btn-gold" href="#angebot" data-tab-target="tagesmenue">Tagesmenü</a>
+      <a id="hero-cta3" class="btn btn-gold" href="#angebot">Tagesmenü</a>
     </div>
   </div>
 
-  <!-- Scroll indicator -->
-  <div class="hero-scroll" aria-hidden="true">
-    <div class="scroll-mouse"></div>
-    <span>scroll</span>
-  </div>
 </section>
 
 <!-- =====================================================
@@ -148,31 +132,23 @@
       <h2 class="section-title" id="angebot-title">Unser Angebot</h2>
     </div>
 
-    <!-- Tabs -->
-    <div class="angebot-tabs reveal" role="tablist" aria-label="Angebot Kategorien">
-      <button class="tab-btn" id="tab-speisekarte-label" data-tab="speisekarte" role="tab" aria-controls="tab-speisekarte">Speisekarte</button>
-      <button class="tab-btn" id="tab-getraenkkarte-label" data-tab="getraenkkarte" role="tab" aria-controls="tab-getraenkkarte">Getränkkarte</button>
-      <button class="tab-btn active" id="tab-aktuell-label" data-tab="aktuell" role="tab" aria-controls="tab-aktuell" aria-selected="true">Aktuell</button>
-      <button class="tab-btn" id="tab-tagesmenue-label" data-tab="tagesmenue" role="tab" aria-controls="tab-tagesmenue">Tagesmenü</button>
-    </div>
-
-    <!-- Tab: Speisekarte -->
-    <div id="tab-speisekarte" class="tab-panel" role="tabpanel" aria-labelledby="tab-speisekarte-label">
+    <!-- Speisekarte -->
+    <div id="tab-speisekarte">
       <div id="speisekarte-content"></div>
     </div>
 
-    <!-- Tab: Getränkkarte -->
-    <div id="tab-getraenkkarte" class="tab-panel" role="tabpanel" aria-labelledby="tab-getraenkkarte-label">
+    <!-- Getränkkarte -->
+    <div id="tab-getraenkkarte">
       <div id="getraenkkarte-content"></div>
     </div>
 
-    <!-- Tab: Aktuell (default open) -->
-    <div id="tab-aktuell" class="tab-panel active" role="tabpanel" aria-labelledby="tab-aktuell-label">
+    <!-- Aktuell -->
+    <div id="tab-aktuell">
       <div id="aktuell-content"></div>
     </div>
 
-    <!-- Tab: Tagesmenü -->
-    <div id="tab-tagesmenue" class="tab-panel" role="tabpanel" aria-labelledby="tab-tagesmenue-label">
+    <!-- Tagesmenü -->
+    <div id="tab-tagesmenue">
       <div id="tagesmenue-content"></div>
     </div>
 
@@ -183,7 +159,7 @@
       </div>
       <div class="pdf-cards">
         <div class="pdf-card reveal">
-          <a href="assets/images/pdf/Trapez-Speisekarte.pdf" class="pdf-card-preview-link" target="_blank" rel="noopener" aria-label="Speisekarte Vorschau">
+          <a href="assets/pdf/Trapez-Speisekarte.pdf" class="pdf-card-preview-link" target="_blank" rel="noopener noreferrer" aria-label="Speisekarte Vorschau">
             <div class="pdf-card-preview">
               <img src="assets/images/pdf/Speisekarte_pre_view.png" alt="Speisekarte Vorschau" loading="lazy" />
               <div class="pdf-card-preview-overlay">
@@ -194,13 +170,11 @@
           <div class="pdf-card-body">
             <h3 class="pdf-card-title" id="pdf-speisekarte-title">Speisekarte</h3>
             <p class="pdf-card-desc" id="pdf-speisekarte-desc">Unsere vollständige Speisekarte als PDF</p>
-            <a href="assets/images/pdf/Trapez-Speisekarte.pdf" class="btn btn-outline-menu" id="pdf-speisekarte-btn" target="_blank" rel="noopener" download="Trapez-Speisekarte.pdf">
-              <span>&#8659;</span> PDF herunterladen
-            </a>
+            <a href="assets/pdf/Trapez-Speisekarte.pdf" target="_blank" rel="noopener noreferrer">Speisekarte ansehen →</a>
           </div>
         </div>
         <div class="pdf-card reveal reveal-delay-1">
-          <a href="assets/images/pdf/Trapez-Getränkekarte.pdf" class="pdf-card-preview-link" target="_blank" rel="noopener" aria-label="Getränkekarte Vorschau">
+          <a href="assets/pdf/Trapez-Getränkekarte.pdf" class="pdf-card-preview-link" target="_blank" rel="noopener noreferrer" aria-label="Getränkekarte Vorschau">
             <div class="pdf-card-preview">
               <img src="assets/images/pdf/Getränkekarte_pre_view.png" alt="Getränkekarte Vorschau" loading="lazy" />
               <div class="pdf-card-preview-overlay">
@@ -211,9 +185,7 @@
           <div class="pdf-card-body">
             <h3 class="pdf-card-title" id="pdf-getraenke-title">Getränkekarte</h3>
             <p class="pdf-card-desc" id="pdf-getraenke-desc">Unsere vollständige Getränkekarte als PDF</p>
-            <a href="assets/images/pdf/Trapez-Getränkekarte.pdf" class="btn btn-outline-menu" id="pdf-getraenke-btn" target="_blank" rel="noopener" download="Trapez-Getraenkekarte.pdf">
-              <span>&#8659;</span> PDF herunterladen
-            </a>
+            <a href="assets/pdf/Trapez-Getränkekarte.pdf" target="_blank" rel="noopener noreferrer">Getränkekarte ansehen →</a>
           </div>
         </div>
       </div>
@@ -237,26 +209,13 @@
       <div class="divider"></div>
     </div>
 
-    <!--
-      ┌──────────────────────────────────────────────────────────────┐
-      │  FORMSPREE SETUP — ACTION REQUIRED BEFORE GOING LIVE         │
-      │  1. Go to https://formspree.io and create a free account     │
-      │  2. Create a new form → copy your unique endpoint URL        │
-      │  3. Replace "YOUR_FORM_ID" in the action attribute below     │
-      │     Example: action="https://formspree.io/f/xpwzabcd"        │
-      │  The reservation form will NOT work until this is done.      │
-      └──────────────────────────────────────────────────────────────┘
-    -->
     <form
       id="reservation-form"
       class="reservation-form reveal"
-      action="https://formspree.io/f/YOUR_FORM_ID"
+      action="php/reservation.php"
       method="POST"
       novalidate
     >
-      <!-- Hidden: redirect after success -->
-      <input type="hidden" name="_next" value="thank-you.html" />
-      <input type="hidden" name="_subject" value="Neue Tischreservierung — Restaurant Trapez" />
 
       <div class="form-grid">
         <!-- Full Name -->
@@ -415,7 +374,6 @@
 
     <!-- Gallery Grid -->
     <div class="ambiente-gallery" role="list" aria-label="Restaurant Galerie">
-      <!-- NOTE: The source folder has images 1–6, 8, 9 (no image 7 was provided). -->
       <div class="amb-item reveal" role="listitem" tabindex="0" aria-label="Galerie Bild 1 öffnen">
         <img src="assets/images/ambiente/1.jpg" alt="Restaurant Ambiente — Innenraum" loading="lazy" />
         <div class="amb-overlay" aria-hidden="true">
@@ -685,7 +643,7 @@
         © 2025 Restaurant Trapez, Reinach. Alle Rechte vorbehalten.
       </p>
       <div class="footer-legal">
-        <a id="footer-legal" href="#">Impressum &amp; Datenschutz</a>
+        <a id="footer-legal" href="privacy.html">Impressum &amp; Datenschutz</a>
       </div>
     </div>
   </div>
