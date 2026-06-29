@@ -22,6 +22,8 @@
   --white:        #FFFFFF;
   --dark:         #1A0808;
   --gold:         #C9A96E;
+  --green:        #1B3A2D;
+  --creme:        #F5F0E8;
   --hover:        #5C1A1A;
   --overlay:      rgba(26, 8, 8, 0.65);
   --card-bg:      #6B2424;
@@ -314,54 +316,59 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--dark);
 }
 
-.hero-video-wrap {
+.hero-slideshow {
   position: absolute;
   inset: 0;
   overflow: hidden;
 }
-.hero-video-wrap video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 177.78vh; /* 16/9 * 100vh */
-  height: 100vh;
-  min-width: 100%;
-  min-height: 56.25vw;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  object-fit: cover;
-}
-.hero-video-wrap iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 177.78vh; /* 16/9 * 100vh */
-  height: 100vh;
-  min-width: 100%;
-  min-height: 56.25vw;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.hero-video-wrap::after {
-  content: '';
+
+.hero-slide {
   position: absolute;
   inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  will-change: transform;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  animation: kenBurns1 6s ease-in-out forwards;
+}
+
+.hero-slide:nth-child(even).active {
+  animation-name: kenBurns2;
+}
+
+@keyframes kenBurns1 {
+  0%   { transform: scale(1)    translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1%, 0.5%); }
+}
+
+@keyframes kenBurns2 {
+  0%   { transform: scale(1)    translate(0, 0); }
+  100% { transform: scale(1.12) translate(1%, -0.5%); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(26,8,8,0.55) 0%,
-    rgba(26,8,8,0.4) 40%,
-    rgba(26,8,8,0.7) 100%
+    rgba(26,8,8,0.5) 0%,
+    rgba(26,8,8,0.35) 40%,
+    rgba(26,8,8,0.65) 100%
   );
 }
 
-/* Fallback bg if video fails */
-.hero-fallback {
-  position: absolute;
-  inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1920&q=80');
-  background-size: cover;
-  background-position: center;
-  background-color: var(--dark);
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide.active { animation: none; }
+}
+
+@media (max-width: 768px) {
+  .hero-slide.active { animation: none; }
 }
 
 .hero-content {
@@ -439,14 +446,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .btn:hover::before { opacity: 1; }
 
 .btn-primary {
-  background: var(--secondary);
-  color: var(--white);
-  box-shadow: 0 4px 20px rgba(107,36,36,0.3);
+  background: var(--green);
+  color: var(--creme);
+  box-shadow: 0 4px 20px rgba(27,58,45,0.35);
 }
 .btn-primary:hover {
-  background: var(--hover);
+  background: #152f24;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(107,36,36,0.45);
+  box-shadow: 0 8px 30px rgba(27,58,45,0.5);
 }
 
 .btn-outline {
@@ -1835,17 +1842,7 @@ footer {
   color: var(--gold);
 }
 
-/* --- BTN GOLD (Tagesmenü hero button) ---------------------- */
-.btn-gold {
-  background: var(--effect-light);
-  color: var(--dark);
-  font-weight: 700;
-}
-.btn-gold:hover {
-  background: #ecdfc9;
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 8px 30px rgba(228,213,180,0.5);
-}
+
 
 /* --- PDF DOWNLOADS SECTION --------------------------------- */
 .pdf-downloads {

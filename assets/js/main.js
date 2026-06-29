@@ -11,12 +11,46 @@ let lightboxIndex = 0;
 /*  DOM READY                                                   */
 /* ---------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
+  initHeroSlideshow();
   initNavbar();
   initLanguage();
   initMenuRender();
   initGallery();
   initScrollReveal();
 });
+
+/* ---------------------------------------------------------- */
+/*  HERO SLIDESHOW (Ken Burns)                                 */
+/* ---------------------------------------------------------- */
+function initHeroSlideshow() {
+  const slides = document.querySelectorAll('.hero-slide');
+  if (!slides.length) return;
+
+  const INTERVAL = 6000;
+  let current = 0;
+  let timer = null;
+
+  function advance() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  function start() {
+    if (!timer) timer = setInterval(advance, INTERVAL);
+  }
+
+  function stop() {
+    clearInterval(timer);
+    timer = null;
+  }
+
+  start();
+
+  document.addEventListener('visibilitychange', () => {
+    document.hidden ? stop() : start();
+  });
+}
 
 /* ---------------------------------------------------------- */
 /*  NAVBAR                                                     */
@@ -151,7 +185,6 @@ function applyLanguage(lang) {
   setTextById('hero-subtitle', t.hero.subtitle);
   setTextById('hero-cta1', t.hero.cta1);
   setTextById('hero-cta2', t.hero.cta2);
-  if (t.hero.cta3) setTextById('hero-cta3', t.hero.cta3);
 
   // Angebot
   setTextById('angebot-title', t.angebot.title);

@@ -16,6 +16,9 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/Trapez_v5.png" />
 
+  <!-- Hero: preload first slide -->
+  <link rel="preload" as="image" href="assets/images/ambiente/1.jpg" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -86,36 +89,32 @@
      ===================================================== -->
 <section id="hero" aria-label="Willkommen">
 
-  <!-- Video Background -->
-  <div class="hero-video-wrap" aria-hidden="true">
-    <div class="hero-fallback"></div>
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-    >
-      <source src="assets/video/YTDown.com_YouTube_I-shot-this-PIZZA-COMMERCIAL-in-only-2-H_Media_105QbXoUTmk_001_1080p.mp4" type="video/mp4" />
-    </video>
+  <!-- Ken Burns Slideshow -->
+  <div class="hero-slideshow" aria-hidden="true">
+    <div class="hero-slide active" style="background-image:url('assets/images/ambiente/1.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/ambiente/2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/ambiente/3.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/ambiente/4.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/ambiente/5.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/ambiente/6.jpg')"></div>
   </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
 
   <!-- Content -->
   <div class="hero-content">
-    <p class="hero-label" id="hero-label">Authentische Küche. Unvergessliche Momente.</p>
+    <p class="hero-label" id="hero-label" data-i18n="hero.label">Authentische Küche · Reinach</p>
 
     <h1 class="hero-title" id="hero-title">
       Restaurant<br><em>Trapez</em>
     </h1>
 
-    <p class="hero-subtitle" id="hero-subtitle">
-      Willkommen im Restaurant Trapez — Wo jedes Gericht eine Geschichte erzählt
+    <p class="hero-subtitle" id="hero-subtitle" data-i18n="hero.subtitle">
+      Jeden Abend empfangen wir unsere Gäste mit einem Haus-Aperitif
     </p>
 
     <div class="hero-buttons">
-      <a id="hero-cta1" class="btn btn-primary" href="#reservieren">Tisch Reservieren</a>
-      <a id="hero-cta2" class="btn btn-outline" href="#angebot">Speisekarte</a>
-      <a id="hero-cta3" class="btn btn-gold" href="#angebot">Tagesmenü</a>
+      <a id="hero-cta1" class="btn btn-primary" href="#reservieren" data-i18n="hero.cta1">Tisch Reservieren</a>
+      <a id="hero-cta2" class="btn btn-outline" href="assets/pdf/Trapez-Speisekarte.pdf" target="_blank" rel="noopener noreferrer" data-i18n="hero.cta2">Tagesmenü</a>
     </div>
   </div>
 
