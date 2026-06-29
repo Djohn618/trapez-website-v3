@@ -205,26 +205,58 @@
     >
 
       <div class="form-grid">
-        <!-- Full Name -->
+        <!-- Vorname -->
         <div class="form-group">
-          <label class="form-label" for="input-fullname" id="label-fullname">
-            Vollständiger Name <span class="required">*</span>
+          <label class="form-label" for="input-vorname" id="label-vorname">
+            Vorname <span class="required">*</span>
           </label>
           <input
             type="text"
-            id="input-fullname"
-            name="fullname"
+            id="input-vorname"
+            name="vorname"
             class="form-input"
-            placeholder="Ihr vollständiger Name"
             required
-            autocomplete="name"
+            autocomplete="given-name"
           />
+          <span class="form-error" id="error-vorname"></span>
         </div>
 
-        <!-- Phone -->
+        <!-- Nachname -->
+        <div class="form-group">
+          <label class="form-label" for="input-nachname" id="label-nachname">
+            Nachname <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="input-nachname"
+            name="nachname"
+            class="form-input"
+            required
+            autocomplete="family-name"
+          />
+          <span class="form-error" id="error-nachname"></span>
+        </div>
+
+        <!-- E-Mail -->
+        <div class="form-group">
+          <label class="form-label" for="input-email" id="label-email">
+            E-Mail <span class="required">*</span>
+          </label>
+          <input
+            type="email"
+            id="input-email"
+            name="email"
+            class="form-input"
+            required
+            autocomplete="email"
+          />
+          <span class="form-error" id="error-email"></span>
+        </div>
+
+        <!-- Telefon -->
         <div class="form-group">
           <label class="form-label" for="input-phone" id="label-phone">
-            Telefonnummer <span class="required">*</span>
+            Telefon (optional)
           </label>
           <input
             type="tel"
@@ -232,48 +264,11 @@
             name="phone"
             class="form-input"
             placeholder="+41 61 000 00 00"
-            required
             autocomplete="tel"
           />
         </div>
 
-        <!-- Email -->
-        <div class="form-group">
-          <label class="form-label" for="input-email" id="label-email">
-            E-Mail Adresse <span class="required">*</span>
-          </label>
-          <input
-            type="email"
-            id="input-email"
-            name="email"
-            class="form-input"
-            placeholder="ihre@email.ch"
-            required
-            autocomplete="email"
-          />
-        </div>
-
-        <!-- Number of Guests -->
-        <div class="form-group">
-          <label class="form-label" for="input-guests" id="label-guests">
-            Anzahl Gäste <span class="required">*</span>
-          </label>
-          <select id="input-guests" name="guests" class="form-select" required>
-            <option value="" disabled selected>— Personen —</option>
-            <option value="1">1 Person</option>
-            <option value="2">2 Personen</option>
-            <option value="3">3 Personen</option>
-            <option value="4">4 Personen</option>
-            <option value="5">5 Personen</option>
-            <option value="6">6 Personen</option>
-            <option value="7">7 Personen</option>
-            <option value="8">8 Personen</option>
-            <option value="9-12">9–12 Personen</option>
-            <option value="13+">Mehr als 12 Personen</option>
-          </select>
-        </div>
-
-        <!-- Date -->
+        <!-- Datum -->
         <div class="form-group">
           <label class="form-label" for="input-date" id="label-date">
             Datum <span class="required">*</span>
@@ -285,16 +280,17 @@
             class="form-input"
             required
           />
+          <span class="form-error" id="error-date"></span>
         </div>
 
-        <!-- Time -->
+        <!-- Uhrzeit -->
         <div class="form-group">
           <label class="form-label" for="input-time" id="label-time">
             Uhrzeit <span class="required">*</span>
           </label>
           <select id="input-time" name="time" class="form-select" required>
             <option value="" disabled selected>— Uhrzeit —</option>
-            <optgroup label="Mittagessen">
+            <optgroup label="Mittagessen (Mo–Fr)">
               <option value="11:30">11:30</option>
               <option value="12:00">12:00</option>
               <option value="12:30">12:30</option>
@@ -314,9 +310,34 @@
               <option value="21:30">21:30</option>
             </optgroup>
           </select>
+          <span class="form-error" id="error-time"></span>
         </div>
 
-        <!-- Message -->
+        <!-- Anzahl Gäste -->
+        <div class="form-group">
+          <label class="form-label" for="input-guests" id="label-guests">
+            Anzahl Gäste <span class="required">*</span>
+          </label>
+          <select id="input-guests" name="guests" class="form-select" required>
+            <option value="" disabled selected>— Personen —</option>
+            <option value="1 Person">1 Person</option>
+            <option value="2 Personen">2 Personen</option>
+            <option value="3 Personen">3 Personen</option>
+            <option value="4 Personen">4 Personen</option>
+            <option value="5 Personen">5 Personen</option>
+            <option value="6 Personen">6 Personen</option>
+            <option value="7 Personen">7 Personen</option>
+            <option value="8 Personen">8 Personen</option>
+            <option value="9 Personen">9 Personen</option>
+            <option value="10 Personen">10 Personen</option>
+            <option value="11–15 Personen">11–15 Personen</option>
+            <option value="16–20 Personen">16–20 Personen</option>
+            <option value="20+ Personen">20+ Personen (Anfrage)</option>
+          </select>
+          <span class="form-error" id="error-guests"></span>
+        </div>
+
+        <!-- Besondere Wünsche -->
         <div class="form-group full">
           <label class="form-label" for="input-message" id="label-message">
             Besondere Wünsche (optional)
@@ -325,8 +346,24 @@
             id="input-message"
             name="message"
             class="form-textarea"
-            placeholder="Allergien, Geburtstagstorte, Kinderstuhl …"
+            rows="4"
+            placeholder="Allergien, Geburtstagstorte, Kinderstuhl, Hochstuhl …"
           ></textarea>
+        </div>
+
+        <!-- Datenschutz -->
+        <div class="form-group full">
+          <label class="form-checkbox-label">
+            <input type="checkbox" id="input-datenschutz" name="datenschutz" value="1" required />
+            <span id="label-datenschutz">Ich akzeptiere die <a href="privacy.html" target="_blank" rel="noopener">Datenschutzerklärung</a>. <span class="required">*</span></span>
+          </label>
+          <span class="form-error" id="error-datenschutz"></span>
+        </div>
+
+        <!-- Honeypot (Spam-Schutz, für Menschen unsichtbar) -->
+        <div class="form-honeypot" aria-hidden="true">
+          <label for="input-website">Website</label>
+          <input type="text" id="input-website" name="website" tabindex="-1" autocomplete="off" />
         </div>
       </div>
 

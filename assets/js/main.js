@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
   initMenuRender();
   initReviews();
+  initReservationForm();
   initGallery();
   initScrollReveal();
 });
@@ -196,17 +197,15 @@ function applyLanguage(lang) {
   // Reservieren
   setTextById('reservieren-title', t.reservieren.title);
   setTextById('reservieren-subtitle', t.reservieren.subtitle);
-  setPlaceholderById('input-fullname', t.reservieren.fullname);
-  setTextById('label-fullname', t.reservieren.fullname);
-  setPlaceholderById('input-phone', t.reservieren.phone);
-  setTextById('label-phone', t.reservieren.phone);
-  setPlaceholderById('input-email', t.reservieren.email);
+  setTextById('label-vorname', (t.reservieren.vorname || 'Vorname') + ' *');
+  setTextById('label-nachname', (t.reservieren.nachname || 'Nachname') + ' *');
   setTextById('label-email', t.reservieren.email);
+  setTextById('label-phone', t.reservieren.phone);
   setTextById('label-guests', t.reservieren.guests);
   setTextById('label-date', t.reservieren.date);
   setTextById('label-time', t.reservieren.time);
   setTextById('label-message', t.reservieren.message);
-  setPlaceholderById('input-message', t.reservieren.message);
+  setPlaceholderById('input-message', t.reservieren.messagePlaceholder || '');
   setTextById('btn-reserve', t.reservieren.button);
   setTextById('form-note', t.reservieren.note);
 
@@ -410,6 +409,72 @@ function updateLightboxImage() {
   if (counter) {
     counter.textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
   }
+}
+
+/* ---------------------------------------------------------- */
+/*  RESERVATION FORM VALIDATION                               */
+/* ---------------------------------------------------------- */
+function initReservationForm() {
+  const form = document.getElementById('reservation-form');
+  if (!form) return;
+
+  // Set min date to today
+  const dateInput = document.getElementById('input-date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+  }
+
+  form.addEventListener('submit', e => {
+    let valid = true;
+
+    const required = [
+      { id: 'input-vorname',  errId: 'error-vorname',  msg: 'Bitte Vorname eingeben.' },
+      { id: 'input-nachname', errId: 'error-nachname', msg: 'Bitte Nachname eingeben.' },
+      { id: 'input-email',    errId: 'error-email',    msg: 'Bitte gültige E-Mail eingeben.' },
+      { id: 'input-date',     errId: 'error-date',     msg: 'Bitte Datum wählen.' },
+      { id: 'input-time',     errId: 'error-time',     msg: 'Bitte Uhrzeit wählen.' },
+      { id: 'input-guests',   errId: 'error-guests',   msg: 'Bitte Personenanzahl wählen.' },
+    ];
+
+    required.forEach(({ id, errId, msg }) => {
+      const el = document.getElementById(id);
+      const err = document.getElementById(errId);
+      if (!el) return;
+      const empty = !el.value.trim();
+      const emailErr = id === 'input-email' && el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value);
+      if (empty || emailErr) {
+        if (err) { err.textContent = emailErr ? 'Ungültige E-Mail-Adresse.' : msg; err.style.display = 'block'; }
+        el.classList.add('input-error');
+        valid = false;
+      } else {
+        if (err) { err.textContent = ''; err.style.display = 'none'; }
+        el.classList.remove('input-error');
+      }
+    });
+
+    // Datenschutz checkbox
+    const dsz = document.getElementById('input-datenschutz');
+    const dszErr = document.getElementById('error-datenschutz');
+    if (dsz && !dsz.checked) {
+      if (dszErr) { dszErr.textContent = 'Bitte Datenschutzerklärung akzeptieren.'; dszErr.style.display = 'block'; }
+      valid = false;
+    } else if (dszErr) {
+      dszErr.textContent = ''; dszErr.style.display = 'none';
+    }
+
+    if (!valid) e.preventDefault();
+  });
+
+  // Clear errors on input
+  form.querySelectorAll('.form-input, .form-select').forEach(el => {
+    el.addEventListener('input', () => {
+      el.classList.remove('input-error');
+      const errId = el.id.replace('input-', 'error-');
+      const err = document.getElementById(errId);
+      if (err) { err.textContent = ''; err.style.display = 'none'; }
+    });
+  });
 }
 
 /* ---------------------------------------------------------- */
