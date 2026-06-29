@@ -1,34 +1,546 @@
 {
-  "categories": [
+  "_anleitung": "PREIS ÄNDERN: Gericht suchen (Ctrl+F), Zahl bei 'preis' ändern, speichern, per FTP hochladen.",
+  "_neu_hinzufuegen": "Bestehenden Gericht-Block kopieren, am Ende der Kategorie einfügen, Werte anpassen.",
+  "kategorien": [
     {
-      "id": "vorspeisen",
-      "label": { "de": "Vorspeisen", "en": "Starters", "it": "Antipasti", "fr": "Entrées" },
-      "items": []
+      "id": "antipasti",
+      "name_de": "Antipasti",
+      "name_en": "Starters",
+      "name_it": "Antipasti",
+      "name_fr": "Entrées",
+      "gerichte": [
+        {
+          "name": "Bruschetta al Pomodoro",
+          "beschreibung_de": "Geröstetes Brot, frische Tomaten, Basilikum, Olivenöl",
+          "beschreibung_en": "Toasted bread, fresh tomatoes, basil, olive oil",
+          "beschreibung_it": "Pane tostato, pomodori freschi, basilico, olio d'oliva",
+          "beschreibung_fr": "Pain grillé, tomates fraîches, basilic, huile d'olive",
+          "preis": "9.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Insalata Caprese",
+          "beschreibung_de": "Büffelmozzarella, Rispentomaten, Basilikum, Aceto Balsamico",
+          "beschreibung_en": "Buffalo mozzarella, vine tomatoes, basil, balsamic vinegar",
+          "beschreibung_it": "Mozzarella di bufala, pomodori a grappolo, basilico, aceto balsamico",
+          "beschreibung_fr": "Mozzarella de bufflonne, tomates grappe, basilic, vinaigre balsamique",
+          "preis": "17.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Carpaccio di Manzo",
+          "beschreibung_de": "Hauchdünn geschnittenes Rindsfilet, Rucola, Parmesan, Kapern, Zitrone",
+          "beschreibung_en": "Thinly sliced beef fillet, rocket, Parmesan, capers, lemon",
+          "beschreibung_it": "Filetto di manzo affettato sottile, rucola, parmigiano, capperi, limone",
+          "beschreibung_fr": "Filet de bœuf finement tranché, roquette, parmesan, câpres, citron",
+          "preis": "22.00",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": true
+        },
+        {
+          "name": "Burrata con Prosciutto di Parma",
+          "beschreibung_de": "Cremige Burrata, 24 Monate gereifter Parmaschinken, Rucola, Kirschtomaten",
+          "beschreibung_en": "Creamy burrata, 24-month Parma ham, rocket, cherry tomatoes",
+          "beschreibung_it": "Burrata cremosa, prosciutto di Parma 24 mesi, rucola, pomodorini",
+          "beschreibung_fr": "Burrata crémeuse, jambon de Parme 24 mois, roquette, tomates cerises",
+          "preis": "21.50",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": true
+        },
+        {
+          "name": "Antipasto Misto della Casa",
+          "beschreibung_de": "Hausauswahl: Aufschnitt, Käse, Oliven, Peperoni, Bruschetta",
+          "beschreibung_en": "House selection: charcuterie, cheese, olives, peppers, bruschetta",
+          "beschreibung_it": "Selezione della casa: salumi, formaggi, olive, peperoni, bruschetta",
+          "beschreibung_fr": "Sélection de la maison: charcuterie, fromages, olives, poivrons, bruschetta",
+          "preis": "26.00",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Gamberetti all'Aglio",
+          "beschreibung_de": "Garnelen in Knoblauch-Butter, Weisswein, Petersilie, Ciabatta",
+          "beschreibung_en": "Prawns in garlic butter, white wine, parsley, ciabatta",
+          "beschreibung_it": "Gamberi al burro d'aglio, vino bianco, prezzemolo, ciabatta",
+          "beschreibung_fr": "Crevettes au beurre d'ail, vin blanc, persil, ciabatta",
+          "preis": "24.00",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": false
+        }
+      ]
     },
     {
-      "id": "pasta",
-      "label": { "de": "Pasta", "en": "Pasta", "it": "Pasta", "fr": "Pâtes" },
-      "items": []
+      "id": "pizze",
+      "name_de": "Pizze",
+      "name_en": "Pizzas",
+      "name_it": "Pizze",
+      "name_fr": "Pizzas",
+      "gerichte": [
+        {
+          "name": "Margherita",
+          "beschreibung_de": "Tomatensauce, Fior di Latte, frisches Basilikum",
+          "beschreibung_en": "Tomato sauce, fior di latte, fresh basil",
+          "beschreibung_it": "Salsa di pomodoro, fior di latte, basilico fresco",
+          "beschreibung_fr": "Sauce tomate, fior di latte, basilic frais",
+          "preis": "18.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Diavola",
+          "beschreibung_de": "Tomatensauce, Mozzarella, scharfe Kalabrische Salami",
+          "beschreibung_en": "Tomato sauce, mozzarella, spicy Calabrian salami",
+          "beschreibung_it": "Salsa di pomodoro, mozzarella, salame piccante calabrese",
+          "beschreibung_fr": "Sauce tomate, mozzarella, salami épicé calabrais",
+          "preis": "21.00",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": true
+        },
+        {
+          "name": "Prosciutto e Funghi",
+          "beschreibung_de": "Tomatensauce, Mozzarella, Kochschinken, Champignons",
+          "beschreibung_en": "Tomato sauce, mozzarella, cooked ham, mushrooms",
+          "beschreibung_it": "Salsa di pomodoro, mozzarella, prosciutto cotto, funghi",
+          "beschreibung_fr": "Sauce tomate, mozzarella, jambon cuit, champignons",
+          "preis": "22.00",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Quattro Stagioni",
+          "beschreibung_de": "Tomatensauce, Mozzarella, Schinken, Pilze, Artischocken, Oliven",
+          "beschreibung_en": "Tomato sauce, mozzarella, ham, mushrooms, artichokes, olives",
+          "beschreibung_it": "Salsa di pomodoro, mozzarella, prosciutto, funghi, carciofi, olive",
+          "beschreibung_fr": "Sauce tomate, mozzarella, jambon, champignons, artichauts, olives",
+          "preis": "23.00",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Napoli",
+          "beschreibung_de": "Tomatensauce, Mozzarella, Anchovis, Kapern, Oregano",
+          "beschreibung_en": "Tomato sauce, mozzarella, anchovies, capers, oregano",
+          "beschreibung_it": "Salsa di pomodoro, mozzarella, acciughe, capperi, origano",
+          "beschreibung_fr": "Sauce tomate, mozzarella, anchois, câpres, origan",
+          "preis": "21.50",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Vegetariana",
+          "beschreibung_de": "Tomatensauce, Mozzarella, Zucchini, Aubergine, Peperoni, Kirschtomaten",
+          "beschreibung_en": "Tomato sauce, mozzarella, courgette, aubergine, peppers, cherry tomatoes",
+          "beschreibung_it": "Salsa di pomodoro, mozzarella, zucchine, melanzane, peperoni, pomodorini",
+          "beschreibung_fr": "Sauce tomate, mozzarella, courgettes, aubergine, poivrons, tomates cerises",
+          "preis": "21.00",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Calzone",
+          "beschreibung_de": "Gefüllte Pizza: Ricotta, Schinken, Mozzarella, Tomatensauce",
+          "beschreibung_en": "Folded pizza: ricotta, ham, mozzarella, tomato sauce",
+          "beschreibung_it": "Pizza ripiena: ricotta, prosciutto, mozzarella, salsa di pomodoro",
+          "beschreibung_fr": "Pizza farcie: ricotta, jambon, mozzarella, sauce tomate",
+          "preis": "22.50",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Speciale Trapez",
+          "beschreibung_de": "Tomatensauce, Büffelmozzarella, Rucola, Roastbeef, Parmesan — Hausrezept",
+          "beschreibung_en": "Tomato sauce, buffalo mozzarella, rocket, roast beef, Parmesan — house recipe",
+          "beschreibung_it": "Salsa di pomodoro, mozzarella di bufala, rucola, roast beef, parmigiano — ricetta della casa",
+          "beschreibung_fr": "Sauce tomate, mozzarella de bufflonne, roquette, rosbif, parmesan — recette maison",
+          "preis": "26.00",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": true
+        }
+      ]
     },
     {
-      "id": "pizza",
-      "label": { "de": "Pizza", "en": "Pizza", "it": "Pizza", "fr": "Pizza" },
-      "items": []
+      "id": "paste",
+      "name_de": "Paste",
+      "name_en": "Pasta",
+      "name_it": "Paste",
+      "name_fr": "Pâtes",
+      "gerichte": [
+        {
+          "name": "Spaghetti Bolognese",
+          "beschreibung_de": "Spaghetti, Ragù aus Schweizer Rindfleisch, langsam geschmort, Parmesan",
+          "beschreibung_en": "Spaghetti, Swiss beef ragù slow-cooked, Parmesan",
+          "beschreibung_it": "Spaghetti, ragù di manzo svizzero a cottura lenta, parmigiano",
+          "beschreibung_fr": "Spaghetti, ragù de bœuf suisse à cuisson lente, parmesan",
+          "preis": "22.00",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Spaghetti Carbonara",
+          "beschreibung_de": "Spaghetti, Guanciale, Eigelb, Pecorino Romano, schwarzer Pfeffer",
+          "beschreibung_en": "Spaghetti, guanciale, egg yolk, Pecorino Romano, black pepper",
+          "beschreibung_it": "Spaghetti, guanciale, tuorlo d'uovo, pecorino romano, pepe nero",
+          "beschreibung_fr": "Spaghetti, guanciale, jaune d'œuf, Pecorino Romano, poivre noir",
+          "preis": "22.50",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": true
+        },
+        {
+          "name": "Penne all'Arrabbiata",
+          "beschreibung_de": "Penne, scharfe Tomatensauce mit Knoblauch und Peperoncino",
+          "beschreibung_en": "Penne, spicy tomato sauce with garlic and chilli",
+          "beschreibung_it": "Penne, salsa di pomodoro piccante con aglio e peperoncino",
+          "beschreibung_fr": "Penne, sauce tomate épicée à l'ail et au piment",
+          "preis": "19.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Tagliatelle al Tartufo",
+          "beschreibung_de": "Hausgemachte Tagliatelle, schwarzes Trüffelöl, Parmesan, Butter",
+          "beschreibung_en": "Homemade tagliatelle, black truffle oil, Parmesan, butter",
+          "beschreibung_it": "Tagliatelle fatte in casa, olio al tartufo nero, parmigiano, burro",
+          "beschreibung_fr": "Tagliatelles maison, huile à la truffe noire, parmesan, beurre",
+          "preis": "28.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": true
+        },
+        {
+          "name": "Ravioli Spinaci e Ricotta",
+          "beschreibung_de": "Hausgemachte Ravioli, Spinat-Ricotta-Füllung, Salbeibutter, Parmesan",
+          "beschreibung_en": "Homemade ravioli, spinach-ricotta filling, sage butter, Parmesan",
+          "beschreibung_it": "Ravioli fatti in casa, ripieno di spinaci e ricotta, burro e salvia, parmigiano",
+          "beschreibung_fr": "Ravioli maison, farce épinards-ricotta, beurre de sauge, parmesan",
+          "preis": "24.00",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Gnocchi al Gorgonzola",
+          "beschreibung_de": "Hausgemachte Gnocchi, cremige Gorgonzola-Sauce, Walnüsse",
+          "beschreibung_en": "Homemade gnocchi, creamy Gorgonzola sauce, walnuts",
+          "beschreibung_it": "Gnocchi fatti in casa, crema di gorgonzola, noci",
+          "beschreibung_fr": "Gnocchi maison, sauce crémeuse au gorgonzola, noix",
+          "preis": "22.00",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Spaghetti allo Scoglio",
+          "beschreibung_de": "Spaghetti, Meeresfrüchte-Mix (Muscheln, Garnelen, Tintenfisch), Knoblauch, Weisswein",
+          "beschreibung_en": "Spaghetti, mixed seafood (mussels, prawns, squid), garlic, white wine",
+          "beschreibung_it": "Spaghetti, misto di frutti di mare (cozze, gamberetti, calamari), aglio, vino bianco",
+          "beschreibung_fr": "Spaghetti, fruits de mer mélangés (moules, crevettes, calmar), ail, vin blanc",
+          "preis": "27.00",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": false
+        }
+      ]
     },
     {
-      "id": "fleisch",
-      "label": { "de": "Fleisch", "en": "Meat", "it": "Carne", "fr": "Viande" },
-      "items": []
+      "id": "dolci",
+      "name_de": "Dolci",
+      "name_en": "Desserts",
+      "name_it": "Dolci",
+      "name_fr": "Desserts",
+      "gerichte": [
+        {
+          "name": "Tiramisù della Nonna",
+          "beschreibung_de": "Hausgemachtes Tiramisù, Mascarpone, Savoiardi, Espresso, Kakaopulver",
+          "beschreibung_en": "Homemade tiramisù, mascarpone, ladyfingers, espresso, cocoa powder",
+          "beschreibung_it": "Tiramisù fatto in casa, mascarpone, savoiardi, caffè espresso, cacao amaro",
+          "beschreibung_fr": "Tiramisu maison, mascarpone, boudoirs, espresso, poudre de cacao",
+          "preis": "9.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": true
+        },
+        {
+          "name": "Panna Cotta al Caramello",
+          "beschreibung_de": "Cremige Panna Cotta mit Karamellsauce und frischen Beeren",
+          "beschreibung_en": "Creamy panna cotta with caramel sauce and fresh berries",
+          "beschreibung_it": "Panna cotta cremosa con salsa al caramello e frutti di bosco freschi",
+          "beschreibung_fr": "Panna cotta crémeuse avec sauce caramel et fruits rouges frais",
+          "preis": "9.00",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Gelato Artigianale",
+          "beschreibung_de": "2 Kugeln handwerkliches Glacé: Wahl aus Vanille, Schokolade, Pistazie, Zitrone",
+          "beschreibung_en": "2 scoops artisan ice cream: choice of vanilla, chocolate, pistachio, lemon",
+          "beschreibung_it": "2 palline di gelato artigianale: scelta tra vaniglia, cioccolato, pistacchio, limone",
+          "beschreibung_fr": "2 boules de glace artisanale: choix vanille, chocolat, pistache, citron",
+          "preis": "8.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Torta della Casa",
+          "beschreibung_de": "Hausgemachter Kuchen des Tages — Fragen Sie Ihren Kellner",
+          "beschreibung_en": "Homemade cake of the day — ask your waiter",
+          "beschreibung_it": "Torta della casa del giorno — chiedete al vostro cameriere",
+          "beschreibung_fr": "Gâteau maison du jour — renseignez-vous auprès de votre serveur",
+          "preis": "11.00",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Affogato al Caffè",
+          "beschreibung_de": "Vanilleglacé mit einem heissen Espresso übergossen",
+          "beschreibung_en": "Vanilla ice cream drowned in a hot espresso",
+          "beschreibung_it": "Gelato alla vaniglia con un espresso caldo versato sopra",
+          "beschreibung_fr": "Glace à la vanille nappée d'un espresso chaud",
+          "preis": "9.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        }
+      ]
     },
     {
-      "id": "fisch",
-      "label": { "de": "Fisch", "en": "Fish", "it": "Pesce", "fr": "Poisson" },
-      "items": []
-    },
-    {
-      "id": "dessert",
-      "label": { "de": "Dessert", "en": "Dessert", "it": "Dolci", "fr": "Desserts" },
-      "items": []
+      "id": "bevande",
+      "name_de": "Getränke",
+      "name_en": "Drinks",
+      "name_it": "Bevande",
+      "name_fr": "Boissons",
+      "gerichte": [
+        {
+          "name": "Mineral still",
+          "beschreibung_de": "Hausgemacht, still — 5 dl",
+          "beschreibung_en": "Still mineral water — 5 dl",
+          "beschreibung_it": "Acqua minerale naturale — 5 dl",
+          "beschreibung_fr": "Eau minérale plate — 5 dl",
+          "preis": "4.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Mineral prickelnd",
+          "beschreibung_de": "Sprudelwasser — 5 dl",
+          "beschreibung_en": "Sparkling mineral water — 5 dl",
+          "beschreibung_it": "Acqua minerale frizzante — 5 dl",
+          "beschreibung_fr": "Eau minérale pétillante — 5 dl",
+          "preis": "4.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Hausgemachter Zitronensirup",
+          "beschreibung_de": "Hausgemacht, frische Zitronen, Minze — 3 dl",
+          "beschreibung_en": "Homemade, fresh lemons, mint — 3 dl",
+          "beschreibung_it": "Fatto in casa, limoni freschi, menta — 3 dl",
+          "beschreibung_fr": "Maison, citrons frais, menthe — 3 dl",
+          "preis": "6.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Tee (Kanne)",
+          "beschreibung_de": "Auswahl aus verschiedenen Teesorten — 3 dl",
+          "beschreibung_en": "Selection of teas — 3 dl",
+          "beschreibung_it": "Selezione di tè — 3 dl",
+          "beschreibung_fr": "Sélection de thés — 3 dl",
+          "preis": "5.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Espresso",
+          "beschreibung_de": "Illy Espresso — klassisch",
+          "beschreibung_en": "Illy espresso — classic",
+          "beschreibung_it": "Espresso Illy — classico",
+          "beschreibung_fr": "Illy espresso — classique",
+          "preis": "4.20",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Cappuccino",
+          "beschreibung_de": "Espresso mit aufgeschäumter Milch",
+          "beschreibung_en": "Espresso with steamed milk foam",
+          "beschreibung_it": "Espresso con latte montato a vapore",
+          "beschreibung_fr": "Espresso avec mousse de lait vapeur",
+          "preis": "5.80",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Caffè Latte",
+          "beschreibung_de": "Doppelter Espresso mit viel heisser Milch",
+          "beschreibung_en": "Double espresso with warm milk",
+          "beschreibung_it": "Doppio espresso con tanto latte caldo",
+          "beschreibung_fr": "Double espresso avec beaucoup de lait chaud",
+          "preis": "6.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Aperol Spritz",
+          "beschreibung_de": "Aperol, Prosecco, Soda — 2 dl",
+          "beschreibung_en": "Aperol, Prosecco, soda — 2 dl",
+          "beschreibung_it": "Aperol, Prosecco, soda — 2 dl",
+          "beschreibung_fr": "Aperol, Prosecco, soda — 2 dl",
+          "preis": "14.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": true
+        },
+        {
+          "name": "Hugo",
+          "beschreibung_de": "Prosecco, Holunderblütensirup, Minze, Limette — 2 dl",
+          "beschreibung_en": "Prosecco, elderflower syrup, mint, lime — 2 dl",
+          "beschreibung_it": "Prosecco, sciroppo di fiori di sambuco, menta, lime — 2 dl",
+          "beschreibung_fr": "Prosecco, sirop de fleur de sureau, menthe, citron vert — 2 dl",
+          "preis": "13.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Campari Soda",
+          "beschreibung_de": "Campari, Soda, Orange",
+          "beschreibung_en": "Campari, soda, orange",
+          "beschreibung_it": "Campari, soda, arancia",
+          "beschreibung_fr": "Campari, soda, orange",
+          "preis": "12.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Prosecco DOC (Glas)",
+          "beschreibung_de": "Prosecco DOC, Venetien — 1 dl",
+          "beschreibung_en": "Prosecco DOC, Veneto — 1 dl",
+          "beschreibung_it": "Prosecco DOC, Veneto — 1 dl",
+          "beschreibung_fr": "Prosecco DOC, Vénétie — 1 dl",
+          "preis": "9.00",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Bier vom Fass 0.3l",
+          "beschreibung_de": "Lokales Lagerbier vom Fass",
+          "beschreibung_en": "Local lager on tap",
+          "beschreibung_it": "Birra locale alla spina",
+          "beschreibung_fr": "Bière locale pression",
+          "preis": "6.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Bier vom Fass 0.5l",
+          "beschreibung_de": "Lokales Lagerbier vom Fass",
+          "beschreibung_en": "Local lager on tap",
+          "beschreibung_it": "Birra locale alla spina",
+          "beschreibung_fr": "Bière locale pression",
+          "preis": "8.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Nastro Azzurro",
+          "beschreibung_de": "Peroni Nastro Azzurro, Flasche 33 cl",
+          "beschreibung_en": "Peroni Nastro Azzurro, bottle 33 cl",
+          "beschreibung_it": "Peroni Nastro Azzurro, bottiglia 33 cl",
+          "beschreibung_fr": "Peroni Nastro Azzurro, bouteille 33 cl",
+          "preis": "7.50",
+          "vegetarisch": true,
+          "vegan": true,
+          "empfehlung": false
+        },
+        {
+          "name": "Vino della Casa Bianco",
+          "beschreibung_de": "Hauswein Weiss, Pinot Grigio IGT — 1 dl",
+          "beschreibung_en": "House white wine, Pinot Grigio IGT — 1 dl",
+          "beschreibung_it": "Vino bianco della casa, Pinot Grigio IGT — 1 dl",
+          "beschreibung_fr": "Vin blanc maison, Pinot Grigio IGT — 1 dl",
+          "preis": "6.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Vino della Casa Rosso",
+          "beschreibung_de": "Hauswein Rot, Sangiovese IGT — 1 dl",
+          "beschreibung_en": "House red wine, Sangiovese IGT — 1 dl",
+          "beschreibung_it": "Vino rosso della casa, Sangiovese IGT — 1 dl",
+          "beschreibung_fr": "Vin rouge maison, Sangiovese IGT — 1 dl",
+          "preis": "6.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Pinot Grigio DOC",
+          "beschreibung_de": "Pinot Grigio DOC, Friaul — leicht, frisch, mineralisch — 1 dl",
+          "beschreibung_en": "Pinot Grigio DOC, Friuli — light, fresh, mineral — 1 dl",
+          "beschreibung_it": "Pinot Grigio DOC, Friuli — leggero, fresco, minerale — 1 dl",
+          "beschreibung_fr": "Pinot Grigio DOC, Frioul — léger, frais, minéral — 1 dl",
+          "preis": "8.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        },
+        {
+          "name": "Chianti Classico DOCG",
+          "beschreibung_de": "Chianti Classico DOCG, Toskana — Sangiovese, trocken, Kirschen, Würze — 1 dl",
+          "beschreibung_en": "Chianti Classico DOCG, Tuscany — Sangiovese, dry, cherry, spice — 1 dl",
+          "beschreibung_it": "Chianti Classico DOCG, Toscana — Sangiovese, secco, ciliegia, spezie — 1 dl",
+          "beschreibung_fr": "Chianti Classico DOCG, Toscane — Sangiovese, sec, cerise, épices — 1 dl",
+          "preis": "9.50",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": true
+        },
+        {
+          "name": "Barolo DOCG",
+          "beschreibung_de": "Barolo DOCG, Piemont — Nebbiolo, vollmundig, komplex, langer Abgang — 1 dl",
+          "beschreibung_en": "Barolo DOCG, Piedmont — Nebbiolo, full-bodied, complex, long finish — 1 dl",
+          "beschreibung_it": "Barolo DOCG, Piemonte — Nebbiolo, corposo, complesso, lungo finale — 1 dl",
+          "beschreibung_fr": "Barolo DOCG, Piémont — Nebbiolo, corsé, complexe, longue finale — 1 dl",
+          "preis": "14.00",
+          "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        }
+      ]
     }
   ]
 }
