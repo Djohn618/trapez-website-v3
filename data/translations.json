@@ -1,6 +1,281 @@
 {
-  "de": {},
-  "en": {},
-  "it": {},
-  "fr": {}
+  "de": {
+    "nav": {
+      "home": "Home",
+      "angebot": "Angebot",
+      "reservieren": "Reservieren",
+      "ambiente": "Ambiente",
+      "ueberUns": "Über Uns",
+      "kontakt": "Kontakt"
+    },
+    "hero": {
+      "label": "Authentische Küche · Reinach",
+      "subtitle": "Jeden Abend empfangen wir unsere Gäste mit einem Haus-Aperitif",
+      "cta1": "Tisch Reservieren",
+      "cta2": "Tagesmenü"
+    },
+    "angebot": {
+      "title": "Unser Angebot"
+    },
+    "menu": {
+      "pdfLink": "Vollständige Speisekarte ansehen →"
+    },
+    "reservieren": {
+      "title": "Tisch Reservieren",
+      "subtitle": "Wir freuen uns auf Ihren Besuch. Reservieren Sie jetzt Ihren Tisch.",
+      "vorname": "Vorname",
+      "nachname": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "date": "Datum",
+      "time": "Uhrzeit",
+      "guests": "Anzahl Gäste",
+      "message": "Besondere Wünsche (optional)",
+      "messagePlaceholder": "Allergien, Geburtstagstorte, Kinderstuhl …",
+      "datenschutz": "Ich akzeptiere die <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">Datenschutzerklärung</a>.",
+      "button": "Jetzt Reservieren",
+      "note": "✉ Sie erhalten eine Bestätigung per E-Mail."
+    },
+    "ambiente": {
+      "title": "Ambiente",
+      "subtitle": "Tauchen Sie ein in die warme, elegante Atmosphäre unseres Restaurants"
+    },
+    "ueberUns": {
+      "title": "Über Uns",
+      "subtitle": "Unsere Geschichte",
+      "text1": "Das Restaurant Trapez ist seit über 10 Jahren eine feste Institution in Reinach. Wir verbinden Schweizer Gastfreundschaft mit authentischer italienischer Küche — frische Zutaten, traditionelle Rezepte und Leidenschaft auf jedem Teller.",
+      "text2": "Unser Küchenchef kreiert täglich Gerichte, die die besten Aromen Italiens in Ihre Teller bringen. Von klassischen Pizzen aus dem Holzofen bis zu handgemachten Pastagerichten und frischen Fischspezialitäten — bei uns finden Sie für jeden Geschmack das Richtige.",
+      "text3": "Wir empfangen unsere Gäste jeden Abend mit einem Haus-Aperitif und freuen uns darauf, Ihnen einen unvergesslichen Abend zu bereiten.",
+      "ownerCaption": "Giuseppe Trapez — Patron & Chef"
+    },
+    "kontakt": {
+      "title": "Kontakt",
+      "subtitle": "Wir sind für Sie da",
+      "hours": "Öffnungszeiten",
+      "hoursDetail": "<span>Montag – Freitag: 10:00 – 14:00 | 17:00 – 23:00</span><span>Samstag: 17:00 – 23:00</span><span>Sonntag: 17:00 – 22:30</span>",
+      "reviewsTitle": "Was unsere Gäste sagen"
+    },
+    "pdf": {
+      "label": "Menükarten als PDF",
+      "speisekarte": "Speisekarte",
+      "speisekarteDesc": "Unsere vollständige Speisekarte als PDF",
+      "getraenke": "Getränkekarte",
+      "getraenkeDesc": "Unsere Getränkekarte als PDF"
+    },
+    "footer": {
+      "tagline": "Authentische Küche seit mehr als 10 Jahren",
+      "copyright": "© 2025 Restaurant Trapez, Reinach. Alle Rechte vorbehalten.",
+      "legal": "Impressum & Datenschutz"
+    }
+  },
+
+  "en": {
+    "nav": {
+      "home": "Home",
+      "angebot": "Menu",
+      "reservieren": "Reserve",
+      "ambiente": "Ambience",
+      "ueberUns": "About Us",
+      "kontakt": "Contact"
+    },
+    "hero": {
+      "label": "Authentic Cuisine · Reinach",
+      "subtitle": "Every evening we welcome our guests with a house aperitif",
+      "cta1": "Reserve a Table",
+      "cta2": "Daily Menu"
+    },
+    "angebot": {
+      "title": "Our Menu"
+    },
+    "menu": {
+      "pdfLink": "View full menu →"
+    },
+    "reservieren": {
+      "title": "Reserve a Table",
+      "subtitle": "We look forward to welcoming you. Book your table now.",
+      "vorname": "First Name",
+      "nachname": "Last Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "date": "Date",
+      "time": "Time",
+      "guests": "Number of Guests",
+      "message": "Special requests (optional)",
+      "messagePlaceholder": "Allergies, birthday cake, high chair …",
+      "datenschutz": "I accept the <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>.",
+      "button": "Reserve Now",
+      "note": "✉ You will receive a confirmation by email."
+    },
+    "ambiente": {
+      "title": "Ambience",
+      "subtitle": "Immerse yourself in the warm, elegant atmosphere of our restaurant"
+    },
+    "ueberUns": {
+      "title": "About Us",
+      "subtitle": "Our Story",
+      "text1": "Restaurant Trapez has been a cornerstone of Reinach for over 10 years. We blend Swiss hospitality with authentic Italian cuisine — fresh ingredients, traditional recipes and passion on every plate.",
+      "text2": "Our chef creates dishes daily that bring the best flavours of Italy to your table. From classic wood-fired pizzas to handmade pasta and fresh fish specialities — we have something for every palate.",
+      "text3": "We welcome our guests every evening with a house aperitif and look forward to giving you an unforgettable evening.",
+      "ownerCaption": "Giuseppe Trapez — Patron & Chef"
+    },
+    "kontakt": {
+      "title": "Contact",
+      "subtitle": "We are here for you",
+      "hours": "Opening Hours",
+      "hoursDetail": "<span>Monday – Friday: 10:00 – 14:00 | 17:00 – 23:00</span><span>Saturday: 17:00 – 23:00</span><span>Sunday: 17:00 – 22:30</span>",
+      "reviewsTitle": "What Our Guests Say"
+    },
+    "pdf": {
+      "label": "Menus as PDF",
+      "speisekarte": "Food Menu",
+      "speisekarteDesc": "Our complete menu as PDF",
+      "getraenke": "Drinks Menu",
+      "getraenkeDesc": "Our drinks menu as PDF"
+    },
+    "footer": {
+      "tagline": "Authentic Cuisine for over 10 years",
+      "copyright": "© 2025 Restaurant Trapez, Reinach. All rights reserved.",
+      "legal": "Legal Notice & Privacy"
+    }
+  },
+
+  "it": {
+    "nav": {
+      "home": "Home",
+      "angebot": "Menu",
+      "reservieren": "Prenota",
+      "ambiente": "Ambiente",
+      "ueberUns": "Chi Siamo",
+      "kontakt": "Contatti"
+    },
+    "hero": {
+      "label": "Cucina Autentica · Reinach",
+      "subtitle": "Ogni sera accogliamo i nostri ospiti con un aperitivo della casa",
+      "cta1": "Prenota un Tavolo",
+      "cta2": "Menu del Giorno"
+    },
+    "angebot": {
+      "title": "Il Nostro Menu"
+    },
+    "menu": {
+      "pdfLink": "Visualizza il menu completo →"
+    },
+    "reservieren": {
+      "title": "Prenota un Tavolo",
+      "subtitle": "Siamo lieti di accogliervi. Prenota il tuo tavolo ora.",
+      "vorname": "Nome",
+      "nachname": "Cognome",
+      "email": "Email",
+      "phone": "Telefono (opzionale)",
+      "date": "Data",
+      "time": "Orario",
+      "guests": "Numero di Ospiti",
+      "message": "Richieste speciali (opzionale)",
+      "messagePlaceholder": "Allergie, torta di compleanno, seggiolone …",
+      "datenschutz": "Accetto la <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>.",
+      "button": "Prenota Ora",
+      "note": "✉ Riceverai una conferma via email."
+    },
+    "ambiente": {
+      "title": "Ambiente",
+      "subtitle": "Immergetevi nell'atmosfera calda ed elegante del nostro ristorante"
+    },
+    "ueberUns": {
+      "title": "Chi Siamo",
+      "subtitle": "La Nostra Storia",
+      "text1": "Il Ristorante Trapez è da oltre 10 anni un punto di riferimento a Reinach. Uniamo l'ospitalità svizzera alla cucina italiana autentica — ingredienti freschi, ricette tradizionali e passione in ogni piatto.",
+      "text2": "Il nostro chef crea ogni giorno piatti che portano i migliori sapori d'Italia sulla vostra tavola. Dalle classiche pizze cotte nel forno a legna alla pasta fatta a mano e alle specialità di pesce fresco.",
+      "text3": "Accogliamo i nostri ospiti ogni sera con un aperitivo della casa e ci impegniamo a regalarvi una serata indimenticabile.",
+      "ownerCaption": "Giuseppe Trapez — Patron & Chef"
+    },
+    "kontakt": {
+      "title": "Contatti",
+      "subtitle": "Siamo qui per voi",
+      "hours": "Orari di Apertura",
+      "hoursDetail": "<span>Lunedì – Venerdì: 10:00 – 14:00 | 17:00 – 23:00</span><span>Sabato: 17:00 – 23:00</span><span>Domenica: 17:00 – 22:30</span>",
+      "reviewsTitle": "Cosa dicono i nostri ospiti"
+    },
+    "pdf": {
+      "label": "Menu in PDF",
+      "speisekarte": "Menu",
+      "speisekarteDesc": "Il nostro menu completo in PDF",
+      "getraenke": "Carta delle Bevande",
+      "getraenkeDesc": "La nostra carta delle bevande in PDF"
+    },
+    "footer": {
+      "tagline": "Cucina autentica da oltre 10 anni",
+      "copyright": "© 2025 Restaurant Trapez, Reinach. Tutti i diritti riservati.",
+      "legal": "Note Legali & Privacy"
+    }
+  },
+
+  "fr": {
+    "nav": {
+      "home": "Accueil",
+      "angebot": "Menu",
+      "reservieren": "Réserver",
+      "ambiente": "Ambiance",
+      "ueberUns": "À Propos",
+      "kontakt": "Contact"
+    },
+    "hero": {
+      "label": "Cuisine Authentique · Reinach",
+      "subtitle": "Chaque soir, nous accueillons nos hôtes avec un apéritif maison",
+      "cta1": "Réserver une Table",
+      "cta2": "Menu du Jour"
+    },
+    "angebot": {
+      "title": "Notre Menu"
+    },
+    "menu": {
+      "pdfLink": "Voir la carte complète →"
+    },
+    "reservieren": {
+      "title": "Réserver une Table",
+      "subtitle": "Nous vous attendons avec impatience. Réservez votre table maintenant.",
+      "vorname": "Prénom",
+      "nachname": "Nom",
+      "email": "Email",
+      "phone": "Téléphone (optionnel)",
+      "date": "Date",
+      "time": "Heure",
+      "guests": "Nombre de Convives",
+      "message": "Demandes spéciales (optionnel)",
+      "messagePlaceholder": "Allergies, gâteau d'anniversaire, chaise haute …",
+      "datenschutz": "J'accepte la <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">Politique de Confidentialité</a>.",
+      "button": "Réserver Maintenant",
+      "note": "✉ Vous recevrez une confirmation par email."
+    },
+    "ambiente": {
+      "title": "Ambiance",
+      "subtitle": "Plongez dans l'atmosphère chaleureuse et élégante de notre restaurant"
+    },
+    "ueberUns": {
+      "title": "À Propos",
+      "subtitle": "Notre Histoire",
+      "text1": "Le Restaurant Trapez est depuis plus de 10 ans une institution à Reinach. Nous allions l'hospitalité suisse à la cuisine italienne authentique — ingrédients frais, recettes traditionnelles et passion dans chaque assiette.",
+      "text2": "Notre chef crée chaque jour des plats qui apportent les meilleures saveurs d'Italie à votre table. Des pizzas classiques au feu de bois aux pâtes fraîches maison et spécialités de poisson.",
+      "text3": "Nous accueillons nos hôtes chaque soir avec un apéritif maison et nous réjouissons de vous offrir une soirée inoubliable.",
+      "ownerCaption": "Giuseppe Trapez — Patron & Chef"
+    },
+    "kontakt": {
+      "title": "Contact",
+      "subtitle": "Nous sommes là pour vous",
+      "hours": "Horaires d'Ouverture",
+      "hoursDetail": "<span>Lundi – Vendredi : 10h00 – 14h00 | 17h00 – 23h00</span><span>Samedi : 17h00 – 23h00</span><span>Dimanche : 17h00 – 22h30</span>",
+      "reviewsTitle": "Ce que disent nos clients"
+    },
+    "pdf": {
+      "label": "Menus en PDF",
+      "speisekarte": "Carte",
+      "speisekarteDesc": "Notre carte complète en PDF",
+      "getraenke": "Carte des Boissons",
+      "getraenkeDesc": "Notre carte des boissons en PDF"
+    },
+    "footer": {
+      "tagline": "Cuisine authentique depuis plus de 10 ans",
+      "copyright": "© 2025 Restaurant Trapez, Reinach. Tous droits réservés.",
+      "legal": "Mentions Légales & Confidentialité"
+    }
+  }
 }

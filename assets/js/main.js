@@ -124,13 +124,16 @@ function highlightActiveSection() {
 /* ---------------------------------------------------------- */
 /*  LANGUAGE SWITCHING                                         */
 /* ---------------------------------------------------------- */
-function initLanguage() {
-  applyLanguage(currentLang);
+document.addEventListener('langchange', e => {
+  currentLang = e.detail.lang;
+  renderMenuTypography(currentLang);
+  renderReviews(currentLang);
+});
 
+function initLanguage() {
   const toggle = document.getElementById('lang-toggle');
   const langMenu = document.getElementById('lang-menu');
 
-  // Toggle dropdown open/close
   toggle?.addEventListener('click', e => {
     e.stopPropagation();
     const isOpen = langMenu.classList.contains('open');
@@ -138,7 +141,6 @@ function initLanguage() {
     toggle.setAttribute('aria-expanded', String(!isOpen));
   });
 
-  // Close dropdown on outside click
   document.addEventListener('click', e => {
     const dropdown = document.querySelector('.lang-dropdown');
     if (!dropdown?.contains(e.target)) {
@@ -147,116 +149,17 @@ function initLanguage() {
     }
   });
 
-  // Handle language selection
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.addEventListener('click', e => {
       e.stopPropagation();
-      currentLang = opt.dataset.lang;
-      localStorage.setItem('trapez-lang', currentLang);
-      applyLanguage(currentLang);
+      if (window.switchLanguage) window.switchLanguage(opt.dataset.lang);
       langMenu.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
 }
 
-function applyLanguage(lang) {
-  if (typeof translations === 'undefined') return;
 
-  const t = translations[lang];
-  if (!t) return;
-
-  // Update lang attribute
-  document.documentElement.lang = lang;
-
-  // Update lang toggle button text and active option
-  const langLabel = document.getElementById('current-lang-label');
-  if (langLabel) langLabel.textContent = lang.toUpperCase();
-  document.querySelectorAll('.lang-option').forEach(opt => {
-    opt.classList.toggle('active', opt.dataset.lang === lang);
-  });
-
-  // Nav links
-  setTextById('nav-home', t.nav.home);
-  setTextById('nav-angebot', t.nav.angebot);
-  setTextById('nav-reservieren', t.nav.reservieren);
-  setTextById('nav-ambiente', t.nav.ambiente);
-  setTextById('nav-ueber-uns', t.nav.ueberUns);
-  setTextById('nav-kontakt', t.nav.kontakt);
-
-  // Hero
-  setTextById('hero-label', t.hero.tagline);
-  setTextById('hero-subtitle', t.hero.subtitle);
-  setTextById('hero-cta1', t.hero.cta1);
-  setTextById('hero-cta2', t.hero.cta2);
-
-  // Angebot
-  setTextById('angebot-title', t.angebot.title);
-  setTextById('angebot-label', t.angebot.title);
-
-  // Reservieren
-  setTextById('reservieren-title', t.reservieren.title);
-  setTextById('reservieren-subtitle', t.reservieren.subtitle);
-  setTextById('label-vorname', (t.reservieren.vorname || 'Vorname') + ' *');
-  setTextById('label-nachname', (t.reservieren.nachname || 'Nachname') + ' *');
-  setTextById('label-email', t.reservieren.email);
-  setTextById('label-phone', t.reservieren.phone);
-  setTextById('label-guests', t.reservieren.guests);
-  setTextById('label-date', t.reservieren.date);
-  setTextById('label-time', t.reservieren.time);
-  setTextById('label-message', t.reservieren.message);
-  setPlaceholderById('input-message', t.reservieren.messagePlaceholder || '');
-  setTextById('btn-reserve', t.reservieren.button);
-  setTextById('form-note', t.reservieren.note);
-
-  // Ambiente
-  setTextById('ambiente-title', t.ambiente.title);
-  setTextById('ambiente-subtitle', t.ambiente.subtitle);
-
-  // Über Uns
-  setTextById('ueber-uns-title', t.ueberUns.title);
-  setTextById('ueber-uns-subtitle', t.ueberUns.subtitle);
-  setTextById('about-text-1', t.ueberUns.text1);
-  setTextById('about-text-2', t.ueberUns.text2);
-  setTextById('about-text-3', t.ueberUns.text3);
-  setTextById('owner-caption', t.ueberUns.ownerCaption);
-
-  // Kontakt
-  setTextById('kontakt-title', t.kontakt.title);
-  setTextById('kontakt-subtitle', t.kontakt.subtitle);
-  setTextById('kontakt-hours-label', t.kontakt.hours);
-  const hoursEl = document.getElementById('kontakt-hours-detail');
-  if (hoursEl) {
-    hoursEl.innerHTML = t.kontakt.hoursDetail.map(h => `<span>${h}</span>`).join('');
-  }
-  setTextById('reviews-title', t.kontakt.reviewsTitle);
-  renderReviews(currentLang);
-
-  if (t.pdf) {
-    setTextById('pdf-label', t.pdf.label);
-    setTextById('pdf-speisekarte-title', t.pdf.speisekarte);
-    setTextById('pdf-speisekarte-desc', t.pdf.speisekarteDesc);
-    setTextById('pdf-getraenke-title', t.pdf.getraenke);
-    setTextById('pdf-getraenke-desc', t.pdf.getraenkeDesc);
-  }
-
-  // Footer
-  setTextById('footer-tagline', t.footer.tagline);
-  setTextById('footer-copy', t.footer.copyright);
-  setTextById('footer-legal', t.footer.legal);
-
-  renderMenuTypography(lang);
-}
-
-function setTextById(id, text) {
-  const el = document.getElementById(id);
-  if (el && text !== undefined) el.textContent = text;
-}
-
-function setPlaceholderById(id, text) {
-  const el = document.getElementById(id);
-  if (el && text !== undefined) el.placeholder = text;
-}
 
 /* ---------------------------------------------------------- */
 /*  MENU RENDERING (typography, from data/menu.json)          */

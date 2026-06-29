@@ -46,12 +46,12 @@
 
     <!-- Menu -->
     <ul class="nav-menu" id="nav-menu" role="menubar">
-      <li role="none"><a id="nav-home"        class="nav-link" href="#hero"        role="menuitem">Home</a></li>
-      <li role="none"><a id="nav-angebot"     class="nav-link" href="#angebot"     role="menuitem">Angebot</a></li>
-      <li role="none"><a id="nav-reservieren" class="nav-link" href="#reservieren" role="menuitem">Reservieren</a></li>
-      <li role="none"><a id="nav-ambiente"    class="nav-link" href="#ambiente"    role="menuitem">Ambiente</a></li>
-      <li role="none"><a id="nav-ueber-uns"   class="nav-link" href="#ueber-uns"   role="menuitem">Über Uns</a></li>
-      <li role="none"><a id="nav-kontakt"     class="nav-link" href="#kontakt"     role="menuitem">Kontakt</a></li>
+      <li role="none"><a class="nav-link" href="#hero"        role="menuitem" data-i18n="nav.home">Home</a></li>
+      <li role="none"><a class="nav-link" href="#angebot"     role="menuitem" data-i18n="nav.angebot">Angebot</a></li>
+      <li role="none"><a class="nav-link" href="#reservieren" role="menuitem" data-i18n="nav.reservieren">Reservieren</a></li>
+      <li role="none"><a class="nav-link" href="#ambiente"    role="menuitem" data-i18n="nav.ambiente">Ambiente</a></li>
+      <li role="none"><a class="nav-link" href="#ueber-uns"   role="menuitem" data-i18n="nav.ueberUns">Über Uns</a></li>
+      <li role="none"><a class="nav-link" href="#kontakt"     role="menuitem" data-i18n="nav.kontakt">Kontakt</a></li>
 
       <!-- Language Dropdown -->
       <li role="none">
@@ -128,7 +128,7 @@
 
     <div class="section-header reveal">
       <span class="section-label" id="angebot-label">La Nostra Cucina</span>
-      <h2 class="section-title" id="angebot-title">Unser Angebot</h2>
+      <h2 class="section-title" data-i18n="angebot.title">Unser Angebot</h2>
     </div>
 
     <!-- Speisekarte (typografisch, aus data/menu.json) -->
@@ -136,7 +136,7 @@
 
     <!-- PDF Link -->
     <div class="menu-pdf-link reveal">
-      <a id="menu-pdf-cta" href="assets/pdf/Trapez-Speisekarte.pdf" target="_blank" rel="noopener noreferrer">Vollständige Speisekarte ansehen →</a>
+      <a id="menu-pdf-cta" href="assets/pdf/Trapez-Speisekarte.pdf" target="_blank" rel="noopener noreferrer" data-i18n="menu.pdfLink">Vollständige Speisekarte ansehen →</a>
     </div>
 
     <!-- PDF Downloads -->
@@ -189,8 +189,8 @@
 
     <div class="section-header reveal">
       <span class="section-label" style="color:var(--gold);">Reservierung</span>
-      <h2 class="section-title" id="reservieren-title" style="color:var(--white);">Tisch Reservieren</h2>
-      <p class="section-subtitle" id="reservieren-subtitle">
+      <h2 class="section-title" style="color:var(--white);" data-i18n="reservieren.title">Tisch Reservieren</h2>
+      <p class="section-subtitle" data-i18n="reservieren.subtitle">
         Wir freuen uns auf Ihren Besuch. Reservieren Sie jetzt Ihren Tisch.
       </p>
       <div class="divider"></div>
@@ -207,8 +207,8 @@
       <div class="form-grid">
         <!-- Vorname -->
         <div class="form-group">
-          <label class="form-label" for="input-vorname" id="label-vorname">
-            Vorname <span class="required">*</span>
+          <label class="form-label" for="input-vorname">
+            <span data-i18n="reservieren.vorname">Vorname</span> <span class="required">*</span>
           </label>
           <input
             type="text"
@@ -223,8 +223,8 @@
 
         <!-- Nachname -->
         <div class="form-group">
-          <label class="form-label" for="input-nachname" id="label-nachname">
-            Nachname <span class="required">*</span>
+          <label class="form-label" for="input-nachname">
+            <span data-i18n="reservieren.nachname">Nachname</span> <span class="required">*</span>
           </label>
           <input
             type="text"
@@ -239,8 +239,8 @@
 
         <!-- E-Mail -->
         <div class="form-group">
-          <label class="form-label" for="input-email" id="label-email">
-            E-Mail <span class="required">*</span>
+          <label class="form-label" for="input-email">
+            <span data-i18n="reservieren.email">E-Mail</span> <span class="required">*</span>
           </label>
           <input
             type="email"
@@ -255,7 +255,7 @@
 
         <!-- Telefon -->
         <div class="form-group">
-          <label class="form-label" for="input-phone" id="label-phone">
+          <label class="form-label" for="input-phone" data-i18n="reservieren.phone">
             Telefon (optional)
           </label>
           <input
@@ -270,8 +270,8 @@
 
         <!-- Datum -->
         <div class="form-group">
-          <label class="form-label" for="input-date" id="label-date">
-            Datum <span class="required">*</span>
+          <label class="form-label" for="input-date">
+            <span data-i18n="reservieren.date">Datum</span> <span class="required">*</span>
           </label>
           <input
             type="date"
@@ -285,8 +285,8 @@
 
         <!-- Uhrzeit -->
         <div class="form-group">
-          <label class="form-label" for="input-time" id="label-time">
-            Uhrzeit <span class="required">*</span>
+          <label class="form-label" for="input-time">
+            <span data-i18n="reservieren.time">Uhrzeit</span> <span class="required">*</span>
           </label>
           <select id="input-time" name="time" class="form-select" required>
             <option value="" disabled selected>— Uhrzeit —</option>
@@ -315,8 +315,8 @@
 
         <!-- Anzahl Gäste -->
         <div class="form-group">
-          <label class="form-label" for="input-guests" id="label-guests">
-            Anzahl Gäste <span class="required">*</span>
+          <label class="form-label" for="input-guests">
+            <span data-i18n="reservieren.guests">Anzahl Gäste</span> <span class="required">*</span>
           </label>
           <select id="input-guests" name="guests" class="form-select" required>
             <option value="" disabled selected>— Personen —</option>
@@ -339,7 +339,7 @@
 
         <!-- Besondere Wünsche -->
         <div class="form-group full">
-          <label class="form-label" for="input-message" id="label-message">
+          <label class="form-label" for="input-message" data-i18n="reservieren.message">
             Besondere Wünsche (optional)
           </label>
           <textarea
@@ -348,6 +348,7 @@
             class="form-textarea"
             rows="4"
             placeholder="Allergien, Geburtstagstorte, Kinderstuhl, Hochstuhl …"
+            data-i18n-placeholder="reservieren.messagePlaceholder"
           ></textarea>
         </div>
 
@@ -355,7 +356,7 @@
         <div class="form-group full">
           <label class="form-checkbox-label">
             <input type="checkbox" id="input-datenschutz" name="datenschutz" value="1" required />
-            <span id="label-datenschutz">Ich akzeptiere die <a href="privacy.html" target="_blank" rel="noopener">Datenschutzerklärung</a>. <span class="required">*</span></span>
+            <span data-i18n-html="reservieren.datenschutz">Ich akzeptiere die <a href="privacy.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span> <span class="required">*</span>
           </label>
           <span class="form-error" id="error-datenschutz"></span>
         </div>
@@ -368,11 +369,10 @@
       </div>
 
       <div class="form-submit">
-        <p class="form-note" id="form-note">
-          <span aria-hidden="true">✉</span>
-          Sie erhalten eine Bestätigung per E-Mail.
+        <p class="form-note" data-i18n="reservieren.note">
+          ✉ Sie erhalten eine Bestätigung per E-Mail.
         </p>
-        <button type="submit" id="btn-reserve" class="btn btn-primary">
+        <button type="submit" id="btn-reserve" class="btn btn-primary" data-i18n="reservieren.button">
           Jetzt Reservieren
         </button>
       </div>
@@ -389,8 +389,8 @@
 
     <div class="section-header reveal">
       <span class="section-label" style="color:var(--gold);">Unsere Räumlichkeiten</span>
-      <h2 class="section-title" id="ambiente-title" style="color:var(--white);">Ambiente</h2>
-      <p class="section-subtitle" id="ambiente-subtitle" style="color:rgba(255,255,255,0.6);">
+      <h2 class="section-title" style="color:var(--white);" data-i18n="ambiente.title">Ambiente</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.6);" data-i18n="ambiente.subtitle">
         Tauchen Sie ein in die warme, elegante Atmosphäre unseres Restaurants
       </p>
       <div class="divider"></div>
@@ -473,19 +473,19 @@
       <div class="about-text">
         <div class="section-header reveal">
           <span class="section-label">Die Geschichte</span>
-          <h2 class="section-title" id="ueber-uns-title">Über Uns</h2>
-          <h3 class="section-subtitle" id="ueber-uns-subtitle" style="font-family:var(--font-head);font-size:1.3rem;color:var(--gold);font-style:italic;">Unsere Geschichte</h3>
+          <h2 class="section-title" data-i18n="ueberUns.title">Über Uns</h2>
+          <h3 class="section-subtitle" style="font-family:var(--font-head);font-size:1.3rem;color:var(--gold);font-style:italic;" data-i18n="ueberUns.subtitle">Unsere Geschichte</h3>
           <div class="divider" style="margin-left:0;"></div>
         </div>
 
         <div class="about-paragraphs">
-          <p id="about-text-1" class="reveal">
+          <p class="reveal" data-i18n="ueberUns.text1">
             Das Restaurant Trapez ist seit über 10 Jahren eine feste Institution in Reinach. Wir verbinden Schweizer Gastfreundschaft mit authentischer italienischer Küche — frische Zutaten, traditionelle Rezepte und Leidenschaft auf jedem Teller.
           </p>
-          <p id="about-text-2" class="reveal reveal-delay-1">
+          <p class="reveal reveal-delay-1" data-i18n="ueberUns.text2">
             Unser Küchenchef kreiert täglich Gerichte, die die besten Aromen Italiens in Ihre Teller bringen. Von klassischen Pizzen aus dem Holzofen bis zu handgemachten Pastagerichten und frischen Fischspezialitäten — bei uns finden Sie für jeden Geschmack das Richtige.
           </p>
-          <p id="about-text-3" class="reveal reveal-delay-2">
+          <p class="reveal reveal-delay-2" data-i18n="ueberUns.text3">
             Wir empfangen unsere Gäste jeden Abend mit einem Haus-Aperitif und freuen uns darauf, Ihnen einen unvergesslichen Abend zu bereiten.
           </p>
         </div>
@@ -498,7 +498,7 @@
             loading="lazy"
           />
           <div>
-            <div class="sig-name" id="owner-caption">Giuseppe Trapez — Patron &amp; Chef</div>
+            <div class="sig-name" data-i18n="ueberUns.ownerCaption">Giuseppe Trapez — Patron &amp; Chef</div>
             <div class="sig-role">Restaurant Trapez, Reinach</div>
           </div>
         </div>
@@ -532,8 +532,8 @@
 
     <div class="section-header reveal">
       <span class="section-label">Uns besuchen</span>
-      <h2 class="section-title" id="kontakt-title">Kontakt</h2>
-      <p class="section-subtitle" id="kontakt-subtitle">Wir sind für Sie da</p>
+      <h2 class="section-title" data-i18n="kontakt.title">Kontakt</h2>
+      <p class="section-subtitle" data-i18n="kontakt.subtitle">Wir sind für Sie da</p>
       <div class="divider"></div>
     </div>
 
@@ -552,8 +552,8 @@
 
         <!-- Hours -->
         <div class="kontakt-info-block reveal reveal-delay-1">
-          <div class="kontakt-info-title" id="kontakt-hours-label">Öffnungszeiten</div>
-          <p class="kontakt-info-text" id="kontakt-hours-detail">
+          <div class="kontakt-info-title" data-i18n="kontakt.hours">Öffnungszeiten</div>
+          <p class="kontakt-info-text" data-i18n-html="kontakt.hoursDetail">
             <span>Montag – Freitag: 10:00 – 14:00 | 17:00 – 23:00</span>
             <span>Samstag: 17:00 – 23:00</span>
             <span>Sonntag: 17:00 – 22:30</span>
@@ -593,7 +593,7 @@
     </div>
 
     <!-- Reviews -->
-    <h3 id="reviews-title" class="reviews-title reveal">Was unsere Gäste sagen</h3>
+    <h3 class="reviews-title reveal" data-i18n="kontakt.reviewsTitle">Was unsere Gäste sagen</h3>
     <div id="reviews-container" class="reviews-grid"></div>
 
   </div>
@@ -612,7 +612,7 @@
           <img src="assets/images/Trapez_v5.png" alt="Trapez Logo" />
           <span class="footer-logo-name">Restaurant Trapez</span>
         </div>
-        <p id="footer-tagline" class="footer-tagline">
+        <p class="footer-tagline" data-i18n="footer.tagline">
           Authentische Küche seit mehr als 10 Jahren
         </p>
       </div>
@@ -643,18 +643,18 @@
     </div>
 
     <div class="footer-bottom">
-      <p id="footer-copy" class="footer-copy">
+      <p class="footer-copy" data-i18n="footer.copyright">
         © 2025 Restaurant Trapez, Reinach. Alle Rechte vorbehalten.
       </p>
       <div class="footer-legal">
-        <a id="footer-legal" href="privacy.html">Impressum &amp; Datenschutz</a>
+        <a href="privacy.html" data-i18n="footer.legal">Impressum &amp; Datenschutz</a>
       </div>
     </div>
   </div>
 </footer>
 
 <!-- Scripts -->
-<script src="assets/js/menu-data.js"></script>
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 
 </body>
