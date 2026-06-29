@@ -159,8 +159,6 @@ function initLanguage() {
   });
 }
 
-
-
 /* ---------------------------------------------------------- */
 /*  MENU RENDERING (typography, from data/menu.json)          */
 /* ---------------------------------------------------------- */
@@ -402,40 +400,4 @@ function observeReveal() {
   });
 }
 
-/* ---------------------------------------------------------- */
-/*  COUNTER ANIMATION (stats)                                  */
-/* ---------------------------------------------------------- */
-function animateCounter(el, target, suffix) {
-  const duration = 1600;
-  const start = performance.now();
-  const isDecimal = target % 1 !== 0;
 
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = isDecimal ? (eased * target).toFixed(1) : Math.round(eased * target);
-    el.textContent = current + suffix;
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-
-// Trigger counter animation when stats become visible
-const statsObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('[data-count]').forEach(el => {
-        const val = parseFloat(el.dataset.count);
-        const suffix = el.dataset.suffix || '';
-        animateCounter(el, val, suffix);
-      });
-      statsObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.addEventListener('DOMContentLoaded', () => {
-  const statsBar = document.querySelector('.stats-bar');
-  if (statsBar) statsObserver.observe(statsBar);
-});
