@@ -6,6 +6,8 @@
 let currentLang = localStorage.getItem('trapez-lang') || 'de';
 let lightboxImages = [];
 let lightboxIndex = 0;
+let menuJsonData = null;
+let reviewsData = null;
 
 /* ---------------------------------------------------------- */
 /*  DOM READY                                                   */
@@ -15,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initLanguage();
   initMenuRender();
+  initReviews();
   initGallery();
   initScrollReveal();
 });
@@ -227,16 +230,8 @@ function applyLanguage(lang) {
   if (hoursEl) {
     hoursEl.innerHTML = t.kontakt.hoursDetail.map(h => `<span>${h}</span>`).join('');
   }
-  setTextById('stat-rating-value', t.kontakt.stats.rating.value);
-  setTextById('stat-rating-label', t.kontakt.stats.rating.label);
-  setTextById('stat-customers-value', t.kontakt.stats.customers.value);
-  setTextById('stat-customers-label', t.kontakt.stats.customers.label);
-  setTextById('stat-reviews-value', t.kontakt.stats.reviews.value);
-  setTextById('stat-reviews-label', t.kontakt.stats.reviews.label);
-  setTextById('stat-years-value', t.kontakt.stats.years.value);
-  setTextById('stat-years-label', t.kontakt.stats.years.label);
   setTextById('reviews-title', t.kontakt.reviewsTitle);
-  renderReviews(t.kontakt.reviews);
+  renderReviews(currentLang);
 
   if (t.pdf) {
     setTextById('pdf-label', t.pdf.label);
@@ -251,8 +246,7 @@ function applyLanguage(lang) {
   setTextById('footer-copy', t.footer.copyright);
   setTextById('footer-legal', t.footer.legal);
 
-  // Re-render menu for new language
-  renderMenu(lang);
+  renderMenuTypography(lang);
 }
 
 function setTextById(id, text) {
@@ -266,266 +260,79 @@ function setPlaceholderById(id, text) {
 }
 
 /* ---------------------------------------------------------- */
-/*  MENU RENDERING                                             */
+/*  MENU RENDERING (typography, from data/menu.json)          */
 /* ---------------------------------------------------------- */
 function initMenuRender() {
-  renderMenu(currentLang);
-}
-
-function renderMenu(lang) {
-  if (typeof menuData === 'undefined') return;
-  const d = menuData[lang] || menuData['de'];
-
-  // Speisekarte – split layout with clickable image panel
-  renderSpeisekarte('speisekarte-content', d.speisekarte);
-  // Getränkkarte – card redesign layout
-  renderGetraenkkarte('getraenkkarte-content', d.getraenkkarte);
-  // Aktuell
-  renderAktuell('aktuell-content', d.aktuell);
-  // Tagesmenü
-  renderTagesmenue('tagesmenue-content', d.tagesmenue);
-}
-
-/**
- * Speisekarte: card layout (same visual design as Getränkkarte).
- * Each category is a card with image on the left and items on the right.
- * Clicking any item updates that card's image to the item's photo with a fade transition.
- */
-function renderSpeisekarte(containerId, data) {
-  const el = document.getElementById(containerId);
-  if (!el || !data) return;
-
-  el.innerHTML = `<div class="menu-categories">
-    ${data.categories.map(cat => `
-      <div class="menu-category-redesign" data-catid="${escHtml(cat.id)}">
-        ${cat.image ? `
-        <div class="menu-cat-image speisekarte-cat-image">
-          <img src="${escHtml(cat.image)}" alt="${escHtml(cat.title)}" loading="lazy" />
-        </div>` : ''}
-        <div class="menu-cat-content">
-          <h3 class="menu-category-title">${escHtml(cat.title)}</h3>
-          <div class="menu-items-grid">
-            ${cat.items.map(item => `
-              <div class="menu-item speisekarte-item" data-img="${escHtml(item.image || cat.image || '')}" data-title="${escHtml(item.name)}" data-catid="${escHtml(cat.id)}" role="button" tabindex="0">
-                <div class="menu-item-info">
-                  <div class="menu-item-name">${escHtml(item.name)}</div>
-                  ${item.desc ? `<div class="menu-item-desc">${escHtml(item.desc)}</div>` : ''}
-                </div>
-                <div class="menu-item-price">${escHtml(item.price)}</div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      </div>
-    `).join('')}
-  </div>`;
-
-  // Attach click handlers: clicking a dish updates that category card's image
-  el.querySelectorAll('.speisekarte-item').forEach(item => {
-    const handler = () => {
-      if (!item.dataset.img) return;
-      const catCard = item.closest('.menu-category-redesign');
-      const img = catCard?.querySelector('.speisekarte-cat-image img');
-      if (!img) return;
-
-      // Mark item as active within its category
-      catCard.querySelectorAll('.speisekarte-item').forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
-
-      // Skip transition if image is already the same
-      const currentSrc = img.getAttribute('src');
-      if (currentSrc === item.dataset.img) return;
-
-      // If already faded out, swap immediately without triggering a new transition
-      if (parseFloat(getComputedStyle(img).opacity) <= 0.05) {
-        img.src = item.dataset.img;
-        img.alt = item.dataset.title;
-        img.style.opacity = '1';
-        return;
-      }
-
-      // Fade out → swap → fade in
-      const handleTransitionEnd = () => {
-        img.removeEventListener('transitionend', handleTransitionEnd);
-        img.src = item.dataset.img;
-        img.alt = item.dataset.title;
-        img.style.opacity = '1';
-      };
-      img.addEventListener('transitionend', handleTransitionEnd);
-      img.style.opacity = '0';
-    };
-    item.addEventListener('click', handler);
-    item.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        handler();
-      }
+  fetch('data/menu.json')
+    .then(r => r.json())
+    .then(data => {
+      menuJsonData = data;
+      renderMenuTypography(currentLang);
     });
-  });
 }
 
-function renderGetraenkkarte(containerId, data) {
-  const el = document.getElementById(containerId);
-  if (!el || !data) return;
+function renderMenuTypography(lang) {
+  const el = document.getElementById('menu-typography');
+  if (!el || !menuJsonData) return;
 
-  el.innerHTML = `<div class="menu-categories">
-    ${data.categories.map(cat => `
-      <div class="menu-category-redesign" data-catid="${escHtml(cat.id)}">
-        ${cat.image ? `
-        <div class="menu-cat-image getraenkkarte-cat-image">
-          <img src="${escHtml(cat.image)}" alt="${escHtml(cat.title)}" loading="lazy" />
-        </div>` : ''}
-        <div class="menu-cat-content">
-          <h3 class="menu-category-title">${escHtml(cat.title)}</h3>
-          <div class="menu-items-grid">
-            ${cat.items.map(item => `
-              <div class="menu-item getraenkkarte-item" data-img="${escHtml(item.image || cat.image || '')}" data-title="${escHtml(item.name)}" data-catid="${escHtml(cat.id)}" role="button" tabindex="0">
-                <div class="menu-item-info">
-                  <div class="menu-item-name">${escHtml(item.name)}</div>
-                  ${item.desc ? `<div class="menu-item-desc">${escHtml(item.desc)}</div>` : ''}
+  const sfx = `_${lang}`;
+  el.innerHTML = menuJsonData.kategorien.map(kat => {
+    const catName = kat[`name${sfx}`] || kat.name_de;
+    if (!kat.gerichte || !kat.gerichte.length) return '';
+    return `
+      <div class="menu-kat">
+        <div class="menu-kat-header">
+          <h3 class="menu-kat-title">${escHtml(catName)}</h3>
+        </div>
+        <div class="menu-kat-gerichte">
+          ${kat.gerichte.map(g => {
+            const desc = g[`beschreibung${sfx}`] || g.beschreibung_de || '';
+            const badges = (g.empfehlung ? '⭐' : '') +
+              (g.vegan ? ' 🌱' : (g.vegetarisch ? ' 🌿' : ''));
+            return `
+              <div class="menu-gericht">
+                <div class="menu-gericht-top">
+                  <span class="menu-gericht-name">${escHtml(g.name)}</span>
+                  <span class="menu-gericht-dots" aria-hidden="true"></span>
+                  <span class="menu-gericht-preis">CHF ${escHtml(g.preis)}${badges.trim() ? `<span class="menu-badge">${badges.trim()}</span>` : ''}</span>
                 </div>
-                <div class="menu-item-price">${escHtml(item.price)}</div>
-              </div>
-            `).join('')}
-          </div>
+                ${desc ? `<p class="menu-gericht-desc">${escHtml(desc)}</p>` : ''}
+              </div>`;
+          }).join('')}
         </div>
-      </div>
-    `).join('')}
-  </div>`;
-
-  // Attach click handlers: clicking a drink updates that category card's image
-  el.querySelectorAll('.getraenkkarte-item').forEach(item => {
-    const handler = () => {
-      if (!item.dataset.img) return;
-      const catCard = item.closest('.menu-category-redesign');
-      const img = catCard?.querySelector('.getraenkkarte-cat-image img');
-      if (!img) return;
-
-      // Mark item as active within its category
-      catCard.querySelectorAll('.getraenkkarte-item').forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
-
-      // Skip transition if image is already the same
-      const currentSrc = img.getAttribute('src');
-      if (currentSrc === item.dataset.img) return;
-
-      // If already faded out, swap immediately without triggering a new transition
-      if (parseFloat(getComputedStyle(img).opacity) <= 0.05) {
-        img.src = item.dataset.img;
-        img.alt = item.dataset.title;
-        img.style.opacity = '1';
-        return;
-      }
-
-      // Fade out → swap → fade in
-      const handleTransitionEnd = () => {
-        img.removeEventListener('transitionend', handleTransitionEnd);
-        img.src = item.dataset.img;
-        img.alt = item.dataset.title;
-        img.style.opacity = '1';
-      };
-      img.addEventListener('transitionend', handleTransitionEnd);
-      img.style.opacity = '0';
-    };
-    item.addEventListener('click', handler);
-    item.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        handler();
-      }
-    });
-  });
-}
-
-function renderCardMenu(containerId, data) {
-  const el = document.getElementById(containerId);
-  if (!el || !data) return;
-
-  el.innerHTML = `<div class="menu-categories">
-    ${data.categories.map(cat => `
-      <div class="menu-category-redesign">
-        ${cat.image ? `
-        <div class="menu-cat-image">
-          <img src="${escHtml(cat.image)}" alt="${escHtml(cat.title)}" loading="lazy" />
-        </div>` : ''}
-        <div class="menu-cat-content">
-          <h3 class="menu-category-title">${escHtml(cat.title)}</h3>
-          <div class="menu-items-grid">
-            ${cat.items.map(item => `
-              <div class="menu-item">
-                <div class="menu-item-info">
-                  <div class="menu-item-name">${escHtml(item.name)}</div>
-                  ${item.desc ? `<div class="menu-item-desc">${escHtml(item.desc)}</div>` : ''}
-                </div>
-                <div class="menu-item-price">${escHtml(item.price)}</div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      </div>
-    `).join('')}
-  </div>`;
-}
-
-function renderAktuell(containerId, data) {
-  const el = document.getElementById(containerId);
-  if (!el || !data) return;
-
-  el.innerHTML = `
-    <div class="aktuell-grid">
-      ${data.items.map(item => `
-        <div class="aktuell-card reveal">
-          <div class="aktuell-card-body">
-            ${item.tag ? `<span class="aktuell-tag">${escHtml(item.tag)}</span>` : ''}
-            <h3 class="aktuell-name">${escHtml(item.name)}</h3>
-            <p class="aktuell-desc">${escHtml(item.desc)}</p>
-            <div class="aktuell-price">${escHtml(item.price)}</div>
-          </div>
-        </div>
-      `).join('')}
-    </div>`;
-
-  // Re-observe new elements
-  observeReveal();
-}
-
-function renderTagesmenue(containerId, data) {
-  const el = document.getElementById(containerId);
-  if (!el || !data) return;
-
-  el.innerHTML = `
-    <div class="tagesmenue-intro">
-      <p>${escHtml(data.subtitle)}</p>
-    </div>
-    <div class="tagesmenue-note">${escHtml(data.note)}</div>
-    <div class="tagesmenue-grid">
-      ${data.menus.map(m => `
-        <div class="tagesmenue-card reveal">
-          <div class="tagesmenue-header">
-            <div class="tagesmenue-label">${escHtml(m.label)}</div>
-            <div class="tagesmenue-price">${escHtml(m.price)}</div>
-          </div>
-          <ul class="tagesmenue-items">
-            ${m.items.map(i => `<li>${escHtml(i)}</li>`).join('')}
-          </ul>
-        </div>
-      `).join('')}
-    </div>`;
+      </div>`;
+  }).join('');
 
   observeReveal();
 }
 
-function renderReviews(reviews) {
+/* ---------------------------------------------------------- */
+/*  REVIEWS (from data/reviews.json)                          */
+/* ---------------------------------------------------------- */
+function initReviews() {
+  fetch('data/reviews.json')
+    .then(r => r.json())
+    .then(data => {
+      reviewsData = data;
+      renderReviews(currentLang);
+    });
+}
+
+function renderReviews(lang) {
   const el = document.getElementById('reviews-container');
-  if (!el || !reviews) return;
+  if (!el || !reviewsData) return;
 
-  el.innerHTML = reviews.map(r => `
+  const visible = reviewsData.bewertungen
+    .filter(r => r.sichtbar !== false)
+    .slice(0, 5);
+
+  el.innerHTML = visible.map(r => `
     <div class="review-card reveal">
-      <span class="review-quote">"</span>
+      <div class="review-stars">${'★'.repeat(r.sterne)}${'☆'.repeat(5 - r.sterne)}</div>
       <p class="review-text">${escHtml(r.text)}</p>
       <div class="review-footer">
         <span class="review-name">${escHtml(r.name)}</span>
-        <span class="review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</span>
+        <span class="review-date">${escHtml(r.datum)}</span>
       </div>
     </div>
   `).join('');

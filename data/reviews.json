@@ -1,3 +1,47 @@
 {
-  "reviews": []
+  "_anleitung": "Fügen Sie neue Bewertungen am Anfang der Liste ein. Setzen Sie 'sichtbar' auf false, um eine Bewertung zu verstecken. Maximal 5 werden auf der Website angezeigt. Felder: name (Kundenname), sterne (1–5), datum (z.B. 'Juni 2025'), text (Bewertungstext).",
+  "_neu_hinzufuegen": {
+    "name": "Max Mustermann",
+    "sterne": 5,
+    "datum": "Juli 2025",
+    "text": "Hier Bewertungstext einfügen.",
+    "sichtbar": true
+  },
+  "bewertungen": [
+    {
+      "name": "Maria Schneider",
+      "sterne": 5,
+      "datum": "Juni 2025",
+      "text": "Ein wunderschönes Restaurant mit echter italienischer Küche. Die Pizza aus dem Holzofen war einfach perfekt — knusprig, leicht und voller Geschmack. Der Haus-Aperitif beim Empfang ist eine wunderbare Geste. Wir kommen definitiv wieder!",
+      "sichtbar": true
+    },
+    {
+      "name": "Thomas Müller",
+      "sterne": 5,
+      "datum": "Mai 2025",
+      "text": "Zum ersten Mal hier gewesen und sofort begeistert. Die Tagliatelle al Tartufo waren göttlich, und die Atmosphäre ist warm und einladend. Das Personal ist zuvorkommend und aufmerksam. Klare Empfehlung!",
+      "sichtbar": true
+    },
+    {
+      "name": "Sophie Andenmatten",
+      "sterne": 5,
+      "datum": "April 2025",
+      "text": "Authentische italienische Küche in Reinach — wer hätte das gedacht! Die Pasta wird selbst gemacht und schmeckt genau wie in Italien. Das Ambiente ist romantisch und gemütlich. Perfekt für einen besonderen Abend zu zweit.",
+      "sichtbar": true
+    },
+    {
+      "name": "Markus Frei",
+      "sterne": 4,
+      "datum": "März 2025",
+      "text": "Sehr gutes Restaurant mit grosszügigen Portionen und frischen Zutaten. Die Antipasti-Auswahl ist hervorragend. An einem Freitagabend etwas längere Wartezeit, aber das Essen hat die Geduld mehr als belohnt.",
+      "sichtbar": true
+    },
+    {
+      "name": "Laura Bettini",
+      "sterne": 5,
+      "datum": "Februar 2025",
+      "text": "Come italiana, posso dire che questa è la miglior pizza che ho mangiato in Svizzera. Gli ingredienti sono freschi, l'impasto è perfetto e il servizio è caldo come in Italia. Complimenti a tutto il team del Trapez!",
+      "sichtbar": true
+    }
+  ]
 }
