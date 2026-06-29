@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutz & Impressum | Restaurant Trapez</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="assets/images/Trapez_v5.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .privacy-content {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 60px 24px 80px;
+      animation: fadeInUp 0.7s 0.2s ease both;
+    }
+    .privacy-content h2 {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin: 40px 0 12px;
+      letter-spacing: 0.03em;
+    }
+    .privacy-content h2:first-child { margin-top: 0; }
+    .privacy-content p,
+    .privacy-content li {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 12px;
+    }
+    .privacy-content ul {
+      padding-left: 20px;
+    }
+    .privacy-content a { color: var(--gold); }
+    .privacy-logo {
+      display: block;
+      margin: 0 auto 40px;
+    }
+  </style>
+</head>
+<body>
+  <main style="min-height:100vh;padding-top:40px;">
+
+    <div class="privacy-content">
+
+      <a href="index.html" aria-label="Zurück zur Startseite">
+        <img src="assets/images/Trapez_v5.png" alt="Restaurant Trapez" class="special-page-logo privacy-logo" />
+      </a>
+
+      <!-- IMPRESSUM -->
+      <h2 id="impressum">Impressum</h2>
+      <p>
+        <strong>Restaurant Trapez</strong><br />
+        Sonnenweg 18<br />
+        4153 Reinach BL<br />
+        Schweiz
+      </p>
+      <p>
+        Telefon: <a href="tel:+41617114410">061 711 44 10</a><br />
+        E-Mail: <a href="mailto:kontakt@trapez.ch">kontakt@trapez.ch</a>
+      </p>
+
+      <!-- DATENSCHUTZ -->
+      <h2 id="datenschutz">Datenschutzerklärung</h2>
+      <p>
+        Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Website erhebt nur die Daten,
+        die zur Bearbeitung Ihrer Reservierungsanfrage erforderlich sind.
+      </p>
+
+      <h2>Erhobene Daten</h2>
+      <p>Beim Absenden des Reservierungsformulars werden folgende Daten verarbeitet:</p>
+      <ul>
+        <li>Name</li>
+        <li>E-Mail-Adresse</li>
+        <li>Telefonnummer (optional)</li>
+        <li>Datum, Uhrzeit und Personenanzahl</li>
+        <li>Optionale Nachricht</li>
+      </ul>
+      <p>
+        Diese Daten werden ausschliesslich zur Bearbeitung Ihrer Reservierung verwendet und nicht
+        an Dritte weitergegeben.
+      </p>
+
+      <h2>Keine Cookies, kein Tracking</h2>
+      <p>
+        Diese Website setzt keine Marketing- oder Tracking-Cookies ein. Es werden keine
+        Analyse-Tools wie Google Analytics verwendet.
+      </p>
+
+      <h2>Hosting</h2>
+      <p>
+        Die Website wird auf Servern von <a href="https://www.cyon.ch" target="_blank" rel="noopener">cyon.ch</a>
+        in der Schweiz gehostet. Es gelten die Datenschutzbestimmungen von cyon.ch.
+      </p>
+
+      <h2>Ihre Rechte</h2>
+      <p>
+        Sie haben das Recht auf Auskunft, Berichtigung und Löschung Ihrer gespeicherten Daten.
+        Kontaktieren Sie uns dazu unter <a href="mailto:kontakt@trapez.ch">kontakt@trapez.ch</a>.
+      </p>
+
+      <p style="margin-top:48px;">
+        <a href="index.html" class="btn btn-outline">Zur Startseite</a>
+      </p>
+
+    </div>
+
+  </main>
+
+  <script>
+    (function () {
+      var lang;
+      try { lang = localStorage.getItem('trapez-lang') || 'de'; } catch (e) { lang = 'de'; }
+      document.documentElement.lang = lang;
+    })();
+  </script>
+</body>
+</html>

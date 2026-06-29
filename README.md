@@ -14,8 +14,8 @@ Hosting: cyon.ch
 
 ## Seitenstruktur (Single Page)
 - index.html — alles: Hero, Speisekarte, Reservierung, Galerie, Kontakt
-- danke.html — Redirect nach Reservierung
-- datenschutz.html — Datenschutz + Impressum
+- thank-you.html — Redirect nach Reservierung
+- privacy.html — Datenschutz + Impressum
 - 404.html — Fehlerseite
 
 ## Wichtige Dateien
@@ -24,6 +24,7 @@ Hosting: cyon.ch
 - data/translations.json — alle Texte DE/EN/IT/FR
 - assets/pdf/Trapez-Speisekarte.pdf — CEO ersetzt per FTP
 - php/config.php — SMTP Zugangsdaten (NIEMALS committen!)
+- php/reservation.php — Formular-Handler (cyon SMTP)
 
 ## Regeln
 - Kein Formspree — nur cyon PHP

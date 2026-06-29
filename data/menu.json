@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "id": "vorspeisen",
+      "label": { "de": "Vorspeisen", "en": "Starters", "it": "Antipasti", "fr": "Entrées" },
+      "items": []
+    },
+    {
+      "id": "pasta",
+      "label": { "de": "Pasta", "en": "Pasta", "it": "Pasta", "fr": "Pâtes" },
+      "items": []
+    },
+    {
+      "id": "pizza",
+      "label": { "de": "Pizza", "en": "Pizza", "it": "Pizza", "fr": "Pizza" },
+      "items": []
+    },
+    {
+      "id": "fleisch",
+      "label": { "de": "Fleisch", "en": "Meat", "it": "Carne", "fr": "Viande" },
+      "items": []
+    },
+    {
+      "id": "fisch",
+      "label": { "de": "Fisch", "en": "Fish", "it": "Pesce", "fr": "Poisson" },
+      "items": []
+    },
+    {
+      "id": "dessert",
+      "label": { "de": "Dessert", "en": "Dessert", "it": "Dolci", "fr": "Desserts" },
+      "items": []
+    }
+  ]
+}
