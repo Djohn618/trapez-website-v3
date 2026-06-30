@@ -10,7 +10,6 @@
     },
     "hero": {
       "label": "Authentische Küche · Reinach",
-      "subtitle": "Jeden Abend empfangen wir unsere Gäste mit einem Haus-Aperitif",
       "cta1": "Tisch Reservieren",
       "cta2": "Tagesmenü"
     },
@@ -80,7 +79,6 @@
     },
     "hero": {
       "label": "Authentic Cuisine · Reinach",
-      "subtitle": "Every evening we welcome our guests with a house aperitif",
       "cta1": "Reserve a Table",
       "cta2": "Daily Menu"
     },
@@ -150,7 +148,6 @@
     },
     "hero": {
       "label": "Cucina Autentica · Reinach",
-      "subtitle": "Ogni sera accogliamo i nostri ospiti con un aperitivo della casa",
       "cta1": "Prenota un Tavolo",
       "cta2": "Menu del Giorno"
     },
@@ -220,7 +217,6 @@
     },
     "hero": {
       "label": "Cuisine Authentique · Reinach",
-      "subtitle": "Chaque soir, nous accueillons nos hôtes avec un apéritif maison",
       "cta1": "Réserver une Table",
       "cta2": "Menu du Jour"
     },
