@@ -1,6 +1,23 @@
 {
   "_anleitung": "PREIS ÄNDERN: Gericht suchen (Ctrl+F), Zahl bei 'preis' ändern, speichern, per FTP hochladen.",
   "_neu_hinzufuegen": "Bestehenden Gericht-Block kopieren, am Ende der Kategorie einfügen, Werte anpassen.",
+  "_bereiche": {
+    "speisekarte":  "IDs: antipasti, pizze, paste, dolci  → Bereich 'Speisekarte' auf der Website",
+    "getraenke":    "ID:  bevande                          → Bereich 'Getränkekarte' auf der Website",
+    "aktuell":      "ID:  aktuell                          → Bereich 'Aktuell' — saisonale Angebote (monatlich ändern)",
+    "tagesmenu":    "ID:  tagesmenu                        → Bereich 'Tagesmenü' — täglich oder wöchentlich ändern"
+  },
+  "_vorlage_gericht": {
+    "name": "Gerichtname (immer italienisch)",
+    "beschreibung_de": "Beschreibung auf Deutsch",
+    "beschreibung_en": "Description in English",
+    "beschreibung_it": "Descrizione in italiano",
+    "beschreibung_fr": "Description en français",
+    "preis": "0.00",
+    "vegetarisch": false,
+    "vegan": false,
+    "empfehlung": false
+  },
   "kategorien": [
     {
       "id": "antipasti",
@@ -537,6 +554,46 @@
           "beschreibung_fr": "Barolo DOCG, Piémont — Nebbiolo, corsé, complexe, longue finale — 1 dl",
           "preis": "14.00",
           "vegetarisch": true,
+          "vegan": false,
+          "empfehlung": false
+        }
+      ]
+    },
+    {
+      "id": "aktuell",
+      "name_de": "Aktuell",
+      "name_en": "Current Specials",
+      "name_it": "Offerte del Momento",
+      "name_fr": "Offres du Moment",
+      "gerichte": [
+        {
+          "name": "Tagliere di Stagione",
+          "beschreibung_de": "Platzhalter — durch aktuelles saisonales Angebot ersetzen",
+          "beschreibung_en": "Placeholder — replace with current seasonal offering",
+          "beschreibung_it": "Segnaposto — sostituire con l'offerta stagionale attuale",
+          "beschreibung_fr": "Espace réservé — à remplacer par l'offre saisonnière actuelle",
+          "preis": "0.00",
+          "vegetarisch": false,
+          "vegan": false,
+          "empfehlung": false
+        }
+      ]
+    },
+    {
+      "id": "tagesmenu",
+      "name_de": "Tagesmenü",
+      "name_en": "Daily Menu",
+      "name_it": "Menu del Giorno",
+      "name_fr": "Menu du Jour",
+      "gerichte": [
+        {
+          "name": "Menü des Tages",
+          "beschreibung_de": "Platzhalter — täglich oder wöchentlich aktualisieren (Vorspeise, Hauptgang, Dessert)",
+          "beschreibung_en": "Placeholder — update daily or weekly (starter, main, dessert)",
+          "beschreibung_it": "Segnaposto — aggiornare quotidianamente (antipasto, primo, dolce)",
+          "beschreibung_fr": "Espace réservé — à mettre à jour quotidiennement (entrée, plat, dessert)",
+          "preis": "0.00",
+          "vegetarisch": false,
           "vegan": false,
           "empfehlung": false
         }

@@ -172,11 +172,24 @@ function initMenuRender() {
 }
 
 function renderMenuTypography(lang) {
-  const el = document.getElementById('menu-typography');
-  if (!el || !menuJsonData) return;
-
+  if (!menuJsonData) return;
   const sfx = `_${lang}`;
-  el.innerHTML = menuJsonData.kategorien.map(kat => {
+  const cats = menuJsonData.kategorien;
+  const FOOD = ['antipasti', 'pizze', 'paste', 'dolci'];
+
+  renderKategorien('ms-speisekarte', cats.filter(k => FOOD.includes(k.id)), sfx);
+  renderKategorien('ms-getraenke',   cats.filter(k => k.id === 'bevande'), sfx);
+  renderKategorien('ms-aktuell',     cats.filter(k => k.id === 'aktuell'), sfx);
+  renderKategorien('ms-tagesmenue',  cats.filter(k => k.id === 'tagesmenu'), sfx);
+
+  observeReveal();
+}
+
+function renderKategorien(containerId, kategorien, sfx) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+
+  const html = kategorien.map(kat => {
     const catName = kat[`name${sfx}`] || kat.name_de;
     if (!kat.gerichte || !kat.gerichte.length) return '';
     return `
@@ -203,7 +216,7 @@ function renderMenuTypography(lang) {
       </div>`;
   }).join('');
 
-  observeReveal();
+  el.innerHTML = html || '<p class="menu-section-empty">Derzeit keine Einträge.</p>';
 }
 
 /* ---------------------------------------------------------- */
