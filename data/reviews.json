@@ -1,47 +1,89 @@
 {
-  "_anleitung": "Fügen Sie neue Bewertungen am Anfang der Liste ein. Setzen Sie 'sichtbar' auf false, um eine Bewertung zu verstecken. Maximal 5 werden auf der Website angezeigt. Felder: name (Kundenname), sterne (1–5), datum (z.B. 'Juni 2025'), text (Bewertungstext).",
-  "_neu_hinzufuegen": {
+  "_ANLEITUNG_FUER_CEO": "=== SO AENDERN SIE DIE BEWERTUNGEN ===",
+  "_schritt_1": "1. Diese Datei mit Notepad öffnen",
+  "_schritt_2": "2. Alten Text bei 'text_de' ersetzen durch neue Bewertung",
+  "_schritt_3": "3. Namen und Datum anpassen",
+  "_schritt_4": "4. Datei speichern (Ctrl+S)",
+  "_schritt_5": "5. Per FTP in Ordner 'data/' auf cyon hochladen — fertig!",
+  "_hinweis": "Sterne = Zahl von 1 bis 5. Kommas zwischen den { } Bloecken nicht vergessen!",
+  "_vorlage": {
     "name": "Max Mustermann",
     "sterne": 5,
-    "datum": "Juli 2025",
-    "text": "Hier Bewertungstext einfügen.",
-    "sichtbar": true
+    "sichtbar": true,
+    "text_de": "Hier Bewertungstext auf Deutsch einfügen.",
+    "text_en": "Insert review text in English here.",
+    "text_it": "Inserire il testo della recensione in italiano qui.",
+    "text_fr": "Insérez le texte de l'avis en français ici.",
+    "datum_de": "Juni 2025",
+    "datum_en": "June 2025",
+    "datum_it": "Giugno 2025",
+    "datum_fr": "Juin 2025"
   },
   "bewertungen": [
     {
-      "name": "Maria Schneider",
+      "name": "Maria S.",
       "sterne": 5,
-      "datum": "Juni 2025",
-      "text": "Ein wunderschönes Restaurant mit echter italienischer Küche. Die Pizza aus dem Holzofen war einfach perfekt — knusprig, leicht und voller Geschmack. Der Haus-Aperitif beim Empfang ist eine wunderbare Geste. Wir kommen definitiv wieder!",
-      "sichtbar": true
+      "sichtbar": true,
+      "text_de": "Wunderbares Restaurant! Die Pizza aus dem Holzofen war fantastisch — knusprig und voller Geschmack. Der Haus-Aperitif beim Empfang ist eine wunderbare Geste. Wir kommen definitiv wieder!",
+      "text_en": "Wonderful restaurant! The wood-fired pizza was fantastic — crispy and full of flavour. The house aperitif on arrival is a wonderful gesture. We will definitely be back!",
+      "text_it": "Ristorante meraviglioso! La pizza dal forno a legna era fantastica — croccante e piena di sapore. L'aperitivo della casa all'arrivo è un gesto splendido. Torneremo sicuramente!",
+      "text_fr": "Restaurant merveilleux! La pizza au feu de bois était fantastique — croustillante et pleine de saveur. L'apéritif maison à l'arrivée est un geste merveilleux. Nous reviendrons sans faute!",
+      "datum_de": "Mai 2025",
+      "datum_en": "May 2025",
+      "datum_it": "Maggio 2025",
+      "datum_fr": "Mai 2025"
     },
     {
-      "name": "Thomas Müller",
+      "name": "Thomas K.",
       "sterne": 5,
-      "datum": "Mai 2025",
-      "text": "Zum ersten Mal hier gewesen und sofort begeistert. Die Tagliatelle al Tartufo waren göttlich, und die Atmosphäre ist warm und einladend. Das Personal ist zuvorkommend und aufmerksam. Klare Empfehlung!",
-      "sichtbar": true
+      "sichtbar": true,
+      "text_de": "Gemütliche Atmosphäre, ausgezeichnete Pasta und der Haus-Aperitif war ein absolutes Highlight. Das Personal ist herzlich und aufmerksam. Klare Empfehlung für jeden Italienliebhaber!",
+      "text_en": "Cozy atmosphere, excellent pasta and the house aperitif was an absolute highlight. The staff is warm and attentive. Highly recommended for every Italian food lover!",
+      "text_it": "Atmosfera accogliente, pasta eccellente e l'aperitivo della casa è stato un vero highlight. Il personale è cordiale e attento. Lo consiglio vivamente a tutti gli amanti della cucina italiana!",
+      "text_fr": "Atmosphère chaleureuse, excellentes pâtes et l'apéritif maison était un point fort absolu. Le personnel est chaleureux et attentif. Fortement recommandé à tous les amateurs de cuisine italienne!",
+      "datum_de": "April 2025",
+      "datum_en": "April 2025",
+      "datum_it": "Aprile 2025",
+      "datum_fr": "Avril 2025"
     },
     {
-      "name": "Sophie Andenmatten",
-      "sterne": 5,
-      "datum": "April 2025",
-      "text": "Authentische italienische Küche in Reinach — wer hätte das gedacht! Die Pasta wird selbst gemacht und schmeckt genau wie in Italien. Das Ambiente ist romantisch und gemütlich. Perfekt für einen besonderen Abend zu zweit.",
-      "sichtbar": true
-    },
-    {
-      "name": "Markus Frei",
+      "name": "Sophie M.",
       "sterne": 4,
-      "datum": "März 2025",
-      "text": "Sehr gutes Restaurant mit grosszügigen Portionen und frischen Zutaten. Die Antipasti-Auswahl ist hervorragend. An einem Freitagabend etwas längere Wartezeit, aber das Essen hat die Geduld mehr als belohnt.",
-      "sichtbar": true
+      "sichtbar": true,
+      "text_de": "Tolles Essen und schöne Räumlichkeiten. Die handgemachte Pasta ist einfach unglaublich. Wir kommen gerne wieder!",
+      "text_en": "Great food and beautiful premises. The handmade pasta is simply incredible. We will definitely come back!",
+      "text_it": "Ottimo cibo e bei locali. La pasta fatta a mano è semplicemente incredibile. Torneremo volentieri!",
+      "text_fr": "Excellent repas et beaux locaux. Les pâtes faites maison sont tout simplement incroyables. Nous reviendrons avec plaisir!",
+      "datum_de": "März 2025",
+      "datum_en": "March 2025",
+      "datum_it": "Marzo 2025",
+      "datum_fr": "Mars 2025"
     },
     {
-      "name": "Laura Bettini",
+      "name": "Markus F.",
       "sterne": 5,
-      "datum": "Februar 2025",
-      "text": "Come italiana, posso dire che questa è la miglior pizza che ho mangiato in Svizzera. Gli ingredienti sono freschi, l'impasto è perfetto e il servizio è caldo come in Italia. Complimenti a tutto il team del Trapez!",
-      "sichtbar": true
+      "sichtbar": true,
+      "text_de": "Authentische italienische Küche mitten in Reinach — ein echter Geheimtipp! Grosszügige Portionen, frische Zutaten und eine Weinkarte, die begeistert. Sehr gerne wieder!",
+      "text_en": "Authentic Italian cuisine in the heart of Reinach — a real hidden gem! Generous portions, fresh ingredients and an impressive wine list. We will definitely return!",
+      "text_it": "Cucina italiana autentica nel cuore di Reinach — un vero tesoro nascosto! Porzioni generose, ingredienti freschi e una carta dei vini che stupisce. Torneremo volentieri!",
+      "text_fr": "Cuisine italienne authentique au cœur de Reinach — un vrai coup de cœur! Portions généreuses, ingrédients frais et une carte des vins impressionnante. Nous reviendrons!",
+      "datum_de": "Februar 2025",
+      "datum_en": "February 2025",
+      "datum_it": "Febbraio 2025",
+      "datum_fr": "Février 2025"
+    },
+    {
+      "name": "Laura B.",
+      "sterne": 5,
+      "sichtbar": true,
+      "text_de": "Als Italienerin kann ich sagen: Das ist die beste Pizza, die ich in der Schweiz gegessen habe. Der Teig ist perfekt, die Zutaten sind frisch und der Service ist herzlich wie in Italien. Complimenti!",
+      "text_en": "As an Italian, I can say: this is the best pizza I have had in Switzerland. The dough is perfect, the ingredients are fresh and the service is as warm as in Italy. Complimenti!",
+      "text_it": "Come italiana, posso dire che questa è la miglior pizza che ho mangiato in Svizzera. L'impasto è perfetto, gli ingredienti sono freschi e il servizio è caldo come in Italia. Complimenti a tutto il team!",
+      "text_fr": "En tant qu'Italienne, je peux dire que c'est la meilleure pizza que j'ai mangée en Suisse. La pâte est parfaite, les ingrédients sont frais et le service est chaleureux comme en Italie. Complimenti!",
+      "datum_de": "Januar 2025",
+      "datum_en": "January 2025",
+      "datum_it": "Gennaio 2025",
+      "datum_fr": "Janvier 2025"
     }
   ]
 }

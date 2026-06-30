@@ -226,16 +226,19 @@ function renderReviews(lang) {
     .filter(r => r.sichtbar !== false)
     .slice(0, 5);
 
-  el.innerHTML = visible.map(r => `
+  el.innerHTML = visible.map(r => {
+    const text  = r[`text_${lang}`]  || r.text_de  || '';
+    const datum = r[`datum_${lang}`] || r.datum_de || '';
+    return `
     <div class="review-card reveal">
       <div class="review-stars">${'★'.repeat(r.sterne)}${'☆'.repeat(5 - r.sterne)}</div>
-      <p class="review-text">${escHtml(r.text)}</p>
+      <p class="review-text">${escHtml(text)}</p>
       <div class="review-footer">
         <span class="review-name">${escHtml(r.name)}</span>
-        <span class="review-date">${escHtml(r.datum)}</span>
+        <span class="review-date">${escHtml(datum)}</span>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 
   observeReveal();
 }
