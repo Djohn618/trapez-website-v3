@@ -11,6 +11,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
+    /* ── Privacy page colour tokens ─────────────────────────── */
+    :root {
+      --privacy-bg:      #E4CDAF;
+      --privacy-bg-alt:  #D9CBAE;
+      --privacy-heading: #5B3A29;
+      --privacy-text:    #5B3A29;
+      --privacy-accent:  #A76D4D;
+      --privacy-border:  #C2B280;
+    }
+
+    /* Override global dark background for this page only */
+    body { background: var(--privacy-bg); }
+
+    /* Keep navbar and footer dark — only main gets the light theme */
+    main { background: var(--privacy-bg); }
+
     .privacy-content {
       max-width: 720px;
       margin: 0 auto;
@@ -21,20 +37,21 @@
     .privacy-content h1 {
       font-family: var(--font-head);
       font-size: 2rem;
-      color: var(--white);
+      color: var(--privacy-heading);
       margin-bottom: 8px;
     }
     .privacy-content .privacy-intro {
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.45);
+      color: var(--privacy-text);
+      opacity: 0.6;
       margin-bottom: 48px;
-      border-bottom: 1px solid rgba(201,169,110,0.2);
+      border-bottom: 1px solid var(--privacy-border);
       padding-bottom: 24px;
     }
     .privacy-content h2 {
       font-family: var(--font-head);
       font-size: 1.15rem;
-      color: var(--gold);
+      color: var(--privacy-heading);
       margin: 40px 0 10px;
       letter-spacing: 0.03em;
     }
@@ -43,20 +60,45 @@
     .privacy-content li {
       font-size: 0.88rem;
       line-height: 1.8;
-      color: rgba(255,255,255,0.65);
+      color: var(--privacy-text);
       margin-bottom: 10px;
     }
+    .privacy-content strong { color: var(--privacy-heading); }
     .privacy-content ul { padding-left: 20px; }
-    .privacy-content a { color: var(--gold); }
+
+    /* Links: #5B3A29 → 6.09:1 on #E4CDAF — passes WCAG AA     */
+    /* #A76D4D alone = 2.73:1 → fails; used only for hover line */
+    .privacy-content a {
+      color: var(--privacy-text);
+      text-decoration: underline;
+      text-decoration-color: var(--privacy-accent);
+      text-underline-offset: 3px;
+    }
+    .privacy-content a:hover {
+      color: var(--privacy-accent);
+      text-decoration-color: var(--privacy-accent);
+    }
+
     .privacy-divider {
       border: none;
-      border-top: 1px solid rgba(201,169,110,0.2);
+      border-top: 2px solid var(--privacy-border);
       margin: 56px 0 48px;
     }
     .privacy-meta {
       margin-top: 48px;
       font-size: 0.78rem;
-      color: rgba(255,255,255,0.3);
+      color: var(--privacy-text);
+      opacity: 0.5;
+    }
+
+    /* "Zur Startseite" btn on light bg */
+    .privacy-content .btn-outline {
+      color: var(--privacy-heading);
+      border-color: var(--privacy-heading);
+    }
+    .privacy-content .btn-outline:hover {
+      background: var(--privacy-heading);
+      color: var(--privacy-bg);
     }
   </style>
 </head>
