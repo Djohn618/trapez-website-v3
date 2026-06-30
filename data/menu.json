@@ -1,581 +1,3156 @@
 {
-  "_anleitung": "PREIS ÄNDERN: Gericht suchen (Ctrl+F), Zahl bei 'preis' ändern, speichern, per FTP hochladen.",
-  "_neu_hinzufuegen": "Bestehenden Gericht-Block kopieren, am Ende der Kategorie einfügen, Werte anpassen.",
-  "_bereiche": {
-    "speisekarte":  "IDs: antipasti, pizze, paste, dolci  → Bereich 'Speisekarte' auf der Website",
-    "getraenke":    "ID:  bevande                          → Bereich 'Getränkekarte' auf der Website",
-    "aktuell":      "ID:  aktuell                          → Bereich 'Aktuell' — saisonale Angebote (monatlich ändern)",
-    "tagesmenu":    "ID:  tagesmenu                        → Bereich 'Tagesmenü' — täglich oder wöchentlich ändern"
-  },
-  "_vorlage_gericht": {
-    "name": "Gerichtname (immer italienisch)",
-    "beschreibung_de": "Beschreibung auf Deutsch",
-    "beschreibung_en": "Description in English",
-    "beschreibung_it": "Descrizione in italiano",
-    "beschreibung_fr": "Description en français",
-    "preis": "0.00",
-    "vegetarisch": false,
-    "vegan": false,
-    "empfehlung": false
-  },
-  "kategorien": [
+  "_ANLEITUNG_FUER_CEO": "=== SO BEARBEITEN SIE DIE SPEISE- UND GETRAENKEKARTE ===",
+  "_schritt_1_preis_aendern": "Gericht oder Getraenk suchen (Strg+F / Cmd+F), Zahl bei 'preis' aendern, Datei speichern, per FTP in den Ordner 'data/' hochladen.",
+  "_schritt_2_neues_gericht": "Einen bestehenden Block { ... } innerhalb der passenden Kategorie kopieren, einfuegen, Werte anpassen (name, beschreibung, preis).",
+  "_schritt_3_neue_kategorie": "Einen kompletten Kategorie-Block kopieren (id, name_de/en/it/fr, gerichte), einfuegen, neue 'id' vergeben, Inhalt anpassen.",
+  "_hinweis_varianten": "Manche Getraenke (z.B. Weine, Bier offen) haben statt 'preis' ein 'varianten' Feld mit mehreren Mengen/Preisen.",
+  "_hinweis_aktuell_tagesmenu": "Die Sektion 'tagesmenu' ist aktuell leer (Platzhalter) -- bitte spaeter mit echten Tagesmenue-Eintraegen befuellen, sobald diese feststehen.",
+  "_warnung": "WICHTIG: Kommas zwischen den { } Bloecken nicht vergessen, sonst funktioniert die Speisekarte nicht mehr!",
+  "sektionen": [
     {
-      "id": "antipasti",
-      "name_de": "Antipasti",
-      "name_en": "Starters",
-      "name_it": "Antipasti",
-      "name_fr": "Entrées",
-      "gerichte": [
+      "id": "speisekarte",
+      "name_de": "Speisekarte",
+      "name_en": "Menu",
+      "name_it": "Menù",
+      "name_fr": "Menu",
+      "kategorien": [
         {
-          "name": "Bruschetta al Pomodoro",
-          "beschreibung_de": "Geröstetes Brot, frische Tomaten, Basilikum, Olivenöl",
-          "beschreibung_en": "Toasted bread, fresh tomatoes, basil, olive oil",
-          "beschreibung_it": "Pane tostato, pomodori freschi, basilico, olio d'oliva",
-          "beschreibung_fr": "Pain grillé, tomates fraîches, basilic, huile d'olive",
-          "preis": "9.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
+          "id": "suppen",
+          "name_de": "Zuppe / Suppen",
+          "name_en": "Soups",
+          "name_it": "Zuppe",
+          "name_fr": "Soupes",
+          "gerichte": [
+            {
+              "name": "Minestrone Maison",
+              "beschreibung_de": "Hausgemachte Gemüsesuppe",
+              "beschreibung_en": "Homemade vegetable soup",
+              "beschreibung_it": "Minestrone della casa",
+              "beschreibung_fr": "Soupe de légumes maison",
+              "preis": "11.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Tomaten crème Suppé",
+              "beschreibung_de": "Cremige Tomatensuppe",
+              "beschreibung_en": "Creamy tomato soup",
+              "beschreibung_it": "Vellutata di pomodoro",
+              "beschreibung_fr": "Velouté de tomates",
+              "preis": "9.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Bouillon mit Ei",
+              "beschreibung_de": "Klare Bouillon mit Ei",
+              "beschreibung_en": "Clear broth with egg",
+              "beschreibung_it": "Brodo con uovo",
+              "beschreibung_fr": "Bouillon à l'œuf",
+              "preis": "9.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Broccoli crème Suppé",
+              "beschreibung_de": "Cremige Broccolisuppe",
+              "beschreibung_en": "Creamy broccoli soup",
+              "beschreibung_it": "Vellutata di broccoli",
+              "beschreibung_fr": "Velouté de brocolis",
+              "preis": "10.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kartoffel crème Suppé",
+              "beschreibung_de": "Cremige Kartoffelsuppe",
+              "beschreibung_en": "Creamy potato soup",
+              "beschreibung_it": "Vellutata di patate",
+              "beschreibung_fr": "Velouté de pommes de terre",
+              "preis": "10.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
         },
         {
-          "name": "Insalata Caprese",
-          "beschreibung_de": "Büffelmozzarella, Rispentomaten, Basilikum, Aceto Balsamico",
-          "beschreibung_en": "Buffalo mozzarella, vine tomatoes, basil, balsamic vinegar",
-          "beschreibung_it": "Mozzarella di bufala, pomodori a grappolo, basilico, aceto balsamico",
-          "beschreibung_fr": "Mozzarella de bufflonne, tomates grappe, basilic, vinaigre balsamique",
-          "preis": "17.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
+          "id": "salate",
+          "name_de": "Insalate / Salate",
+          "name_en": "Salads",
+          "name_it": "Insalate",
+          "name_fr": "Salades",
+          "gerichte": [
+            {
+              "name": "Insalata verde",
+              "beschreibung_de": "Grüner Salat",
+              "beschreibung_en": "Green salad",
+              "beschreibung_it": "Insalata verde",
+              "beschreibung_fr": "Salade verte",
+              "preis": "9.50",
+              "vegetarisch": true,
+              "vegan": true,
+              "empfehlung": false
+            },
+            {
+              "name": "Insalata mista",
+              "beschreibung_de": "Gemischter Salat",
+              "beschreibung_en": "Mixed salad",
+              "beschreibung_it": "Insalata mista",
+              "beschreibung_fr": "Salade mixte",
+              "preis": "10.50",
+              "vegetarisch": true,
+              "vegan": true,
+              "empfehlung": false
+            },
+            {
+              "name": "Insalata di Pomodoro",
+              "beschreibung_de": "Tomatensalat",
+              "beschreibung_en": "Tomato salad",
+              "beschreibung_it": "Insalata di pomodoro",
+              "beschreibung_fr": "Salade de tomates",
+              "preis": "11.50",
+              "vegetarisch": true,
+              "vegan": true,
+              "empfehlung": false
+            },
+            {
+              "name": "Insalata Caprese ½ Portion",
+              "beschreibung_de": "Tomaten und Mozzarellascheiben auf grünem Salat",
+              "beschreibung_en": "Tomatoes and mozzarella slices on green salad",
+              "beschreibung_it": "Pomodori e mozzarella su insalata verde",
+              "beschreibung_fr": "Tomates et mozzarella sur salade verte",
+              "preis": "12.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Insalata Caprese",
+              "beschreibung_de": "Tomaten und Mozzarellascheiben auf grünem Salat",
+              "beschreibung_en": "Tomatoes and mozzarella slices on green salad",
+              "beschreibung_it": "Pomodori e mozzarella su insalata verde",
+              "beschreibung_fr": "Tomates et mozzarella sur salade verte",
+              "preis": "19.00",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Salatteller",
+              "beschreibung_de": "Bunter Salatteller",
+              "beschreibung_en": "Mixed salad plate",
+              "beschreibung_it": "Piatto di insalate miste",
+              "beschreibung_fr": "Assiette de salades mélangées",
+              "preis": "19.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Wurstsalat einfach",
+              "beschreibung_de": "Wurstsalat",
+              "beschreibung_en": "Sausage salad",
+              "beschreibung_it": "Insalata di salsiccia",
+              "beschreibung_fr": "Salade de saucisse",
+              "preis": "15.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Wurst-Käsesalat garniert",
+              "beschreibung_de": "Wurst-Käsesalat, garniert",
+              "beschreibung_en": "Sausage and cheese salad, garnished",
+              "beschreibung_it": "Insalata di salsiccia e formaggio guarnita",
+              "beschreibung_fr": "Salade de saucisse et fromage garnie",
+              "preis": "21.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Insalata Maison",
+              "beschreibung_de": "Reichhaltiger Salat mit gebratenen Riesencrevetten",
+              "beschreibung_en": "Generous salad with pan-fried king prawns",
+              "beschreibung_it": "Insalata ricca con gamberoni saltati",
+              "beschreibung_fr": "Salade généreuse aux grosses crevettes poêlées",
+              "preis": "24.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Insalata \"Trapez\"",
+              "beschreibung_de": "Blattsalat mit gebratenen Pouletstreifen, Früchten",
+              "beschreibung_en": "Leaf salad with pan-fried chicken strips and fruit",
+              "beschreibung_it": "Insalata mista con striscioline di pollo e frutta",
+              "beschreibung_fr": "Salade verte avec lanières de poulet poêlées et fruits",
+              "preis": "22.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
         },
         {
-          "name": "Carpaccio di Manzo",
-          "beschreibung_de": "Hauchdünn geschnittenes Rindsfilet, Rucola, Parmesan, Kapern, Zitrone",
-          "beschreibung_en": "Thinly sliced beef fillet, rocket, Parmesan, capers, lemon",
-          "beschreibung_it": "Filetto di manzo affettato sottile, rucola, parmigiano, capperi, limone",
-          "beschreibung_fr": "Filet de bœuf finement tranché, roquette, parmesan, câpres, citron",
-          "preis": "22.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": true
+          "id": "kalte-vorspeisen",
+          "name_de": "Antipasti freddi / Kalte Vorspeisen",
+          "name_en": "Cold Starters",
+          "name_it": "Antipasti freddi",
+          "name_fr": "Entrées froides",
+          "gerichte": [
+            {
+              "name": "Antipasto Italiano",
+              "beschreibung_de": "Rohschinken, Schinken, Salami, Mozzarella, Oliven",
+              "beschreibung_en": "Cured ham, ham, salami, mozzarella, olives",
+              "beschreibung_it": "Prosciutto crudo, prosciutto cotto, salame, mozzarella, olive",
+              "beschreibung_fr": "Jambon cru, jambon, salami, mozzarella, olives",
+              "preis": "24.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Prosciutto crudo",
+              "beschreibung_de": "Rohschinken",
+              "beschreibung_en": "Cured ham",
+              "beschreibung_it": "Prosciutto crudo",
+              "beschreibung_fr": "Jambon cru",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Carpaccio di Manzo al Parmigiano",
+              "beschreibung_de": "Hauchdünn geschnittenes Rindscarpaccio mit Parmesan",
+              "beschreibung_en": "Thinly sliced beef carpaccio with parmesan",
+              "beschreibung_it": "Carpaccio di manzo sottile con parmigiano",
+              "beschreibung_fr": "Carpaccio de bœuf finement tranché au parmesan",
+              "preis": "26.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Crevetten Cocktail",
+              "beschreibung_de": "Crevettencocktail",
+              "beschreibung_en": "Prawn cocktail",
+              "beschreibung_it": "Cocktail di gamberetti",
+              "beschreibung_fr": "Cocktail de crevettes",
+              "preis": "18.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Salmone affumicato",
+              "beschreibung_de": "Räucherlachsteller mit Toast und Butter",
+              "beschreibung_en": "Smoked salmon plate with toast and butter",
+              "beschreibung_it": "Salmone affumicato con toast e burro",
+              "beschreibung_fr": "Saumon fumé avec toast et beurre",
+              "preis": "22.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Gamberoni al forno",
+              "beschreibung_de": "Riesencrevetten ohne Schale, überbacken mit Kräuterbutter",
+              "beschreibung_en": "Shell-off king prawns gratinated with herb butter",
+              "beschreibung_it": "Gamberoni sgusciati gratinati al burro alle erbe",
+              "beschreibung_fr": "Gambas décortiquées gratinées au beurre aux herbes",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
         },
         {
-          "name": "Burrata con Prosciutto di Parma",
-          "beschreibung_de": "Cremige Burrata, 24 Monate gereifter Parmaschinken, Rucola, Kirschtomaten",
-          "beschreibung_en": "Creamy burrata, 24-month Parma ham, rocket, cherry tomatoes",
-          "beschreibung_it": "Burrata cremosa, prosciutto di Parma 24 mesi, rucola, pomodorini",
-          "beschreibung_fr": "Burrata crémeuse, jambon de Parme 24 mois, roquette, tomates cerises",
-          "preis": "21.50",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": true
+          "id": "kinderteller",
+          "name_de": "Per i Bambini / Kinderteller",
+          "name_en": "Children's Menu",
+          "name_it": "Per i bambini",
+          "name_fr": "Menu enfants",
+          "gerichte": [
+            {
+              "name": "Pizza Margherita (Kinder)",
+              "beschreibung_de": "Tomaten, Mozzarella, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, origano",
+              "beschreibung_fr": "Tomate, mozzarella, origan",
+              "preis": "15.00",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spaghetti Napoli (Kinder)",
+              "beschreibung_de": "Spaghetti an Tomatensauce",
+              "beschreibung_en": "Spaghetti in tomato sauce",
+              "beschreibung_it": "Spaghetti al pomodoro",
+              "beschreibung_fr": "Spaghetti à la sauce tomate",
+              "preis": "15.00",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Impanata di Maiale (Kinder)",
+              "beschreibung_de": "Paniertes Schweinschnitzel mit Pommes frites",
+              "beschreibung_en": "Breaded pork escalope with fries",
+              "beschreibung_it": "Scaloppina di maiale impanata con patatine fritte",
+              "beschreibung_fr": "Escalope de porc panée avec frites",
+              "preis": "20.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
         },
         {
-          "name": "Antipasto Misto della Casa",
-          "beschreibung_de": "Hausauswahl: Aufschnitt, Käse, Oliven, Peperoni, Bruschetta",
-          "beschreibung_en": "House selection: charcuterie, cheese, olives, peppers, bruschetta",
-          "beschreibung_it": "Selezione della casa: salumi, formaggi, olive, peperoni, bruschetta",
-          "beschreibung_fr": "Sélection de la maison: charcuterie, fromages, olives, poivrons, bruschetta",
-          "preis": "26.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": false
+          "id": "cordon-bleu-schwein",
+          "name_de": "Hausgemachte – Schweins-Cordon Bleu",
+          "name_en": "Homemade Pork Cordon Bleu",
+          "name_it": "Cordon Bleu di maiale fatto in casa",
+          "name_fr": "Cordon bleu de porc maison",
+          "gerichte": [
+            {
+              "name": "Schweins Cordon bleu Maison",
+              "beschreibung_de": "Gefüllt mit Schinken, Raclette-Käse",
+              "beschreibung_en": "Filled with ham, raclette cheese",
+              "beschreibung_it": "Farcito con prosciutto e formaggio raclette",
+              "beschreibung_fr": "Farci au jambon et fromage à raclette",
+              "preis": "31.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Schweins Cordon bleu Hawaii",
+              "beschreibung_de": "Gefüllt mit Ananas, Schinken, Raclette-Käse",
+              "beschreibung_en": "Filled with pineapple, ham, raclette cheese",
+              "beschreibung_it": "Farcito con ananas, prosciutto e formaggio raclette",
+              "beschreibung_fr": "Farci à l'ananas, jambon et fromage à raclette",
+              "preis": "32.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Schweins Cordon bleu Piccante (scharf)",
+              "beschreibung_de": "Gefüllt mit Salami, Raclette-Käse, Peperoncini",
+              "beschreibung_en": "Filled with salami, raclette cheese, chili peppers (spicy)",
+              "beschreibung_it": "Farcito con salame, formaggio raclette, peperoncini (piccante)",
+              "beschreibung_fr": "Farci au salami, fromage à raclette, piments (épicé)",
+              "preis": "33.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Schweins Cordon bleu Trapez 350g",
+              "beschreibung_de": "Gefüllt mit Rohschinken, Mozzarella, Tomaten, Kräuterbutter",
+              "beschreibung_en": "Filled with cured ham, mozzarella, tomatoes, herb butter",
+              "beschreibung_it": "Farcito con prosciutto crudo, mozzarella, pomodori, burro alle erbe",
+              "beschreibung_fr": "Farci au jambon cru, mozzarella, tomates, beurre aux herbes",
+              "preis": "39.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Schweins Cordon bleu Zermatt",
+              "beschreibung_de": "Gefüllt mit Speck, Zwiebeln, Raclette-Käse",
+              "beschreibung_en": "Filled with bacon, onions, raclette cheese",
+              "beschreibung_it": "Farcito con pancetta, cipolle, formaggio raclette",
+              "beschreibung_fr": "Farci au lard, oignons, fromage à raclette",
+              "preis": "33.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Schweins Cordon bleu Zürcher Art",
+              "beschreibung_de": "Gefüllt mit Schinken, Raclette-Käse, Kräuterbutter",
+              "beschreibung_en": "Filled with ham, raclette cheese, herb butter",
+              "beschreibung_it": "Farcito con prosciutto, formaggio raclette, burro alle erbe",
+              "beschreibung_fr": "Farci au jambon, fromage à raclette, beurre aux herbes",
+              "preis": "32.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Schweins Cordon bleu Aargauer Art",
+              "beschreibung_de": "Gefüllt mit Schinken, Raclette-Käse, Champignon-Rahmsauce",
+              "beschreibung_en": "Filled with ham, raclette cheese, creamy mushroom sauce",
+              "beschreibung_it": "Farcito con prosciutto, formaggio raclette, salsa ai funghi e panna",
+              "beschreibung_fr": "Farci au jambon, fromage à raclette, sauce crème aux champignons",
+              "preis": "34.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Schweins Cordon bleu Calvados",
+              "beschreibung_de": "Gefüllt mit Schinken, Zwiebeln, Raclette-Käse, Calvados-Sauce",
+              "beschreibung_en": "Filled with ham, onions, raclette cheese, Calvados sauce",
+              "beschreibung_it": "Farcito con prosciutto, cipolle, formaggio raclette, salsa al calvados",
+              "beschreibung_fr": "Farci au jambon, oignons, fromage à raclette, sauce au calvados",
+              "preis": "34.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ],
+          "hinweis_de": "Eine Beilage im Preis inbegriffen: Pommes frites, Kroketten, Saisongemüse, Teigwaren oder Risotto",
+          "hinweis_en": "One side dish included: fries, croquettes, seasonal vegetables, pasta or risotto",
+          "hinweis_it": "Un contorno incluso nel prezzo: patatine fritte, crocchette, verdure di stagione, pasta o risotto",
+          "hinweis_fr": "Un accompagnement inclus: frites, croquettes, légumes de saison, pâtes ou risotto"
         },
         {
-          "name": "Gamberetti all'Aglio",
-          "beschreibung_de": "Garnelen in Knoblauch-Butter, Weisswein, Petersilie, Ciabatta",
-          "beschreibung_en": "Prawns in garlic butter, white wine, parsley, ciabatta",
-          "beschreibung_it": "Gamberi al burro d'aglio, vino bianco, prezzemolo, ciabatta",
-          "beschreibung_fr": "Crevettes au beurre d'ail, vin blanc, persil, ciabatta",
-          "preis": "24.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": false
+          "id": "cordon-bleu-poulet",
+          "name_de": "Hausgemachte – Poulet Cordon-Bleu",
+          "name_en": "Homemade Chicken Cordon Bleu",
+          "name_it": "Cordon Bleu di pollo fatto in casa",
+          "name_fr": "Cordon bleu de poulet maison",
+          "gerichte": [
+            {
+              "name": "Poulet Cordon bleu Maison",
+              "beschreibung_de": "Gefüllt mit Schinken, Raclette-Käse",
+              "beschreibung_en": "Filled with ham, raclette cheese",
+              "beschreibung_it": "Farcito con prosciutto e formaggio raclette",
+              "beschreibung_fr": "Farci au jambon et fromage à raclette",
+              "preis": "29.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Poulet Cordon bleu Hawaii",
+              "beschreibung_de": "Gefüllt mit Ananas, Schinken, Raclette-Käse",
+              "beschreibung_en": "Filled with pineapple, ham, raclette cheese",
+              "beschreibung_it": "Farcito con ananas, prosciutto e formaggio raclette",
+              "beschreibung_fr": "Farci à l'ananas, jambon et fromage à raclette",
+              "preis": "30.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Poulet Cordon bleu Piccante (scharf)",
+              "beschreibung_de": "Gefüllt mit Salami, Raclette-Käse, Peperoncini",
+              "beschreibung_en": "Filled with salami, raclette cheese, chili peppers (spicy)",
+              "beschreibung_it": "Farcito con salame, formaggio raclette, peperoncini (piccante)",
+              "beschreibung_fr": "Farci au salami, fromage à raclette, piments (épicé)",
+              "preis": "32.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Poulet Cordon bleu Trapez 350g",
+              "beschreibung_de": "Gefüllt mit Rohschinken, Mozzarella, Tomaten, Kräuterbutter",
+              "beschreibung_en": "Filled with cured ham, mozzarella, tomatoes, herb butter",
+              "beschreibung_it": "Farcito con prosciutto crudo, mozzarella, pomodori, burro alle erbe",
+              "beschreibung_fr": "Farci au jambon cru, mozzarella, tomates, beurre aux herbes",
+              "preis": "37.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Poulet Cordon bleu Zermatt",
+              "beschreibung_de": "Gefüllt mit Speck, Zwiebeln, Raclette-Käse",
+              "beschreibung_en": "Filled with bacon, onions, raclette cheese",
+              "beschreibung_it": "Farcito con pancetta, cipolle, formaggio raclette",
+              "beschreibung_fr": "Farci au lard, oignons, fromage à raclette",
+              "preis": "32.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Poulet Cordon bleu Zürcher Art",
+              "beschreibung_de": "Gefüllt mit Schinken, Raclette-Käse, Kräuterbutter",
+              "beschreibung_en": "Filled with ham, raclette cheese, herb butter",
+              "beschreibung_it": "Farcito con prosciutto, formaggio raclette, burro alle erbe",
+              "beschreibung_fr": "Farci au jambon, fromage à raclette, beurre aux herbes",
+              "preis": "31.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Poulet Cordon bleu Aargauer Art",
+              "beschreibung_de": "Gefüllt mit Schinken, Raclette-Käse, Champignon-Rahmsauce",
+              "beschreibung_en": "Filled with ham, raclette cheese, creamy mushroom sauce",
+              "beschreibung_it": "Farcito con prosciutto, formaggio raclette, salsa ai funghi e panna",
+              "beschreibung_fr": "Farci au jambon, fromage à raclette, sauce crème aux champignons",
+              "preis": "33.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Poulet Cordon bleu Calvados",
+              "beschreibung_de": "Gefüllt mit Schinken, Zwiebeln, Raclette-Käse, Calvados-Sauce",
+              "beschreibung_en": "Filled with ham, onions, raclette cheese, Calvados sauce",
+              "beschreibung_it": "Farcito con prosciutto, cipolle, formaggio raclette, salsa al calvados",
+              "beschreibung_fr": "Farci au jambon, oignons, fromage à raclette, sauce au calvados",
+              "preis": "33.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ],
+          "hinweis_de": "Eine Beilage im Preis inbegriffen: Pommes frites, Kroketten, Saisongemüse, Teigwaren oder Risotto",
+          "hinweis_en": "One side dish included: fries, croquettes, seasonal vegetables, pasta or risotto",
+          "hinweis_it": "Un contorno incluso nel prezzo: patatine fritte, crocchette, verdure di stagione, pasta o risotto",
+          "hinweis_fr": "Un accompagnement inclus: frites, croquettes, légumes de saison, pâtes ou risotto"
+        },
+        {
+          "id": "poulet-spezialitaeten",
+          "name_de": "Poulet-Spezialitäten",
+          "name_en": "Chicken Specialties",
+          "name_it": "Specialità di pollo",
+          "name_fr": "Spécialités de poulet",
+          "gerichte": [
+            {
+              "name": "Petto di pollo piccata alla milanese",
+              "beschreibung_de": "Pouletbrust mit Eier, Parmesan, Schinken, Champignons",
+              "beschreibung_en": "Chicken breast with egg, parmesan, ham, mushrooms",
+              "beschreibung_it": "Petto di pollo con uovo, parmigiano, prosciutto, funghi",
+              "beschreibung_fr": "Blanc de poulet à l'œuf, parmesan, jambon, champignons",
+              "preis": "29.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Petto di pollo Hawaii",
+              "beschreibung_de": "Pouletbrust mit Ananas, Curry, Rahmsauce",
+              "beschreibung_en": "Chicken breast with pineapple, curry, cream sauce",
+              "beschreibung_it": "Petto di pollo con ananas, curry, salsa alla panna",
+              "beschreibung_fr": "Blanc de poulet à l'ananas, curry, sauce crème",
+              "preis": "27.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pouletbrust diavolo",
+              "beschreibung_de": "Peperoncini, Olivenöl, Tomatensauce",
+              "beschreibung_en": "Chili peppers, olive oil, tomato sauce",
+              "beschreibung_it": "Peperoncini, olio d'oliva, salsa di pomodoro",
+              "beschreibung_fr": "Piments, huile d'olive, sauce tomate",
+              "preis": "27.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pouletbrust al pepe verde",
+              "beschreibung_de": "Pouletbrust an grüner Pfeffersauce",
+              "beschreibung_en": "Chicken breast in green pepper sauce",
+              "beschreibung_it": "Petto di pollo al pepe verde",
+              "beschreibung_fr": "Blanc de poulet sauce au poivre vert",
+              "preis": "28.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Petto di pollo al limone",
+              "beschreibung_de": "Pouletbrust an Zitronensauce",
+              "beschreibung_en": "Chicken breast in lemon sauce",
+              "beschreibung_it": "Petto di pollo al limone",
+              "beschreibung_fr": "Blanc de poulet sauce au citron",
+              "preis": "27.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Petto di pollo alla siciliana",
+              "beschreibung_de": "Pouletbrust an Steinpilzsauce",
+              "beschreibung_en": "Chicken breast in porcini mushroom sauce",
+              "beschreibung_it": "Petto di pollo ai funghi porcini",
+              "beschreibung_fr": "Blanc de poulet sauce aux cèpes",
+              "preis": "30.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Petto di pollo al gorgonzola",
+              "beschreibung_de": "Pouletbrust an Gorgonzola-Sauce",
+              "beschreibung_en": "Chicken breast in gorgonzola sauce",
+              "beschreibung_it": "Petto di pollo al gorgonzola",
+              "beschreibung_fr": "Blanc de poulet sauce au gorgonzola",
+              "preis": "26.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Petto di pollo alla napoletana",
+              "beschreibung_de": "Pouletbrust mit Tomatenscheiben, Mozzarella, Basilikum, Marsala-Sauce",
+              "beschreibung_en": "Chicken breast with tomato slices, mozzarella, basil, Marsala sauce",
+              "beschreibung_it": "Petto di pollo con pomodoro, mozzarella, basilico, salsa al marsala",
+              "beschreibung_fr": "Blanc de poulet, tomates, mozzarella, basilic, sauce au marsala",
+              "preis": "27.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ],
+          "hinweis_de": "Eine Beilage im Preis inbegriffen, jede weitere CHF 5.00: Pommes frites, Kroketten, Saisongemüse, Teigwaren oder Butterreis",
+          "hinweis_en": "One side dish included, each additional CHF 5.00: fries, croquettes, seasonal vegetables, pasta or buttered rice",
+          "hinweis_it": "Un contorno incluso, ogni ulteriore CHF 5.00: patatine fritte, crocchette, verdure di stagione, pasta o riso al burro",
+          "hinweis_fr": "Un accompagnement inclus, chaque accompagnement supplémentaire CHF 5.00: frites, croquettes, légumes de saison, pâtes ou riz au beurre"
+        },
+        {
+          "id": "vom-heissen-stein",
+          "name_de": "Vom heissen Stein",
+          "name_en": "From the Hot Stone",
+          "name_it": "Dalla pietra calda",
+          "name_fr": "De la pierre chaude",
+          "gerichte": [
+            {
+              "name": "Entrecôte (Heisser Stein)",
+              "beschreibung_de": "Entrecôte, 250g, auf heissem Stein zubereitet",
+              "beschreibung_en": "Entrecôte, 250g, prepared on a hot stone",
+              "beschreibung_it": "Entrecôte, 250g, cotta sulla pietra calda",
+              "beschreibung_fr": "Entrecôte, 250g, préparée sur pierre chaude",
+              "preis": "46.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pferdefilet (Heisser Stein)",
+              "beschreibung_de": "Pferdefilet, 250g, auf heissem Stein zubereitet",
+              "beschreibung_en": "Horse fillet, 250g, prepared on a hot stone",
+              "beschreibung_it": "Filetto di cavallo, 250g, cotto sulla pietra calda",
+              "beschreibung_fr": "Filet de cheval, 250g, préparé sur pierre chaude",
+              "preis": "44.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Rindsfilet (Heisser Stein)",
+              "beschreibung_de": "Rindsfilet, 250g, auf heissem Stein zubereitet",
+              "beschreibung_en": "Beef fillet, 250g, prepared on a hot stone",
+              "beschreibung_it": "Filetto di manzo, 250g, cotto sulla pietra calda",
+              "beschreibung_fr": "Filet de bœuf, 250g, préparé sur pierre chaude",
+              "preis": "48.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbssteak (Heisser Stein)",
+              "beschreibung_de": "Kalbssteak, 250g, auf heissem Stein zubereitet",
+              "beschreibung_en": "Veal steak, 250g, prepared on a hot stone",
+              "beschreibung_it": "Bistecca di vitello, 250g, cotta sulla pietra calda",
+              "beschreibung_fr": "Steak de veau, 250g, préparé sur pierre chaude",
+              "preis": "46.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ],
+          "hinweis_de": "Saucen: Cocktail-, Tatar- oder Kräuterbuttersauce. Beilagen: Kroketten, Pommes frites, Gemüse",
+          "hinweis_en": "Sauces: cocktail, tartar or herb butter sauce. Sides: croquettes, fries, vegetables",
+          "hinweis_it": "Salse: cocktail, tartara o burro alle erbe. Contorni: crocchette, patatine fritte, verdure",
+          "hinweis_fr": "Sauces : cocktail, tartare ou beurre aux herbes. Accompagnements : croquettes, frites, légumes"
+        },
+        {
+          "id": "pizza",
+          "name_de": "Pizze / Pizza",
+          "name_en": "Pizzas",
+          "name_it": "Pizze",
+          "name_fr": "Pizzas",
+          "gerichte": [
+            {
+              "name": "Pizza Margherita",
+              "beschreibung_de": "Tomaten, Mozzarella, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, origano",
+              "beschreibung_fr": "Tomate, mozzarella, origan",
+              "preis": "18.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Napoli",
+              "beschreibung_de": "Tomaten, Mozzarella, Sardellen, Oliven, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, anchovies, olives, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, acciughe, olive, origano",
+              "beschreibung_fr": "Tomate, mozzarella, anchois, olives, origan",
+              "preis": "21.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Piccante",
+              "beschreibung_de": "Tomaten, Mozzarella, Sardellen, Oliven, Kapern, Oregano (scharf)",
+              "beschreibung_en": "Tomato, mozzarella, anchovies, olives, capers, oregano (spicy)",
+              "beschreibung_it": "Pomodoro, mozzarella, acciughe, olive, capperi, origano (piccante)",
+              "beschreibung_fr": "Tomate, mozzarella, anchois, olives, câpres, origan (épicé)",
+              "preis": "21.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Prosciutto",
+              "beschreibung_de": "Tomaten, Mozzarella, Vorderschinken, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, cooked ham, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, prosciutto cotto, origano",
+              "beschreibung_fr": "Tomate, mozzarella, jambon cuit, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Funghi",
+              "beschreibung_de": "Tomaten, Mozzarella, Champignon, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, mushrooms, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, funghi, origano",
+              "beschreibung_fr": "Tomate, mozzarella, champignons, origan",
+              "preis": "20.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Prosciutto e Funghi",
+              "beschreibung_de": "Tomaten, Mozzarella, Vorderschinken, Champignon, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, cooked ham, mushrooms, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, prosciutto cotto, funghi, origano",
+              "beschreibung_fr": "Tomate, mozzarella, jambon cuit, champignons, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Quattro Stagioni",
+              "beschreibung_de": "Tomaten, Mozzarella, Vorderschinken, Champignon, Artischocken, Oliven, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, cooked ham, mushrooms, artichokes, olives, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, prosciutto cotto, funghi, carciofi, olive, origano",
+              "beschreibung_fr": "Tomate, mozzarella, jambon cuit, champignons, artichauts, olives, origan",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Fiorentina",
+              "beschreibung_de": "Tomaten, Mozzarella, Champignon, Spinat, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, mushrooms, spinach, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, funghi, spinaci, origano",
+              "beschreibung_fr": "Tomate, mozzarella, champignons, épinards, origan",
+              "preis": "21.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Calzone",
+              "beschreibung_de": "Zusammengelegte Pizza: Tomaten, Mozzarella, Vorderschinken, Champignon, Ei, Oregano",
+              "beschreibung_en": "Folded pizza: tomato, mozzarella, cooked ham, mushrooms, egg, oregano",
+              "beschreibung_it": "Pizza ripiegata: pomodoro, mozzarella, prosciutto cotto, funghi, uovo, origano",
+              "beschreibung_fr": "Pizza pliée : tomate, mozzarella, jambon cuit, champignons, œuf, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Gorgonzola",
+              "beschreibung_de": "Tomaten, Mozzarella, Gorgonzola, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, gorgonzola, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, gorgonzola, origano",
+              "beschreibung_fr": "Tomate, mozzarella, gorgonzola, origan",
+              "preis": "21.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Salame",
+              "beschreibung_de": "Tomaten, Mozzarella, Salami, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, salami, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, salame, origano",
+              "beschreibung_fr": "Tomate, mozzarella, salami, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza e Prosciutto Salame",
+              "beschreibung_de": "Tomaten, Mozzarella, Salami, Vorderschinken, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, salami, cooked ham, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, salame, prosciutto cotto, origano",
+              "beschreibung_fr": "Tomate, mozzarella, salami, jambon cuit, origan",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Prosciutto e Gorgonzola",
+              "beschreibung_de": "Tomaten, Mozzarella, Vorderschinken, Gorgonzola, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, cooked ham, gorgonzola, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, prosciutto cotto, gorgonzola, origano",
+              "beschreibung_fr": "Tomate, mozzarella, jambon cuit, gorgonzola, origan",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Quattro Formaggio",
+              "beschreibung_de": "Tomaten, Mozzarella, vier verschiedene Käsesorten, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, four different cheeses, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, quattro formaggi diversi, origano",
+              "beschreibung_fr": "Tomate, mozzarella, quatre fromages différents, origan",
+              "preis": "22.00",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Carbonara",
+              "beschreibung_de": "Tomaten, Mozzarella, Speck, Ei, Zwiebeln, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, bacon, egg, onions, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, pancetta, uovo, cipolle, origano",
+              "beschreibung_fr": "Tomate, mozzarella, lard, œuf, oignons, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Reinach",
+              "beschreibung_de": "Tomaten, Mozzarella, Champignon, Vorderschinken, Peperoni, Oliven, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, mushrooms, cooked ham, bell peppers, olives, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, funghi, prosciutto cotto, peperoni, olive, origano",
+              "beschreibung_fr": "Tomate, mozzarella, champignons, jambon cuit, poivrons, olives, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Mama mia",
+              "beschreibung_de": "Tomaten, Mozzarella, Champignon, Broccoli, Spinat, Zwiebeln, Knoblauch, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, mushrooms, broccoli, spinach, onions, garlic, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, funghi, broccoli, spinaci, cipolle, aglio, origano",
+              "beschreibung_fr": "Tomate, mozzarella, champignons, brocolis, épinards, oignons, ail, origan",
+              "preis": "22.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Bella Italia",
+              "beschreibung_de": "Tomaten, Mozzarella, Parmesan, Spinat, Tomatenscheibe, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, parmesan, spinach, tomato slices, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, parmigiano, spinaci, fette di pomodoro, origano",
+              "beschreibung_fr": "Tomate, mozzarella, parmesan, épinards, tranches de tomate, origan",
+              "preis": "21.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Aladin",
+              "beschreibung_de": "Tomaten, Mozzarella, Thunfisch, Gorgonzola, Pfefferschoten, Eier, Basilikum, Olivenöl, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, tuna, gorgonzola, chili peppers, egg, basil, olive oil, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, tonno, gorgonzola, peperoncini, uovo, basilico, olio d'oliva, origano",
+              "beschreibung_fr": "Tomate, mozzarella, thon, gorgonzola, piments, œuf, basilic, huile d'olive, origan",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Puttanesca",
+              "beschreibung_de": "Tomaten, Mozzarella, Speck, Salami, Sardellen, Knoblauch, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, bacon, salami, anchovies, garlic, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, pancetta, salame, acciughe, aglio, origano",
+              "beschreibung_fr": "Tomate, mozzarella, lard, salami, anchois, ail, origan",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Parma",
+              "beschreibung_de": "Tomaten, Mozzarella, Rohschinken, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, cured ham, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, prosciutto crudo, origano",
+              "beschreibung_fr": "Tomate, mozzarella, jambon cru, origan",
+              "preis": "25.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Tonno e Cipolle",
+              "beschreibung_de": "Tomaten, Mozzarella, Thunfisch, Zwiebeln, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, tuna, onions, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, tonno, cipolle, origano",
+              "beschreibung_fr": "Tomate, mozzarella, thon, oignons, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Frutti di Mare",
+              "beschreibung_de": "Tomaten, Mozzarella, Meeresfrüchte, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, seafood, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, frutti di mare, origano",
+              "beschreibung_fr": "Tomate, mozzarella, fruits de mer, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Gamberetti",
+              "beschreibung_de": "Tomaten, Mozzarella, Crevetten, Knoblauch, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, shrimp, garlic, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, gamberetti, aglio, origano",
+              "beschreibung_fr": "Tomate, mozzarella, crevettes, ail, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Hawaii",
+              "beschreibung_de": "Tomaten, Mozzarella, Vorderschinken, Ananas, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, cooked ham, pineapple, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, prosciutto cotto, ananas, origano",
+              "beschreibung_fr": "Tomate, mozzarella, jambon cuit, ananas, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Pazza",
+              "beschreibung_de": "Tomaten, Mozzarella, Speck, Zwiebeln, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, bacon, onions, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, pancetta, cipolle, origano",
+              "beschreibung_fr": "Tomate, mozzarella, lard, oignons, origan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza con Salmone e Salsa Rosa",
+              "beschreibung_de": "Tomaten, Mozzarella, Lachs, Rucola, Cocktailsauce, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, salmon, arugula, cocktail sauce, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, salmone, rucola, salsa rosa, origano",
+              "beschreibung_fr": "Tomate, mozzarella, saumon, roquette, sauce cocktail, origan",
+              "preis": "25.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Viviana",
+              "beschreibung_de": "Tomaten, Mozzarella, Artischocken, Thunfisch, Sardellen, Peperoni, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, artichokes, tuna, anchovies, bell peppers, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, carciofi, tonno, acciughe, peperoni, origano",
+              "beschreibung_fr": "Tomate, mozzarella, artichauts, thon, anchois, poivrons, origan",
+              "preis": "24.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Desiderio",
+              "beschreibung_de": "Tomaten, Mozzarella, nach Wahl (max. 5 Beilagen)",
+              "beschreibung_en": "Tomato, mozzarella, choice of up to 5 toppings",
+              "beschreibung_it": "Pomodoro, mozzarella, a scelta (massimo 5 ingredienti)",
+              "beschreibung_fr": "Tomate, mozzarella, au choix (max. 5 garnitures)",
+              "preis": "26.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Gamberoni",
+              "beschreibung_de": "Tomaten, Mozzarella, Riesencrevetten, Cherrytomaten, Knoblauch, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, king prawns, cherry tomatoes, garlic, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, gamberoni, pomodorini, aglio, origano",
+              "beschreibung_fr": "Tomate, mozzarella, gambas, tomates cerises, ail, origan",
+              "preis": "29.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza \"Trapez\"",
+              "beschreibung_de": "Tomaten, Mozzarella, Vorderschinken, Speck, Salami, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, cooked ham, bacon, salami, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, prosciutto cotto, pancetta, salame, origano",
+              "beschreibung_fr": "Tomate, mozzarella, jambon cuit, lard, salami, origan",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": true
+            },
+            {
+              "name": "Pizza Diavolo",
+              "beschreibung_de": "Tomaten, Mozzarella, Speck, Zwiebeln, Knoblauch, Pfefferschoten, Oregano (sehr scharf!)",
+              "beschreibung_en": "Tomato, mozzarella, bacon, onions, garlic, chili peppers, oregano (very spicy!)",
+              "beschreibung_it": "Pomodoro, mozzarella, pancetta, cipolle, aglio, peperoncini, origano (molto piccante!)",
+              "beschreibung_fr": "Tomate, mozzarella, lard, oignons, ail, piments, origan (très épicé !)",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Pizza Exotica",
+              "beschreibung_de": "Tomaten, Mozzarella, Poulet, Ananas, Curry, Oregano",
+              "beschreibung_en": "Tomato, mozzarella, chicken, pineapple, curry, oregano",
+              "beschreibung_it": "Pomodoro, mozzarella, pollo, ananas, curry, origano",
+              "beschreibung_fr": "Tomate, mozzarella, poulet, ananas, curry, origan",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ],
+          "hinweis_de": "Auch in kleiner Grösse erhältlich, Preisreduktion Fr. 3.–",
+          "hinweis_en": "Also available in a smaller size, price reduction Fr. 3.–",
+          "hinweis_it": "Disponibile anche in formato piccolo, riduzione di prezzo Fr. 3.–",
+          "hinweis_fr": "Également disponible en petite taille, réduction de prix Fr. 3.–"
+        },
+        {
+          "id": "spaghetti",
+          "name_de": "Spaghetti",
+          "name_en": "Spaghetti",
+          "name_it": "Spaghetti",
+          "name_fr": "Spaghetti",
+          "gerichte": [
+            {
+              "name": "Spaghetti Napoli",
+              "beschreibung_de": "Spaghetti an Tomatensauce",
+              "beschreibung_en": "Spaghetti in tomato sauce",
+              "beschreibung_it": "Spaghetti al pomodoro",
+              "beschreibung_fr": "Spaghetti à la sauce tomate",
+              "preis": "19.00",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spaghetti Bolognaise",
+              "beschreibung_de": "Spaghetti an Hackfleisch-Tomatensauce",
+              "beschreibung_en": "Spaghetti in minced meat tomato sauce",
+              "beschreibung_it": "Spaghetti al ragù",
+              "beschreibung_fr": "Spaghetti à la sauce bolognaise",
+              "preis": "22.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spaghetti Carbonara",
+              "beschreibung_de": "Speck, Eier, Rahm, Parmesan",
+              "beschreibung_en": "Bacon, egg, cream, parmesan",
+              "beschreibung_it": "Pancetta, uovo, panna, parmigiano",
+              "beschreibung_fr": "Lard, œuf, crème, parmesan",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spaghetti alle Vongole",
+              "beschreibung_de": "Muscheln, Zwiebeln, Knoblauch, Weisswein, Petersilie",
+              "beschreibung_en": "Clams, onions, garlic, white wine, parsley",
+              "beschreibung_it": "Vongole, cipolle, aglio, vino bianco, prezzemolo",
+              "beschreibung_fr": "Palourdes, oignons, ail, vin blanc, persil",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spaghetti al Pesto",
+              "beschreibung_de": "Basilikum, Pinienkerne, Schafskäse, Rahm, Olivenöl",
+              "beschreibung_en": "Basil, pine nuts, sheep's cheese, cream, olive oil",
+              "beschreibung_it": "Basilico, pinoli, formaggio di pecora, panna, olio d'oliva",
+              "beschreibung_fr": "Basilic, pignons, fromage de brebis, crème, huile d'olive",
+              "preis": "21.00",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spaghetti all'amatriciana",
+              "beschreibung_de": "Speck und Zwiebeln, Pfefferschoten, Tomatensauce",
+              "beschreibung_en": "Bacon and onions, chili peppers, tomato sauce",
+              "beschreibung_it": "Pancetta e cipolle, peperoncini, salsa di pomodoro",
+              "beschreibung_fr": "Lard et oignons, piments, sauce tomate",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spaghetti Aglio e Olio",
+              "beschreibung_de": "Knoblauch, Petersilie, Peperoncini, Olivenöl",
+              "beschreibung_en": "Garlic, parsley, chili peppers, olive oil",
+              "beschreibung_it": "Aglio, prezzemolo, peperoncini, olio d'oliva",
+              "beschreibung_fr": "Ail, persil, piments, huile d'olive",
+              "preis": "21.00",
+              "vegetarisch": true,
+              "vegan": true,
+              "empfehlung": false
+            },
+            {
+              "name": "Spaghetti Pescatore",
+              "beschreibung_de": "Zwiebeln, diverse Krustentiere, Fisch, Weisswein, Petersilie",
+              "beschreibung_en": "Onions, assorted shellfish, fish, white wine, parsley",
+              "beschreibung_it": "Cipolle, crostacei misti, pesce, vino bianco, prezzemolo",
+              "beschreibung_fr": "Oignons, fruits de mer variés, poisson, vin blanc, persil",
+              "preis": "25.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spaghetti \"Trapez\"",
+              "beschreibung_de": "Kalbsfleisch, Zwiebeln, Curry, Tomatensauce, Rahm",
+              "beschreibung_en": "Veal, onions, curry, tomato sauce, cream",
+              "beschreibung_it": "Vitello, cipolle, curry, salsa di pomodoro, panna",
+              "beschreibung_fr": "Veau, oignons, curry, sauce tomate, crème",
+              "preis": "26.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": true
+            },
+            {
+              "name": "Spaghetti Reinach",
+              "beschreibung_de": "Kalbfleisch, Speck, Zwiebeln, Peperoni, Champignon, Pesto-Rahmsauce",
+              "beschreibung_en": "Veal, bacon, onions, bell peppers, mushrooms, pesto cream sauce",
+              "beschreibung_it": "Vitello, pancetta, cipolle, peperoni, funghi, salsa al pesto e panna",
+              "beschreibung_fr": "Veau, lard, oignons, poivrons, champignons, sauce crème au pesto",
+              "preis": "27.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spaghetti Petro",
+              "beschreibung_de": "Riesencrevetten, frischer Knoblauch, Tomatenwürfel, Peperoncini",
+              "beschreibung_en": "King prawns, fresh garlic, diced tomatoes, chili peppers",
+              "beschreibung_it": "Gamberoni, aglio fresco, pomodori a cubetti, peperoncini",
+              "beschreibung_fr": "Gambas, ail frais, tomates en dés, piments",
+              "preis": "29.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "penne",
+          "name_de": "Penne / Maccheroni",
+          "name_en": "Penne / Macaroni",
+          "name_it": "Penne / Maccheroni",
+          "name_fr": "Penne / Macaronis",
+          "gerichte": [
+            {
+              "name": "Penne all'Arrabbiata",
+              "beschreibung_de": "Tomatensauce, gemahlene Pfefferschoten, Knoblauch (scharf)",
+              "beschreibung_en": "Tomato sauce, ground chili peppers, garlic (spicy)",
+              "beschreibung_it": "Salsa di pomodoro, peperoncino, aglio (piccante)",
+              "beschreibung_fr": "Sauce tomate, piments moulus, ail (épicé)",
+              "preis": "22.00",
+              "vegetarisch": true,
+              "vegan": true,
+              "empfehlung": false
+            },
+            {
+              "name": "Penne al Forno",
+              "beschreibung_de": "Gratiniert: Vorderschinken, Mozzarella, Rahmsauce, Parmesan",
+              "beschreibung_en": "Gratinated: cooked ham, mozzarella, cream sauce, parmesan",
+              "beschreibung_it": "Gratinate: prosciutto cotto, mozzarella, salsa alla panna, parmigiano",
+              "beschreibung_fr": "Gratinées : jambon cuit, mozzarella, sauce crème, parmesan",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Penne alla Contadina",
+              "beschreibung_de": "Champignon, Peperoni, Zwiebeln, Knoblauch, Tomatensauce, Rahm",
+              "beschreibung_en": "Mushrooms, bell peppers, onions, garlic, tomato sauce, cream",
+              "beschreibung_it": "Funghi, peperoni, cipolle, aglio, salsa di pomodoro, panna",
+              "beschreibung_fr": "Champignons, poivrons, oignons, ail, sauce tomate, crème",
+              "preis": "23.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "tagliatelle",
+          "name_de": "Tagliatelle / Nudeln",
+          "name_en": "Tagliatelle / Noodles",
+          "name_it": "Tagliatelle",
+          "name_fr": "Tagliatelles",
+          "gerichte": [
+            {
+              "name": "Tagliatelle Aladin",
+              "beschreibung_de": "Rindfleisch, Cherrytomaten, Rucola, Zwiebeln, Rahm, Safran",
+              "beschreibung_en": "Beef, cherry tomatoes, arugula, onions, cream, saffron",
+              "beschreibung_it": "Manzo, pomodorini, rucola, cipolle, panna, zafferano",
+              "beschreibung_fr": "Bœuf, tomates cerises, roquette, oignons, crème, safran",
+              "preis": "28.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Tagliatelle al Salmone",
+              "beschreibung_de": "Lachs, Zwiebeln, Knoblauch, Rahmsauce, Vodka",
+              "beschreibung_en": "Salmon, onions, garlic, cream sauce, vodka",
+              "beschreibung_it": "Salmone, cipolle, aglio, salsa alla panna, vodka",
+              "beschreibung_fr": "Saumon, oignons, ail, sauce crème, vodka",
+              "preis": "25.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Tagliatelle ai Funghi Porcini",
+              "beschreibung_de": "Zwiebeln, Knoblauch, Steinpilze, Rahmsauce, Parmesan",
+              "beschreibung_en": "Onions, garlic, porcini mushrooms, cream sauce, parmesan",
+              "beschreibung_it": "Cipolle, aglio, funghi porcini, salsa alla panna, parmigiano",
+              "beschreibung_fr": "Oignons, ail, cèpes, sauce crème, parmesan",
+              "preis": "25.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Tagliatelle ai Gamberetti",
+              "beschreibung_de": "Crevetten, frische Tomaten, Zwiebeln, Knoblauch, Petersilie, Pfefferschoten",
+              "beschreibung_en": "Shrimp, fresh tomatoes, onions, garlic, parsley, chili peppers",
+              "beschreibung_it": "Gamberetti, pomodori freschi, cipolle, aglio, prezzemolo, peperoncini",
+              "beschreibung_fr": "Crevettes, tomates fraîches, oignons, ail, persil, piments",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "gnocchi",
+          "name_de": "Gnocchi",
+          "name_en": "Gnocchi",
+          "name_it": "Gnocchi",
+          "name_fr": "Gnocchi",
+          "gerichte": [
+            {
+              "name": "Gnocchi al Pomodoro",
+              "beschreibung_de": "Gnocchi an würziger Tomatensauce",
+              "beschreibung_en": "Gnocchi in spicy tomato sauce",
+              "beschreibung_it": "Gnocchi al pomodoro piccante",
+              "beschreibung_fr": "Gnocchis à la sauce tomate épicée",
+              "preis": "22.00",
+              "vegetarisch": true,
+              "vegan": true,
+              "empfehlung": false
+            },
+            {
+              "name": "Gnocchi alla Panna",
+              "beschreibung_de": "Gratiniert: Gnocchi an Rahmsauce mit Parmesan",
+              "beschreibung_en": "Gratinated: gnocchi in cream sauce with parmesan",
+              "beschreibung_it": "Gratinati: gnocchi alla panna con parmigiano",
+              "beschreibung_fr": "Gratinés : gnocchis à la crème avec parmesan",
+              "preis": "22.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Gnocchi al Pesto",
+              "beschreibung_de": "Basilikum, Pinienkerne, Schafskäse, Olivenöl, Parmesan",
+              "beschreibung_en": "Basil, pine nuts, sheep's cheese, olive oil, parmesan",
+              "beschreibung_it": "Basilico, pinoli, formaggio di pecora, olio d'oliva, parmigiano",
+              "beschreibung_fr": "Basilic, pignons, fromage de brebis, huile d'olive, parmesan",
+              "preis": "22.00",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Gnocchi al Gorgonzola",
+              "beschreibung_de": "Gratiniert: Gorgonzola, Rahm, Parmesan",
+              "beschreibung_en": "Gratinated: gorgonzola, cream, parmesan",
+              "beschreibung_it": "Gratinati: gorgonzola, panna, parmigiano",
+              "beschreibung_fr": "Gratinés : gorgonzola, crème, parmesan",
+              "preis": "23.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Gnocchi ai Funghi Porcini",
+              "beschreibung_de": "Steinpilze, Zwiebeln, Knoblauch, Rahm, Parmesan",
+              "beschreibung_en": "Porcini mushrooms, onions, garlic, cream, parmesan",
+              "beschreibung_it": "Funghi porcini, cipolle, aglio, panna, parmigiano",
+              "beschreibung_fr": "Cèpes, oignons, ail, crème, parmesan",
+              "preis": "25.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "ravioli",
+          "name_de": "Ravioli",
+          "name_en": "Ravioli",
+          "name_it": "Ravioli",
+          "name_fr": "Ravioli",
+          "gerichte": [
+            {
+              "name": "Ravioli di Ricotta alla Panna",
+              "beschreibung_de": "Gratiniert: Quark-Spinat-Füllung, Rahm, Parmesan",
+              "beschreibung_en": "Gratinated: ricotta-spinach filling, cream, parmesan",
+              "beschreibung_it": "Gratinati: ripieno di ricotta e spinaci, panna, parmigiano",
+              "beschreibung_fr": "Gratinés : farce ricotta-épinards, crème, parmesan",
+              "preis": "23.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Ravioli di Ricotta al Burro e Salvia",
+              "beschreibung_de": "Quark-Spinat-Füllung, Butter, Salbei, Parmesan",
+              "beschreibung_en": "Ricotta-spinach filling, butter, sage, parmesan",
+              "beschreibung_it": "Ripieno di ricotta e spinaci, burro, salvia, parmigiano",
+              "beschreibung_fr": "Farce ricotta-épinards, beurre, sauge, parmesan",
+              "preis": "23.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Ravioli di Ricotta al Gorgonzola",
+              "beschreibung_de": "Gratiniert: Quark-Spinat-Füllung, Gorgonzola, Rahm, Parmesan",
+              "beschreibung_en": "Gratinated: ricotta-spinach filling, gorgonzola, cream, parmesan",
+              "beschreibung_it": "Gratinati: ripieno di ricotta e spinaci, gorgonzola, panna, parmigiano",
+              "beschreibung_fr": "Gratinés : farce ricotta-épinards, gorgonzola, crème, parmesan",
+              "preis": "23.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "tortellini",
+          "name_de": "Tortellini",
+          "name_en": "Tortellini",
+          "name_it": "Tortellini",
+          "name_fr": "Tortellini",
+          "gerichte": [
+            {
+              "name": "Tortellini alla Panna",
+              "beschreibung_de": "Gratiniert: Rahmsauce, Mozzarella, Parmesan",
+              "beschreibung_en": "Gratinated: cream sauce, mozzarella, parmesan",
+              "beschreibung_it": "Gratinati: salsa alla panna, mozzarella, parmigiano",
+              "beschreibung_fr": "Gratinés : sauce crème, mozzarella, parmesan",
+              "preis": "22.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Tortelloni alla Pizzaiola",
+              "beschreibung_de": "Gratiniert: Vorderschinken, Rahmsauce, Mozzarella, Parmesan",
+              "beschreibung_en": "Gratinated: cooked ham, cream sauce, mozzarella, parmesan",
+              "beschreibung_it": "Gratinati: prosciutto cotto, salsa alla panna, mozzarella, parmigiano",
+              "beschreibung_fr": "Gratinés : jambon cuit, sauce crème, mozzarella, parmesan",
+              "preis": "23.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Tortelloni alla Gorgonzola",
+              "beschreibung_de": "Gratiniert: Gorgonzola, Rahmsauce, Parmesan",
+              "beschreibung_en": "Gratinated: gorgonzola, cream sauce, parmesan",
+              "beschreibung_it": "Gratinati: gorgonzola, salsa alla panna, parmigiano",
+              "beschreibung_fr": "Gratinés : gorgonzola, sauce crème, parmesan",
+              "preis": "24.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "teigwarenspezialitaeten",
+          "name_de": "Teigwarenspezialitäten",
+          "name_en": "Pasta Specialties",
+          "name_it": "Specialità di pasta",
+          "name_fr": "Spécialités de pâtes",
+          "gerichte": [
+            {
+              "name": "Poker di Pasta",
+              "beschreibung_de": "Gratiniert: Tortellini, Ravioli, Gnocchi und Tagliatelle an vier verschiedenen Saucen",
+              "beschreibung_en": "Gratinated: tortellini, ravioli, gnocchi and tagliatelle in four different sauces",
+              "beschreibung_it": "Gratinato: tortellini, ravioli, gnocchi e tagliatelle con quattro salse diverse",
+              "beschreibung_fr": "Gratiné : tortellini, ravioli, gnocchis et tagliatelles avec quatre sauces différentes",
+              "preis": "27.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Lasagne al Forno Maison",
+              "beschreibung_de": "Gratiniert, hausgemacht",
+              "beschreibung_en": "Gratinated, homemade",
+              "beschreibung_it": "Gratinata, fatta in casa",
+              "beschreibung_fr": "Gratinées, maison",
+              "preis": "25.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "risotti",
+          "name_de": "Risotti / Risotto Gerichte",
+          "name_en": "Risotto Dishes",
+          "name_it": "Risotti",
+          "name_fr": "Risottos",
+          "gerichte": [
+            {
+              "name": "Risotto ai Funghi Porcini",
+              "beschreibung_de": "Zwiebeln, Knoblauch, Steinpilze, Cognac, Parmesan",
+              "beschreibung_en": "Onions, garlic, porcini mushrooms, cognac, parmesan",
+              "beschreibung_it": "Cipolle, aglio, funghi porcini, cognac, parmigiano",
+              "beschreibung_fr": "Oignons, ail, cèpes, cognac, parmesan",
+              "preis": "25.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Risotto ai Frutti di Mare",
+              "beschreibung_de": "Diverse Krustentiere, Fisch, Weisswein, Tomatensauce",
+              "beschreibung_en": "Assorted shellfish, fish, white wine, tomato sauce",
+              "beschreibung_it": "Crostacei misti, pesce, vino bianco, salsa di pomodoro",
+              "beschreibung_fr": "Fruits de mer variés, poisson, vin blanc, sauce tomate",
+              "preis": "25.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Risotto dello Chef",
+              "beschreibung_de": "Zwiebeln, Kalbfleisch, Speck, frische Tomaten, Safran, Parmesan",
+              "beschreibung_en": "Onions, veal, bacon, fresh tomatoes, saffron, parmesan",
+              "beschreibung_it": "Cipolle, vitello, pancetta, pomodori freschi, zafferano, parmigiano",
+              "beschreibung_fr": "Oignons, veau, lard, tomates fraîches, safran, parmesan",
+              "preis": "28.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Risotto con Gamberetti",
+              "beschreibung_de": "Geschälte Riesencrevetten, Zwiebeln, Knoblauch, Petersilie, Cognac, Rahmsauce, Parmesan",
+              "beschreibung_en": "Peeled king prawns, onions, garlic, parsley, cognac, cream sauce, parmesan",
+              "beschreibung_it": "Gamberoni sgusciati, cipolle, aglio, prezzemolo, cognac, salsa alla panna, parmigiano",
+              "beschreibung_fr": "Gambas décortiquées, oignons, ail, persil, cognac, sauce crème, parmesan",
+              "preis": "28.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "vegetarisch",
+          "name_de": "Vegetarisch",
+          "name_en": "Vegetarian",
+          "name_it": "Vegetariano",
+          "name_fr": "Végétarien",
+          "gerichte": [
+            {
+              "name": "Pilzen Stroganoff",
+              "beschreibung_de": "Mit Beilage nach Wahl",
+              "beschreibung_en": "With side dish of your choice",
+              "beschreibung_it": "Con contorno a scelta",
+              "beschreibung_fr": "Avec accompagnement au choix",
+              "preis": "26.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Piatto di Verdura con Uovo",
+              "beschreibung_de": "Gemüseteller mit Spiegelei",
+              "beschreibung_en": "Vegetable plate with fried egg",
+              "beschreibung_it": "Piatto di verdure con uovo al tegamino",
+              "beschreibung_fr": "Assiette de légumes avec œuf au plat",
+              "preis": "21.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Piatto di Verdura con patate fritte",
+              "beschreibung_de": "Gemüseteller mit Pommes frites",
+              "beschreibung_en": "Vegetable plate with fries",
+              "beschreibung_it": "Piatto di verdure con patatine fritte",
+              "beschreibung_fr": "Assiette de légumes avec frites",
+              "preis": "23.00",
+              "vegetarisch": true,
+              "vegan": true,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "pesce",
+          "name_de": "Pesce / Fisch",
+          "name_en": "Fish",
+          "name_it": "Pesce",
+          "name_fr": "Poisson",
+          "gerichte": [
+            {
+              "name": "Gamberoni alla Griglia",
+              "beschreibung_de": "Riesencrevetten vom Grill",
+              "beschreibung_en": "Grilled king prawns",
+              "beschreibung_it": "Gamberoni alla griglia",
+              "beschreibung_fr": "Gambas grillées",
+              "preis": "39.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Gamberoni con Chilli",
+              "beschreibung_de": "Riesencrevetten (ohne Schale) an feiner, pikanter Tomatensauce",
+              "beschreibung_en": "King prawns (shell-off) in a fine, spicy tomato sauce",
+              "beschreibung_it": "Gamberoni sgusciati in salsa di pomodoro piccante",
+              "beschreibung_fr": "Gambas décortiquées, sauce tomate relevée",
+              "preis": "40.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Filetti di Pesce Persico",
+              "beschreibung_de": "Egli-Filet, Butter, Mandeln",
+              "beschreibung_en": "Perch fillet, butter, almonds",
+              "beschreibung_it": "Filetto di persico, burro, mandorle",
+              "beschreibung_fr": "Filet de perche, beurre, amandes",
+              "preis": "40.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Salmone al vino bianco",
+              "beschreibung_de": "Lachstranche gebraten, mit feiner Weisswein-Sauce",
+              "beschreibung_en": "Pan-fried salmon, fine white wine sauce",
+              "beschreibung_it": "Trancio di salmone scottato, salsa al vino bianco",
+              "beschreibung_fr": "Pavé de saumon poêlé, sauce au vin blanc",
+              "preis": "41.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "vom-schwein",
+          "name_de": "Vom Schwein",
+          "name_en": "Pork Dishes",
+          "name_it": "Carne di maiale",
+          "name_fr": "Plats de porc",
+          "gerichte": [
+            {
+              "name": "Impanata di Maiale",
+              "beschreibung_de": "Paniertes Schweinschnitzel",
+              "beschreibung_en": "Breaded pork escalope",
+              "beschreibung_it": "Scaloppina di maiale impanata",
+              "beschreibung_fr": "Escalope de porc panée",
+              "preis": "27.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Scaloppine di Maiale alla Panna",
+              "beschreibung_de": "Schweinsrahmschnitzel",
+              "beschreibung_en": "Pork escalope in cream sauce",
+              "beschreibung_it": "Scaloppine di maiale alla panna",
+              "beschreibung_fr": "Escalope de porc à la crème",
+              "preis": "28.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Lombata di Maiale alla Griglia",
+              "beschreibung_de": "Schweinssteak, 200g, vom Grill",
+              "beschreibung_en": "Grilled pork steak, 200g",
+              "beschreibung_it": "Lombata di maiale alla griglia, 200g",
+              "beschreibung_fr": "Steak de porc grillé, 200g",
+              "preis": "28.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "vom-rind",
+          "name_de": "Vom Rind",
+          "name_en": "Beef Dishes",
+          "name_it": "Carne di manzo",
+          "name_fr": "Plats de bœuf",
+          "gerichte": [
+            {
+              "name": "Entrecote alla Griglia",
+              "beschreibung_de": "Rindsentrecôte, 200g, vom Grill, mit Kräuterbutter",
+              "beschreibung_en": "Grilled beef entrecôte, 200g, with herb butter",
+              "beschreibung_it": "Entrecôte di manzo alla griglia, 200g, con burro alle erbe",
+              "beschreibung_fr": "Entrecôte de bœuf grillée, 200g, beurre aux herbes",
+              "preis": "44.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Filetto di Manzo alla Griglia",
+              "beschreibung_de": "Rindsfilet, 200g, vom Grill, mit Kräuterbutter",
+              "beschreibung_en": "Grilled beef fillet, 200g, with herb butter",
+              "beschreibung_it": "Filetto di manzo alla griglia, 200g, con burro alle erbe",
+              "beschreibung_fr": "Filet de bœuf grillé, 200g, beurre aux herbes",
+              "preis": "46.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Filetto di Manzo ai Funghi Porcini",
+              "beschreibung_de": "Rindsfilet, 200g, vom Grill, an Steinpilzsauce",
+              "beschreibung_en": "Grilled beef fillet, 200g, in porcini mushroom sauce",
+              "beschreibung_it": "Filetto di manzo alla griglia, 200g, salsa ai funghi porcini",
+              "beschreibung_fr": "Filet de bœuf grillé, 200g, sauce aux cèpes",
+              "preis": "47.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Filetto di Manzo alla Stroganoff",
+              "beschreibung_de": "Rindsfiletspitzen Stroganoff",
+              "beschreibung_en": "Beef fillet tips Stroganoff",
+              "beschreibung_it": "Punte di filetto di manzo alla Stroganoff",
+              "beschreibung_fr": "Pointes de filet de bœuf Stroganoff",
+              "preis": "47.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "vom-kalbs",
+          "name_de": "Vom Kalbs",
+          "name_en": "Veal Dishes",
+          "name_it": "Carne di vitello",
+          "name_fr": "Plats de veau",
+          "gerichte": [
+            {
+              "name": "Scaloppine di Vitello al Limone",
+              "beschreibung_de": "Kalbsschnitzel an Zitronensauce",
+              "beschreibung_en": "Veal escalope in lemon sauce",
+              "beschreibung_it": "Scaloppine di vitello al limone",
+              "beschreibung_fr": "Escalope de veau sauce citron",
+              "preis": "42.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Scaloppine di Vitello alla Milanese",
+              "beschreibung_de": "Paniertes Kalbsschnitzel",
+              "beschreibung_en": "Breaded veal escalope",
+              "beschreibung_it": "Scaloppine di vitello alla milanese",
+              "beschreibung_fr": "Escalope de veau panée",
+              "preis": "40.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Saltimbocca alla Romana",
+              "beschreibung_de": "Kalbsschnitzel mit Rohschinken und Salbei an Marsala-Sauce",
+              "beschreibung_en": "Veal escalope with cured ham and sage in Marsala sauce",
+              "beschreibung_it": "Scaloppine di vitello con prosciutto crudo e salvia al marsala",
+              "beschreibung_fr": "Escalope de veau au jambon cru et sauge, sauce au marsala",
+              "preis": "43.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Piccata Milanese",
+              "beschreibung_de": "Kalbsschnitzel mit Ei und Parmesan, Schinken, Champignons",
+              "beschreibung_en": "Veal escalope with egg and parmesan, ham, mushrooms",
+              "beschreibung_it": "Scaloppine di vitello con uovo e parmigiano, prosciutto, funghi",
+              "beschreibung_fr": "Escalope de veau à l'œuf et au parmesan, jambon, champignons",
+              "preis": "43.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Cordon-bleu Maison",
+              "beschreibung_de": "Paniertes Kalbsschnitzel, gefüllt mit Vorderschinken und Emmentaler",
+              "beschreibung_en": "Breaded veal escalope filled with cooked ham and Emmental cheese",
+              "beschreibung_it": "Scaloppina di vitello impanata, farcita con prosciutto cotto ed emmental",
+              "beschreibung_fr": "Escalope de veau panée, farcie au jambon cuit et à l'emmental",
+              "preis": "44.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spezzatino di Vitello ai Funghi",
+              "beschreibung_de": "Kalbsgeschnetzeltes an Pilzrahmsauce",
+              "beschreibung_en": "Veal strips in mushroom cream sauce",
+              "beschreibung_it": "Spezzatino di vitello in salsa ai funghi e panna",
+              "beschreibung_fr": "Émincé de veau, sauce crème aux champignons",
+              "preis": "42.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Spedini Misti \"Trapez\"",
+              "beschreibung_de": "Gemischter Fleischspiess mit Kräuterbutter",
+              "beschreibung_en": "Mixed meat skewer with herb butter",
+              "beschreibung_it": "Spiedino misto di carne con burro alle erbe",
+              "beschreibung_fr": "Brochette de viandes mélangées, beurre aux herbes",
+              "preis": "44.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": true
+            }
+          ],
+          "hinweis_de": "Eine Beilage im Preis inbegriffen, jede weitere Fr. 7.–: Pommes frites, Kroketten, Saisongemüse, Teigwaren, Risotto oder Butterreis",
+          "hinweis_en": "One side dish included, each additional Fr. 7.–: fries, croquettes, seasonal vegetables, pasta, risotto or buttered rice",
+          "hinweis_it": "Un contorno incluso, ogni ulteriore Fr. 7.–: patatine fritte, crocchette, verdure di stagione, pasta, risotto o riso al burro",
+          "hinweis_fr": "Un accompagnement inclus, chaque accompagnement supplémentaire Fr. 7.– : frites, croquettes, légumes de saison, pâtes, risotto ou riz au beurre"
         }
       ]
     },
     {
-      "id": "pizze",
-      "name_de": "Pizze",
-      "name_en": "Pizzas",
-      "name_it": "Pizze",
-      "name_fr": "Pizzas",
-      "gerichte": [
+      "id": "getraenke",
+      "name_de": "Getränkekarte",
+      "name_en": "Drinks Menu",
+      "name_it": "Carta delle bevande",
+      "name_fr": "Carte des boissons",
+      "kategorien": [
         {
-          "name": "Margherita",
-          "beschreibung_de": "Tomatensauce, Fior di Latte, frisches Basilikum",
-          "beschreibung_en": "Tomato sauce, fior di latte, fresh basil",
-          "beschreibung_it": "Salsa di pomodoro, fior di latte, basilico fresco",
-          "beschreibung_fr": "Sauce tomate, fior di latte, basilic frais",
-          "preis": "18.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
+          "id": "bier",
+          "name_de": "Bier",
+          "name_en": "Beer",
+          "name_it": "Birra",
+          "name_fr": "Bière",
+          "gerichte": [
+            {
+              "name": "Feldschlösschen Lager",
+              "beschreibung_de": "Bier im Offenausschank",
+              "beschreibung_en": "Draft beer",
+              "beschreibung_it": "Birra alla spina",
+              "beschreibung_fr": "Bière pression",
+              "varianten": [
+                {
+                  "menge": "2dl",
+                  "preis": "3.80"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "4.70"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "6.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Feldschlösschen Schlossgold",
+              "beschreibung_de": "Flaschenbier",
+              "beschreibung_en": "Bottled beer",
+              "beschreibung_it": "Birra in bottiglia",
+              "beschreibung_fr": "Bière en bouteille",
+              "preis": "5.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "33cl"
+            },
+            {
+              "name": "Schneider Hefen Weiss Bier Original",
+              "beschreibung_de": "Flaschenbier",
+              "beschreibung_en": "Bottled beer",
+              "beschreibung_it": "Birra in bottiglia",
+              "beschreibung_fr": "Bière en bouteille",
+              "preis": "8.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "5dl"
+            }
+          ]
         },
         {
-          "name": "Diavola",
-          "beschreibung_de": "Tomatensauce, Mozzarella, scharfe Kalabrische Salami",
-          "beschreibung_en": "Tomato sauce, mozzarella, spicy Calabrian salami",
-          "beschreibung_it": "Salsa di pomodoro, mozzarella, salame piccante calabrese",
-          "beschreibung_fr": "Sauce tomate, mozzarella, salami épicé calabrais",
-          "preis": "21.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": true
+          "id": "aperitifs",
+          "name_de": "Aperitifs",
+          "name_en": "Aperitifs",
+          "name_it": "Aperitivi",
+          "name_fr": "Apéritifs",
+          "gerichte": [
+            {
+              "name": "Campari oder Cynar mit Orangensaft",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "11.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Campari Spritz",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "12.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Aperol Spritz",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "12.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Limoncello Spritz",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "12.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Hugo Spritz",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "11.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Cüpli",
+              "beschreibung_de": "Glas Schaumwein",
+              "beschreibung_en": "Glass of sparkling wine",
+              "beschreibung_it": "Bicchiere di spumante",
+              "beschreibung_fr": "Coupe de mousseux",
+              "preis": "9.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
         },
         {
-          "name": "Prosciutto e Funghi",
-          "beschreibung_de": "Tomatensauce, Mozzarella, Kochschinken, Champignons",
-          "beschreibung_en": "Tomato sauce, mozzarella, cooked ham, mushrooms",
-          "beschreibung_it": "Salsa di pomodoro, mozzarella, prosciutto cotto, funghi",
-          "beschreibung_fr": "Sauce tomate, mozzarella, jambon cuit, champignons",
-          "preis": "22.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": false
+          "id": "spirituosen",
+          "name_de": "Spirituosen / Liköre",
+          "name_en": "Spirits / Liqueurs",
+          "name_it": "Distillati / Liquori",
+          "name_fr": "Spiritueux / Liqueurs",
+          "gerichte": [
+            {
+              "name": "Martini rot oder weiss",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "8.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "16%",
+              "menge": "4cl"
+            },
+            {
+              "name": "Campari Bitter",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "7.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "23%",
+              "menge": "4cl"
+            },
+            {
+              "name": "Appenzeller",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "8.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "29%",
+              "menge": "4cl"
+            },
+            {
+              "name": "Cynar",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "8.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "16.5%",
+              "menge": "4cl"
+            },
+            {
+              "name": "Grappa Fior di Vite",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "9.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "40%",
+              "menge": "2cl"
+            },
+            {
+              "name": "Grappa Amarone",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "12.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "41%",
+              "menge": "2cl"
+            },
+            {
+              "name": "Vieille Prune",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "11.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "40%",
+              "menge": "2cl"
+            },
+            {
+              "name": "Sambuca",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "10.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "40%",
+              "menge": "2cl"
+            },
+            {
+              "name": "Williams",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "9.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "43%",
+              "menge": "2cl"
+            },
+            {
+              "name": "Calvados",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "9.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "40%",
+              "menge": "2cl"
+            },
+            {
+              "name": "Vodka",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "9.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "40%",
+              "menge": "4cl"
+            },
+            {
+              "name": "Gordon's Gin",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "9.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "37.5%",
+              "menge": "4cl"
+            },
+            {
+              "name": "Bacardi",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "9.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "37.5%",
+              "menge": "4cl"
+            },
+            {
+              "name": "Ballantine's",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "10.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "40%",
+              "menge": "2cl"
+            },
+            {
+              "name": "Amaretto di Saronno",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "9.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "28%",
+              "menge": "2cl"
+            },
+            {
+              "name": "Amaro Averna",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "9.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "32%",
+              "menge": "4cl"
+            },
+            {
+              "name": "Amaro Ramazzotti",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "9.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "30%",
+              "menge": "4cl"
+            },
+            {
+              "name": "Baileys Irish Cream",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "9.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "alkohol": "17%",
+              "menge": "2cl"
+            }
+          ]
         },
         {
-          "name": "Quattro Stagioni",
-          "beschreibung_de": "Tomatensauce, Mozzarella, Schinken, Pilze, Artischocken, Oliven",
-          "beschreibung_en": "Tomato sauce, mozzarella, ham, mushrooms, artichokes, olives",
-          "beschreibung_it": "Salsa di pomodoro, mozzarella, prosciutto, funghi, carciofi, olive",
-          "beschreibung_fr": "Sauce tomate, mozzarella, jambon, champignons, artichauts, olives",
-          "preis": "23.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": false
+          "id": "weine-offen",
+          "name_de": "Weine im Offenausschank",
+          "name_en": "Open Wines",
+          "name_it": "Vini alla mescita",
+          "name_fr": "Vins au verre",
+          "gerichte": [
+            {
+              "name": "Epesses",
+              "beschreibung_de": "Weisswein",
+              "beschreibung_en": "White wine",
+              "beschreibung_it": "Vino bianco",
+              "beschreibung_fr": "Vin blanc",
+              "varianten": [
+                {
+                  "menge": "1dl",
+                  "preis": "6.20"
+                },
+                {
+                  "menge": "2dl",
+                  "preis": "12.40"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "18.60"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "31.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Pinot Grigio",
+              "beschreibung_de": "Weisswein",
+              "beschreibung_en": "White wine",
+              "beschreibung_it": "Vino bianco",
+              "beschreibung_fr": "Vin blanc",
+              "varianten": [
+                {
+                  "menge": "1dl",
+                  "preis": "5.40"
+                },
+                {
+                  "menge": "2dl",
+                  "preis": "10.80"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "16.20"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "27.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Rosato Primitivo",
+              "beschreibung_de": "Roséwein",
+              "beschreibung_en": "Rosé wine",
+              "beschreibung_it": "Vino rosato",
+              "beschreibung_fr": "Vin rosé",
+              "varianten": [
+                {
+                  "menge": "1dl",
+                  "preis": "5.40"
+                },
+                {
+                  "menge": "2dl",
+                  "preis": "10.80"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "16.20"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "27.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Merlot del Piave",
+              "beschreibung_de": "Rotwein",
+              "beschreibung_en": "Red wine",
+              "beschreibung_it": "Vino rosso",
+              "beschreibung_fr": "Vin rouge",
+              "varianten": [
+                {
+                  "menge": "1dl",
+                  "preis": "5.10"
+                },
+                {
+                  "menge": "2dl",
+                  "preis": "10.20"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "15.30"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "25.50"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Hauswein Montepulciano",
+              "beschreibung_de": "Rotwein",
+              "beschreibung_en": "Red wine",
+              "beschreibung_it": "Vino rosso",
+              "beschreibung_fr": "Vin rouge",
+              "varianten": [
+                {
+                  "menge": "1dl",
+                  "preis": "5.40"
+                },
+                {
+                  "menge": "2dl",
+                  "preis": "10.80"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "16.20"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "27.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Primitivo Salento",
+              "beschreibung_de": "Rotwein",
+              "beschreibung_en": "Red wine",
+              "beschreibung_it": "Vino rosso",
+              "beschreibung_fr": "Vin rouge",
+              "varianten": [
+                {
+                  "menge": "1dl",
+                  "preis": "5.60"
+                },
+                {
+                  "menge": "2dl",
+                  "preis": "11.20"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "16.80"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "28.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Valpolicella Ripasso",
+              "beschreibung_de": "Rotwein",
+              "beschreibung_en": "Red wine",
+              "beschreibung_it": "Vino rosso",
+              "beschreibung_fr": "Vin rouge",
+              "varianten": [
+                {
+                  "menge": "1dl",
+                  "preis": "6.80"
+                },
+                {
+                  "menge": "2dl",
+                  "preis": "13.60"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "20.40"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "34.00"
+                }
+              ],
+              "empfehlung": false
+            }
+          ]
         },
         {
-          "name": "Napoli",
-          "beschreibung_de": "Tomatensauce, Mozzarella, Anchovis, Kapern, Oregano",
-          "beschreibung_en": "Tomato sauce, mozzarella, anchovies, capers, oregano",
-          "beschreibung_it": "Salsa di pomodoro, mozzarella, acciughe, capperi, origano",
-          "beschreibung_fr": "Sauce tomate, mozzarella, anchois, câpres, origan",
-          "preis": "21.50",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": false
+          "id": "schaumwein",
+          "name_de": "Schaumweine",
+          "name_en": "Sparkling Wines",
+          "name_it": "Vini spumanti",
+          "name_fr": "Vins mousseux",
+          "gerichte": [
+            {
+              "name": "Prosecco",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "56.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "75cl"
+            }
+          ]
         },
         {
-          "name": "Vegetariana",
-          "beschreibung_de": "Tomatensauce, Mozzarella, Zucchini, Aubergine, Peperoni, Kirschtomaten",
-          "beschreibung_en": "Tomato sauce, mozzarella, courgette, aubergine, peppers, cherry tomatoes",
-          "beschreibung_it": "Salsa di pomodoro, mozzarella, zucchine, melanzane, peperoni, pomodorini",
-          "beschreibung_fr": "Sauce tomate, mozzarella, courgettes, aubergine, poivrons, tomates cerises",
-          "preis": "21.00",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
+          "id": "premium-weine",
+          "name_de": "Premium Weine (Flaschen)",
+          "name_en": "Premium Wines (Bottles)",
+          "name_it": "Vini premium (bottiglia)",
+          "name_fr": "Vins premium (bouteille)",
+          "gerichte": [
+            {
+              "name": "Epesses Bon Accueil blanc A.O.C",
+              "beschreibung_de": "Weisswein",
+              "beschreibung_en": "White wine",
+              "beschreibung_it": "Vino bianco",
+              "beschreibung_fr": "Vin blanc",
+              "preis": "52.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "75cl"
+            },
+            {
+              "name": "Rosato Primitivo (Flasche)",
+              "beschreibung_de": "Roséwein",
+              "beschreibung_en": "Rosé wine",
+              "beschreibung_it": "Vino rosato",
+              "beschreibung_fr": "Vin rosé",
+              "preis": "48.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "75cl"
+            },
+            {
+              "name": "Barbera d'Alba Superiore DOC",
+              "beschreibung_de": "Giovanni Sordo, Castiglione Falletto, Piemont. Nuancenreicher, einladender dunkelbeeriger Duft mit Brombeeren, Veilchen und einem Hauch Schokolade, unterlegt von Vanille und Röstaromen. Am Gaumen saftige, volle Frucht, eingebettet in seidige Tannine.",
+              "beschreibung_en": "Giovanni Sordo, Castiglione Falletto, Piedmont. A nuanced, inviting dark-berry bouquet with blackberries, violets and a touch of chocolate, underpinned by vanilla and toasted notes. Juicy, full fruit on the palate, framed by silky tannins.",
+              "beschreibung_it": "Giovanni Sordo, Castiglione Falletto, Piemonte. Profumo intenso e invitante di frutti di bosco scuri, more, violette e un tocco di cioccolato, sostenuto da note di vaniglia e tostatura. Al palato frutto succoso e pieno, avvolto in tannini setosi.",
+              "beschreibung_fr": "Giovanni Sordo, Castiglione Falletto, Piémont. Bouquet nuancé et invitant de baies sombres, mûres, violettes et une touche de chocolat, soutenu par des notes de vanille et de torréfaction. En bouche, fruit juteux et plein, enveloppé de tanins soyeux.",
+              "preis": "54.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Valpolicella Ripasso Superiore DOC Conte di Alma",
+              "beschreibung_de": "Conte di Alma, Venetien. Tiefes, klares Rubinrot. Fruchtnase mit einem Hauch von Bittermandeln, süssen Kirschen und reifen Beeren. Konzentrierte, süsse Frucht am Gaumen mit angenehm herbem Unterton.",
+              "beschreibung_en": "Conte di Alma, Veneto. Deep, clear ruby red. Fruity nose with a hint of bitter almonds, sweet cherries and ripe berries. Concentrated, sweet fruit on the palate with a pleasantly bitter undertone.",
+              "beschreibung_it": "Conte di Alma, Veneto. Rosso rubino intenso e limpido. Naso fruttato con un tocco di mandorle amare, ciliegie dolci e frutti di bosco maturi. Frutto concentrato e dolce al palato con un piacevole sottofondo amarognolo.",
+              "beschreibung_fr": "Conte di Alma, Vénétie. Rouge rubis profond et limpide. Nez fruité avec une pointe d'amandes amères, de cerises douces et de baies mûres. Fruit concentré et doux en bouche avec une note amère agréable.",
+              "preis": "51.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Amarone della Valpolicella DOCG \"Punta Tolotti 470\" Ca'Rugate",
+              "beschreibung_de": "Ca'Rugate, Venetien. Der etwas andere Amarone: dichtes Kirschrot im Glas, Aromen von Dörrfrüchten, Beerenkompott, Kirschen, Walnüssen und feiner Würze.",
+              "beschreibung_en": "Ca'Rugate, Veneto. A different kind of Amarone: dense cherry red in the glass, aromas of dried fruit, berry compote, cherries, walnuts and fine spice.",
+              "beschreibung_it": "Ca'Rugate, Veneto. Un Amarone diverso dal solito: rosso ciliegia intenso nel calice, aromi di frutta secca, composta di frutti di bosco, ciliegie, noci e una fine speziatura.",
+              "beschreibung_fr": "Ca'Rugate, Vénétie. Un Amarone différent : rouge cerise dense dans le verre, arômes de fruits secs, compote de baies, cerises, noix et une fine épice.",
+              "preis": "98.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Macchion del Lupo Cabernet Toscana DOC",
+              "beschreibung_de": "Marchesi Ginori Lisci, Montescudaio, Toskana. Duftet fruchtig nach roten Beeren, Pfeffer und aromatischen Gewürzen. Korpulenter Geschmack mit feiner Würze, typisch für Cabernet Sauvignon, und elegantem, frischem Finale.",
+              "beschreibung_en": "Marchesi Ginori Lisci, Montescudaio, Tuscany. Fruity aromas of red berries, pepper and aromatic spices. Full-bodied taste with fine spice, typical of Cabernet Sauvignon, and an elegant, fresh finish.",
+              "beschreibung_it": "Marchesi Ginori Lisci, Montescudaio, Toscana. Profumo fruttato di bacche rosse, pepe e spezie aromatiche. Gusto corposo con fine speziatura, tipico del Cabernet Sauvignon, e finale elegante e fresco.",
+              "beschreibung_fr": "Marchesi Ginori Lisci, Montescudaio, Toscane. Arômes fruités de baies rouges, de poivre et d'épices aromatiques. Goût corsé avec une épice fine, typique du Cabernet Sauvignon, et une finale élégante et fraîche.",
+              "preis": "58.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Caleido Negroamaro del Salento IGP",
+              "beschreibung_de": "Antica Masseria Jorche, Salento, Apulien. Rubinrote Farbe mit violetten Reflexen. Intensives Aroma von Pflaume, Schwarzkirsche und Veilchen. Voll, weich und ausgewogen mit angenehmen Tanninen.",
+              "beschreibung_en": "Antica Masseria Jorche, Salento, Apulia. Ruby red colour with violet reflections. Intense aromas of plum, black cherry and violet. Full, soft and balanced with pleasant tannins.",
+              "beschreibung_it": "Antica Masseria Jorche, Salento, Puglia. Colore rosso rubino con riflessi violacei. Aroma intenso di prugna, ciliegia nera e violetta. Pieno, morbido ed equilibrato con tannini piacevoli.",
+              "beschreibung_fr": "Antica Masseria Jorche, Salento, Pouilles. Couleur rouge rubis aux reflets violets. Arômes intenses de prune, cerise noire et violette. Plein, souple et équilibré avec des tanins agréables.",
+              "preis": "48.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Primitivo di Manduria DOP",
+              "beschreibung_de": "Trullo dell'Ovo, Manduria, Apulien. Zu 100% aus Primitivo-Trauben. Intensives Rot mit violetten Reflexen, würziges Aroma, kräftig und harmonisch im Gaumen.",
+              "beschreibung_en": "Trullo dell'Ovo, Manduria, Apulia. 100% Primitivo grapes. Intense red with violet reflections, spicy aroma, powerful and harmonious on the palate.",
+              "beschreibung_it": "Trullo dell'Ovo, Manduria, Puglia. 100% uve Primitivo. Rosso intenso con riflessi violacei, aroma speziato, deciso e armonioso al palato.",
+              "beschreibung_fr": "Trullo dell'Ovo, Manduria, Pouilles. 100% cépage Primitivo. Rouge intense aux reflets violets, arôme épicé, puissant et harmonieux en bouche.",
+              "preis": "48.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Aquilae Nero d'Avola DOC",
+              "beschreibung_de": "Cantina Viticultori Associati Canicattì, Sizilien. Intensiver Duft nach Waldbeeren, Kirschpflaumen, mediterranen Kräutern, dunkler Schokolade, Pfeffer und Eukalyptus. Ausgewogener Wein mit sanften, lebhaften Tanninen.",
+              "beschreibung_en": "Cantina Viticultori Associati Canicattì, Sicily. Intense aromas of wild berries, cherry plums, Mediterranean herbs, dark chocolate, pepper and eucalyptus. Balanced wine with soft, lively tannins.",
+              "beschreibung_it": "Cantina Viticultori Associati Canicattì, Sicilia. Profumo intenso di frutti di bosco, susine, erbe mediterranee, cioccolato fondente, pepe ed eucalipto. Vino equilibrato con tannini morbidi e vivaci.",
+              "beschreibung_fr": "Cantina Viticultori Associati Canicattì, Sicile. Arômes intenses de baies sauvages, prunes-cerises, herbes méditerranéennes, chocolat noir, poivre et eucalyptus. Vin équilibré aux tanins souples et vifs.",
+              "preis": "48.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Labellum Fiano Basilicata IGP",
+              "beschreibung_de": "Vitis in Vulture, Basilikata. Intensive gelbe Farbe, exotische Noten mit leichten vegetalen Nuancen. Eingebundene Säure bringt nötige Frische — ein eleganter Süditaliener.",
+              "beschreibung_en": "Vitis in Vulture, Basilicata. Intense yellow colour, exotic notes with light vegetal nuances. Well-integrated acidity brings freshness — an elegant southern Italian white.",
+              "beschreibung_it": "Vitis in Vulture, Basilicata. Colore giallo intenso, note esotiche con leggere sfumature vegetali. Acidità ben integrata che dona freschezza — un elegante bianco del sud Italia.",
+              "beschreibung_fr": "Vitis in Vulture, Basilicate. Couleur jaune intense, notes exotiques aux légères nuances végétales. Acidité bien intégrée apportant de la fraîcheur — un élégant blanc du sud de l'Italie.",
+              "preis": "48.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Roero Arneis DOCG Garblet Sue'",
+              "beschreibung_de": "Giovanni Sordo, Castiglione Falletto, Piemont. Brillant klar, körperreich, mit spezieller kühler Frische. Aromen von gelben Früchten, unterlegt von Zitrustönen und feiner Kräuterwürze.",
+              "beschreibung_en": "Giovanni Sordo, Castiglione Falletto, Piedmont. Brilliantly clear, full-bodied, with a special cool freshness. Aromas of yellow fruit, underpinned by citrus tones and fine herbal spice.",
+              "beschreibung_it": "Giovanni Sordo, Castiglione Falletto, Piemonte. Brillante e limpido, corposo, con una particolare freschezza. Aromi di frutta gialla, sostenuti da note agrumate e una fine speziatura erbacea.",
+              "beschreibung_fr": "Giovanni Sordo, Castiglione Falletto, Piémont. Brillant et limpide, corsé, avec une fraîcheur particulière. Arômes de fruits jaunes, soutenus par des notes d'agrumes et une fine épice herbacée.",
+              "preis": "48.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Frohburg Pinot Noir Rosé",
+              "beschreibung_de": "Buess Weinbau & Weinhandel AG, Sissach BL. Lachsrosa schillernd, fruchtig und abgerundet. Primäraromen von Himbeeren und Rosen.",
+              "beschreibung_en": "Buess Weinbau & Weinhandel AG, Sissach BL. Shimmering salmon pink, fruity and rounded. Primary aromas of raspberries and roses.",
+              "beschreibung_it": "Buess Weinbau & Weinhandel AG, Sissach BL. Rosa salmone brillante, fruttato e rotondo. Aromi primari di lampone e rosa.",
+              "beschreibung_fr": "Buess Weinbau & Weinhandel AG, Sissach BL. Rose saumon chatoyant, fruité et rond. Arômes primaires de framboise et de rose.",
+              "preis": "46.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Merlot del Ticino DOC \"Alba Viti\"",
+              "beschreibung_de": "Cantina Giubiasco, Giubiasco TI. Angenehm harmonisches Bouquet durch traditionelle, ausgedehnte Gärungsmethoden. Typisch samtener Charakter.",
+              "beschreibung_en": "Cantina Giubiasco, Giubiasco TI. Pleasantly harmonious bouquet from traditional, extended fermentation methods. Typically velvety character.",
+              "beschreibung_it": "Cantina Giubiasco, Giubiasco TI. Bouquet piacevolmente armonioso grazie a metodi di fermentazione tradizionali e prolungati. Carattere tipicamente vellutato.",
+              "beschreibung_fr": "Cantina Giubiasco, Giubiasco TI. Bouquet agréablement harmonieux grâce à des méthodes de fermentation traditionnelles et prolongées. Caractère typiquement velouté.",
+              "preis": "51.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            },
+            {
+              "name": "Nereus Pinot Noir AOC Neuchâtel \"Château Souaillon\"",
+              "beschreibung_de": "Château Souaillon, St-Blaise NE. Ein Paradebeispiel für einen grossartig vinifizierten Pinot Noir nach burgundischer Tradition. Leuchtendes Rubinrot, Aromen von Himbeeren und Rosen, elegant mit Finesse und schönem Körper.",
+              "beschreibung_en": "Château Souaillon, St-Blaise NE. A prime example of a beautifully crafted Pinot Noir in the Burgundian tradition. Bright ruby red, aromas of raspberries and roses, elegant with finesse and a fine body.",
+              "beschreibung_it": "Château Souaillon, St-Blaise NE. Un esempio perfetto di Pinot Noir vinificato magistralmente secondo la tradizione borgognona. Rosso rubino brillante, aromi di lampone e rosa, elegante con finezza e corpo.",
+              "beschreibung_fr": "Château Souaillon, St-Blaise NE. Un exemple parfait d'un Pinot Noir magnifiquement vinifié selon la tradition bourguignonne. Rouge rubis éclatant, arômes de framboise et de rose, élégant avec finesse et un beau corps.",
+              "preis": "55.–",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "7.5dl"
+            }
+          ]
         },
         {
-          "name": "Calzone",
-          "beschreibung_de": "Gefüllte Pizza: Ricotta, Schinken, Mozzarella, Tomatensauce",
-          "beschreibung_en": "Folded pizza: ricotta, ham, mozzarella, tomato sauce",
-          "beschreibung_it": "Pizza ripiena: ricotta, prosciutto, mozzarella, salsa di pomodoro",
-          "beschreibung_fr": "Pizza farcie: ricotta, jambon, mozzarella, sauce tomate",
-          "preis": "22.50",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": false
+          "id": "mineral-offen",
+          "name_de": "Mineral im Offenausschank",
+          "name_en": "Soft Drinks",
+          "name_it": "Bibite alla spina",
+          "name_fr": "Boissons sans alcool",
+          "gerichte": [
+            {
+              "name": "Mineralwasser",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "varianten": [
+                {
+                  "menge": "2dl",
+                  "preis": "3.50"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "4.20"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "5.70"
+                },
+                {
+                  "menge": "1l",
+                  "preis": "12.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Sprite",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "varianten": [
+                {
+                  "menge": "2dl",
+                  "preis": "3.80"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "4.60"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "6.20"
+                },
+                {
+                  "menge": "1l",
+                  "preis": "14.50"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Coca-Cola",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "varianten": [
+                {
+                  "menge": "2dl",
+                  "preis": "3.80"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "4.60"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "6.20"
+                },
+                {
+                  "menge": "1l",
+                  "preis": "14.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Fanta",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "varianten": [
+                {
+                  "menge": "2dl",
+                  "preis": "3.80"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "4.60"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "6.20"
+                },
+                {
+                  "menge": "1l",
+                  "preis": "14.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Schorle",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "varianten": [
+                {
+                  "menge": "2dl",
+                  "preis": "3.80"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "4.60"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "6.20"
+                },
+                {
+                  "menge": "1l",
+                  "preis": "14.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Rivella rot",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "varianten": [
+                {
+                  "menge": "2dl",
+                  "preis": "3.80"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "4.60"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "6.20"
+                },
+                {
+                  "menge": "1l",
+                  "preis": "14.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Ice Tea Lemon",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "varianten": [
+                {
+                  "menge": "2dl",
+                  "preis": "3.80"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "4.60"
+                },
+                {
+                  "menge": "5dl",
+                  "preis": "6.20"
+                },
+                {
+                  "menge": "1l",
+                  "preis": "14.00"
+                }
+              ],
+              "empfehlung": false
+            },
+            {
+              "name": "Orangensaft",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "varianten": [
+                {
+                  "menge": "2dl",
+                  "preis": "4.30"
+                },
+                {
+                  "menge": "3dl",
+                  "preis": "6.50"
+                }
+              ],
+              "empfehlung": false
+            }
+          ]
         },
         {
-          "name": "Speciale Trapez",
-          "beschreibung_de": "Tomatensauce, Büffelmozzarella, Rucola, Roastbeef, Parmesan — Hausrezept",
-          "beschreibung_en": "Tomato sauce, buffalo mozzarella, rocket, roast beef, Parmesan — house recipe",
-          "beschreibung_it": "Salsa di pomodoro, mozzarella di bufala, rucola, roast beef, parmigiano — ricetta della casa",
-          "beschreibung_fr": "Sauce tomate, mozzarella de bufflonne, roquette, rosbif, parmesan — recette maison",
-          "preis": "26.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": true
-        }
-      ]
-    },
-    {
-      "id": "paste",
-      "name_de": "Paste",
-      "name_en": "Pasta",
-      "name_it": "Paste",
-      "name_fr": "Pâtes",
-      "gerichte": [
-        {
-          "name": "Spaghetti Bolognese",
-          "beschreibung_de": "Spaghetti, Ragù aus Schweizer Rindfleisch, langsam geschmort, Parmesan",
-          "beschreibung_en": "Spaghetti, Swiss beef ragù slow-cooked, Parmesan",
-          "beschreibung_it": "Spaghetti, ragù di manzo svizzero a cottura lenta, parmigiano",
-          "beschreibung_fr": "Spaghetti, ragù de bœuf suisse à cuisson lente, parmesan",
-          "preis": "22.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": false
+          "id": "mineral-flaschen",
+          "name_de": "Mineral in Flaschen",
+          "name_en": "Bottled Soft Drinks",
+          "name_it": "Bibite in bottiglia",
+          "name_fr": "Boissons en bouteille",
+          "gerichte": [
+            {
+              "name": "Arkina mit Kohlensäure",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "6.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "5dl"
+            },
+            {
+              "name": "Arkina ohne Kohlensäure",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "6.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "5dl"
+            },
+            {
+              "name": "S. Pellegrino mit Kohlensäure",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "6.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "5dl"
+            },
+            {
+              "name": "Coca-Cola Zero",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "5.00",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "3dl"
+            },
+            {
+              "name": "Rivella blau",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "4.90",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "3dl"
+            },
+            {
+              "name": "Schweppes Tonic oder Lemon",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "4.80",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false,
+              "menge": "2dl"
+            }
+          ]
         },
         {
-          "name": "Spaghetti Carbonara",
-          "beschreibung_de": "Spaghetti, Guanciale, Eigelb, Pecorino Romano, schwarzer Pfeffer",
-          "beschreibung_en": "Spaghetti, guanciale, egg yolk, Pecorino Romano, black pepper",
-          "beschreibung_it": "Spaghetti, guanciale, tuorlo d'uovo, pecorino romano, pepe nero",
-          "beschreibung_fr": "Spaghetti, guanciale, jaune d'œuf, Pecorino Romano, poivre noir",
-          "preis": "22.50",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": true
-        },
-        {
-          "name": "Penne all'Arrabbiata",
-          "beschreibung_de": "Penne, scharfe Tomatensauce mit Knoblauch und Peperoncino",
-          "beschreibung_en": "Penne, spicy tomato sauce with garlic and chilli",
-          "beschreibung_it": "Penne, salsa di pomodoro piccante con aglio e peperoncino",
-          "beschreibung_fr": "Penne, sauce tomate épicée à l'ail et au piment",
-          "preis": "19.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Tagliatelle al Tartufo",
-          "beschreibung_de": "Hausgemachte Tagliatelle, schwarzes Trüffelöl, Parmesan, Butter",
-          "beschreibung_en": "Homemade tagliatelle, black truffle oil, Parmesan, butter",
-          "beschreibung_it": "Tagliatelle fatte in casa, olio al tartufo nero, parmigiano, burro",
-          "beschreibung_fr": "Tagliatelles maison, huile à la truffe noire, parmesan, beurre",
-          "preis": "28.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": true
-        },
-        {
-          "name": "Ravioli Spinaci e Ricotta",
-          "beschreibung_de": "Hausgemachte Ravioli, Spinat-Ricotta-Füllung, Salbeibutter, Parmesan",
-          "beschreibung_en": "Homemade ravioli, spinach-ricotta filling, sage butter, Parmesan",
-          "beschreibung_it": "Ravioli fatti in casa, ripieno di spinaci e ricotta, burro e salvia, parmigiano",
-          "beschreibung_fr": "Ravioli maison, farce épinards-ricotta, beurre de sauge, parmesan",
-          "preis": "24.00",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Gnocchi al Gorgonzola",
-          "beschreibung_de": "Hausgemachte Gnocchi, cremige Gorgonzola-Sauce, Walnüsse",
-          "beschreibung_en": "Homemade gnocchi, creamy Gorgonzola sauce, walnuts",
-          "beschreibung_it": "Gnocchi fatti in casa, crema di gorgonzola, noci",
-          "beschreibung_fr": "Gnocchi maison, sauce crémeuse au gorgonzola, noix",
-          "preis": "22.00",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Spaghetti allo Scoglio",
-          "beschreibung_de": "Spaghetti, Meeresfrüchte-Mix (Muscheln, Garnelen, Tintenfisch), Knoblauch, Weisswein",
-          "beschreibung_en": "Spaghetti, mixed seafood (mussels, prawns, squid), garlic, white wine",
-          "beschreibung_it": "Spaghetti, misto di frutti di mare (cozze, gamberetti, calamari), aglio, vino bianco",
-          "beschreibung_fr": "Spaghetti, fruits de mer mélangés (moules, crevettes, calmar), ail, vin blanc",
-          "preis": "27.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": false
-        }
-      ]
-    },
-    {
-      "id": "dolci",
-      "name_de": "Dolci",
-      "name_en": "Desserts",
-      "name_it": "Dolci",
-      "name_fr": "Desserts",
-      "gerichte": [
-        {
-          "name": "Tiramisù della Nonna",
-          "beschreibung_de": "Hausgemachtes Tiramisù, Mascarpone, Savoiardi, Espresso, Kakaopulver",
-          "beschreibung_en": "Homemade tiramisù, mascarpone, ladyfingers, espresso, cocoa powder",
-          "beschreibung_it": "Tiramisù fatto in casa, mascarpone, savoiardi, caffè espresso, cacao amaro",
-          "beschreibung_fr": "Tiramisu maison, mascarpone, boudoirs, espresso, poudre de cacao",
-          "preis": "9.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": true
-        },
-        {
-          "name": "Panna Cotta al Caramello",
-          "beschreibung_de": "Cremige Panna Cotta mit Karamellsauce und frischen Beeren",
-          "beschreibung_en": "Creamy panna cotta with caramel sauce and fresh berries",
-          "beschreibung_it": "Panna cotta cremosa con salsa al caramello e frutti di bosco freschi",
-          "beschreibung_fr": "Panna cotta crémeuse avec sauce caramel et fruits rouges frais",
-          "preis": "9.00",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Gelato Artigianale",
-          "beschreibung_de": "2 Kugeln handwerkliches Glacé: Wahl aus Vanille, Schokolade, Pistazie, Zitrone",
-          "beschreibung_en": "2 scoops artisan ice cream: choice of vanilla, chocolate, pistachio, lemon",
-          "beschreibung_it": "2 palline di gelato artigianale: scelta tra vaniglia, cioccolato, pistacchio, limone",
-          "beschreibung_fr": "2 boules de glace artisanale: choix vanille, chocolat, pistache, citron",
-          "preis": "8.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Torta della Casa",
-          "beschreibung_de": "Hausgemachter Kuchen des Tages — Fragen Sie Ihren Kellner",
-          "beschreibung_en": "Homemade cake of the day — ask your waiter",
-          "beschreibung_it": "Torta della casa del giorno — chiedete al vostro cameriere",
-          "beschreibung_fr": "Gâteau maison du jour — renseignez-vous auprès de votre serveur",
-          "preis": "11.00",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Affogato al Caffè",
-          "beschreibung_de": "Vanilleglacé mit einem heissen Espresso übergossen",
-          "beschreibung_en": "Vanilla ice cream drowned in a hot espresso",
-          "beschreibung_it": "Gelato alla vaniglia con un espresso caldo versato sopra",
-          "beschreibung_fr": "Glace à la vanille nappée d'un espresso chaud",
-          "preis": "9.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        }
-      ]
-    },
-    {
-      "id": "bevande",
-      "name_de": "Getränke",
-      "name_en": "Drinks",
-      "name_it": "Bevande",
-      "name_fr": "Boissons",
-      "gerichte": [
-        {
-          "name": "Mineral still",
-          "beschreibung_de": "Hausgemacht, still — 5 dl",
-          "beschreibung_en": "Still mineral water — 5 dl",
-          "beschreibung_it": "Acqua minerale naturale — 5 dl",
-          "beschreibung_fr": "Eau minérale plate — 5 dl",
-          "preis": "4.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Mineral prickelnd",
-          "beschreibung_de": "Sprudelwasser — 5 dl",
-          "beschreibung_en": "Sparkling mineral water — 5 dl",
-          "beschreibung_it": "Acqua minerale frizzante — 5 dl",
-          "beschreibung_fr": "Eau minérale pétillante — 5 dl",
-          "preis": "4.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Hausgemachter Zitronensirup",
-          "beschreibung_de": "Hausgemacht, frische Zitronen, Minze — 3 dl",
-          "beschreibung_en": "Homemade, fresh lemons, mint — 3 dl",
-          "beschreibung_it": "Fatto in casa, limoni freschi, menta — 3 dl",
-          "beschreibung_fr": "Maison, citrons frais, menthe — 3 dl",
-          "preis": "6.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Tee (Kanne)",
-          "beschreibung_de": "Auswahl aus verschiedenen Teesorten — 3 dl",
-          "beschreibung_en": "Selection of teas — 3 dl",
-          "beschreibung_it": "Selezione di tè — 3 dl",
-          "beschreibung_fr": "Sélection de thés — 3 dl",
-          "preis": "5.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Espresso",
-          "beschreibung_de": "Illy Espresso — klassisch",
-          "beschreibung_en": "Illy espresso — classic",
-          "beschreibung_it": "Espresso Illy — classico",
-          "beschreibung_fr": "Illy espresso — classique",
-          "preis": "4.20",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Cappuccino",
-          "beschreibung_de": "Espresso mit aufgeschäumter Milch",
-          "beschreibung_en": "Espresso with steamed milk foam",
-          "beschreibung_it": "Espresso con latte montato a vapore",
-          "beschreibung_fr": "Espresso avec mousse de lait vapeur",
-          "preis": "5.80",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Caffè Latte",
-          "beschreibung_de": "Doppelter Espresso mit viel heisser Milch",
-          "beschreibung_en": "Double espresso with warm milk",
-          "beschreibung_it": "Doppio espresso con tanto latte caldo",
-          "beschreibung_fr": "Double espresso avec beaucoup de lait chaud",
-          "preis": "6.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Aperol Spritz",
-          "beschreibung_de": "Aperol, Prosecco, Soda — 2 dl",
-          "beschreibung_en": "Aperol, Prosecco, soda — 2 dl",
-          "beschreibung_it": "Aperol, Prosecco, soda — 2 dl",
-          "beschreibung_fr": "Aperol, Prosecco, soda — 2 dl",
-          "preis": "14.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": true
-        },
-        {
-          "name": "Hugo",
-          "beschreibung_de": "Prosecco, Holunderblütensirup, Minze, Limette — 2 dl",
-          "beschreibung_en": "Prosecco, elderflower syrup, mint, lime — 2 dl",
-          "beschreibung_it": "Prosecco, sciroppo di fiori di sambuco, menta, lime — 2 dl",
-          "beschreibung_fr": "Prosecco, sirop de fleur de sureau, menthe, citron vert — 2 dl",
-          "preis": "13.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Campari Soda",
-          "beschreibung_de": "Campari, Soda, Orange",
-          "beschreibung_en": "Campari, soda, orange",
-          "beschreibung_it": "Campari, soda, arancia",
-          "beschreibung_fr": "Campari, soda, orange",
-          "preis": "12.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Prosecco DOC (Glas)",
-          "beschreibung_de": "Prosecco DOC, Venetien — 1 dl",
-          "beschreibung_en": "Prosecco DOC, Veneto — 1 dl",
-          "beschreibung_it": "Prosecco DOC, Veneto — 1 dl",
-          "beschreibung_fr": "Prosecco DOC, Vénétie — 1 dl",
-          "preis": "9.00",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Bier vom Fass 0.3l",
-          "beschreibung_de": "Lokales Lagerbier vom Fass",
-          "beschreibung_en": "Local lager on tap",
-          "beschreibung_it": "Birra locale alla spina",
-          "beschreibung_fr": "Bière locale pression",
-          "preis": "6.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Bier vom Fass 0.5l",
-          "beschreibung_de": "Lokales Lagerbier vom Fass",
-          "beschreibung_en": "Local lager on tap",
-          "beschreibung_it": "Birra locale alla spina",
-          "beschreibung_fr": "Bière locale pression",
-          "preis": "8.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Nastro Azzurro",
-          "beschreibung_de": "Peroni Nastro Azzurro, Flasche 33 cl",
-          "beschreibung_en": "Peroni Nastro Azzurro, bottle 33 cl",
-          "beschreibung_it": "Peroni Nastro Azzurro, bottiglia 33 cl",
-          "beschreibung_fr": "Peroni Nastro Azzurro, bouteille 33 cl",
-          "preis": "7.50",
-          "vegetarisch": true,
-          "vegan": true,
-          "empfehlung": false
-        },
-        {
-          "name": "Vino della Casa Bianco",
-          "beschreibung_de": "Hauswein Weiss, Pinot Grigio IGT — 1 dl",
-          "beschreibung_en": "House white wine, Pinot Grigio IGT — 1 dl",
-          "beschreibung_it": "Vino bianco della casa, Pinot Grigio IGT — 1 dl",
-          "beschreibung_fr": "Vin blanc maison, Pinot Grigio IGT — 1 dl",
-          "preis": "6.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Vino della Casa Rosso",
-          "beschreibung_de": "Hauswein Rot, Sangiovese IGT — 1 dl",
-          "beschreibung_en": "House red wine, Sangiovese IGT — 1 dl",
-          "beschreibung_it": "Vino rosso della casa, Sangiovese IGT — 1 dl",
-          "beschreibung_fr": "Vin rouge maison, Sangiovese IGT — 1 dl",
-          "preis": "6.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Pinot Grigio DOC",
-          "beschreibung_de": "Pinot Grigio DOC, Friaul — leicht, frisch, mineralisch — 1 dl",
-          "beschreibung_en": "Pinot Grigio DOC, Friuli — light, fresh, mineral — 1 dl",
-          "beschreibung_it": "Pinot Grigio DOC, Friuli — leggero, fresco, minerale — 1 dl",
-          "beschreibung_fr": "Pinot Grigio DOC, Frioul — léger, frais, minéral — 1 dl",
-          "preis": "8.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
-        },
-        {
-          "name": "Chianti Classico DOCG",
-          "beschreibung_de": "Chianti Classico DOCG, Toskana — Sangiovese, trocken, Kirschen, Würze — 1 dl",
-          "beschreibung_en": "Chianti Classico DOCG, Tuscany — Sangiovese, dry, cherry, spice — 1 dl",
-          "beschreibung_it": "Chianti Classico DOCG, Toscana — Sangiovese, secco, ciliegia, spezie — 1 dl",
-          "beschreibung_fr": "Chianti Classico DOCG, Toscane — Sangiovese, sec, cerise, épices — 1 dl",
-          "preis": "9.50",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": true
-        },
-        {
-          "name": "Barolo DOCG",
-          "beschreibung_de": "Barolo DOCG, Piemont — Nebbiolo, vollmundig, komplex, langer Abgang — 1 dl",
-          "beschreibung_en": "Barolo DOCG, Piedmont — Nebbiolo, full-bodied, complex, long finish — 1 dl",
-          "beschreibung_it": "Barolo DOCG, Piemonte — Nebbiolo, corposo, complesso, lungo finale — 1 dl",
-          "beschreibung_fr": "Barolo DOCG, Piémont — Nebbiolo, corsé, complexe, longue finale — 1 dl",
-          "preis": "14.00",
-          "vegetarisch": true,
-          "vegan": false,
-          "empfehlung": false
+          "id": "kaffee-tee",
+          "name_de": "Kaffee & Tee",
+          "name_en": "Coffee & Tea",
+          "name_it": "Caffè e tè",
+          "name_fr": "Café et thé",
+          "gerichte": [
+            {
+              "name": "Café Crème, Espresso, Milchkaffee oder Café Hag",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "4.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Doppelter Espresso",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "7.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Cappuccino oder Café Mélange",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "5.70",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Caffè Corretto mit Grappa",
+              "beschreibung_de": "",
+              "beschreibung_en": "",
+              "beschreibung_it": "",
+              "beschreibung_fr": "",
+              "preis": "7.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kaffee Fertig / Luz / Pflümli / Kirsch",
+              "beschreibung_de": "Kaffee mit Schnaps nach Wahl",
+              "beschreibung_en": "Coffee with spirit of your choice",
+              "beschreibung_it": "Caffè con distillato a scelta",
+              "beschreibung_fr": "Café avec eau-de-vie au choix",
+              "preis": "8.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Diverse Teesorten",
+              "beschreibung_de": "Nature, Crème oder Citro",
+              "beschreibung_en": "Plain, with cream or with lemon",
+              "beschreibung_it": "Naturale, con panna o limone",
+              "beschreibung_fr": "Nature, à la crème ou au citron",
+              "preis": "4.30",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Tee Rum",
+              "beschreibung_de": "Tee mit Rum",
+              "beschreibung_en": "Tea with rum",
+              "beschreibung_it": "Tè con rum",
+              "beschreibung_fr": "Thé au rhum",
+              "preis": "7.30",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
         }
       ]
     },
     {
       "id": "aktuell",
       "name_de": "Aktuell",
-      "name_en": "Current Specials",
-      "name_it": "Offerte del Momento",
-      "name_fr": "Offres du Moment",
-      "gerichte": [
+      "name_en": "Currently",
+      "name_it": "Attuale",
+      "name_fr": "Actuellement",
+      "kategorien": [
         {
-          "name": "Tagliere di Stagione",
-          "beschreibung_de": "Platzhalter — durch aktuelles saisonales Angebot ersetzen",
-          "beschreibung_en": "Placeholder — replace with current seasonal offering",
-          "beschreibung_it": "Segnaposto — sostituire con l'offerta stagionale attuale",
-          "beschreibung_fr": "Espace réservé — à remplacer par l'offre saisonnière actuelle",
-          "preis": "0.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": false
+          "id": "nuesslisalat",
+          "name_de": "Aktuell – Nüsslisalat",
+          "name_en": "Currently – Lamb's Lettuce",
+          "name_it": "Attuale – Valerianella",
+          "name_fr": "Actuellement – Mâche",
+          "gerichte": [
+            {
+              "name": "Nüsslisalat",
+              "beschreibung_de": "Klassischer Nüsslisalat",
+              "beschreibung_en": "Classic lamb's lettuce salad",
+              "beschreibung_it": "Valerianella classica",
+              "beschreibung_fr": "Mâche classique",
+              "preis": "10.50",
+              "vegetarisch": true,
+              "vegan": true,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit gehacktem Ei",
+              "beschreibung_de": "Mit gehacktem Ei",
+              "beschreibung_en": "With chopped egg",
+              "beschreibung_it": "Con uovo tritato",
+              "beschreibung_fr": "Avec œuf haché",
+              "preis": "11.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit gehacktem Ei, Speck, Croutons",
+              "beschreibung_de": "Mit gehacktem Ei, Speck, Croutons",
+              "beschreibung_en": "With chopped egg, bacon, croutons",
+              "beschreibung_it": "Con uovo tritato, pancetta, crostini",
+              "beschreibung_fr": "Avec œuf haché, lard, croûtons",
+              "preis": "14.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit Steinpilzen",
+              "beschreibung_de": "Mit Steinpilzen",
+              "beschreibung_en": "With porcini mushrooms",
+              "beschreibung_it": "Con funghi porcini",
+              "beschreibung_fr": "Avec cèpes",
+              "preis": "16.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat Trapez Art",
+              "beschreibung_de": "Mit panierten Artischocken, Zucchetti, Auberginen",
+              "beschreibung_en": "With breaded artichokes, zucchini, eggplant",
+              "beschreibung_it": "Con carciofi, zucchine e melanzane impanati",
+              "beschreibung_fr": "Avec artichauts, courgettes et aubergines panés",
+              "preis": "17.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit gebratenen Pouletstreifen",
+              "beschreibung_de": "Mit gebratenen Pouletstreifen",
+              "beschreibung_en": "With pan-fried chicken strips",
+              "beschreibung_it": "Con striscioline di pollo saltate",
+              "beschreibung_fr": "Avec lanières de poulet poêlées",
+              "preis": "18.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit Waldpilzen",
+              "beschreibung_de": "Mit Waldpilzen und Trüffelöl",
+              "beschreibung_en": "With wild mushrooms and truffle oil",
+              "beschreibung_it": "Con funghi di bosco e olio al tartufo",
+              "beschreibung_fr": "Avec champignons des bois et huile de truffe",
+              "preis": "20.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit Kalbsleberli",
+              "beschreibung_de": "Mit Kalbsleberli",
+              "beschreibung_en": "With veal liver",
+              "beschreibung_it": "Con fegatini di vitello",
+              "beschreibung_fr": "Avec foie de veau",
+              "preis": "21.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit gebratenen Riesencrevetten",
+              "beschreibung_de": "Mit gebratenen Riesencrevetten",
+              "beschreibung_en": "With pan-fried king prawns",
+              "beschreibung_it": "Con gamberoni saltati",
+              "beschreibung_fr": "Avec grosses crevettes poêlées",
+              "preis": "20.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit Parmaschinken und Mozzarella",
+              "beschreibung_de": "Mit Parmaschinken und Mozzarella",
+              "beschreibung_en": "With Parma ham and mozzarella",
+              "beschreibung_it": "Con prosciutto di Parma e mozzarella",
+              "beschreibung_fr": "Avec jambon de Parme et mozzarella",
+              "preis": "20.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "kalbsleber",
+          "name_de": "Aktuell – Kalbsleber",
+          "name_en": "Currently – Veal Liver",
+          "name_it": "Attuale – Fegato di vitello",
+          "name_fr": "Actuellement – Foie de veau",
+          "gerichte": [
+            {
+              "name": "Kalbsleber Stroganoff",
+              "beschreibung_de": "Champignons, Zwiebeln, Peperoni, Knoblauch, Essiggurken, Paprika, Demi-Glace",
+              "beschreibung_en": "Mushrooms, onions, bell peppers, garlic, pickles, paprika, demi-glace",
+              "beschreibung_it": "Funghi, cipolle, peperoni, aglio, cetriolini, paprika, demi-glace",
+              "beschreibung_fr": "Champignons, oignons, poivrons, ail, cornichons, paprika, demi-glace",
+              "preis": "35.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber geschnetzeltes Züricher Art",
+              "beschreibung_de": "An Champignon-Rahmsauce",
+              "beschreibung_en": "In creamy mushroom sauce",
+              "beschreibung_it": "In salsa ai funghi e panna",
+              "beschreibung_fr": "Sauce crème aux champignons",
+              "preis": "34.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber Ai Funghi Porcini",
+              "beschreibung_de": "Zwiebeln, Knoblauch, Weisswein, Rahm, Steinpilzsauce",
+              "beschreibung_en": "Onions, garlic, white wine, cream, porcini mushroom sauce",
+              "beschreibung_it": "Cipolle, aglio, vino bianco, panna, salsa ai funghi porcini",
+              "beschreibung_fr": "Oignons, ail, vin blanc, crème, sauce aux cèpes",
+              "preis": "36.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber Madagaskar",
+              "beschreibung_de": "Grüne Pfeffersauce, Rahm, Zwiebeln, Weisswein",
+              "beschreibung_en": "Green pepper sauce, cream, onions, white wine",
+              "beschreibung_it": "Salsa al pepe verde, panna, cipolle, vino bianco",
+              "beschreibung_fr": "Sauce au poivre vert, crème, oignons, vin blanc",
+              "preis": "33.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber Madeira",
+              "beschreibung_de": "Zwiebeln, Demi-Glace, Tomaten, Madeira-Sauce",
+              "beschreibung_en": "Onions, demi-glace, tomatoes, Madeira sauce",
+              "beschreibung_it": "Cipolle, demi-glace, pomodori, salsa al madeira",
+              "beschreibung_fr": "Oignons, demi-glace, tomates, sauce au madère",
+              "preis": "33.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber Calvados",
+              "beschreibung_de": "Zwiebeln, Demi-Glace, Calvados-Sauce",
+              "beschreibung_en": "Onions, demi-glace, Calvados sauce",
+              "beschreibung_it": "Cipolle, demi-glace, salsa al calvados",
+              "beschreibung_fr": "Oignons, demi-glace, sauce au calvados",
+              "preis": "35.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber Morchel Sauce",
+              "beschreibung_de": "Morcheln, Zwiebeln, Rahm, Demi-Glace",
+              "beschreibung_en": "Morel mushrooms, onions, cream, demi-glace",
+              "beschreibung_it": "Spugnole, cipolle, panna, demi-glace",
+              "beschreibung_fr": "Morilles, oignons, crème, demi-glace",
+              "preis": "39.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ],
+          "hinweis_de": "Beilagen: Pommes frites, Kroketten, Saisongemüse, Teigwaren, Risotto, Reis, Rösti oder Butterreis",
+          "hinweis_en": "Sides: fries, croquettes, seasonal vegetables, pasta, risotto, rice, rösti or buttered rice",
+          "hinweis_it": "Contorni: patatine fritte, crocchette, verdure di stagione, pasta, risotto, riso, rösti o riso al burro",
+          "hinweis_fr": "Accompagnements : frites, croquettes, légumes de saison, pâtes, risotto, riz, rösti ou riz au beurre"
         }
       ]
     },
@@ -583,21 +3158,9 @@
       "id": "tagesmenu",
       "name_de": "Tagesmenü",
       "name_en": "Daily Menu",
-      "name_it": "Menu del Giorno",
-      "name_fr": "Menu du Jour",
-      "gerichte": [
-        {
-          "name": "Menü des Tages",
-          "beschreibung_de": "Platzhalter — täglich oder wöchentlich aktualisieren (Vorspeise, Hauptgang, Dessert)",
-          "beschreibung_en": "Placeholder — update daily or weekly (starter, main, dessert)",
-          "beschreibung_it": "Segnaposto — aggiornare quotidianamente (antipasto, primo, dolce)",
-          "beschreibung_fr": "Espace réservé — à mettre à jour quotidiennement (entrée, plat, dessert)",
-          "preis": "0.00",
-          "vegetarisch": false,
-          "vegan": false,
-          "empfehlung": false
-        }
-      ]
+      "name_it": "Menù del giorno",
+      "name_fr": "Menu du jour",
+      "kategorien": []
     }
   ]
 }
