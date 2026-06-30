@@ -1045,7 +1045,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 #reservieren .section-title { color: var(--white); }
-#reservieren .section-label { color: var(--effect-light); }
 #reservieren .section-subtitle { color: rgba(255,255,255,0.65); }
 
 .reservation-form {
@@ -1207,7 +1206,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 #ambiente .section-title { color: var(--white); }
-#ambiente .section-label { color: var(--effect-light); }
 #ambiente .section-subtitle { color: rgba(255,255,255,0.6); }
 
 .ambiente-gallery {
