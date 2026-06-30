@@ -1,0 +1,17 @@
+GALERIE-BILDER ERSETZEN — Restaurant Trapez
+============================================
+
+Dieser Ordner enthält die 8 Galeriebilder der Website.
+
+BILDER ERSETZEN:
+1. Neues Foto auf 800 × 600 Pixel zuschneiden (JPG, max. 300 KB)
+2. Bild umbenennen auf den GLEICHEN Namen wie das alte Bild:
+     1.jpg   2.jpg   3.jpg   4.jpg
+     5.jpg   6.jpg   8.jpg   9.jpg
+3. Per FTP in diesen Ordner hochladen (cyon → assets/images/ambiente/)
+4. Altes Bild wird automatisch überschrieben — fertig!
+
+HINWEIS: Die Nummerierung muss exakt stimmen (z.B. "1.jpg", nicht "1 .jpg"
+oder "01.jpg"). Gross-/Kleinschreibung beachten.
+
+BEI PROBLEMEN: Kontaktieren Sie Ihren Webentwickler.
