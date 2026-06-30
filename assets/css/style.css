@@ -495,17 +495,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: center;
   gap: 8px;
   padding: 28px 20px;
-  background: var(--green);
+  background: var(--dark);
   border-radius: 14px;
-  box-shadow: 0 4px 24px rgba(27,58,45,0.28);
+  box-shadow: 0 4px 24px rgba(91,58,41,0.28);
   border: 1px solid rgba(201,169,110,0.15);
   text-decoration: none;
   transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 .menu-nav-card:hover {
   transform: translateY(-4px);
-  background: #254f3c;
-  box-shadow: 0 12px 40px rgba(27,58,45,0.45);
+  background: #7a4f38;
+  box-shadow: 0 12px 40px rgba(91,58,41,0.45);
 }
 .menu-nav-card-label {
   font-family: var(--font-head);
@@ -656,6 +656,72 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: rgba(30,10,10,0.52);
   margin: 3px 0 0;
   line-height: 1.5;
+}
+
+/* --- ICONS (SVG inline — Blatt/Stern) ---------------------- */
+.menu-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 5px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+.menu-icon {
+  color: var(--green);
+  flex-shrink: 0;
+}
+.menu-icon--gold { color: var(--gold); }
+
+/* --- HINWEIS (Beilage-Info unter Kategorie) ---------------- */
+.menu-hinweis {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: rgba(201,169,110,0.07);
+  border-left: 2px solid rgba(201,169,110,0.45);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.75rem;
+  color: rgba(30,10,10,0.50);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+/* --- VARIANTEN (Wein/Bier offen, Mineral offen) ------------ */
+.menu-gericht--varianten .menu-gericht-top {
+  flex-wrap: wrap;
+  gap: 2px 0;
+}
+.menu-varianten {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px 0;
+  flex: 0 0 auto;
+}
+.menu-variante {
+  font-size: 0.82rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+.menu-variante strong { font-weight: 600; }
+.menu-variante-sep {
+  color: rgba(30,10,10,0.28);
+  padding: 0 5px;
+  font-size: 0.72rem;
+}
+
+/* --- MENGE & ALKOHOL --------------------------------------- */
+.menu-menge {
+  font-size: 0.76rem;
+  color: rgba(30,10,10,0.42);
+  font-weight: 400;
+}
+.menu-alkohol {
+  font-size: 0.7rem;
+  color: rgba(30,10,10,0.35);
+  font-weight: 400;
+  margin-left: 3px;
 }
 
 .menu-pdf-link {

@@ -6,7 +6,6 @@
 let currentLang = localStorage.getItem('trapez-lang') || 'de';
 let lightboxImages = [];
 let lightboxIndex = 0;
-let menuJsonData = null;
 let reviewsData = null;
 
 /* ---------------------------------------------------------- */
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroSlideshow();
   initNavbar();
   initLanguage();
-  initMenuRender();
   initReviews();
   initReservationForm();
   initGallery();
@@ -126,7 +124,6 @@ function highlightActiveSection() {
 /* ---------------------------------------------------------- */
 document.addEventListener('langchange', e => {
   currentLang = e.detail.lang;
-  renderMenuTypography(currentLang);
   renderReviews(currentLang);
 });
 
@@ -157,66 +154,6 @@ function initLanguage() {
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
-}
-
-/* ---------------------------------------------------------- */
-/*  MENU RENDERING (typography, from data/menu.json)          */
-/* ---------------------------------------------------------- */
-function initMenuRender() {
-  fetch('data/menu.json')
-    .then(r => r.json())
-    .then(data => {
-      menuJsonData = data;
-      renderMenuTypography(currentLang);
-    });
-}
-
-function renderMenuTypography(lang) {
-  if (!menuJsonData) return;
-  const sfx = `_${lang}`;
-  const cats = menuJsonData.kategorien;
-  const FOOD = ['antipasti', 'pizze', 'paste', 'dolci'];
-
-  renderKategorien('ms-speisekarte', cats.filter(k => FOOD.includes(k.id)), sfx);
-  renderKategorien('ms-getraenke',   cats.filter(k => k.id === 'bevande'), sfx);
-  renderKategorien('ms-aktuell',     cats.filter(k => k.id === 'aktuell'), sfx);
-  renderKategorien('ms-tagesmenue',  cats.filter(k => k.id === 'tagesmenu'), sfx);
-
-  observeReveal();
-}
-
-function renderKategorien(containerId, kategorien, sfx) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-
-  const html = kategorien.map(kat => {
-    const catName = kat[`name${sfx}`] || kat.name_de;
-    if (!kat.gerichte || !kat.gerichte.length) return '';
-    return `
-      <div class="menu-kat">
-        <div class="menu-kat-header">
-          <h3 class="menu-kat-title">${escHtml(catName)}</h3>
-        </div>
-        <div class="menu-kat-gerichte">
-          ${kat.gerichte.map(g => {
-            const desc = g[`beschreibung${sfx}`] || g.beschreibung_de || '';
-            const badges = (g.empfehlung ? '⭐' : '') +
-              (g.vegan ? ' 🌱' : (g.vegetarisch ? ' 🌿' : ''));
-            return `
-              <div class="menu-gericht">
-                <div class="menu-gericht-top">
-                  <span class="menu-gericht-name">${escHtml(g.name)}</span>
-                  <span class="menu-gericht-dots" aria-hidden="true"></span>
-                  <span class="menu-gericht-preis">CHF ${escHtml(g.preis)}${badges.trim() ? `<span class="menu-badge">${badges.trim()}</span>` : ''}</span>
-                </div>
-                ${desc ? `<p class="menu-gericht-desc">${escHtml(desc)}</p>` : ''}
-              </div>`;
-          }).join('')}
-        </div>
-      </div>`;
-  }).join('');
-
-  el.innerHTML = html || '<p class="menu-section-empty">Derzeit keine Einträge.</p>';
 }
 
 /* ---------------------------------------------------------- */

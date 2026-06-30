@@ -134,44 +134,44 @@
     <!-- Jump-Navigation: 4 Karten -->
     <nav class="menu-nav-cards reveal" aria-label="Menü Navigation">
       <a class="menu-nav-card" href="#menu-speisekarte">
-        <span class="menu-nav-card-label">Speisekarte</span>
-        <span class="menu-nav-card-sub">Antipasti · Pizze · Paste · Dolci</span>
+        <span class="menu-nav-card-label" data-menu-sektion="speisekarte">Speisekarte</span>
+        <span class="menu-nav-card-sub">Suppen · Salate · Fleisch · Pizza · Pasta</span>
       </a>
       <a class="menu-nav-card" href="#menu-getraenke">
-        <span class="menu-nav-card-label">Getränkekarte</span>
-        <span class="menu-nav-card-sub">Weine · Aperitivi · Caffè</span>
+        <span class="menu-nav-card-label" data-menu-sektion="getraenke">Getränkekarte</span>
+        <span class="menu-nav-card-sub">Weine · Bier · Aperitifs · Kaffee</span>
       </a>
       <a class="menu-nav-card" href="#menu-aktuell">
-        <span class="menu-nav-card-label">Aktuell</span>
-        <span class="menu-nav-card-sub">Saisonale Angebote &amp; Specials</span>
+        <span class="menu-nav-card-label" data-menu-sektion="aktuell">Aktuell</span>
+        <span class="menu-nav-card-sub">Nüsslisalat · Kalbsleber &amp; Specials</span>
       </a>
       <a class="menu-nav-card" href="#menu-tagesmenue">
-        <span class="menu-nav-card-label">Tagesmenü</span>
+        <span class="menu-nav-card-label" data-menu-sektion="tagesmenu">Tagesmenü</span>
         <span class="menu-nav-card-sub">Heutiges Mittagsangebot</span>
       </a>
     </nav>
 
     <!-- Sektion 1: Speisekarte -->
     <div class="menu-section reveal" id="menu-speisekarte">
-      <h3 class="menu-section-title">Speisekarte</h3>
+      <h3 class="menu-section-title" data-menu-sektion="speisekarte">Speisekarte</h3>
       <div id="ms-speisekarte"></div>
     </div>
 
     <!-- Sektion 2: Getränkekarte -->
     <div class="menu-section reveal" id="menu-getraenke">
-      <h3 class="menu-section-title">Getränkekarte</h3>
+      <h3 class="menu-section-title" data-menu-sektion="getraenke">Getränkekarte</h3>
       <div id="ms-getraenke"></div>
     </div>
 
     <!-- Sektion 3: Aktuell -->
     <div class="menu-section reveal" id="menu-aktuell">
-      <h3 class="menu-section-title">Aktuell</h3>
+      <h3 class="menu-section-title" data-menu-sektion="aktuell">Aktuell</h3>
       <div id="ms-aktuell"></div>
     </div>
 
     <!-- Sektion 4: Tagesmenü -->
     <div class="menu-section reveal" id="menu-tagesmenue">
-      <h3 class="menu-section-title">Tagesmenü</h3>
+      <h3 class="menu-section-title" data-menu-sektion="tagesmenu">Tagesmenü</h3>
       <div id="ms-tagesmenue"></div>
     </div>
 
@@ -660,6 +660,7 @@
 
 <!-- Scripts -->
 <script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/menu.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 
 </body>
