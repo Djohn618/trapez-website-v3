@@ -22,6 +22,7 @@
   --white:        #FFFFFF;
   --dark:         #5B3A29;
   --gold:         #C9A96E;
+  --color-gold-readable: #5E4F34; /* darkened --gold, 4.98:1 on --bg #DEC9BA — use for gold text on light sections */
   --green:        #1B3A2D;
   --creme:        #F5F0E8;
   --hover:        #5C1A1A;
@@ -533,7 +534,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .menu-section-title {
   font-family: var(--font-head);
   font-size: 1.5rem;
-  color: var(--gold);
+  color: var(--color-gold-readable);
   text-align: center;
   letter-spacing: 0.06em;
   margin-bottom: 48px;
@@ -587,7 +588,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 400;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--color-gold-readable);
   white-space: nowrap;
   margin: 0;
 }
@@ -656,7 +657,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--green);
   flex-shrink: 0;
 }
-.menu-icon--gold { color: var(--gold); }
+.menu-icon--gold { color: var(--color-gold-readable); }
 
 /* --- HINWEIS (Beilage-Info unter Kategorie) ---------------- */
 .menu-hinweis {
@@ -718,7 +719,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .menu-pdf-link a {
   font-family: var(--font-head);
   font-size: 0.88rem;
-  color: var(--gold);
+  color: var(--color-gold-readable);
   text-decoration: none;
   letter-spacing: 0.05em;
   transition: opacity 0.2s;
@@ -2090,11 +2091,11 @@ footer {
   box-shadow: inset 0 0 0 1px rgba(201,169,110,0.18);
 }
 .speisekarte-item.active .menu-item-name {
-  color: var(--gold);
+  color: var(--color-gold-readable);
   font-weight: 600;
 }
 .speisekarte-item.active .menu-item-price {
-  color: var(--gold);
+  color: var(--color-gold-readable);
 }
 
 /* --- GETRÄNKKARTE CARD IMAGE -------------------------------- */
@@ -2125,10 +2126,10 @@ footer {
   box-shadow: inset 0 0 0 1px rgba(201,169,110,0.18);
 }
 .getraenkkarte-item.active .menu-item-name {
-  color: var(--gold);
+  color: var(--color-gold-readable);
   font-weight: 600;
 }
 .getraenkkarte-item.active .menu-item-price {
-  color: var(--gold);
+  color: var(--color-gold-readable);
 }
 
