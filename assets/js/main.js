@@ -152,6 +152,13 @@ function initLanguage() {
       if (window.switchLanguage) window.switchLanguage(opt.dataset.lang);
       langMenu.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
+
+      // Close mobile nav menu too (same logic as .nav-link click handler)
+      const ham = document.getElementById('nav-hamburger');
+      const menu = document.getElementById('nav-menu');
+      ham && ham.classList.remove('open');
+      menu && menu.classList.remove('open');
+      document.body.style.overflow = '';
     });
   });
 }
