@@ -1,7 +1,7 @@
 /* ============================================================
    TRAPEZ RESTAURANT — MAIN STYLESHEET
    Color Palette:
-     --bg:           #F5ECE0  (Warm Ivory – light section background)
+     --bg:           #DEC9BA  (Warm Tan – light section background)
      --card-bg:      #6B2424  (Deep Burgundy – cards / radium boxes)
      --effect-dark:  #5C1A1A  (Dark Burgundy – hover/active/shadow)
      --effect-light: #F0DDB4  (Warm Cream – subtle effects/glow)
@@ -15,8 +15,8 @@
 :root {
   --primary:      #6B2424;
   --secondary:    #7B3535;
-  --bg:           #F5ECE0;
-  --bg-alt:       #EDE4D6;
+  --bg:           #DEC9BA;
+  --bg-alt:       #D0B9A8;
   --text:         #1E0A0A;
   --accent:       #8B3535;
   --white:        #FFFFFF;
