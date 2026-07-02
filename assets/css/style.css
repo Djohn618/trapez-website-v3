@@ -851,7 +851,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* Speisekarte / Getränkkarte */
-.menu-categories { display: flex; flex-direction: column; gap: 36px; }
 
 /* --- SPEISEKARTE SPLIT LAYOUT ------------------------------ */
 .speisekarte-split {
@@ -1493,7 +1492,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
 }
 
-.about-text { }
 .about-text .section-header { text-align: left; margin-bottom: 32px; }
 .about-text .divider { margin: 20px 0 0; }
 
@@ -1683,7 +1681,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 14px;
   padding: 28px;
   box-shadow: 0 4px 20px rgba(27,58,45,0.18);
-  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s ease;
   position: relative;
   border: 1px solid rgba(201,169,110,0.15);
 }
@@ -1736,7 +1733,6 @@ footer {
   margin-bottom: 32px;
 }
 
-.footer-brand { }
 .footer-logo {
   display: flex;
   align-items: center;
