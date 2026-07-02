@@ -31,21 +31,24 @@
       .replace(/"/g,'&quot;') : '';
   }
 
-  /* ── Render price cell ─────────────────────────────────────── */
+  /* ── Render price cell (fixed-price dishes/drinks) ─────────── */
   function renderPreis(g) {
-    /* varianten: "1dl 6.20 · 2dl 12.40 ..." */
-    if (g.varianten && g.varianten.length) {
-      var parts = g.varianten.map(function (v) {
-        return '<span class="menu-variante"><span class="menu-menge">' + esc(v.menge) + '</span> <strong>' + esc(v.preis) + '</strong></span>';
-      });
-      return '<span class="menu-varianten">' + parts.join('<span class="menu-variante-sep" aria-hidden="true">·</span>') + '</span>';
-    }
-    /* fixed price, optionally with menge and alkohol */
     var out = '';
     if (g.menge)   out += '<span class="menu-menge">' + esc(g.menge) + ' — </span>';
     out += 'CHF ' + esc(g.preis);
     if (g.alkohol) out += ' <span class="menu-alkohol">' + esc(g.alkohol) + '</span>';
     return out;
+  }
+
+  /* ── Render the variants row: "2dl 3.80 · 3dl 4.70 · 5dl 6.00" ──
+     Rendered on its own line below the name (see renderKategorie),
+     never inline with it — keeps "3dl"/"4.70" glued via &nbsp; and
+     never splits mid-pair via white-space:nowrap on .menu-variante. */
+  function renderVarianten(g) {
+    var parts = g.varianten.map(function (v) {
+      return '<span class="menu-variante"><span class="menu-menge">' + esc(v.menge) + '</span>&nbsp;<strong>' + esc(v.preis) + '</strong></span>';
+    });
+    return parts.join('<span class="menu-variante-sep" aria-hidden="true"> · </span>');
   }
 
   /* ── Render diet/recommendation icons ─────────────────────── */
@@ -71,9 +74,12 @@
         '<div class="menu-gericht' + (hasVariant ? ' menu-gericht--varianten' : '') + '">' +
           '<div class="menu-gericht-top">' +
             '<span class="menu-gericht-name">' + esc(g.name) + renderIcons(g) + '</span>' +
-            (hasVariant ? '' : '<span class="menu-gericht-dots" aria-hidden="true"></span>') +
-            '<span class="menu-gericht-preis">' + renderPreis(g) + '</span>' +
+            (hasVariant ? '' :
+              '<span class="menu-gericht-dots" aria-hidden="true"></span>' +
+              '<span class="menu-gericht-preis">' + renderPreis(g) + '</span>'
+            ) +
           '</div>' +
+          (hasVariant ? '<div class="menu-varianten">' + renderVarianten(g) + '</div>' : '') +
           (desc ? '<p class="menu-gericht-desc">' + esc(desc) + '</p>' : '') +
         '</div>'
       );
