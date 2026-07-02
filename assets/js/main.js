@@ -214,8 +214,7 @@ function renderReviews(lang) {
   if (!el || !reviewsData) return;
 
   const visible = reviewsData.bewertungen
-    .filter(r => r.sichtbar !== false)
-    .slice(0, 5);
+    .filter(r => r.sichtbar !== false);
 
   el.innerHTML = visible.map(r => {
     const text  = r[`text_${lang}`]  || r.text_de  || '';
