@@ -6,7 +6,13 @@
       "reservieren": "Reservieren",
       "ambiente": "Ambiente",
       "ueberUns": "Über Uns",
-      "kontakt": "Kontakt"
+      "kontakt": "Kontakt",
+      "offer": {
+        "menu": "Speisekarte",
+        "drinks": "Getränkekarte",
+        "current": "Aktuell",
+        "daily": "Tagesmenü"
+      }
     },
     "hero": {
       "label": "Authentische Küche · Reinach",
@@ -75,7 +81,13 @@
       "reservieren": "Reserve",
       "ambiente": "Ambience",
       "ueberUns": "About Us",
-      "kontakt": "Contact"
+      "kontakt": "Contact",
+      "offer": {
+        "menu": "Food Menu",
+        "drinks": "Drinks Menu",
+        "current": "Currently",
+        "daily": "Daily Menu"
+      }
     },
     "hero": {
       "label": "Authentic Cuisine · Reinach",
@@ -144,7 +156,13 @@
       "reservieren": "Prenota",
       "ambiente": "Ambiente",
       "ueberUns": "Chi Siamo",
-      "kontakt": "Contatti"
+      "kontakt": "Contatti",
+      "offer": {
+        "menu": "Menu",
+        "drinks": "Bevande",
+        "current": "Attuale",
+        "daily": "Menù del giorno"
+      }
     },
     "hero": {
       "label": "Cucina Autentica · Reinach",
@@ -213,7 +231,13 @@
       "reservieren": "Réserver",
       "ambiente": "Ambiance",
       "ueberUns": "À Propos",
-      "kontakt": "Contact"
+      "kontakt": "Contact",
+      "offer": {
+        "menu": "Menu",
+        "drinks": "Boissons",
+        "current": "Actuellement",
+        "daily": "Menu du jour"
+      }
     },
     "hero": {
       "label": "Cuisine Authentique · Reinach",

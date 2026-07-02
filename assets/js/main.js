@@ -80,14 +80,48 @@ function initNavbar() {
     });
   }
 
-  // Close mobile menu on link click
-  document.querySelectorAll('.nav-link').forEach(link => {
+  // Close mobile menu on link click (Angebot toggle handled separately below)
+  document.querySelectorAll('.nav-link:not(.nav-dropdown-toggle)').forEach(link => {
     link.addEventListener('click', () => {
       ham && ham.classList.remove('open');
       menu && menu.classList.remove('open');
       document.body.style.overflow = '';
     });
   });
+
+  // Angebot dropdown — desktop: hover (CSS) + click-through to #angebot.
+  // Mobile: tap toggles the submenu open/closed instead of navigating.
+  const angebotDropdown = document.querySelector('.nav-dropdown');
+  const angebotToggle = angebotDropdown?.querySelector('.nav-dropdown-toggle');
+  const isMobileNav = () => window.matchMedia('(max-width: 900px)').matches;
+
+  if (angebotDropdown && angebotToggle) {
+    angebotToggle.addEventListener('click', e => {
+      if (!isMobileNav()) return; // desktop: hover opens it, click navigates as usual
+      e.preventDefault();
+      e.stopImmediatePropagation(); // prevent the smooth-scroll handler below from also firing
+      const isOpen = angebotDropdown.classList.toggle('open');
+      angebotToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', e => {
+      if (!angebotDropdown.contains(e.target)) {
+        angebotDropdown.classList.remove('open');
+        angebotToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Submenu link click: scroll to section (generic handler below) + close everything
+    angebotDropdown.querySelectorAll('.nav-dropdown-link').forEach(link => {
+      link.addEventListener('click', () => {
+        angebotDropdown.classList.remove('open');
+        angebotToggle.setAttribute('aria-expanded', 'false');
+        ham && ham.classList.remove('open');
+        menu && menu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(link => {

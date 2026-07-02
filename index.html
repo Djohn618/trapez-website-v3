@@ -47,7 +47,17 @@
     <!-- Menu -->
     <ul class="nav-menu" id="nav-menu" role="menubar">
       <li role="none"><a class="nav-link" href="#hero"        role="menuitem" data-i18n="nav.home">Home</a></li>
-      <li role="none"><a class="nav-link" href="#angebot"     role="menuitem" data-i18n="nav.angebot">Angebot</a></li>
+      <li role="none" class="nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#angebot" role="menuitem" aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="nav.angebot">Angebot</span><span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
+        </a>
+        <ul class="nav-dropdown-menu" role="menu" aria-label="Angebot Untermenü">
+          <li role="none"><a class="nav-dropdown-link" href="#menu-speisekarte" role="menuitem" data-i18n="nav.offer.menu">Speisekarte</a></li>
+          <li role="none"><a class="nav-dropdown-link" href="#menu-getraenke"   role="menuitem" data-i18n="nav.offer.drinks">Getränkekarte</a></li>
+          <li role="none"><a class="nav-dropdown-link" href="#menu-aktuell"     role="menuitem" data-i18n="nav.offer.current">Aktuell</a></li>
+          <li role="none"><a class="nav-dropdown-link" href="#menu-tagesmenue" role="menuitem" data-i18n="nav.offer.daily">Tagesmenü</a></li>
+        </ul>
+      </li>
       <li role="none"><a class="nav-link" href="#reservieren" role="menuitem" data-i18n="nav.reservieren">Reservieren</a></li>
       <li role="none"><a class="nav-link" href="#ambiente"    role="menuitem" data-i18n="nav.ambiente">Ambiente</a></li>
       <li role="none"><a class="nav-link" href="#ueber-uns"   role="menuitem" data-i18n="nav.ueberUns">Über Uns</a></li>
