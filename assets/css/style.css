@@ -675,7 +675,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* --- VARIANTEN (Wein/Bier offen, Mineral offen) ------------ */
 .menu-gericht--varianten .menu-gericht-top {
   flex-wrap: wrap;
-  gap: 2px 0;
+  gap: 2px 10px;
 }
 .menu-varianten {
   display: flex;
@@ -729,6 +729,35 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 @media (max-width: 600px) {
   .menu-gericht-name { font-size: 0.9rem; }
+
+  /* Kategorie-Titel darf umbrechen statt abgeschnitten zu werden */
+  .menu-kat-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    word-break: break-word;
+    min-width: 0;
+  }
+
+  /* Langer Gerichtname darf schrumpfen/umbrechen statt den Preis
+     aus dem von .menu-section geclippten Bereich zu schieben */
+  .menu-gericht-name {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+  .menu-gericht-preis {
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-width: fit-content;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Punktierte Füller-Linie kostet auf sehr schmalen Screens zu viel Platz */
+  .menu-gericht-dots { display: none; }
+  .menu-gericht-preis { margin-left: 1rem; }
 }
 
 /* Speisekarte / Getränkkarte */
