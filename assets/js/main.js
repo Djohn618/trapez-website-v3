@@ -69,24 +69,33 @@ function initNavbar() {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Hamburger
+  // Hamburger / mobile menu open-close
   const ham = document.getElementById('nav-hamburger');
   const menu = document.getElementById('nav-menu');
+
+  function openMenu() {
+    ham && ham.classList.add('open');
+    menu && menu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    ham && ham.classList.remove('open');
+    menu && menu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   if (ham && menu) {
-    ham.addEventListener('click', () => {
-      ham.classList.toggle('open');
-      menu.classList.toggle('open');
-      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    ham.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      menu.classList.contains('open') ? closeMenu() : openMenu();
     });
   }
 
   // Close mobile menu on link click (Angebot toggle handled separately below)
   document.querySelectorAll('.nav-link:not(.nav-dropdown-toggle)').forEach(link => {
-    link.addEventListener('click', () => {
-      ham && ham.classList.remove('open');
-      menu && menu.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeMenu);
   });
 
   // Angebot dropdown — desktop: hover (CSS) + click-through to #angebot.
@@ -116,9 +125,7 @@ function initNavbar() {
       link.addEventListener('click', () => {
         angebotDropdown.classList.remove('open');
         angebotToggle.setAttribute('aria-expanded', 'false');
-        ham && ham.classList.remove('open');
-        menu && menu.classList.remove('open');
-        document.body.style.overflow = '';
+        closeMenu();
       });
     });
   }
