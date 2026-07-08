@@ -8,6 +8,14 @@
   "_warnung": "WICHTIG: Kommas zwischen den { } Bloecken nicht vergessen, sonst funktioniert die Speisekarte nicht mehr!",
   "sektionen": [
     {
+      "id": "tagesmenu",
+      "name_de": "Tagesmenü",
+      "name_en": "Daily Menu",
+      "name_it": "Menù del giorno",
+      "name_fr": "Menu du jour",
+      "kategorien": []
+    },
+    {
       "id": "speisekarte",
       "name_de": "Speisekarte",
       "name_en": "Menu",
@@ -1790,6 +1798,224 @@
       ]
     },
     {
+      "id": "aktuell",
+      "name_de": "Aktuell",
+      "name_en": "Currently",
+      "name_it": "Attuale",
+      "name_fr": "Actuellement",
+      "kategorien": [
+        {
+          "id": "nuesslisalat",
+          "name_de": "Aktuell – Nüsslisalat",
+          "name_en": "Currently – Lamb's Lettuce",
+          "name_it": "Attuale – Valerianella",
+          "name_fr": "Actuellement – Mâche",
+          "gerichte": [
+            {
+              "name": "Nüsslisalat",
+              "beschreibung_de": "Klassischer Nüsslisalat",
+              "beschreibung_en": "Classic lamb's lettuce salad",
+              "beschreibung_it": "Valerianella classica",
+              "beschreibung_fr": "Mâche classique",
+              "preis": "10.50",
+              "vegetarisch": true,
+              "vegan": true,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit gehacktem Ei",
+              "beschreibung_de": "Mit gehacktem Ei",
+              "beschreibung_en": "With chopped egg",
+              "beschreibung_it": "Con uovo tritato",
+              "beschreibung_fr": "Avec œuf haché",
+              "preis": "11.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit gehacktem Ei, Speck, Croutons",
+              "beschreibung_de": "Mit gehacktem Ei, Speck, Croutons",
+              "beschreibung_en": "With chopped egg, bacon, croutons",
+              "beschreibung_it": "Con uovo tritato, pancetta, crostini",
+              "beschreibung_fr": "Avec œuf haché, lard, croûtons",
+              "preis": "14.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit Steinpilzen",
+              "beschreibung_de": "Mit Steinpilzen",
+              "beschreibung_en": "With porcini mushrooms",
+              "beschreibung_it": "Con funghi porcini",
+              "beschreibung_fr": "Avec cèpes",
+              "preis": "16.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat Trapez Art",
+              "beschreibung_de": "Mit panierten Artischocken, Zucchetti, Auberginen",
+              "beschreibung_en": "With breaded artichokes, zucchini, eggplant",
+              "beschreibung_it": "Con carciofi, zucchine e melanzane impanati",
+              "beschreibung_fr": "Avec artichauts, courgettes et aubergines panés",
+              "preis": "17.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit gebratenen Pouletstreifen",
+              "beschreibung_de": "Mit gebratenen Pouletstreifen",
+              "beschreibung_en": "With pan-fried chicken strips",
+              "beschreibung_it": "Con striscioline di pollo saltate",
+              "beschreibung_fr": "Avec lanières de poulet poêlées",
+              "preis": "18.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit Waldpilzen",
+              "beschreibung_de": "Mit Waldpilzen und Trüffelöl",
+              "beschreibung_en": "With wild mushrooms and truffle oil",
+              "beschreibung_it": "Con funghi di bosco e olio al tartufo",
+              "beschreibung_fr": "Avec champignons des bois et huile de truffe",
+              "preis": "20.50",
+              "vegetarisch": true,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit Kalbsleberli",
+              "beschreibung_de": "Mit Kalbsleberli",
+              "beschreibung_en": "With veal liver",
+              "beschreibung_it": "Con fegatini di vitello",
+              "beschreibung_fr": "Avec foie de veau",
+              "preis": "21.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit gebratenen Riesencrevetten",
+              "beschreibung_de": "Mit gebratenen Riesencrevetten",
+              "beschreibung_en": "With pan-fried king prawns",
+              "beschreibung_it": "Con gamberoni saltati",
+              "beschreibung_fr": "Avec grosses crevettes poêlées",
+              "preis": "20.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Nüsslisalat mit Parmaschinken und Mozzarella",
+              "beschreibung_de": "Mit Parmaschinken und Mozzarella",
+              "beschreibung_en": "With Parma ham and mozzarella",
+              "beschreibung_it": "Con prosciutto di Parma e mozzarella",
+              "beschreibung_fr": "Avec jambon de Parme et mozzarella",
+              "preis": "20.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ]
+        },
+        {
+          "id": "kalbsleber",
+          "name_de": "Aktuell – Kalbsleber",
+          "name_en": "Currently – Veal Liver",
+          "name_it": "Attuale – Fegato di vitello",
+          "name_fr": "Actuellement – Foie de veau",
+          "gerichte": [
+            {
+              "name": "Kalbsleber Stroganoff",
+              "beschreibung_de": "Champignons, Zwiebeln, Peperoni, Knoblauch, Essiggurken, Paprika, Demi-Glace",
+              "beschreibung_en": "Mushrooms, onions, bell peppers, garlic, pickles, paprika, demi-glace",
+              "beschreibung_it": "Funghi, cipolle, peperoni, aglio, cetriolini, paprika, demi-glace",
+              "beschreibung_fr": "Champignons, oignons, poivrons, ail, cornichons, paprika, demi-glace",
+              "preis": "35.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber geschnetzeltes Züricher Art",
+              "beschreibung_de": "An Champignon-Rahmsauce",
+              "beschreibung_en": "In creamy mushroom sauce",
+              "beschreibung_it": "In salsa ai funghi e panna",
+              "beschreibung_fr": "Sauce crème aux champignons",
+              "preis": "34.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber Ai Funghi Porcini",
+              "beschreibung_de": "Zwiebeln, Knoblauch, Weisswein, Rahm, Steinpilzsauce",
+              "beschreibung_en": "Onions, garlic, white wine, cream, porcini mushroom sauce",
+              "beschreibung_it": "Cipolle, aglio, vino bianco, panna, salsa ai funghi porcini",
+              "beschreibung_fr": "Oignons, ail, vin blanc, crème, sauce aux cèpes",
+              "preis": "36.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber Madagaskar",
+              "beschreibung_de": "Grüne Pfeffersauce, Rahm, Zwiebeln, Weisswein",
+              "beschreibung_en": "Green pepper sauce, cream, onions, white wine",
+              "beschreibung_it": "Salsa al pepe verde, panna, cipolle, vino bianco",
+              "beschreibung_fr": "Sauce au poivre vert, crème, oignons, vin blanc",
+              "preis": "33.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber Madeira",
+              "beschreibung_de": "Zwiebeln, Demi-Glace, Tomaten, Madeira-Sauce",
+              "beschreibung_en": "Onions, demi-glace, tomatoes, Madeira sauce",
+              "beschreibung_it": "Cipolle, demi-glace, pomodori, salsa al madeira",
+              "beschreibung_fr": "Oignons, demi-glace, tomates, sauce au madère",
+              "preis": "33.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber Calvados",
+              "beschreibung_de": "Zwiebeln, Demi-Glace, Calvados-Sauce",
+              "beschreibung_en": "Onions, demi-glace, Calvados sauce",
+              "beschreibung_it": "Cipolle, demi-glace, salsa al calvados",
+              "beschreibung_fr": "Oignons, demi-glace, sauce au calvados",
+              "preis": "35.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            },
+            {
+              "name": "Kalbsleber Morchel Sauce",
+              "beschreibung_de": "Morcheln, Zwiebeln, Rahm, Demi-Glace",
+              "beschreibung_en": "Morel mushrooms, onions, cream, demi-glace",
+              "beschreibung_it": "Spugnole, cipolle, panna, demi-glace",
+              "beschreibung_fr": "Morilles, oignons, crème, demi-glace",
+              "preis": "39.50",
+              "vegetarisch": false,
+              "vegan": false,
+              "empfehlung": false
+            }
+          ],
+          "hinweis_de": "Beilagen: Pommes frites, Kroketten, Saisongemüse, Teigwaren, Risotto, Reis, Rösti oder Butterreis",
+          "hinweis_en": "Sides: fries, croquettes, seasonal vegetables, pasta, risotto, rice, rösti or buttered rice",
+          "hinweis_it": "Contorni: patatine fritte, crocchette, verdure di stagione, pasta, risotto, riso, rösti o riso al burro",
+          "hinweis_fr": "Accompagnements : frites, croquettes, légumes de saison, pâtes, risotto, riz, rösti ou riz au beurre"
+        }
+      ]
+    },
+    {
       "id": "getraenke",
       "name_de": "Getränkekarte",
       "name_en": "Drinks Menu",
@@ -2935,232 +3161,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": "aktuell",
-      "name_de": "Aktuell",
-      "name_en": "Currently",
-      "name_it": "Attuale",
-      "name_fr": "Actuellement",
-      "kategorien": [
-        {
-          "id": "nuesslisalat",
-          "name_de": "Aktuell – Nüsslisalat",
-          "name_en": "Currently – Lamb's Lettuce",
-          "name_it": "Attuale – Valerianella",
-          "name_fr": "Actuellement – Mâche",
-          "gerichte": [
-            {
-              "name": "Nüsslisalat",
-              "beschreibung_de": "Klassischer Nüsslisalat",
-              "beschreibung_en": "Classic lamb's lettuce salad",
-              "beschreibung_it": "Valerianella classica",
-              "beschreibung_fr": "Mâche classique",
-              "preis": "10.50",
-              "vegetarisch": true,
-              "vegan": true,
-              "empfehlung": false
-            },
-            {
-              "name": "Nüsslisalat mit gehacktem Ei",
-              "beschreibung_de": "Mit gehacktem Ei",
-              "beschreibung_en": "With chopped egg",
-              "beschreibung_it": "Con uovo tritato",
-              "beschreibung_fr": "Avec œuf haché",
-              "preis": "11.50",
-              "vegetarisch": true,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Nüsslisalat mit gehacktem Ei, Speck, Croutons",
-              "beschreibung_de": "Mit gehacktem Ei, Speck, Croutons",
-              "beschreibung_en": "With chopped egg, bacon, croutons",
-              "beschreibung_it": "Con uovo tritato, pancetta, crostini",
-              "beschreibung_fr": "Avec œuf haché, lard, croûtons",
-              "preis": "14.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Nüsslisalat mit Steinpilzen",
-              "beschreibung_de": "Mit Steinpilzen",
-              "beschreibung_en": "With porcini mushrooms",
-              "beschreibung_it": "Con funghi porcini",
-              "beschreibung_fr": "Avec cèpes",
-              "preis": "16.50",
-              "vegetarisch": true,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Nüsslisalat Trapez Art",
-              "beschreibung_de": "Mit panierten Artischocken, Zucchetti, Auberginen",
-              "beschreibung_en": "With breaded artichokes, zucchini, eggplant",
-              "beschreibung_it": "Con carciofi, zucchine e melanzane impanati",
-              "beschreibung_fr": "Avec artichauts, courgettes et aubergines panés",
-              "preis": "17.50",
-              "vegetarisch": true,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Nüsslisalat mit gebratenen Pouletstreifen",
-              "beschreibung_de": "Mit gebratenen Pouletstreifen",
-              "beschreibung_en": "With pan-fried chicken strips",
-              "beschreibung_it": "Con striscioline di pollo saltate",
-              "beschreibung_fr": "Avec lanières de poulet poêlées",
-              "preis": "18.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Nüsslisalat mit Waldpilzen",
-              "beschreibung_de": "Mit Waldpilzen und Trüffelöl",
-              "beschreibung_en": "With wild mushrooms and truffle oil",
-              "beschreibung_it": "Con funghi di bosco e olio al tartufo",
-              "beschreibung_fr": "Avec champignons des bois et huile de truffe",
-              "preis": "20.50",
-              "vegetarisch": true,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Nüsslisalat mit Kalbsleberli",
-              "beschreibung_de": "Mit Kalbsleberli",
-              "beschreibung_en": "With veal liver",
-              "beschreibung_it": "Con fegatini di vitello",
-              "beschreibung_fr": "Avec foie de veau",
-              "preis": "21.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Nüsslisalat mit gebratenen Riesencrevetten",
-              "beschreibung_de": "Mit gebratenen Riesencrevetten",
-              "beschreibung_en": "With pan-fried king prawns",
-              "beschreibung_it": "Con gamberoni saltati",
-              "beschreibung_fr": "Avec grosses crevettes poêlées",
-              "preis": "20.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Nüsslisalat mit Parmaschinken und Mozzarella",
-              "beschreibung_de": "Mit Parmaschinken und Mozzarella",
-              "beschreibung_en": "With Parma ham and mozzarella",
-              "beschreibung_it": "Con prosciutto di Parma e mozzarella",
-              "beschreibung_fr": "Avec jambon de Parme et mozzarella",
-              "preis": "20.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            }
-          ]
-        },
-        {
-          "id": "kalbsleber",
-          "name_de": "Aktuell – Kalbsleber",
-          "name_en": "Currently – Veal Liver",
-          "name_it": "Attuale – Fegato di vitello",
-          "name_fr": "Actuellement – Foie de veau",
-          "gerichte": [
-            {
-              "name": "Kalbsleber Stroganoff",
-              "beschreibung_de": "Champignons, Zwiebeln, Peperoni, Knoblauch, Essiggurken, Paprika, Demi-Glace",
-              "beschreibung_en": "Mushrooms, onions, bell peppers, garlic, pickles, paprika, demi-glace",
-              "beschreibung_it": "Funghi, cipolle, peperoni, aglio, cetriolini, paprika, demi-glace",
-              "beschreibung_fr": "Champignons, oignons, poivrons, ail, cornichons, paprika, demi-glace",
-              "preis": "35.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Kalbsleber geschnetzeltes Züricher Art",
-              "beschreibung_de": "An Champignon-Rahmsauce",
-              "beschreibung_en": "In creamy mushroom sauce",
-              "beschreibung_it": "In salsa ai funghi e panna",
-              "beschreibung_fr": "Sauce crème aux champignons",
-              "preis": "34.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Kalbsleber Ai Funghi Porcini",
-              "beschreibung_de": "Zwiebeln, Knoblauch, Weisswein, Rahm, Steinpilzsauce",
-              "beschreibung_en": "Onions, garlic, white wine, cream, porcini mushroom sauce",
-              "beschreibung_it": "Cipolle, aglio, vino bianco, panna, salsa ai funghi porcini",
-              "beschreibung_fr": "Oignons, ail, vin blanc, crème, sauce aux cèpes",
-              "preis": "36.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Kalbsleber Madagaskar",
-              "beschreibung_de": "Grüne Pfeffersauce, Rahm, Zwiebeln, Weisswein",
-              "beschreibung_en": "Green pepper sauce, cream, onions, white wine",
-              "beschreibung_it": "Salsa al pepe verde, panna, cipolle, vino bianco",
-              "beschreibung_fr": "Sauce au poivre vert, crème, oignons, vin blanc",
-              "preis": "33.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Kalbsleber Madeira",
-              "beschreibung_de": "Zwiebeln, Demi-Glace, Tomaten, Madeira-Sauce",
-              "beschreibung_en": "Onions, demi-glace, tomatoes, Madeira sauce",
-              "beschreibung_it": "Cipolle, demi-glace, pomodori, salsa al madeira",
-              "beschreibung_fr": "Oignons, demi-glace, tomates, sauce au madère",
-              "preis": "33.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Kalbsleber Calvados",
-              "beschreibung_de": "Zwiebeln, Demi-Glace, Calvados-Sauce",
-              "beschreibung_en": "Onions, demi-glace, Calvados sauce",
-              "beschreibung_it": "Cipolle, demi-glace, salsa al calvados",
-              "beschreibung_fr": "Oignons, demi-glace, sauce au calvados",
-              "preis": "35.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            },
-            {
-              "name": "Kalbsleber Morchel Sauce",
-              "beschreibung_de": "Morcheln, Zwiebeln, Rahm, Demi-Glace",
-              "beschreibung_en": "Morel mushrooms, onions, cream, demi-glace",
-              "beschreibung_it": "Spugnole, cipolle, panna, demi-glace",
-              "beschreibung_fr": "Morilles, oignons, crème, demi-glace",
-              "preis": "39.50",
-              "vegetarisch": false,
-              "vegan": false,
-              "empfehlung": false
-            }
-          ],
-          "hinweis_de": "Beilagen: Pommes frites, Kroketten, Saisongemüse, Teigwaren, Risotto, Reis, Rösti oder Butterreis",
-          "hinweis_en": "Sides: fries, croquettes, seasonal vegetables, pasta, risotto, rice, rösti or buttered rice",
-          "hinweis_it": "Contorni: patatine fritte, crocchette, verdure di stagione, pasta, risotto, riso, rösti o riso al burro",
-          "hinweis_fr": "Accompagnements : frites, croquettes, légumes de saison, pâtes, risotto, riz, rösti ou riz au beurre"
-        }
-      ]
-    },
-    {
-      "id": "tagesmenu",
-      "name_de": "Tagesmenü",
-      "name_en": "Daily Menu",
-      "name_it": "Menù del giorno",
-      "name_fr": "Menu du jour",
-      "kategorien": []
     }
   ]
 }

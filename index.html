@@ -52,10 +52,10 @@
           <span data-i18n="nav.angebot">Angebot</span><span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
         </a>
         <ul class="nav-dropdown-menu" role="menu" aria-label="Angebot Untermenü">
-          <li role="none"><a class="nav-dropdown-link" href="#menu-speisekarte" role="menuitem" data-i18n="nav.offer.menu">Speisekarte</a></li>
-          <li role="none"><a class="nav-dropdown-link" href="#menu-getraenke"   role="menuitem" data-i18n="nav.offer.drinks">Getränkekarte</a></li>
-          <li role="none"><a class="nav-dropdown-link" href="#menu-aktuell"     role="menuitem" data-i18n="nav.offer.current">Aktuell</a></li>
           <li role="none"><a class="nav-dropdown-link" href="#menu-tagesmenue" role="menuitem" data-i18n="nav.offer.daily">Tagesmenü</a></li>
+          <li role="none"><a class="nav-dropdown-link" href="#menu-speisekarte" role="menuitem" data-i18n="nav.offer.menu">Speisekarte</a></li>
+          <li role="none"><a class="nav-dropdown-link" href="#menu-aktuell"     role="menuitem" data-i18n="nav.offer.current">Aktuell</a></li>
+          <li role="none"><a class="nav-dropdown-link" href="#menu-getraenke"   role="menuitem" data-i18n="nav.offer.drinks">Getränkekarte</a></li>
         </ul>
       </li>
       <li role="none"><a class="nav-link" href="#reservieren" role="menuitem" data-i18n="nav.reservieren">Reservieren</a></li>
@@ -131,30 +131,30 @@
 
     <!-- Jump-Navigation: 4 Karten -->
     <nav class="menu-nav-cards reveal" aria-label="Menü Navigation">
+      <a class="menu-nav-card" href="#menu-tagesmenue">
+        <span class="menu-nav-card-label" data-menu-sektion="tagesmenu">Tagesmenü</span>
+      </a>
       <a class="menu-nav-card" href="#menu-speisekarte">
         <span class="menu-nav-card-label" data-menu-sektion="speisekarte">Speisekarte</span>
-      </a>
-      <a class="menu-nav-card" href="#menu-getraenke">
-        <span class="menu-nav-card-label" data-menu-sektion="getraenke">Getränkekarte</span>
       </a>
       <a class="menu-nav-card" href="#menu-aktuell">
         <span class="menu-nav-card-label" data-menu-sektion="aktuell">Aktuell</span>
       </a>
-      <a class="menu-nav-card" href="#menu-tagesmenue">
-        <span class="menu-nav-card-label" data-menu-sektion="tagesmenu">Tagesmenü</span>
+      <a class="menu-nav-card" href="#menu-getraenke">
+        <span class="menu-nav-card-label" data-menu-sektion="getraenke">Getränkekarte</span>
       </a>
     </nav>
 
-    <!-- Sektion 1: Speisekarte -->
+    <!-- Sektion 1: Tagesmenü -->
+    <div class="menu-section" id="menu-tagesmenue">
+      <h3 class="menu-section-title" data-menu-sektion="tagesmenu">Tagesmenü</h3>
+      <div id="ms-tagesmenue"></div>
+    </div>
+
+    <!-- Sektion 2: Speisekarte -->
     <div class="menu-section" id="menu-speisekarte">
       <h3 class="menu-section-title" data-menu-sektion="speisekarte">Speisekarte</h3>
       <div id="ms-speisekarte"></div>
-    </div>
-
-    <!-- Sektion 2: Getränkekarte -->
-    <div class="menu-section" id="menu-getraenke">
-      <h3 class="menu-section-title" data-menu-sektion="getraenke">Getränkekarte</h3>
-      <div id="ms-getraenke"></div>
     </div>
 
     <!-- Sektion 3: Aktuell -->
@@ -163,15 +163,15 @@
       <div id="ms-aktuell"></div>
     </div>
 
-    <!-- Sektion 4: Tagesmenü -->
-    <div class="menu-section" id="menu-tagesmenue">
-      <h3 class="menu-section-title" data-menu-sektion="tagesmenu">Tagesmenü</h3>
-      <div id="ms-tagesmenue"></div>
+    <!-- Sektion 4: Getränkekarte -->
+    <div class="menu-section" id="menu-getraenke">
+      <h3 class="menu-section-title" data-menu-sektion="getraenke">Getränkekarte</h3>
+      <div id="ms-getraenke"></div>
     </div>
 
-    <!-- PDF Link -->
+    <!-- Speisekarte Link -->
     <div class="menu-pdf-link reveal">
-      <a id="menu-pdf-cta" href="assets/pdf/Trapez-Speisekarte.pdf" target="_blank" rel="noopener noreferrer" data-i18n="menu.pdfLink">Vollständige Speisekarte ansehen →</a>
+      <a id="menu-pdf-cta" href="menucard.html" target="_blank" rel="noopener noreferrer" data-i18n="menu.pdfLink">Vollständige Speisekarte ansehen →</a>
     </div>
 
 

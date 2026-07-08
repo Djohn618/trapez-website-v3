@@ -1,6 +1,6 @@
 /* TRAPEZ RESTAURANT — MENU RENDERING
  * Reads data/menu.json (sektionen structure) and renders
- * the 4 stacked menu sections: speisekarte, getraenke, aktuell, tagesmenu.
+ * the 4 stacked menu sections: tagesmenu, speisekarte, aktuell, getraenke.
  * Re-renders on langchange events from i18n.js.
  */
 
@@ -120,10 +120,10 @@
     var map = {};
     (data.sektionen || []).forEach(function (s) { map[s.id] = s; });
 
-    renderSektion(map['speisekarte'], 'ms-speisekarte', lang);
-    renderSektion(map['getraenke'],   'ms-getraenke',   lang);
-    renderSektion(map['aktuell'],     'ms-aktuell',     lang);
     renderSektion(map['tagesmenu'],   'ms-tagesmenue',  lang);
+    renderSektion(map['speisekarte'], 'ms-speisekarte', lang);
+    renderSektion(map['aktuell'],     'ms-aktuell',     lang);
+    renderSektion(map['getraenke'],   'ms-getraenke',   lang);
 
     updateLabels(data.sektionen, lang);
 
