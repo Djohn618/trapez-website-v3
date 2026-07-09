@@ -223,6 +223,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform: translateY(0);
 }
 
+/* Forces the dropdown shut right after a submenu link is clicked, overriding
+   :hover/:focus-within which would otherwise keep it open until the mouse leaves. */
+.nav-dropdown.force-closed .nav-dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+}
+
 .nav-dropdown-link {
   display: block;
   padding: 10px 14px;

@@ -120,13 +120,22 @@ function initNavbar() {
       }
     });
 
-    // Submenu link click: scroll to section (generic handler below) + close everything
+    // Submenu link click: scroll to section (generic handler below) + close everything.
+    // On desktop the menu is shown via :hover/:focus-within, so removing 'open' alone
+    // wouldn't close it while the mouse is still over the dropdown — force-closed
+    // overrides that until the mouse actually leaves the dropdown area.
     angebotDropdown.querySelectorAll('.nav-dropdown-link').forEach(link => {
       link.addEventListener('click', () => {
         angebotDropdown.classList.remove('open');
         angebotToggle.setAttribute('aria-expanded', 'false');
+        angebotDropdown.classList.add('force-closed');
+        link.blur();
         closeMenu();
       });
+    });
+
+    angebotDropdown.addEventListener('mouseleave', () => {
+      angebotDropdown.classList.remove('force-closed');
     });
   }
 
