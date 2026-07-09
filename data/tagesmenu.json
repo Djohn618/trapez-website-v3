@@ -1,0 +1,87 @@
+{
+  "_ANLEITUNG_FUER_CEO": "=== TAGESMENÜ TÄGLICH AKTUALISIEREN ===",
+  "_schritt_1": "1. Diese Datei mit Notepad öffnen",
+  "_schritt_2": "2. Datum anpassen (Format: DD.MM.YYYY Wochentag)",
+  "_schritt_3": "3. Gerichte und Preise anpassen",
+  "_schritt_4": "4. Datei speichern (Ctrl+S)",
+  "_schritt_5": "5. Per FTP in Ordner 'data/' hochladen — fertig!",
+  "_hinweis_verfuegbar": "Kein Tagesmenü heute? 'verfuegbar' auf false setzen",
+  "_hinweis_datum": "Datum täglich anpassen: z.B. '08.07.2026 Mittwoch'",
+
+  "verfuegbar": true,
+  "datum": "02.07.2026 Donnerstag",
+  "menus": [
+    {
+      "titel": "Menü I",
+      "gange": [
+        {
+          "gang": "Salat",
+          "beschreibung": ""
+        },
+        {
+          "gang": "Pizza Margherita",
+          "beschreibung": "Tomatensauce, Mozzarella, Oregano"
+        },
+        {
+          "gang": "Dessert",
+          "beschreibung": ""
+        }
+      ],
+      "preis": "17.50"
+    },
+    {
+      "titel": "Menü II",
+      "gange": [
+        {
+          "gang": "Salat",
+          "beschreibung": ""
+        },
+        {
+          "gang": "Penne Vegetarisch (Gratiniert)",
+          "beschreibung": "Gemüse, Tomatensauce, Mozzarella"
+        },
+        {
+          "gang": "Dessert",
+          "beschreibung": ""
+        }
+      ],
+      "preis": "19.50"
+    },
+    {
+      "titel": "Menü III",
+      "gange": [
+        {
+          "gang": "Salat",
+          "beschreibung": ""
+        },
+        {
+          "gang": "Pouletschnitzel an Champignon-Rahmsauce",
+          "beschreibung": "Mit Butter-Nudeln"
+        },
+        {
+          "gang": "Dessert",
+          "beschreibung": ""
+        }
+      ],
+      "preis": "21.50"
+    },
+    {
+      "titel": "Wochen-Hit",
+      "gange": [
+        {
+          "gang": "Salat",
+          "beschreibung": ""
+        },
+        {
+          "gang": "Schweins Piccata Milanese",
+          "beschreibung": "Mit Tomaten-Spaghetti"
+        },
+        {
+          "gang": "Dessert",
+          "beschreibung": ""
+        }
+      ],
+      "preis": "27.50"
+    }
+  ]
+}

@@ -105,6 +105,52 @@
     el.innerHTML = sek.kategorien.map(function (k) { return renderKategorie(k, lang); }).join('');
   }
 
+  /* ── Tagesmenü: dedicated renderer (data/tagesmenu.json) ─────
+     Different shape from the other 3 sektionen (menus[].gange[]
+     instead of kategorien[].gerichte[]), so it gets its own
+     render path rather than going through renderSektion(). */
+  function renderTagesmenuGang(g, idx) {
+    var desc = g.beschreibung ? '<p class="tagesmenu-gang-desc">' + esc(g.beschreibung) + '</p>' : '';
+    return (
+      '<li class="tagesmenu-gang">' +
+        '<span class="tagesmenu-gang-num">' + (idx + 1) + '.</span>' +
+        '<span class="tagesmenu-gang-body">' +
+          '<span class="tagesmenu-gang-name">' + esc(g.gang) + '</span>' +
+          desc +
+        '</span>' +
+      '</li>'
+    );
+  }
+
+  function renderTagesmenuKarte(menu) {
+    var gange = (menu.gange || []).map(renderTagesmenuGang).join('');
+    return (
+      '<div class="tagesmenu-karte">' +
+        '<h4 class="tagesmenu-karte-titel">' + esc(menu.titel) + '</h4>' +
+        '<div class="tagesmenu-divider" aria-hidden="true"></div>' +
+        '<ol class="tagesmenu-gange">' + gange + '</ol>' +
+        '<div class="tagesmenu-divider" aria-hidden="true"></div>' +
+        '<div class="tagesmenu-preis">CHF ' + esc(menu.preis) + '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderTagesmenu(data, lang) {
+    var el = document.getElementById('ms-tagesmenue');
+    if (!el) return;
+
+    if (!data || !data.verfuegbar || !data.menus || !data.menus.length) {
+      var msg = (typeof window.getTranslation === 'function' && window.getTranslation(lang, 'tagesmenu.unavailable'))
+        || TAGESMENU_EMPTY[lang] || TAGESMENU_EMPTY.de;
+      el.innerHTML = '<p class="menu-section-empty">' + esc(msg) + '</p>';
+      return;
+    }
+
+    el.innerHTML =
+      '<div class="tagesmenu-datum-wrap"><div class="tagesmenu-datum">' + esc(data.datum) + '</div></div>' +
+      '<div class="tagesmenu-grid">' + data.menus.map(renderTagesmenuKarte).join('') + '</div>';
+  }
+
   /* ── Update nav card labels + section titles from JSON ─────── */
   function updateLabels(sektionen, lang) {
     var sfx = '_' + lang;
@@ -116,11 +162,11 @@
   }
 
   /* ── Main render ───────────────────────────────────────────── */
-  function renderAll(data, lang) {
+  function renderAll(data, tagesmenuData, lang) {
     var map = {};
     (data.sektionen || []).forEach(function (s) { map[s.id] = s; });
 
-    renderSektion(map['tagesmenu'],   'ms-tagesmenue',  lang);
+    renderTagesmenu(tagesmenuData, lang);
     renderSektion(map['speisekarte'], 'ms-speisekarte', lang);
     renderSektion(map['aktuell'],     'ms-aktuell',     lang);
     renderSektion(map['getraenke'],   'ms-getraenke',   lang);
@@ -136,18 +182,22 @@
     try { lang = localStorage.getItem('trapez-lang') || 'de'; } catch (e) { lang = 'de'; }
 
     var menuData = null;
+    var tagesmenuData = null;
 
-    fetch('data/menu.json')
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        menuData = data;
-        renderAll(menuData, lang);
+    Promise.all([
+      fetch('data/menu.json').then(function (r) { return r.json(); }),
+      fetch('data/tagesmenu.json').then(function (r) { return r.json(); })
+    ])
+      .then(function (results) {
+        menuData = results[0];
+        tagesmenuData = results[1];
+        renderAll(menuData, tagesmenuData, lang);
       })
-      .catch(function (err) { console.error('[menu.js] menu.json failed:', err); });
+      .catch(function (err) { console.error('[menu.js] menu data failed:', err); });
 
     document.addEventListener('langchange', function (e) {
       lang = e.detail.lang;
-      if (menuData) renderAll(menuData, lang);
+      if (menuData) renderAll(menuData, tagesmenuData, lang);
     });
   }
 

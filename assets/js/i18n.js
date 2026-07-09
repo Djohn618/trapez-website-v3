@@ -50,6 +50,11 @@
 
   window.getCurrentLang = function () { return _lang; };
 
+  window.getTranslation = function (lang, path) {
+    var t = _t[lang] || _t['de'];
+    return t ? getKey(t, path) : undefined;
+  };
+
   fetch('data/translations.json')
     .then(function (r) { return r.json(); })
     .then(function (data) {

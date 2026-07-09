@@ -660,6 +660,118 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .menu-section { padding: 36px 20px; }
 }
 
+/* --- TAGESMENÜ (aus data/tagesmenu.json) -------------------- */
+.tagesmenu-datum-wrap {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.tagesmenu-datum {
+  display: inline-block;
+  background: var(--green);
+  color: var(--gold);
+  font-family: var(--font-head);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  padding: 10px 30px;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(27,58,45,0.3);
+}
+
+.tagesmenu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.tagesmenu-karte {
+  display: flex;
+  flex-direction: column;
+  background: var(--creme);
+  border: 1px solid rgba(201,169,110,0.4);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(107,36,36,0.08);
+}
+
+.tagesmenu-karte-titel {
+  font-family: var(--font-head);
+  font-size: 1.35rem;
+  color: var(--primary);
+  text-align: center;
+  margin: 0;
+}
+
+.tagesmenu-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+  margin: 16px auto;
+}
+
+.tagesmenu-gange {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.tagesmenu-gang {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.tagesmenu-gang-num {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-gold-readable);
+  flex-shrink: 0;
+  min-width: 1.1em;
+}
+
+.tagesmenu-gang-body { flex: 1; min-width: 0; }
+
+.tagesmenu-gang-name {
+  font-family: var(--font-head);
+  font-size: 0.98rem;
+  color: var(--text);
+}
+
+.tagesmenu-gang-desc {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(30,10,10,0.52);
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.tagesmenu-preis {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  color: var(--primary);
+  text-align: center;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+@media (max-width: 767px) {
+  .tagesmenu-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .tagesmenu-karte { padding: 1.5rem; }
+  .tagesmenu-preis { font-size: 1.3rem; }
+  .tagesmenu-datum { font-size: 0.9rem; padding: 9px 22px; }
+}
+
 /* --- TYPOGRAPHY MENU (aus data/menu.json) ------------------- */
 
 .menu-kat {

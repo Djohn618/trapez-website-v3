@@ -4,7 +4,7 @@
   "_schritt_2_neues_gericht": "Einen bestehenden Block { ... } innerhalb der passenden Kategorie kopieren, einfuegen, Werte anpassen (name, beschreibung, preis).",
   "_schritt_3_neue_kategorie": "Einen kompletten Kategorie-Block kopieren (id, name_de/en/it/fr, gerichte), einfuegen, neue 'id' vergeben, Inhalt anpassen.",
   "_hinweis_varianten": "Manche Getraenke (z.B. Weine, Bier offen) haben statt 'preis' ein 'varianten' Feld mit mehreren Mengen/Preisen.",
-  "_hinweis_aktuell_tagesmenu": "Die Sektion 'tagesmenu' ist aktuell leer (Platzhalter) -- bitte spaeter mit echten Tagesmenue-Eintraegen befuellen, sobald diese feststehen.",
+  "_hinweis_aktuell_tagesmenu": "Das Tagesmenue wird NICHT hier gepflegt -- dafuer die Datei data/tagesmenu.json bearbeiten. Die 'tagesmenu' Sektion hier liefert nur den Namen fuer Navigation/Titel.",
   "_warnung": "WICHTIG: Kommas zwischen den { } Bloecken nicht vergessen, sonst funktioniert die Speisekarte nicht mehr!",
   "sektionen": [
     {

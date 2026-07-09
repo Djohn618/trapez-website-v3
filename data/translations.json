@@ -25,6 +25,9 @@
     "menu": {
       "pdfLink": "Vollständige Speisekarte ansehen →"
     },
+    "tagesmenu": {
+      "unavailable": "Das heutige Tagesmenü erfragen Sie bitte bei unserem Personal."
+    },
     "reservieren": {
       "title": "Tisch Reservieren",
       "subtitle": "Wir freuen uns auf Ihren Besuch. Reservieren Sie jetzt Ihren Tisch.",
@@ -102,6 +105,9 @@
     "menu": {
       "pdfLink": "View full menu →"
     },
+    "tagesmenu": {
+      "unavailable": "Please ask our staff for today's daily menu."
+    },
     "reservieren": {
       "title": "Reserve a Table",
       "subtitle": "We look forward to welcoming you. Book your table now.",
@@ -177,6 +183,9 @@
     "menu": {
       "pdfLink": "Visualizza il menu completo →"
     },
+    "tagesmenu": {
+      "unavailable": "Per il menù del giorno di oggi, si prega di chiedere al nostro personale."
+    },
     "reservieren": {
       "title": "Prenota un Tavolo",
       "subtitle": "Siamo lieti di accogliervi. Prenota il tuo tavolo ora.",
@@ -251,6 +260,9 @@
     },
     "menu": {
       "pdfLink": "Voir la carte complète →"
+    },
+    "tagesmenu": {
+      "unavailable": "Veuillez demander notre menu du jour à notre personnel."
     },
     "reservieren": {
       "title": "Réserver une Table",
