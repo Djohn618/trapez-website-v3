@@ -333,6 +333,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 44px;
   padding: 0;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .nav-hamburger span {
   display: block;
