@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/i18n.js" defer></script>
   <style>
     /* Stars animation */
     .stars {
@@ -97,63 +98,26 @@
       <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
     </div>
 
-    <h1 class="special-page-title" id="ty-title">Danke für Ihre Reservierung!</h1>
+    <h1 class="special-page-title" id="ty-title" data-i18n="thankyou.title">Vielen Dank für Ihre Reservierungsanfrage!</h1>
 
-    <p class="special-page-text" id="ty-text">
-      Wir freuen uns auf Ihren Besuch und werden alles vorbereiten, damit Sie sich bei uns rundum wohl fühlen.
-      Eine Bestätigung wurde an Ihre E-Mail-Adresse gesendet.
+    <p class="special-page-text" id="ty-text" data-i18n="thankyou.text">
+      Wir werden uns in Kürze bei Ihnen melden.
     </p>
 
     <!-- Contact box -->
     <div class="ty-contact">
-      <strong id="ty-contact-label">Fragen? Kontaktieren Sie uns:</strong>
+      <strong id="ty-contact-label" data-i18n="thankyou.contactLabel">Fragen? Kontaktieren Sie uns:</strong>
       <p>📞 <a href="tel:+41617114410">061 711 44 10</a></p>
       <p>✉ <a href="mailto:kontakt@trapez.ch">kontakt@trapez.ch</a></p>
     </div>
 
     <!-- CTA back -->
     <div class="special-page-btn" style="margin-top:36px;">
-      <a href="index.html" class="btn btn-primary" id="ty-btn">Zur Startseite</a>
+      <a href="index.html" class="btn btn-primary" id="ty-btn" data-i18n="thankyou.btn">Zurück zur Startseite</a>
     </div>
 
-    <p class="ornament-ty" id="ty-ornament" style="margin-top:40px;">A presto — Bis bald!</p>
+    <p class="ornament-ty" id="ty-ornament" data-i18n="thankyou.ornament" style="margin-top:40px;">A presto — Bis bald!</p>
 
   </main>
-
-  <script>
-    (function () {
-      var lang;
-      try { lang = localStorage.getItem('trapez-lang') || 'de'; } catch (e) { lang = 'de'; }
-      var t = {
-        de: {
-          htmlLang: 'de',
-          title: 'Danke für Ihre Reservierung!',
-          text: 'Wir freuen uns auf Ihren Besuch und werden alles vorbereiten, damit Sie sich bei uns rundum wohl fühlen. Eine Bestätigung wurde an Ihre E-Mail-Adresse gesendet.',
-          contactLabel: 'Fragen? Kontaktieren Sie uns:',
-          btn: 'Zur Startseite',
-          ornament: 'A presto — Bis bald!',
-          pageTitle: 'Danke für Ihre Reservierung | Restaurant Trapez'
-        },
-        en: {
-          htmlLang: 'en',
-          title: 'Thank you for your reservation!',
-          text: 'We look forward to your visit and will prepare everything to make you feel completely at home. A confirmation has been sent to your email address.',
-          contactLabel: 'Questions? Contact us:',
-          btn: 'Back to Home',
-          ornament: 'A presto — See you soon!',
-          pageTitle: 'Thank you for your reservation | Restaurant Trapez'
-        }
-      };
-      var d = t[lang] || t['de'];
-      document.documentElement.lang = d.htmlLang;
-      document.title = d.pageTitle;
-      var el;
-      el = document.getElementById('ty-title');        if (el) el.textContent = d.title;
-      el = document.getElementById('ty-text');         if (el) el.textContent = d.text;
-      el = document.getElementById('ty-contact-label'); if (el) el.textContent = d.contactLabel;
-      el = document.getElementById('ty-btn');          if (el) el.textContent = d.btn;
-      el = document.getElementById('ty-ornament');     if (el) el.textContent = d.ornament;
-    })();
-  </script>
 </body>
 </html>

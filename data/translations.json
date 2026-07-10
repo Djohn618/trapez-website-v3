@@ -73,9 +73,22 @@
       "getraenkeDesc": "Unsere Getränkekarte als PDF"
     },
     "footer": {
-      "tagline": "Authentische Küche seit mehr als 10 Jahren",
+      "tagline": "Authentische Küche seit 1963",
       "copyright": "© 2026 Restaurant Trapez, Reinach. Alle Rechte vorbehalten.",
       "legal": "Impressum & Datenschutz"
+    },
+    "404": {
+      "title": "Seite nicht gefunden",
+      "subtitle": "Die gesuchte Seite existiert leider nicht.",
+      "btn": "Zurück zur Startseite",
+      "contact": "Fragen?"
+    },
+    "thankyou": {
+      "title": "Vielen Dank für Ihre Reservierungsanfrage!",
+      "text": "Wir werden uns in Kürze bei Ihnen melden.",
+      "btn": "Zurück zur Startseite",
+      "contactLabel": "Fragen? Kontaktieren Sie uns:",
+      "ornament": "A presto — Bis bald!"
     }
   },
 
@@ -153,9 +166,22 @@
       "getraenkeDesc": "Our drinks menu as PDF"
     },
     "footer": {
-      "tagline": "Authentic Cuisine for over 10 years",
+      "tagline": "Authentic cuisine since 1963",
       "copyright": "© 2026 Restaurant Trapez, Reinach. All rights reserved.",
       "legal": "Legal Notice & Privacy"
+    },
+    "404": {
+      "title": "Page not found",
+      "subtitle": "The page you are looking for does not exist.",
+      "btn": "Back to Homepage",
+      "contact": "Questions?"
+    },
+    "thankyou": {
+      "title": "Thank you for your reservation request!",
+      "text": "We will get back to you shortly.",
+      "btn": "Back to Homepage",
+      "contactLabel": "Questions? Contact us:",
+      "ornament": "A presto — See you soon!"
     }
   },
 
@@ -233,9 +259,22 @@
       "getraenkeDesc": "La nostra carta delle bevande in PDF"
     },
     "footer": {
-      "tagline": "Cucina autentica da oltre 10 anni",
+      "tagline": "Cucina autentica dal 1963",
       "copyright": "© 2026 Restaurant Trapez, Reinach. Tutti i diritti riservati.",
       "legal": "Note Legali & Privacy"
+    },
+    "404": {
+      "title": "Pagina non trovata",
+      "subtitle": "La pagina che stai cercando non esiste.",
+      "btn": "Torna alla home",
+      "contact": "Domande?"
+    },
+    "thankyou": {
+      "title": "Grazie per la sua richiesta di prenotazione!",
+      "text": "La contatteremo al più presto.",
+      "btn": "Torna alla home",
+      "contactLabel": "Domande? Ci contatti:",
+      "ornament": "A presto!"
     }
   },
 
@@ -313,9 +352,22 @@
       "getraenkeDesc": "Notre carte des boissons en PDF"
     },
     "footer": {
-      "tagline": "Cuisine authentique depuis plus de 10 ans",
+      "tagline": "Cuisine authentique depuis 1963",
       "copyright": "© 2026 Restaurant Trapez, Reinach. Tous droits réservés.",
       "legal": "Mentions Légales & Confidentialité"
+    },
+    "404": {
+      "title": "Page non trouvée",
+      "subtitle": "La page que vous cherchez n'existe pas.",
+      "btn": "Retour à l'accueil",
+      "contact": "Questions ?"
+    },
+    "thankyou": {
+      "title": "Merci pour votre demande de réservation!",
+      "text": "Nous vous contacterons dans les plus brefs délais.",
+      "btn": "Retour à l'accueil",
+      "contactLabel": "Questions ? Contactez-nous :",
+      "ornament": "A presto — À bientôt !"
     }
   }
 }

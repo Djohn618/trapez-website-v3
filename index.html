@@ -17,7 +17,7 @@
   <link rel="icon" type="image/png" href="assets/images/Trapez_v5.png" />
 
   <!-- Hero: preload first slide -->
-  <link rel="preload" as="image" href="assets/images/ambiente/1.jpg" />
+  <link rel="preload" as="image" href="assets/images/ambiente/1.jpg" fetchpriority="high" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -95,11 +95,11 @@
   <!-- Ken Burns Slideshow -->
   <div class="hero-slideshow" aria-hidden="true">
     <div class="hero-slide active" style="background-image:url('assets/images/ambiente/1.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/ambiente/2.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/ambiente/4.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/ambiente/5.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/ambiente/6.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/ambiente/7.jpg')"></div>
+    <div class="hero-slide" data-bg="assets/images/ambiente/2.jpg"></div>
+    <div class="hero-slide" data-bg="assets/images/ambiente/4.jpg"></div>
+    <div class="hero-slide" data-bg="assets/images/ambiente/5.jpg"></div>
+    <div class="hero-slide" data-bg="assets/images/ambiente/6.jpg"></div>
+    <div class="hero-slide" data-bg="assets/images/ambiente/7.jpg"></div>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -614,7 +614,7 @@
           <span class="footer-logo-name">Restaurant Trapez</span>
         </div>
         <p class="footer-tagline" data-i18n="footer.tagline">
-          Authentische Küche seit mehr als 10 Jahren
+          Authentische Küche seit 1963
         </p>
       </div>
 

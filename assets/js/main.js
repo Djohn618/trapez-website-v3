@@ -32,9 +32,36 @@ function initHeroSlideshow() {
   let current = 0;
   let timer = null;
 
+  function loadSlide(slide) {
+    const bg = slide.dataset.bg;
+    if (bg) {
+      slide.style.backgroundImage = `url('${bg}')`;
+      delete slide.dataset.bg;
+    }
+  }
+
+  /* First slide loads eagerly (inline style, for LCP); the rest are
+     fetched one at a time during idle time so they don't compete with
+     critical page resources on first load. */
+  function preloadRemainingSlides() {
+    let i = 1;
+    function loadNext() {
+      if (i >= slides.length) return;
+      loadSlide(slides[i]);
+      i++;
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadNext);
+      } else {
+        setTimeout(loadNext, 300);
+      }
+    }
+    loadNext();
+  }
+
   function advance() {
     slides[current].classList.remove('active');
     current = (current + 1) % slides.length;
+    loadSlide(slides[current]);
     slides[current].classList.add('active');
   }
 
@@ -48,6 +75,14 @@ function initHeroSlideshow() {
   }
 
   start();
+
+  window.addEventListener('load', () => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(preloadRemainingSlides);
+    } else {
+      setTimeout(preloadRemainingSlides, 1000);
+    }
+  });
 
   document.addEventListener('visibilitychange', () => {
     document.hidden ? stop() : start();
