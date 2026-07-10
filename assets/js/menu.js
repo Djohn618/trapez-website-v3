@@ -135,6 +135,17 @@
     );
   }
 
+  /* ── Datum-Badge: nur DD.MM.YYYY anzeigen ──────────────────
+     data.datum kommt als roher String "DD.MM.YYYY Wochentag" aus
+     tagesmenu.json. Der Wochentag ist immer auf Deutsch (vom CEO
+     gepflegt) und wird beim Sprachwechsel NICHT mitübersetzt --
+     daher wird er abgeschnitten, damit das Datum in allen
+     Sprachen neutral bleibt. */
+  function formatTagesmenuDatum(datum) {
+    var m = /^(\d{2}\.\d{2}\.\d{4})/.exec(datum || '');
+    return m ? m[1] : (datum || '');
+  }
+
   function renderTagesmenu(data, lang) {
     var el = document.getElementById('ms-tagesmenue');
     if (!el) return;
@@ -147,7 +158,7 @@
     }
 
     el.innerHTML =
-      '<div class="tagesmenu-datum-wrap"><div class="tagesmenu-datum">' + esc(data.datum) + '</div></div>' +
+      '<div class="tagesmenu-datum-wrap"><div class="tagesmenu-datum">' + esc(formatTagesmenuDatum(data.datum)) + '</div></div>' +
       '<div class="tagesmenu-grid">' + data.menus.map(renderTagesmenuKarte).join('') + '</div>';
   }
 

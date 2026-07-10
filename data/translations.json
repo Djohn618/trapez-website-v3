@@ -26,6 +26,10 @@
       "pdfLink": "Vollständige Speisekarte ansehen →"
     },
     "tagesmenu": {
+      "title": "Tagesmenü",
+      "date": {
+        "label": ""
+      },
       "unavailable": "Das heutige Tagesmenü erfragen Sie bitte bei unserem Personal."
     },
     "reservieren": {
@@ -65,6 +69,11 @@
       "hoursDetail": "<span>Montag – Freitag: 10:00 – 14:00 | 17:00 – 23:00</span><span>Samstag: 17:00 – 23:00</span><span>Sonntag: 17:00 – 22:30</span>",
       "reviewsTitle": "Was unsere Gäste sagen"
     },
+    "contact": {
+      "btn": {
+        "reserve": "Tisch Reservieren"
+      }
+    },
     "pdf": {
       "label": "Menükarten als PDF",
       "speisekarte": "Speisekarte",
@@ -75,7 +84,71 @@
     "footer": {
       "tagline": "Authentische Küche seit 1963",
       "copyright": "© 2026 Restaurant Trapez, Reinach. Alle Rechte vorbehalten.",
-      "legal": "Impressum & Datenschutz"
+      "legal": "Datenschutz & Impressum",
+      "nav": {
+        "title": "Navigation"
+      },
+      "address": {
+        "title": "ADRESSE"
+      }
+    },
+    "privacy": {
+      "title": "Datenschutz & Impressum",
+      "intro": "Restaurant Trapez, Reinach BL — Rechtliche Informationen",
+      "legal": {
+        "title": "Impressum",
+        "company": "<strong>Restaurant Trapez</strong><br />Sonnenweg 18<br />4153 Reinach BL<br />Schweiz",
+        "contact": "Telefon: <a href=\"tel:+41617114410\">061 711 44 10</a><br />E-Mail: <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+      },
+      "data": {
+        "title": "Datenschutzerklärung",
+        "intro": "Der Schutz Ihrer Personendaten liegt uns am Herzen. Diese Erklärung informiert Sie gemäss dem Schweizer Datenschutzgesetz (DSG) und — soweit anwendbar — der europäischen Datenschutz-Grundverordnung (DSGVO) darüber, wie wir Ihre Daten bearbeiten.",
+        "responsible": {
+          "title": "Verantwortliche Stelle",
+          "body": "Verantwortlich für die Datenbearbeitung auf dieser Website ist:<br /><strong>Restaurant Trapez</strong><br />Sonnenweg 18, 4153 Reinach BL<br />Telefon: <a href=\"tel:+41617114410\">061 711 44 10</a><br />E-Mail: <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+        },
+        "collected": {
+          "title": "Bearbeitete Personendaten & Zweck",
+          "intro": "Beim Absenden des Reservierungsformulars werden folgende Daten erhoben:",
+          "list": "<li>Vor- und Nachname</li><li>E-Mail-Adresse</li><li>Telefonnummer (optional)</li><li>Gewünschtes Datum, Uhrzeit und Personenanzahl</li><li>Optionale Nachricht / besondere Wünsche</li>",
+          "purpose": "Zweck: Bearbeitung und Bestätigung Ihrer Tischreservierung.<br />Rechtsgrundlage: Vertragserfüllung bzw. vorvertragliche Massnahmen (Art. 6 Abs. 1 lit. b DSG / Art. 6 Abs. 1 lit. b DSGVO).",
+          "noShare": "Die Daten werden nicht an Dritte weitergegeben und nicht für Werbezwecke verwendet."
+        },
+        "retention": {
+          "title": "Speicherdauer",
+          "body": "Reservierungsdaten werden nur so lange aufbewahrt, wie es zur Bearbeitung Ihres Anliegens erforderlich ist, in der Regel nicht länger als <strong>6 Monate</strong>."
+        },
+        "cookies": {
+          "title": "Cookies & lokale Speicherung",
+          "body1": "Diese Website verwendet keine Marketing- oder Tracking-Cookies und kein Analytics-Tool (z.B. Google Analytics). Es wird kein Cookie-Banner benötigt.",
+          "body2": "Zur Speicherung Ihrer Sprachpräferenz (DE / EN / IT / FR) wird <em>localStorage</em> Ihres Browsers verwendet. Dabei werden keine personenbezogenen Daten erhoben; die Einstellung wird ausschliesslich lokal auf Ihrem Gerät gespeichert."
+        },
+        "maps": {
+          "title": "Google Maps",
+          "body1": "Auf dieser Website ist eine Karte von Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA) eingebunden. Beim Laden der Karte wird Ihre IP-Adresse an Google-Server übermittelt. Google verarbeitet diese Daten gemäss seinen eigenen Datenschutzrichtlinien:<br /><a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">policies.google.com/privacy</a>",
+          "body2": "Die Einbindung erfolgt auf Basis berechtigter Interessen an einer nutzerfreundlichen Darstellung unseres Standorts (Art. 6 Abs. 1 lit. f DSGVO)."
+        },
+        "fonts": {
+          "title": "Schriftarten (Google Fonts)",
+          "body": "Diese Website lädt Schriftarten von Google Fonts (Google LLC, USA). Dabei wird Ihre IP-Adresse an Google-Server übermittelt. Google verarbeitet diese Daten gemäss seinen eigenen Datenschutzrichtlinien. Die Verwendung erfolgt auf Basis berechtigter Interessen an einer einheitlichen Darstellung der Website."
+        },
+        "hosting": {
+          "title": "Hosting",
+          "body": "Die Website wird auf Servern von <a href=\"https://www.cyon.ch\" target=\"_blank\" rel=\"noopener\">cyon.ch</a> in der Schweiz gehostet. Es gelten die Datenschutzbestimmungen von cyon.ch."
+        },
+        "rights": {
+          "title": "Ihre Rechte",
+          "intro": "Gemäss Schweizer Datenschutzgesetz haben Sie das Recht auf:",
+          "list": "<li>Auskunft über Ihre bei uns gespeicherten Daten</li><li>Berichtigung unrichtiger Daten</li><li>Löschung Ihrer Daten</li><li>Einschränkung der Bearbeitung</li><li>Widerspruch gegen die Bearbeitung</li>",
+          "contact": "Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+        },
+        "complaint": {
+          "title": "Beschwerderecht",
+          "body": "Sie haben das Recht, beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) Beschwerde einzureichen:<br /><a href=\"https://www.edoeb.admin.ch\" target=\"_blank\" rel=\"noopener noreferrer\">www.edoeb.admin.ch</a>"
+        }
+      },
+      "meta": "Stand: Juni 2026",
+      "backBtn": "Zur Startseite"
     },
     "404": {
       "title": "Seite nicht gefunden",
@@ -119,6 +192,10 @@
       "pdfLink": "View full menu →"
     },
     "tagesmenu": {
+      "title": "Daily Menu",
+      "date": {
+        "label": ""
+      },
       "unavailable": "Please ask our staff for today's daily menu."
     },
     "reservieren": {
@@ -158,6 +235,11 @@
       "hoursDetail": "<span>Monday – Friday: 10:00 – 14:00 | 17:00 – 23:00</span><span>Saturday: 17:00 – 23:00</span><span>Sunday: 17:00 – 22:30</span>",
       "reviewsTitle": "What Our Guests Say"
     },
+    "contact": {
+      "btn": {
+        "reserve": "Reserve a Table"
+      }
+    },
     "pdf": {
       "label": "Menus as PDF",
       "speisekarte": "Food Menu",
@@ -168,7 +250,71 @@
     "footer": {
       "tagline": "Authentic cuisine since 1963",
       "copyright": "© 2026 Restaurant Trapez, Reinach. All rights reserved.",
-      "legal": "Legal Notice & Privacy"
+      "legal": "Legal Notice & Privacy",
+      "nav": {
+        "title": "Navigation"
+      },
+      "address": {
+        "title": "ADDRESS"
+      }
+    },
+    "privacy": {
+      "title": "Privacy Policy & Legal Notice",
+      "intro": "Restaurant Trapez, Reinach BL — Legal Information",
+      "legal": {
+        "title": "Legal Notice",
+        "company": "<strong>Restaurant Trapez</strong><br />Sonnenweg 18<br />4153 Reinach BL<br />Switzerland",
+        "contact": "Phone: <a href=\"tel:+41617114410\">061 711 44 10</a><br />Email: <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+      },
+      "data": {
+        "title": "Privacy Policy",
+        "intro": "The protection of your personal data is important to us. This notice explains, in accordance with the Swiss Federal Act on Data Protection (FADP) and — where applicable — the EU General Data Protection Regulation (GDPR), how we process your data.",
+        "responsible": {
+          "title": "Data Controller",
+          "body": "The party responsible for data processing on this website is:<br /><strong>Restaurant Trapez</strong><br />Sonnenweg 18, 4153 Reinach BL<br />Phone: <a href=\"tel:+41617114410\">061 711 44 10</a><br />Email: <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+        },
+        "collected": {
+          "title": "Personal Data Processed & Purpose",
+          "intro": "When you submit the reservation form, the following data is collected:",
+          "list": "<li>First and last name</li><li>Email address</li><li>Phone number (optional)</li><li>Requested date, time and number of guests</li><li>Optional message / special requests</li>",
+          "purpose": "Purpose: Processing and confirming your table reservation.<br />Legal basis: Performance of a contract or pre-contractual measures (Art. 6(1)(b) FADP / Art. 6(1)(b) GDPR).",
+          "noShare": "Your data is not passed on to third parties and is not used for advertising purposes."
+        },
+        "retention": {
+          "title": "Retention Period",
+          "body": "Reservation data is kept only as long as necessary to process your request, generally no longer than <strong>6 months</strong>."
+        },
+        "cookies": {
+          "title": "Cookies & Local Storage",
+          "body1": "This website does not use marketing or tracking cookies and no analytics tool (e.g. Google Analytics). No cookie banner is required.",
+          "body2": "Your browser's <em>localStorage</em> is used to remember your language preference (DE / EN / IT / FR). No personal data is collected in the process; the setting is stored exclusively on your device."
+        },
+        "maps": {
+          "title": "Google Maps",
+          "body1": "This website embeds a map from Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). When the map loads, your IP address is transmitted to Google's servers. Google processes this data according to its own privacy policy:<br /><a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">policies.google.com/privacy</a>",
+          "body2": "This embedding is based on our legitimate interest in providing a user-friendly presentation of our location (Art. 6(1)(f) GDPR)."
+        },
+        "fonts": {
+          "title": "Fonts (Google Fonts)",
+          "body": "This website loads fonts from Google Fonts (Google LLC, USA). In doing so, your IP address is transmitted to Google's servers. Google processes this data according to its own privacy policy. This use is based on our legitimate interest in a consistent presentation of the website."
+        },
+        "hosting": {
+          "title": "Hosting",
+          "body": "This website is hosted on servers provided by <a href=\"https://www.cyon.ch\" target=\"_blank\" rel=\"noopener\">cyon.ch</a> in Switzerland. The privacy provisions of cyon.ch apply."
+        },
+        "rights": {
+          "title": "Your Rights",
+          "intro": "Under Swiss data protection law, you have the right to:",
+          "list": "<li>Request information about the data we hold about you</li><li>Correct inaccurate data</li><li>Have your data deleted</li><li>Restrict processing</li><li>Object to processing</li>",
+          "contact": "To exercise your rights, please contact us at: <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+        },
+        "complaint": {
+          "title": "Right to Lodge a Complaint",
+          "body": "You have the right to lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC):<br /><a href=\"https://www.edoeb.admin.ch\" target=\"_blank\" rel=\"noopener noreferrer\">www.edoeb.admin.ch</a>"
+        }
+      },
+      "meta": "Last updated: June 2026",
+      "backBtn": "Back to Homepage"
     },
     "404": {
       "title": "Page not found",
@@ -212,6 +358,10 @@
       "pdfLink": "Visualizza il menu completo →"
     },
     "tagesmenu": {
+      "title": "Menù del giorno",
+      "date": {
+        "label": ""
+      },
       "unavailable": "Per il menù del giorno di oggi, si prega di chiedere al nostro personale."
     },
     "reservieren": {
@@ -251,6 +401,11 @@
       "hoursDetail": "<span>Lunedì – Venerdì: 10:00 – 14:00 | 17:00 – 23:00</span><span>Sabato: 17:00 – 23:00</span><span>Domenica: 17:00 – 22:30</span>",
       "reviewsTitle": "Cosa dicono i nostri ospiti"
     },
+    "contact": {
+      "btn": {
+        "reserve": "Prenota un tavolo"
+      }
+    },
     "pdf": {
       "label": "Menu in PDF",
       "speisekarte": "Menu",
@@ -261,7 +416,71 @@
     "footer": {
       "tagline": "Cucina autentica dal 1963",
       "copyright": "© 2026 Restaurant Trapez, Reinach. Tutti i diritti riservati.",
-      "legal": "Note Legali & Privacy"
+      "legal": "Privacy & Note legali",
+      "nav": {
+        "title": "Navigazione"
+      },
+      "address": {
+        "title": "INDIRIZZO"
+      }
+    },
+    "privacy": {
+      "title": "Privacy & Note legali",
+      "intro": "Restaurant Trapez, Reinach BL — Informazioni legali",
+      "legal": {
+        "title": "Note legali",
+        "company": "<strong>Restaurant Trapez</strong><br />Sonnenweg 18<br />4153 Reinach BL<br />Svizzera",
+        "contact": "Telefono: <a href=\"tel:+41617114410\">061 711 44 10</a><br />Email: <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+      },
+      "data": {
+        "title": "Informativa sulla privacy",
+        "intro": "La protezione dei suoi dati personali è per noi importante. La presente informativa spiega, in conformità alla Legge federale sulla protezione dei dati svizzera (LPD) e — ove applicabile — al Regolamento generale europeo sulla protezione dei dati (GDPR), come trattiamo i suoi dati.",
+        "responsible": {
+          "title": "Titolare del trattamento",
+          "body": "Il titolare del trattamento dei dati su questo sito web è:<br /><strong>Restaurant Trapez</strong><br />Sonnenweg 18, 4153 Reinach BL<br />Telefono: <a href=\"tel:+41617114410\">061 711 44 10</a><br />Email: <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+        },
+        "collected": {
+          "title": "Dati trattati e finalità",
+          "intro": "Inviando il modulo di prenotazione vengono raccolti i seguenti dati:",
+          "list": "<li>Nome e cognome</li><li>Indirizzo email</li><li>Numero di telefono (facoltativo)</li><li>Data, orario e numero di ospiti richiesti</li><li>Messaggio facoltativo / richieste particolari</li>",
+          "purpose": "Finalità: gestione e conferma della sua prenotazione del tavolo.<br />Base giuridica: esecuzione del contratto o misure precontrattuali (art. 6 cpv. 1 lett. b LPD / art. 6 par. 1 lett. b GDPR).",
+          "noShare": "I dati non vengono ceduti a terzi né utilizzati per finalità pubblicitarie."
+        },
+        "retention": {
+          "title": "Durata di conservazione",
+          "body": "I dati di prenotazione vengono conservati solo per il tempo necessario a evadere la sua richiesta, generalmente non oltre <strong>6 mesi</strong>."
+        },
+        "cookies": {
+          "title": "Cookie e memorizzazione locale",
+          "body1": "Questo sito web non utilizza cookie di marketing o di tracciamento né strumenti di analisi (ad es. Google Analytics). Non è richiesto alcun banner sui cookie.",
+          "body2": "Per memorizzare la sua preferenza linguistica (DE / EN / IT / FR) viene utilizzato il <em>localStorage</em> del suo browser. In questo processo non vengono raccolti dati personali; l'impostazione viene salvata esclusivamente in locale sul suo dispositivo."
+        },
+        "maps": {
+          "title": "Google Maps",
+          "body1": "Su questo sito web è integrata una mappa di Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Al caricamento della mappa, il suo indirizzo IP viene trasmesso ai server di Google. Google tratta questi dati secondo la propria informativa sulla privacy:<br /><a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">policies.google.com/privacy</a>",
+          "body2": "L'integrazione avviene sulla base del legittimo interesse a una presentazione user-friendly della nostra sede (art. 6 par. 1 lett. f GDPR)."
+        },
+        "fonts": {
+          "title": "Caratteri tipografici (Google Fonts)",
+          "body": "Questo sito web carica caratteri tipografici da Google Fonts (Google LLC, USA). In tale processo, il suo indirizzo IP viene trasmesso ai server di Google. Google tratta questi dati secondo la propria informativa sulla privacy. L'utilizzo si basa sul legittimo interesse a una presentazione uniforme del sito web."
+        },
+        "hosting": {
+          "title": "Hosting",
+          "body": "Il sito web è ospitato su server di <a href=\"https://www.cyon.ch\" target=\"_blank\" rel=\"noopener\">cyon.ch</a> in Svizzera. Si applicano le disposizioni sulla privacy di cyon.ch."
+        },
+        "rights": {
+          "title": "I suoi diritti",
+          "intro": "Secondo la legge svizzera sulla protezione dei dati, lei ha il diritto di:",
+          "list": "<li>Ottenere informazioni sui dati che conserviamo su di lei</li><li>Rettificare i dati inesatti</li><li>Richiedere la cancellazione dei suoi dati</li><li>Limitare il trattamento</li><li>Opporsi al trattamento</li>",
+          "contact": "Per esercitare i suoi diritti, la preghiamo di contattarci a: <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+        },
+        "complaint": {
+          "title": "Diritto di reclamo",
+          "body": "Lei ha il diritto di presentare reclamo presso l'Incaricato federale della protezione dei dati e della trasparenza (IFPDT):<br /><a href=\"https://www.edoeb.admin.ch\" target=\"_blank\" rel=\"noopener noreferrer\">www.edoeb.admin.ch</a>"
+        }
+      },
+      "meta": "Ultimo aggiornamento: giugno 2026",
+      "backBtn": "Torna alla home"
     },
     "404": {
       "title": "Pagina non trovata",
@@ -305,6 +524,10 @@
       "pdfLink": "Voir la carte complète →"
     },
     "tagesmenu": {
+      "title": "Menu du jour",
+      "date": {
+        "label": ""
+      },
       "unavailable": "Veuillez demander notre menu du jour à notre personnel."
     },
     "reservieren": {
@@ -344,6 +567,11 @@
       "hoursDetail": "<span>Lundi – Vendredi : 10h00 – 14h00 | 17h00 – 23h00</span><span>Samedi : 17h00 – 23h00</span><span>Dimanche : 17h00 – 22h30</span>",
       "reviewsTitle": "Ce que disent nos clients"
     },
+    "contact": {
+      "btn": {
+        "reserve": "Réserver une table"
+      }
+    },
     "pdf": {
       "label": "Menus en PDF",
       "speisekarte": "Carte",
@@ -354,7 +582,71 @@
     "footer": {
       "tagline": "Cuisine authentique depuis 1963",
       "copyright": "© 2026 Restaurant Trapez, Reinach. Tous droits réservés.",
-      "legal": "Mentions Légales & Confidentialité"
+      "legal": "Mentions légales & Confidentialité",
+      "nav": {
+        "title": "Navigation"
+      },
+      "address": {
+        "title": "ADRESSE"
+      }
+    },
+    "privacy": {
+      "title": "Politique de confidentialité & Mentions légales",
+      "intro": "Restaurant Trapez, Reinach BL — Informations légales",
+      "legal": {
+        "title": "Mentions légales",
+        "company": "<strong>Restaurant Trapez</strong><br />Sonnenweg 18<br />4153 Reinach BL<br />Suisse",
+        "contact": "Téléphone : <a href=\"tel:+41617114410\">061 711 44 10</a><br />Email : <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+      },
+      "data": {
+        "title": "Politique de confidentialité",
+        "intro": "La protection de vos données personnelles nous tient à cœur. Cette déclaration vous informe, conformément à la Loi fédérale sur la protection des données (LPD) et — le cas échéant — au Règlement général européen sur la protection des données (RGPD), sur la manière dont nous traitons vos données.",
+        "responsible": {
+          "title": "Responsable du traitement",
+          "body": "Le responsable du traitement des données sur ce site est :<br /><strong>Restaurant Trapez</strong><br />Sonnenweg 18, 4153 Reinach BL<br />Téléphone : <a href=\"tel:+41617114410\">061 711 44 10</a><br />Email : <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+        },
+        "collected": {
+          "title": "Données traitées et finalité",
+          "intro": "En envoyant le formulaire de réservation, les données suivantes sont collectées :",
+          "list": "<li>Prénom et nom</li><li>Adresse email</li><li>Numéro de téléphone (optionnel)</li><li>Date, heure et nombre de convives souhaités</li><li>Message facultatif / demandes particulières</li>",
+          "purpose": "Finalité : traitement et confirmation de votre réservation de table.<br />Base légale : exécution du contrat ou mesures précontractuelles (art. 6 al. 1 let. b LPD / art. 6 par. 1 let. b RGPD).",
+          "noShare": "Les données ne sont pas transmises à des tiers ni utilisées à des fins publicitaires."
+        },
+        "retention": {
+          "title": "Durée de conservation",
+          "body": "Les données de réservation ne sont conservées que le temps nécessaire au traitement de votre demande, en général pas plus de <strong>6 mois</strong>."
+        },
+        "cookies": {
+          "title": "Cookies & stockage local",
+          "body1": "Ce site n'utilise ni cookies marketing ou de suivi, ni outil d'analyse (par ex. Google Analytics). Aucune bannière de cookies n'est nécessaire.",
+          "body2": "Le <em>localStorage</em> de votre navigateur est utilisé pour mémoriser votre préférence linguistique (DE / EN / IT / FR). Aucune donnée personnelle n'est collectée à cette occasion ; le réglage est enregistré exclusivement en local sur votre appareil."
+        },
+        "maps": {
+          "title": "Google Maps",
+          "body1": "Ce site intègre une carte Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, États-Unis). Lors du chargement de la carte, votre adresse IP est transmise aux serveurs de Google. Google traite ces données conformément à sa propre politique de confidentialité :<br /><a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">policies.google.com/privacy</a>",
+          "body2": "Cette intégration repose sur notre intérêt légitime à présenter notre emplacement de manière conviviale (art. 6 par. 1 let. f RGPD)."
+        },
+        "fonts": {
+          "title": "Polices de caractères (Google Fonts)",
+          "body": "Ce site charge des polices de caractères depuis Google Fonts (Google LLC, États-Unis). Ce faisant, votre adresse IP est transmise aux serveurs de Google. Google traite ces données conformément à sa propre politique de confidentialité. Cette utilisation repose sur notre intérêt légitime à une présentation cohérente du site."
+        },
+        "hosting": {
+          "title": "Hébergement",
+          "body": "Ce site est hébergé sur les serveurs de <a href=\"https://www.cyon.ch\" target=\"_blank\" rel=\"noopener\">cyon.ch</a> en Suisse. Les dispositions de confidentialité de cyon.ch s'appliquent."
+        },
+        "rights": {
+          "title": "Vos droits",
+          "intro": "Conformément à la loi suisse sur la protection des données, vous avez le droit de :",
+          "list": "<li>Obtenir des informations sur les données que nous détenons à votre sujet</li><li>Faire rectifier des données inexactes</li><li>Faire supprimer vos données</li><li>Faire limiter le traitement</li><li>Vous opposer au traitement</li>",
+          "contact": "Pour exercer vos droits, veuillez nous contacter à : <a href=\"mailto:kontakt@trapez.ch\">kontakt@trapez.ch</a>"
+        },
+        "complaint": {
+          "title": "Droit de recours",
+          "body": "Vous avez le droit de déposer une réclamation auprès du Préposé fédéral à la protection des données et à la transparence (PFPDT) :<br /><a href=\"https://www.edoeb.admin.ch\" target=\"_blank\" rel=\"noopener noreferrer\">www.edoeb.admin.ch</a>"
+        }
+      },
+      "meta": "Mise à jour : juin 2026",
+      "backBtn": "Retour à l'accueil"
     },
     "404": {
       "title": "Page non trouvée",
