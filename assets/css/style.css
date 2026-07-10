@@ -1555,10 +1555,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .lightbox-close {
   position: absolute;
-  top: -44px;
+  top: -48px;
   right: 0;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1.5px solid rgba(255,255,255,0.3);
   color: var(--white);
