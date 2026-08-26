@@ -83,7 +83,7 @@ $guest_body = "Guten Tag $vorname,\n\n"
     . ($message ? "Wünsche:   $message\n" : '')
     . "\n"
     . "Bei Fragen erreichen Sie uns unter:\n"
-    . "Telefon:  061 711 44 10\n"
+    . "Telefon:  061 712 44 10\n"
     . "E-Mail:   " . RESTAURANT_EMAIL . "\n\n"
     . "Herzliche Grüsse,\n"
     . RESTAURANT_NAME . "\n"
