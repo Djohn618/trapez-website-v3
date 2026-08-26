@@ -38,7 +38,7 @@ Hosting: cyon.ch
 
 ## Kontaktdaten
 - Adresse: Sonnenweg 18, 4153 Reinach BL
-- Telefon: 061 711 44 10
+- Telefon: 061 712 44 10
 - E-Mail: kontakt@trapez.ch
 - Öffnungszeiten:
   Mo–Fr: 10:00–14:00 | 17:00–23:00
