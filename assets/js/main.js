@@ -420,38 +420,18 @@ function initReservationForm() {
 }
 
 /* ---------------------------------------------------------- */
-/*  RESERVATION FORM — DATE PICKER (flatpickr)                 */
-/*  Renders its own calendar on every platform instead of the  */
-/*  native <input type="date">, whose appearance iOS Safari    */
-/*  can't be made to match the other form fields.              */
+/*  RESERVATION FORM — DATE FIELD                              */
 /* ---------------------------------------------------------- */
 function initDatePicker(dateInput) {
-  if (!dateInput || typeof flatpickr === 'undefined') return;
-
-  const lang = (window.getCurrentLang && window.getCurrentLang()) || 'de';
-
-  const fp = flatpickr(dateInput, {
-    minDate: 'today',
-    dateFormat: 'Y-m-d',
-    altInput: true,
-    altFormat: 'd.m.Y',
-    altInputClass: 'form-input',
-    locale: flatpickr.l10ns[lang] ? lang : 'default',
-    disableMobile: true,
-  });
-
-  // Flatpickr hides the original #input-date and inserts a new visible
-  // field (altInput) for display — point the label at that one so
-  // clicking the label still opens the picker.
-  if (fp.altInput) {
-    fp.altInput.id = 'input-date-display';
-    const label = document.querySelector('label[for="input-date"]');
-    if (label) label.setAttribute('for', 'input-date-display');
-  }
-
-  document.addEventListener('langchange', () => {
-    const newLang = (window.getCurrentLang && window.getCurrentLang()) || 'de';
-    fp.set('locale', flatpickr.l10ns[newLang] ? newLang : 'default');
+  if (!dateInput) return;
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  dateInput.setAttribute('min', yyyy + '-' + mm + '-' + dd);
+  dateInput.removeAttribute('disabled');
+  dateInput.addEventListener('change', function() {
+    this.removeAttribute('disabled');
   });
 }
 
