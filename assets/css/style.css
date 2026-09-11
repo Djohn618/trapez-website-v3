@@ -1428,6 +1428,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .form-select { color: rgba(255,255,255,0.8); }
 .form-select option { background: var(--dark); color: var(--white); }
 
+/* input[type=date] needs native appearance kept — -webkit-appearance:none on
+   .form-input breaks the date picker's tap interaction on iOS Safari after
+   the first selection, making the field look locked. */
+input[type="date"].form-input {
+  -webkit-appearance: auto;
+  appearance: auto;
+}
+
 .form-textarea { resize: vertical; min-height: 110px; }
 
 .form-submit {

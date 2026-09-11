@@ -35,6 +35,9 @@
     var label = document.getElementById('current-lang-label');
     if (label) label.textContent = lang.toUpperCase();
 
+    var formLangField = document.getElementById('form-language');
+    if (formLangField) formLangField.value = lang;
+
     document.querySelectorAll('.lang-option').forEach(function (opt) {
       opt.classList.toggle('active', opt.dataset.lang === lang);
     });

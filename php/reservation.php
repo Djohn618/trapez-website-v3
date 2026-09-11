@@ -20,6 +20,11 @@ $date     = trim($_POST['date']     ?? '');
 $time     = trim($_POST['time']     ?? '');
 $guests   = trim($_POST['guests']   ?? '');
 $message  = trim($_POST['message']  ?? '');
+$lang     = trim($_POST['language'] ?? 'de');
+
+if (!in_array($lang, ['de', 'en', 'it', 'fr'], true)) {
+    $lang = 'de';
+}
 
 $name = "$vorname $nachname";
 
@@ -69,12 +74,44 @@ $restaurant_headers .= "X-Mailer: PHP\r\n";
 mail(RESTAURANT_EMAIL, $restaurant_subject, $restaurant_body, $restaurant_headers);
 
 // ─────────────────────────────────────────────────────
-// E-MAIL 2: Bestätigung an den Gast
+// E-MAIL 2: Bestätigung an den Gast (in Sprache des Gastes)
 // ─────────────────────────────────────────────────────
-$guest_subject = "Reservierungsanfrage erhalten — " . RESTAURANT_NAME;
+$guest_i18n = [
+    'de' => [
+        'subject' => "Reservierungsanfrage erhalten — " . RESTAURANT_NAME,
+        'greeting' => "Guten Tag $vorname,",
+        'intro'    => "Wir haben Ihre Reservierungsanfrage erhalten und melden uns in Kürze bei Ihnen.",
+        'contact'  => "Bei Fragen erreichen Sie uns unter:",
+        'closing'  => "Herzliche Grüsse,",
+    ],
+    'en' => [
+        'subject' => "Reservation request received — " . RESTAURANT_NAME,
+        'greeting' => "Dear $vorname,",
+        'intro'    => "We have received your reservation request and will get back to you shortly.",
+        'contact'  => "If you have any questions, you can reach us at:",
+        'closing'  => "Kind regards,",
+    ],
+    'it' => [
+        'subject' => "Richiesta di prenotazione ricevuta — " . RESTAURANT_NAME,
+        'greeting' => "Gentile $vorname,",
+        'intro'    => "Abbiamo ricevuto la sua richiesta di prenotazione e la contatteremo al più presto.",
+        'contact'  => "Per qualsiasi domanda, può contattarci a:",
+        'closing'  => "Cordiali saluti,",
+    ],
+    'fr' => [
+        'subject' => "Demande de réservation reçue — " . RESTAURANT_NAME,
+        'greeting' => "Cher/Chère $vorname,",
+        'intro'    => "Nous avons bien reçu votre demande de réservation et vous contacterons dans les plus brefs délais.",
+        'contact'  => "Pour toute question, vous pouvez nous contacter au:",
+        'closing'  => "Cordialement,",
+    ],
+];
+$gt = $guest_i18n[$lang];
 
-$guest_body = "Guten Tag $vorname,\n\n"
-    . "Wir haben Ihre Reservierungsanfrage erhalten und melden uns in Kürze bei Ihnen.\n\n"
+$guest_subject = $gt['subject'];
+
+$guest_body = $gt['greeting'] . "\n\n"
+    . $gt['intro'] . "\n\n"
     . "IHRE ANGABEN\n"
     . str_repeat('=', 40) . "\n"
     . "Datum:     $date_fmt\n"
@@ -82,10 +119,10 @@ $guest_body = "Guten Tag $vorname,\n\n"
     . "Personen:  $guests\n"
     . ($message ? "Wünsche:   $message\n" : '')
     . "\n"
-    . "Bei Fragen erreichen Sie uns unter:\n"
+    . $gt['contact'] . "\n"
     . "Telefon:  061 712 44 10\n"
     . "E-Mail:   " . RESTAURANT_EMAIL . "\n\n"
-    . "Herzliche Grüsse,\n"
+    . $gt['closing'] . "\n"
     . RESTAURANT_NAME . "\n"
     . "Sonnenweg 18 · 4153 Reinach BL\n";
 

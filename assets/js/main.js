@@ -363,11 +363,16 @@ function initReservationForm() {
   const form = document.getElementById('reservation-form');
   if (!form) return;
 
-  // Set min date to today
+  // Set min date to today. Built from local Y/M/D parts (not
+  // `toISOString()`, which converts to UTC and can roll back to the
+  // previous day during early-morning hours in CET/CEST).
   const dateInput = document.getElementById('input-date');
   if (dateInput) {
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.min = today;
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    dateInput.min = `${yyyy}-${mm}-${dd}`;
   }
 
   initTimeSelect(dateInput);
