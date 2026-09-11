@@ -108,20 +108,69 @@ $guest_i18n = [
 ];
 $gt = $guest_i18n[$lang];
 
+$labels = [
+    'de' => [
+        'angaben'   => 'IHRE ANGABEN',
+        'datum'     => 'Datum',
+        'uhrzeit'   => 'Uhrzeit',
+        'uhr'       => 'Uhr',
+        'personen'  => 'Personen',
+        'wuensche'  => 'Wünsche',
+        'fragen'    => 'Bei Fragen erreichen Sie uns unter:',
+        'telefon'   => 'Telefon',
+        'email'     => 'E-Mail',
+    ],
+    'en' => [
+        'angaben'   => 'YOUR DETAILS',
+        'datum'     => 'Date',
+        'uhrzeit'   => 'Time',
+        'uhr'       => '',
+        'personen'  => 'Guests',
+        'wuensche'  => 'Notes',
+        'fragen'    => 'For any questions, please contact us:',
+        'telefon'   => 'Phone',
+        'email'     => 'E-Mail',
+    ],
+    'it' => [
+        'angaben'   => 'I SUOI DATI',
+        'datum'     => 'Data',
+        'uhrzeit'   => 'Orario',
+        'uhr'       => '',
+        'personen'  => 'Persone',
+        'wuensche'  => 'Richieste',
+        'fragen'    => 'Per qualsiasi domanda, può contattarci a:',
+        'telefon'   => 'Telefono',
+        'email'     => 'E-Mail',
+    ],
+    'fr' => [
+        'angaben'   => 'VOS COORDONNÉES',
+        'datum'     => 'Date',
+        'uhrzeit'   => 'Heure',
+        'uhr'       => '',
+        'personen'  => 'Personnes',
+        'wuensche'  => 'Remarques',
+        'fragen'    => 'Pour toute question, vous pouvez nous contacter au:',
+        'telefon'   => 'Téléphone',
+        'email'     => 'E-Mail',
+    ],
+];
+
+$l = $labels[$lang] ?? $labels['de'];
+
 $guest_subject = $gt['subject'];
 
 $guest_body = $gt['greeting'] . "\n\n"
     . $gt['intro'] . "\n\n"
-    . "IHRE ANGABEN\n"
+    . $l['angaben'] . "\n"
     . str_repeat('=', 40) . "\n"
-    . "Datum:     $date_fmt\n"
-    . "Uhrzeit:   $time Uhr\n"
-    . "Personen:  $guests\n"
-    . ($message ? "Wünsche:   $message\n" : '')
+    . $l['datum'] . ":     $date_fmt\n"
+    . $l['uhrzeit'] . ":   $time " . $l['uhr'] . "\n"
+    . $l['personen'] . ":  $guests\n"
+    . ($message ? $l['wuensche'] . ":   $message\n" : '')
     . "\n"
-    . $gt['contact'] . "\n"
-    . "Telefon:  061 712 44 10\n"
-    . "E-Mail:   " . RESTAURANT_EMAIL . "\n\n"
+    . $l['fragen'] . "\n"
+    . $l['telefon'] . ":  061 712 44 10\n"
+    . $l['email'] . ":    " . RESTAURANT_EMAIL . "\n\n"
     . $gt['closing'] . "\n"
     . RESTAURANT_NAME . "\n"
     . "Sonnenweg 18 · 4153 Reinach BL\n";
