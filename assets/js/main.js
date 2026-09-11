@@ -385,8 +385,11 @@ function initReservationForm() {
       if (!el) return;
       const empty = !el.value.trim();
       const emailErr = id === 'input-email' && el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value);
-      if (empty || emailErr) {
-        if (err) { err.textContent = emailErr ? 'Ungültige E-Mail-Adresse.' : msg; err.style.display = 'block'; }
+      // Some mobile date pickers (iOS/Android wheel UI) let users pick a date before
+      // `min` even though it's set — desktop's calendar UI already blocks this visually.
+      const pastDate = id === 'input-date' && el.value && el.min && el.value < el.min;
+      if (empty || emailErr || pastDate) {
+        if (err) { err.textContent = emailErr ? 'Ungültige E-Mail-Adresse.' : (pastDate ? 'Bitte ein Datum ab heute wählen.' : msg); err.style.display = 'block'; }
         el.classList.add('input-error');
         valid = false;
       } else {
