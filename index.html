@@ -296,27 +296,8 @@
           <label class="form-label" for="input-time">
             <span data-i18n="reservieren.time">Uhrzeit</span> <span class="required">*</span>
           </label>
-          <select id="input-time" name="time" class="form-select" required>
-            <option value="" disabled selected>— Uhrzeit —</option>
-            <optgroup label="Mittagessen (Mo–Fr)">
-              <option value="11:30">11:30</option>
-              <option value="12:00">12:00</option>
-              <option value="12:30">12:30</option>
-              <option value="13:00">13:00</option>
-              <option value="13:30">13:30</option>
-            </optgroup>
-            <optgroup label="Abendessen">
-              <option value="17:00">17:00</option>
-              <option value="17:30">17:30</option>
-              <option value="18:00">18:00</option>
-              <option value="18:30">18:30</option>
-              <option value="19:00">19:00</option>
-              <option value="19:30">19:30</option>
-              <option value="20:00">20:00</option>
-              <option value="20:30">20:30</option>
-              <option value="21:00">21:00</option>
-              <option value="21:30">21:30</option>
-            </optgroup>
+          <select id="input-time" name="time" class="form-select" required disabled>
+            <option value="" disabled selected data-i18n="form.time.placeholder">— Zuerst Datum wählen —</option>
           </select>
           <span class="form-error" id="error-time"></span>
         </div>

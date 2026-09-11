@@ -370,6 +370,8 @@ function initReservationForm() {
     dateInput.min = today;
   }
 
+  initTimeSelect(dateInput);
+
   form.addEventListener('submit', e => {
     let valid = true;
 
@@ -420,6 +422,107 @@ function initReservationForm() {
       if (err) { err.textContent = ''; err.style.display = 'none'; }
     });
   });
+}
+
+/* ---------------------------------------------------------- */
+/*  RESERVATION FORM — TIME OPTIONS PER WEEKDAY               */
+/* ---------------------------------------------------------- */
+function initTimeSelect(dateInput) {
+  const timeSelect = document.getElementById('input-time');
+  if (!timeSelect || !dateInput) return;
+
+  // Weekdays (getDay() index) on which the restaurant is closed, e.g. [1] for Monday.
+  const CLOSED_DAYS = [];
+
+  const SCHEDULE = {
+    lunch:         ['11:30', '12:00', '12:30', '13:00', '13:30'],
+    weekdayDinner: ['17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30'],
+    saturday:      ['17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30'],
+    sunday:        ['17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00'],
+  };
+
+  let currentDay = null; // getDay() of the selected date, or null when no date is chosen yet
+
+  function t(path, fallback) {
+    if (window.getTranslation && window.getCurrentLang) {
+      const val = window.getTranslation(window.getCurrentLang(), path);
+      if (val !== undefined) return val;
+    }
+    return fallback;
+  }
+
+  function setPlaceholder(text, i18nKey) {
+    timeSelect.innerHTML = '';
+    const opt = document.createElement('option');
+    opt.value = '';
+    opt.disabled = true;
+    opt.selected = true;
+    if (i18nKey) opt.setAttribute('data-i18n', i18nKey);
+    opt.textContent = text;
+    timeSelect.appendChild(opt);
+    timeSelect.disabled = true;
+  }
+
+  function addOptionGroup(times, label) {
+    const container = label ? document.createElement('optgroup') : timeSelect;
+    if (label) {
+      container.label = label;
+      timeSelect.appendChild(container);
+    }
+    times.forEach(time => {
+      const opt = document.createElement('option');
+      opt.value = time;
+      opt.textContent = time;
+      container.appendChild(opt);
+    });
+  }
+
+  function render() {
+    if (currentDay === null) {
+      setPlaceholder(t('form.time.placeholder', 'Zuerst Datum wählen'), 'form.time.placeholder');
+      return;
+    }
+
+    if (CLOSED_DAYS.includes(currentDay)) {
+      setPlaceholder(t('form.time.closed', 'An diesem Tag sind wir geschlossen.'), 'form.time.closed');
+      return;
+    }
+
+    timeSelect.innerHTML = '';
+    timeSelect.disabled = false;
+
+    const placeholderOpt = document.createElement('option');
+    placeholderOpt.value = '';
+    placeholderOpt.disabled = true;
+    placeholderOpt.selected = true;
+    placeholderOpt.textContent = '—';
+    timeSelect.appendChild(placeholderOpt);
+
+    if (currentDay === 0) {
+      addOptionGroup(SCHEDULE.sunday);
+    } else if (currentDay === 6) {
+      addOptionGroup(SCHEDULE.saturday);
+    } else {
+      addOptionGroup(SCHEDULE.lunch, t('form.time.lunch', 'Mittagessen'));
+      addOptionGroup(SCHEDULE.weekdayDinner, t('form.time.dinner', 'Abendessen'));
+    }
+  }
+
+  render();
+
+  dateInput.addEventListener('change', () => {
+    if (!dateInput.value) {
+      currentDay = null;
+    } else {
+      // Build the date from its Y/M/D parts (not `new Date(dateInput.value)`, which
+      // parses as UTC and can shift the weekday in timezones behind UTC).
+      const [y, m, d] = dateInput.value.split('-').map(Number);
+      currentDay = new Date(y, m - 1, d).getDay();
+    }
+    render();
+  });
+
+  document.addEventListener('langchange', render);
 }
 
 /* ---------------------------------------------------------- */

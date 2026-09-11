@@ -57,6 +57,14 @@
       "button": "Jetzt Reservieren",
       "note": "✉ Sie erhalten eine Bestätigung per E-Mail."
     },
+    "form": {
+      "time": {
+        "lunch": "Mittagessen",
+        "dinner": "Abendessen",
+        "placeholder": "Zuerst Datum wählen",
+        "closed": "An diesem Tag sind wir geschlossen."
+      }
+    },
     "ambiente": {
       "title": "Ambiente",
       "subtitle": "Tauchen Sie ein in die warme, elegante Atmosphäre unseres Restaurants"
@@ -231,6 +239,14 @@
       "datenschutz": "I accept the <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>.",
       "button": "Reserve Now",
       "note": "✉ You will receive a confirmation by email."
+    },
+    "form": {
+      "time": {
+        "lunch": "Lunch",
+        "dinner": "Dinner",
+        "placeholder": "Please select a date first",
+        "closed": "We are closed on this day."
+      }
     },
     "ambiente": {
       "title": "Ambience",
@@ -407,6 +423,14 @@
       "button": "Prenota Ora",
       "note": "✉ Riceverai una conferma via email."
     },
+    "form": {
+      "time": {
+        "lunch": "Pranzo",
+        "dinner": "Cena",
+        "placeholder": "Seleziona prima una data",
+        "closed": "Siamo chiusi in questo giorno."
+      }
+    },
     "ambiente": {
       "title": "Ambiente",
       "subtitle": "Immergetevi nell'atmosfera calda ed elegante del nostro ristorante"
@@ -581,6 +605,14 @@
       "datenschutz": "J'accepte la <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">Politique de Confidentialité</a>.",
       "button": "Réserver Maintenant",
       "note": "✉ Vous recevrez une confirmation par email."
+    },
+    "form": {
+      "time": {
+        "lunch": "Déjeuner",
+        "dinner": "Dîner",
+        "placeholder": "Veuillez d'abord choisir une date",
+        "closed": "Nous sommes fermés ce jour-là."
+      }
     },
     "ambiente": {
       "title": "Ambiance",
