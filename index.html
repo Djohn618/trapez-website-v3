@@ -25,7 +25,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Styles -->
+  <!-- Flatpickr: consistent date picker across iOS/Android/desktop -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+
+  <!-- Styles (after flatpickr, so our theme overrides win the cascade) -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -283,10 +286,13 @@
             <span data-i18n="reservieren.date">Datum</span> <span class="required">*</span>
           </label>
           <input
-            type="date"
+            type="text"
             id="input-date"
             name="date"
             class="form-input"
+            placeholder="TT.MM.JJJJ"
+            autocomplete="off"
+            readonly
             required
           />
           <span class="form-error" id="error-date"></span>
@@ -654,6 +660,13 @@
 <!-- Scripts -->
 <script src="assets/js/i18n.js" defer></script>
 <script src="assets/js/menu.js" defer></script>
+
+<!-- Flatpickr: consistent date picker across iOS/Android/desktop -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/it.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js" defer></script>
+
 <script src="assets/js/main.js" defer></script>
 
 </body>
