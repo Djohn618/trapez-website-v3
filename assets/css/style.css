@@ -1430,10 +1430,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* input[type=date] needs native appearance kept — -webkit-appearance:none on
    .form-input breaks the date picker's tap interaction on iOS Safari after
-   the first selection, making the field look locked. */
+   the first selection, making the field look locked. Instead, style the
+   WebKit date/time pseudo-elements so the field's text matches the other
+   fields without touching appearance. */
 input[type="date"].form-input {
   -webkit-appearance: auto;
   appearance: auto;
+  min-height: 48px;
+}
+input[type="date"].form-input::-webkit-date-and-time-value {
+  text-align: left;
+}
+input[type="date"].form-input::-webkit-datetime-edit,
+input[type="date"].form-input::-webkit-datetime-edit-fields-wrapper,
+input[type="date"].form-input::-webkit-datetime-edit-text,
+input[type="date"].form-input::-webkit-datetime-edit-day-field,
+input[type="date"].form-input::-webkit-datetime-edit-month-field,
+input[type="date"].form-input::-webkit-datetime-edit-year-field {
+  color: var(--white);
+  font-family: var(--font-body);
 }
 
 .form-textarea { resize: vertical; min-height: 110px; }
