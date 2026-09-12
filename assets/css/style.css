@@ -757,47 +757,58 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: 0 4px 16px rgba(27,58,45,0.3);
 }
 
-.tagesmenu-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-  max-width: 900px;
-  margin: 0 auto;
-  align-items: stretch;
-}
-
-.tagesmenu-karte {
-  display: flex;
-  flex-direction: column;
+.tagesmenu-box {
   background: var(--creme);
   border: 1px solid rgba(201,169,110,0.4);
   border-radius: var(--radius);
-  padding: 2rem;
   box-shadow: 0 4px 16px rgba(107,36,36,0.08);
+  padding: 2.5rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.tagesmenu-karte-titel {
+.tagesmenu-item {
+  padding: 1.75rem 0;
+}
+
+.tagesmenu-item:first-of-type { padding-top: 0; }
+.tagesmenu-item:last-of-type  { padding-bottom: 0; }
+
+.tagesmenu-item + .tagesmenu-item {
+  border-top: 1px solid rgba(201,169,110,0.5);
+}
+
+.tagesmenu-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.tagesmenu-item-title {
   font-family: var(--font-head);
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   color: var(--primary);
-  text-align: center;
+  font-weight: 700;
   margin: 0;
 }
 
-.tagesmenu-divider {
-  width: 60px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.5;
-  margin: 16px auto;
+.tagesmenu-item-price {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  color: var(--primary);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .tagesmenu-gange {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  flex: 1;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 .tagesmenu-gang {
@@ -833,22 +844,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1.5;
 }
 
-.tagesmenu-preis {
-  font-family: var(--font-head);
-  font-size: 1.5rem;
-  color: var(--primary);
-  text-align: center;
-  margin-top: auto;
-  padding-top: 12px;
-}
-
 @media (max-width: 767px) {
-  .tagesmenu-grid { grid-template-columns: 1fr; }
+  .tagesmenu-box { padding: 1.75rem 1.5rem; }
 }
 
 @media (max-width: 600px) {
-  .tagesmenu-karte { padding: 1.5rem; }
-  .tagesmenu-preis { font-size: 1.3rem; }
+  .tagesmenu-box { padding: 1.5rem 1.2rem; margin: 0 1rem; }
+  .tagesmenu-item { padding: 1.4rem 0; }
+  .tagesmenu-item-title { font-size: 1.1rem; }
+  .tagesmenu-item-price { font-size: 1rem; }
   .tagesmenu-datum { font-size: 0.9rem; padding: 9px 22px; }
 }
 

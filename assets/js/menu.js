@@ -108,7 +108,8 @@
   /* ── Tagesmenü: dedicated renderer (data/tagesmenu.json) ─────
      Different shape from the other 3 sektionen (menus[].gange[]
      instead of kategorien[].gerichte[]), so it gets its own
-     render path rather than going through renderSektion(). */
+     render path rather than going through renderSektion(). All
+     4 menus render stacked inside one .tagesmenu-box. */
   function renderTagesmenuGang(g, idx) {
     var desc = g.beschreibung ? '<p class="tagesmenu-gang-desc">' + esc(g.beschreibung) + '</p>' : '';
     return (
@@ -122,15 +123,15 @@
     );
   }
 
-  function renderTagesmenuKarte(menu) {
+  function renderTagesmenuItem(menu) {
     var gange = (menu.gange || []).map(renderTagesmenuGang).join('');
     return (
-      '<div class="tagesmenu-karte">' +
-        '<h4 class="tagesmenu-karte-titel">' + esc(menu.titel) + '</h4>' +
-        '<div class="tagesmenu-divider" aria-hidden="true"></div>' +
+      '<div class="tagesmenu-item">' +
+        '<div class="tagesmenu-item-header">' +
+          '<h4 class="tagesmenu-item-title">' + esc(menu.titel) + '</h4>' +
+          '<span class="tagesmenu-item-price">CHF ' + esc(menu.preis) + '</span>' +
+        '</div>' +
         '<ol class="tagesmenu-gange">' + gange + '</ol>' +
-        '<div class="tagesmenu-divider" aria-hidden="true"></div>' +
-        '<div class="tagesmenu-preis">CHF ' + esc(menu.preis) + '</div>' +
       '</div>'
     );
   }
@@ -158,8 +159,10 @@
     }
 
     el.innerHTML =
-      '<div class="tagesmenu-datum-wrap"><div class="tagesmenu-datum">' + esc(formatTagesmenuDatum(data.datum)) + '</div></div>' +
-      '<div class="tagesmenu-grid">' + data.menus.map(renderTagesmenuKarte).join('') + '</div>';
+      '<div class="tagesmenu-box">' +
+        '<div class="tagesmenu-datum-wrap"><div class="tagesmenu-datum">' + esc(formatTagesmenuDatum(data.datum)) + '</div></div>' +
+        data.menus.map(renderTagesmenuItem).join('') +
+      '</div>';
   }
 
   /* ── Update nav card labels + section titles from JSON ─────── */
